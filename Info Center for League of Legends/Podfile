@@ -1,0 +1,30 @@
+# Uncomment this line to define a global platform for your project
+platform :ios, '10.0'
+
+target 'Info Center for League of Legends' do
+    # Uncomment this line if you're using Swift or would like to use dynamic frameworks
+    use_frameworks!
+    
+    source 'https://github.com/CocoaPods/Specs.git'
+    
+    workspace 'project'
+    
+    # Pods for Info Center for League of Legends
+    
+    pod 'AFNetworking'
+    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Messaging'
+    pod 'Firebase/RemoteConfig'
+    pod 'FMDB'
+    pod 'MBCircularProgressBar'
+    # pod 'SGSStaggeredFlowLayout'
+    # pod 'XCDYouTubeKit'
+    # pod 'JSBadgeView'
+    # pod 'AMPopTip'
+    # pod 'BEMSimpleLineGraph'
+    
+    # pod 'Google-Mobile-Ads-SDK'
+    # pod 'FLAnimatedImage'
+    # pod 'M13ProgressSuite'
+end
