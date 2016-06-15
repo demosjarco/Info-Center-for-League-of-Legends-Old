@@ -12,4 +12,4 @@
 
 #endif /* FMDB_Bridging_Header_h */
 
-#import "FMDB.h"
+#import <FMDB/FMDB.h>

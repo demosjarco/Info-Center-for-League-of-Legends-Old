@@ -21,7 +21,7 @@ class ProfileSearch: MainTableViewController {
     
     func refresh() {
         if initializeDb() {
-            print("Initialized recent summoners data base for first time use")
+            print("Initialized recent summoners database")
         }
     }
     
