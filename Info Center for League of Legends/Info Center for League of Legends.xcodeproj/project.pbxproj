@@ -19,6 +19,8 @@
 		17D14E181D10D928007F6938 /* Ranked.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E171D10D928007F6938 /* Ranked.xcassets */; };
 		17D14E1A1D10D947007F6938 /* FunRefresher.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E191D10D947007F6938 /* FunRefresher.xcassets */; };
 		17EDBB301D10EEEF00C7B7C5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */; };
+		17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB321D10EFAC00C7B7C5 /* ProfileSearch.swift */; };
+		17EDBB361D10F12E00C7B7C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */; };
 		9BDD3013E0ED7A4DAF224558 /* Pods_Info_Center_for_League_of_Legends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,8 @@
 		17D14E171D10D928007F6938 /* Ranked.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Ranked.xcassets; sourceTree = "<group>"; };
 		17D14E191D10D947007F6938 /* FunRefresher.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FunRefresher.xcassets; sourceTree = "<group>"; };
 		17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTableViewController.swift; path = Subclasses/MainTableViewController.swift; sourceTree = "<group>"; };
+		17EDBB321D10EFAC00C7B7C5 /* ProfileSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSearch.swift; path = Profile/ProfileSearch.swift; sourceTree = "<group>"; };
+		17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Center_for_League_of_Legends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		920A493D3B84AECB3D66BDD5 /* Pods-Info Center for League of Legends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of Legends.release.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends.release.xcconfig"; sourceTree = "<group>"; };
 		EABF361D88F86AB1565D7B3D /* Pods-Info Center for League of Legends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of Legends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends.debug.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 				17D14E0E1D10D12A007F6938 /* Info Center for League of Legends.entitlements */,
 				17EDBB311D10EEF200C7B7C5 /* Subclasses */,
 				174C95171D106CCD00EBFB07 /* AppDelegate.swift */,
+				17EDBB341D10EFAF00C7B7C5 /* Profile */,
 				174C951D1D106CCD00EBFB07 /* Main.storyboard */,
 				17D14E131D10D3A8007F6938 /* Winter.xcassets */,
 				17D14E121D10D3A8007F6938 /* Normal.xcassets */,
@@ -127,6 +132,7 @@
 				17D14E191D10D947007F6938 /* FunRefresher.xcassets */,
 				174C95221D106CCE00EBFB07 /* LaunchScreen.storyboard */,
 				174C95251D106CCE00EBFB07 /* Info.plist */,
+				17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */,
 			);
 			path = "Info Center for League of Legends";
 			sourceTree = "<group>";
@@ -155,6 +161,14 @@
 				17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */,
 			);
 			name = Subclasses;
+			sourceTree = "<group>";
+		};
+		17EDBB341D10EFAF00C7B7C5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				17EDBB321D10EFAC00C7B7C5 /* ProfileSearch.swift */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 		21035380F080A49DE06B128A /* Frameworks */ = {
@@ -297,6 +311,7 @@
 			files = (
 				17D14E1A1D10D947007F6938 /* FunRefresher.xcassets in Resources */,
 				17D14E161D10D3A8007F6938 /* Winter.xcassets in Resources */,
+				17EDBB361D10F12E00C7B7C5 /* GoogleService-Info.plist in Resources */,
 				17D14E151D10D3A8007F6938 /* Normal.xcassets in Resources */,
 				17D14E181D10D928007F6938 /* Ranked.xcassets in Resources */,
 				17D14E141D10D3A8007F6938 /* Fall.xcassets in Resources */,
@@ -377,6 +392,7 @@
 			files = (
 				17EDBB301D10EEEF00C7B7C5 /* MainTableViewController.swift in Sources */,
 				174C95181D106CCD00EBFB07 /* AppDelegate.swift in Sources */,
+				17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
