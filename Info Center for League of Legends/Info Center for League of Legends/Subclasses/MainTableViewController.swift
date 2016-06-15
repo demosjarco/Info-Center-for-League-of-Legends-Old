@@ -7,84 +7,55 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        let tableBG = UIView(frame: self.tableView.frame)
+        tableBG.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        
+        autoreleasepool {
+            let bgImage = UIImageView(frame: tableBG.frame)
+            bgImage.autoresizingMask = tableBG.autoresizingMask
+            tableBG.addSubview(bgImage)
+            
+            let remoteConfig = FIRRemoteConfig.remoteConfig()
+            remoteConfig.fetch(completionHandler: { (status, error) in
+                let contentSeason = remoteConfig.configValue(forKey: "contentSeason")
+                switch contentSeason {
+                case 0:
+                    // Snowdown
+                    bgImage.image = UIImage(named: "howlingAbyss")
+                    break
+                case 0:
+                    // Normal
+                    bgImage.image = UIImage(named: "summonersRift")
+                    break
+                case 0:
+                    // Harrowing
+                    bgImage.image = UIImage(named: "shadowIsles")
+                    break
+                case 3:
+                    // URF
+                    bgImage.image = UIImage(named: "")
+                    break
+                default:
+                    break
+                }
+                
+                bgImage.contentMode = .scaleAspectFill
+                
+            })
+            
+            let blur = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+            tableBG.insertSubview(blur, aboveSubview: bgImage)
+            blur.frame = tableBG.frame
+            blur.autoresizingMask = tableBG.autoresizingMask
+        }
+        
+        self.tableView.backgroundView = tableBG
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
