@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		174C95181D106CCD00EBFB07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C95171D106CCD00EBFB07 /* AppDelegate.swift */; };
 		174C951F1D106CCD00EBFB07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174C951D1D106CCD00EBFB07 /* Main.storyboard */; };
-		174C95211D106CCE00EBFB07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 174C95201D106CCE00EBFB07 /* Assets.xcassets */; };
 		174C95241D106CCE00EBFB07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174C95221D106CCE00EBFB07 /* LaunchScreen.storyboard */; };
 		174C952F1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C952E1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsTests.swift */; };
 		174C953A1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C95391D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift */; };
+		17D14E101D10D373007F6938 /* Special.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E0F1D10D373007F6938 /* Special.xcassets */; };
+		17D14E141D10D3A8007F6938 /* Fall.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E111D10D3A8007F6938 /* Fall.xcassets */; };
+		17D14E151D10D3A8007F6938 /* Normal.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E121D10D3A8007F6938 /* Normal.xcassets */; };
+		17D14E161D10D3A8007F6938 /* Winter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E131D10D3A8007F6938 /* Winter.xcassets */; };
 		9BDD3013E0ED7A4DAF224558 /* Pods_Info_Center_for_League_of_Legends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +40,6 @@
 		174C95141D106CCD00EBFB07 /* Info Center for League of Legends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Info Center for League of Legends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		174C95171D106CCD00EBFB07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		174C951E1D106CCD00EBFB07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		174C95201D106CCE00EBFB07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		174C95231D106CCE00EBFB07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		174C95251D106CCE00EBFB07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		174C952A1D106CCE00EBFB07 /* Info Center for League of LegendsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Info Center for League of LegendsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +49,10 @@
 		174C95391D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info_Center_for_League_of_LegendsUITests.swift; sourceTree = "<group>"; };
 		174C953B1D106CCE00EBFB07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17D14E0E1D10D12A007F6938 /* Info Center for League of Legends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Info Center for League of Legends.entitlements"; sourceTree = "<group>"; };
+		17D14E0F1D10D373007F6938 /* Special.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Special.xcassets; sourceTree = "<group>"; };
+		17D14E111D10D3A8007F6938 /* Fall.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Fall.xcassets; sourceTree = "<group>"; };
+		17D14E121D10D3A8007F6938 /* Normal.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Normal.xcassets; sourceTree = "<group>"; };
+		17D14E131D10D3A8007F6938 /* Winter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Winter.xcassets; sourceTree = "<group>"; };
 		2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Center_for_League_of_Legends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		920A493D3B84AECB3D66BDD5 /* Pods-Info Center for League of Legends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of Legends.release.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends.release.xcconfig"; sourceTree = "<group>"; };
 		EABF361D88F86AB1565D7B3D /* Pods-Info Center for League of Legends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of Legends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends.debug.xcconfig"; sourceTree = "<group>"; };
@@ -106,7 +112,10 @@
 				17D14E0E1D10D12A007F6938 /* Info Center for League of Legends.entitlements */,
 				174C95171D106CCD00EBFB07 /* AppDelegate.swift */,
 				174C951D1D106CCD00EBFB07 /* Main.storyboard */,
-				174C95201D106CCE00EBFB07 /* Assets.xcassets */,
+				17D14E131D10D3A8007F6938 /* Winter.xcassets */,
+				17D14E121D10D3A8007F6938 /* Normal.xcassets */,
+				17D14E111D10D3A8007F6938 /* Fall.xcassets */,
+				17D14E0F1D10D373007F6938 /* Special.xcassets */,
 				174C95221D106CCE00EBFB07 /* LaunchScreen.storyboard */,
 				174C95251D106CCE00EBFB07 /* Info.plist */,
 			);
@@ -269,8 +278,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17D14E161D10D3A8007F6938 /* Winter.xcassets in Resources */,
+				17D14E151D10D3A8007F6938 /* Normal.xcassets in Resources */,
+				17D14E141D10D3A8007F6938 /* Fall.xcassets in Resources */,
 				174C95241D106CCE00EBFB07 /* LaunchScreen.storyboard in Resources */,
-				174C95211D106CCE00EBFB07 /* Assets.xcassets in Resources */,
+				17D14E101D10D373007F6938 /* Special.xcassets in Resources */,
 				174C951F1D106CCD00EBFB07 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
