@@ -15,6 +15,37 @@ class ProfileSearch: MainTableViewController {
         ExistingAppChecker().checkIfAppSetup(viewController: self)
 
         self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        refresh()
+    }
+    
+    func refresh() {
+        if initializeDb() {
+            print("Initialized recent summoners data base for first time use")
+        }
+    }
+    
+    func initializeDb() -> Bool {
+        let documentFolderPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
+        let dbfile = "/" + "recentSummoners.sqlite3";
+        let dbFilePath = documentFolderPath.appending(dbfile)
+        
+        if (!FileManager.default().fileExists(atPath: dbFilePath)) {
+            
+            let backupDbPath = Bundle.main().pathForResource("recentSummoners", ofType:"sqlite3")
+            
+            if (backupDbPath == nil) {
+                return false
+            } else {
+                do {
+                    try FileManager.default().copyItem(atPath: backupDbPath!, toPath:dbFilePath)
+                } catch let error as NSError {
+                    print("copy failed: \(error.localizedDescription)")
+                    return false
+                }
+            }
+        }
+        return true
     }
 
     // MARK: - Table view data source
@@ -30,7 +61,7 @@ class ProfileSearch: MainTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recentProfileCell", for: indexPath)
-
+        
         // Configure the cell...
 
         return cell
@@ -52,7 +83,7 @@ class ProfileSearch: MainTableViewController {
 
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        
     }
 
     // Override to support conditional rearranging of the table view.
