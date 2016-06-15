@@ -21,10 +21,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="summonersRift" translatesAutoresizingMaskIntoConstraints="NO" id="ILo-xW-21K">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
-                            <visualEffectView opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x8e-ZV-smD">
-                                <frame key="frameInset" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="oW1-7U-h9B">
+                            <visualEffectView opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="x8e-ZV-smD">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="oW1-7U-h9B">
                                     <frame key="frameInset"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
@@ -33,10 +31,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="x8e-ZV-smD" secondAttribute="bottom" id="8LE-BG-Fiw"/>
+                            <constraint firstAttribute="trailing" secondItem="x8e-ZV-smD" secondAttribute="trailing" id="EbJ-yb-AK3"/>
                             <constraint firstItem="ILo-xW-21K" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="EcY-av-dhh"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ILo-xW-21K" secondAttribute="bottom" id="N2N-Fo-lmI"/>
                             <constraint firstItem="ILo-xW-21K" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="NcC-fd-0V0"/>
                             <constraint firstAttribute="trailing" secondItem="ILo-xW-21K" secondAttribute="trailing" id="Ptq-Kw-vMJ"/>
+                            <constraint firstItem="x8e-ZV-smD" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="frq-eu-yVS"/>
+                            <constraint firstItem="x8e-ZV-smD" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="knX-oV-N6k"/>
                         </constraints>
                     </view>
                 </viewController>
