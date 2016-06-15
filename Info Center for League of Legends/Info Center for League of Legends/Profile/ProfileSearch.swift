@@ -9,6 +9,10 @@
 import UIKit
 
 class ProfileSearch: MainTableViewController {
+    var dbFilePath: String = String()
+    var recentSummoners = [1, 2];
+    var summonerInfoForSegue = ["blah": "blah", "blah2": 1]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +27,18 @@ class ProfileSearch: MainTableViewController {
         if initializeDb() {
             print("Initialized recent summoners database")
         }
+        
+        autoreleasepool { ()
+            let db: FMDatabase = FMDatabase(path: dbFilePath)
+        }
     }
     
     func initializeDb() -> Bool {
         let documentFolderPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
         let dbfile = "/" + "recentSummoners.sqlite3";
-        let dbFilePath = documentFolderPath.appending(dbfile)
+        dbFilePath = documentFolderPath.appending(dbfile)
         
         if (!FileManager.default().fileExists(atPath: dbFilePath)) {
-            
             let backupDbPath = Bundle.main().pathForResource("recentSummoners", ofType:"sqlite3")
             
             if (backupDbPath == nil) {
@@ -44,6 +51,12 @@ class ProfileSearch: MainTableViewController {
                     return false
                 }
             }
+        } else {
+            /*do {
+                try FileManager.default().removeItem(atPath: dbFilePath)
+            } catch let error as NSError {
+                print("delete failed: \(error.localizedDescription)")
+            }*/
         }
         return true
     }
