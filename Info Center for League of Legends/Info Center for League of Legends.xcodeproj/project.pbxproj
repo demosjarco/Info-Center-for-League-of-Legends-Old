@@ -18,6 +18,7 @@
 		17D14E161D10D3A8007F6938 /* Winter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E131D10D3A8007F6938 /* Winter.xcassets */; };
 		17D14E181D10D928007F6938 /* Ranked.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E171D10D928007F6938 /* Ranked.xcassets */; };
 		17D14E1A1D10D947007F6938 /* FunRefresher.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E191D10D947007F6938 /* FunRefresher.xcassets */; };
+		17EDBB301D10EEEF00C7B7C5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */; };
 		9BDD3013E0ED7A4DAF224558 /* Pods_Info_Center_for_League_of_Legends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		17D14E131D10D3A8007F6938 /* Winter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Winter.xcassets; sourceTree = "<group>"; };
 		17D14E171D10D928007F6938 /* Ranked.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Ranked.xcassets; sourceTree = "<group>"; };
 		17D14E191D10D947007F6938 /* FunRefresher.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FunRefresher.xcassets; sourceTree = "<group>"; };
+		17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTableViewController.swift; path = Subclasses/MainTableViewController.swift; sourceTree = "<group>"; };
 		2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Center_for_League_of_Legends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		920A493D3B84AECB3D66BDD5 /* Pods-Info Center for League of Legends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of Legends.release.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends.release.xcconfig"; sourceTree = "<group>"; };
 		EABF361D88F86AB1565D7B3D /* Pods-Info Center for League of Legends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of Legends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends.debug.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				17D14E0E1D10D12A007F6938 /* Info Center for League of Legends.entitlements */,
+				17EDBB311D10EEF200C7B7C5 /* Subclasses */,
 				174C95171D106CCD00EBFB07 /* AppDelegate.swift */,
 				174C951D1D106CCD00EBFB07 /* Main.storyboard */,
 				17D14E131D10D3A8007F6938 /* Winter.xcassets */,
@@ -144,6 +147,14 @@
 				174C953B1D106CCE00EBFB07 /* Info.plist */,
 			);
 			path = "Info Center for League of LegendsUITests";
+			sourceTree = "<group>";
+		};
+		17EDBB311D10EEF200C7B7C5 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */,
+			);
+			name = Subclasses;
 			sourceTree = "<group>";
 		};
 		21035380F080A49DE06B128A /* Frameworks */ = {
@@ -364,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17EDBB301D10EEEF00C7B7C5 /* MainTableViewController.swift in Sources */,
 				174C95181D106CCD00EBFB07 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
