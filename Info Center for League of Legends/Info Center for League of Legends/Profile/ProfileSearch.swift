@@ -29,7 +29,7 @@ class ProfileSearch: MainTableViewController {
         }
         
         autoreleasepool { ()
-            let db: FMDatabase = FMDatabase(path: dbFilePath)
+            let db = FMDatabase(path: dbFilePath)
         }
     }
     
