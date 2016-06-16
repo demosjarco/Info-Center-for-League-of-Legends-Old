@@ -11,6 +11,7 @@
 		1480F4923DBBF217F60572EEECB4027C /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 474FD08DC1E95A2812B3B70993B7CBAA /* AFNetworkActivityIndicatorManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		174202BD6AE0E4A41F5CE66E975EAE52 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BB240415253F4E92CE5CB3CA37201B /* UIRefreshControl+AFNetworking.m */; };
 		174280D9579FFEF88D943502F18DDAB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80FF44178312A86C7B9C1F8431F75735 /* Foundation.framework */; };
+		17EBD3BC1D130525000C56C3 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 17EBD3BB1D130525000C56C3 /* libsqlite3.tbd */; };
 		183A0D8AF38E0EE20E47F1FEF9B37327 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 312D81235FEEFB2B404CBC91415D597C /* FMResultSet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		192AC43D2F848129D2CAC66DAAF6CA35 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EDC82E26C0F346EB4C7A4C4C5A0E864 /* Security.framework */; };
 		1E5B8F12ED7CC40ECDB9B1F755F387E5 /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 17A35F43709E17AB8C2712D62BA33D2C /* UIActivityIndicatorView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,7 +44,6 @@
 		81B617F8D26BB10C5726D75E85D21EB7 /* UIButton+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 17AB25290064E6F9DC1A547154BA5057 /* UIButton+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8546F815857BF9C93440151A864EB626 /* MBCircularProgressBar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F85789CAA5C1C9093EA158EA08A60325 /* MBCircularProgressBar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		86C96CE9BF21B8D10756F22C071EFBC5 /* MBCircularProgressBar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 173725567410AF7843D437C153EEFA66 /* MBCircularProgressBar-dummy.m */; };
-		8FD0B67D285B107A1CE37F2F4301CF24 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80FF44178312A86C7B9C1F8431F75735 /* Foundation.framework */; };
 		9E1E90DED74B73ECE53C9AD76DE53E2D /* UIImage+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 8405C639CF44A69037049EB7D304F92D /* UIImage+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A462945883F7729B185B64B679A6BFBE /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E63CE6F24EB422B1FF0365AAD9EA79D /* UIWebView+AFNetworking.m */; };
 		A6C6019D45BE62C61210A9CC619368EF /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F04BFA7756954308D49D3D00DE6A5E /* AFNetworkActivityIndicatorManager.m */; };
@@ -118,6 +118,7 @@
 		173725567410AF7843D437C153EEFA66 /* MBCircularProgressBar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MBCircularProgressBar-dummy.m"; sourceTree = "<group>"; };
 		17A35F43709E17AB8C2712D62BA33D2C /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
 		17AB25290064E6F9DC1A547154BA5057 /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+AFNetworking.h"; path = "UIKit+AFNetworking/UIButton+AFNetworking.h"; sourceTree = "<group>"; };
+		17EBD3BB1D130525000C56C3 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
 		19CEAF1C4A55995F724B12806D41CC9C /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
 		1B0A15003DCEEBA4FDF7ABE901F172CE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		229CA5F818C1095BDB9430AB548AA797 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
@@ -215,7 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FD0B67D285B107A1CE37F2F4301CF24 /* Foundation.framework in Frameworks */,
+				17EBD3BC1D130525000C56C3 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +307,7 @@
 		20B56609144CE204DFA8221F742B2D76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17EBD3BB1D130525000C56C3 /* libsqlite3.tbd */,
 				3193CAF693F496CF6BBAA7E0BCD76004 /* iOS */,
 			);
 			name = Frameworks;
