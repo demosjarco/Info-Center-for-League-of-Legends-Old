@@ -24,41 +24,13 @@ class ProfileSearch: MainTableViewController {
     }
     
     func refresh() {
-        if initializeDb() {
+        if DBManager.initializeDb("recentSummoners") {
             print("Initialized recent summoners database")
         }
         
         autoreleasepool { ()
-            let db = FMDatabase(path: dbFilePath)
-        }
-    }
-    
-    func initializeDb() -> Bool {
-        let documentFolderPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-        let dbfile = "/" + "recentSummoners.sqlite3";
-        dbFilePath = documentFolderPath.appending(dbfile)
-        
-        if (!FileManager.default().fileExists(atPath: dbFilePath)) {
-            let backupDbPath = Bundle.main().pathForResource("recentSummoners", ofType:"sqlite3")
             
-            if (backupDbPath == nil) {
-                return false
-            } else {
-                do {
-                    try FileManager.default().copyItem(atPath: backupDbPath!, toPath:dbFilePath)
-                } catch let error as NSError {
-                    print("copy failed: \(error.localizedDescription)")
-                    return false
-                }
-            }
-        } else {
-            /*do {
-                try FileManager.default().removeItem(atPath: dbFilePath)
-            } catch let error as NSError {
-                print("delete failed: \(error.localizedDescription)")
-            }*/
         }
-        return true
     }
 
     // MARK: - Table view data source
