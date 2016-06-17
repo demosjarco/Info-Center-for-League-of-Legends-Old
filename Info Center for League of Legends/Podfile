@@ -14,7 +14,7 @@ target 'Info Center for League of Legends' do
 	pod 'Firebase/Messaging'
 	pod 'Firebase/RemoteConfig'
 	pod 'MBCircularProgressBar'
-	# pod 'SGSStaggeredFlowLayout'
+	pod 'SGSStaggeredFlowLayout'
 	# pod 'XCDYouTubeKit'
 	# pod 'JSBadgeView'
 	# pod 'AMPopTip'
