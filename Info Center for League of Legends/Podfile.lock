@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - AMPopTip (1.0.3)
+  - BEMSimpleLineGraph (4.1)
   - Firebase/Analytics (3.2.1):
     - FirebaseAnalytics (= 3.2.0)
   - Firebase/Auth (3.2.1):
@@ -71,6 +72,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - AMPopTip
+  - BEMSimpleLineGraph
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Messaging
@@ -83,6 +85,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   AMPopTip: 42ab801c5d4519093908d14134c8c9d7ffc435b4
+  BEMSimpleLineGraph: 44fd451f27f8e9cf96f2da5bea27603093576dd1
   Firebase: 6c80ac28d59d06bfd9152a7b6ea17625ca93183d
   FirebaseAnalytics: 6f75b04e6bfb8e0b6e9ef298e04c24eea3b13863
   FirebaseAuth: 94b851fc345ce98036dfedfdc2eddeaef8fa3b4c
@@ -100,6 +103,6 @@ SPEC CHECKSUMS:
   SGSStaggeredFlowLayout: 7b20a3b7ac88a0db063ce9c4ac71c5fc95e165c2
   XCDYouTubeKit: bb81db52d5539f8f34c4081f344980ef38f4644d
 
-PODFILE CHECKSUM: 780a4b0de3984bcd5284054e749e521eda53adcf
+PODFILE CHECKSUM: 51ea82fc8d0c51d0e6aa7c9b3216c63996b34774
 
 COCOAPODS: 1.0.1
