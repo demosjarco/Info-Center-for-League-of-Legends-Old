@@ -64,6 +64,7 @@ PODS:
     - GoogleSymbolUtilities (~> 1.0)
   - MBCircularProgressBar (0.3.4)
   - SGSStaggeredFlowLayout (0.0.1)
+  - XCDYouTubeKit (2.5.2)
 
 DEPENDENCIES:
   - AFNetworking
@@ -73,6 +74,7 @@ DEPENDENCIES:
   - Firebase/RemoteConfig
   - MBCircularProgressBar
   - SGSStaggeredFlowLayout
+  - XCDYouTubeKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -90,7 +92,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   MBCircularProgressBar: ff3b8e2f441214d9ee122a24ba0d4d00cc7de881
   SGSStaggeredFlowLayout: 7b20a3b7ac88a0db063ce9c4ac71c5fc95e165c2
+  XCDYouTubeKit: bb81db52d5539f8f34c4081f344980ef38f4644d
 
-PODFILE CHECKSUM: e698f230b2d7b63308639808ee19a8a08fbd97d7
+PODFILE CHECKSUM: f646ada39ed86d7031c0ee619aeed4686b2f2d7e
 
 COCOAPODS: 1.0.1
