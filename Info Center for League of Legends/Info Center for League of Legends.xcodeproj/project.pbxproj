@@ -25,6 +25,8 @@
 		17EDBB361D10F12E00C7B7C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */; };
 		17EDBB381D10F68D00C7B7C5 /* ExistingAppChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */; };
 		9BDD3013E0ED7A4DAF224558 /* Pods_Info_Center_for_League_of_Legends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */; };
+		B83C44B1689A115821B7804E /* Pods_Info_Center_for_League_of_LegendsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD748C7C2466B765D461B63 /* Pods_Info_Center_for_League_of_LegendsTests.framework */; };
+		EE3B7C1DAE11E2D84B89985D /* Pods_Info_Center_for_League_of_LegendsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 428C3020155A1EB60F2A3812 /* Pods_Info_Center_for_League_of_LegendsUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +58,6 @@
 		174C95351D106CCE00EBFB07 /* Info Center for League of LegendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Info Center for League of LegendsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		174C95391D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info_Center_for_League_of_LegendsUITests.swift; sourceTree = "<group>"; };
 		174C953B1D106CCE00EBFB07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1783C5181D11B58C004E4C6F /* FMDB-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "FMDB-Bridging-Header.h"; path = "Objective-C/FMDB-Bridging-Header.h"; sourceTree = "<group>"; };
 		17D14E0E1D10D12A007F6938 /* Info Center for League of Legends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Info Center for League of Legends.entitlements"; sourceTree = "<group>"; };
 		17D14E0F1D10D373007F6938 /* Special.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Special.xcassets; sourceTree = "<group>"; };
 		17D14E111D10D3A8007F6938 /* Fall.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Fall.xcassets; sourceTree = "<group>"; };
@@ -71,7 +72,13 @@
 		17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExistingAppChecker.swift; path = Subclasses/ExistingAppChecker.swift; sourceTree = "<group>"; };
 		2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Center_for_League_of_Legends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AD748C7C2466B765D461B63 /* Pods_Info_Center_for_League_of_LegendsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Center_for_League_of_LegendsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		428C3020155A1EB60F2A3812 /* Pods_Info_Center_for_League_of_LegendsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Center_for_League_of_LegendsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		883DB2D7EB75E9D80A6A9908 /* Pods-Info Center for League of LegendsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of LegendsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of LegendsUITests/Pods-Info Center for League of LegendsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		886832505159034B2533C8E0 /* Pods-Info Center for League of LegendsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of LegendsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of LegendsTests/Pods-Info Center for League of LegendsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		920A493D3B84AECB3D66BDD5 /* Pods-Info Center for League of Legends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of Legends.release.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends.release.xcconfig"; sourceTree = "<group>"; };
+		C8ED9A44A445CF2C85EB1B21 /* Pods-Info Center for League of LegendsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of LegendsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of LegendsUITests/Pods-Info Center for League of LegendsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D6B17CC5A350CFD7AC80A0C9 /* Pods-Info Center for League of LegendsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of LegendsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of LegendsTests/Pods-Info Center for League of LegendsTests.release.xcconfig"; sourceTree = "<group>"; };
 		EABF361D88F86AB1565D7B3D /* Pods-Info Center for League of Legends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of Legends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B83C44B1689A115821B7804E /* Pods_Info_Center_for_League_of_LegendsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE3B7C1DAE11E2D84B89985D /* Pods_Info_Center_for_League_of_LegendsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				17D14E0E1D10D12A007F6938 /* Info Center for League of Legends.entitlements */,
-				1783C5171D11B569004E4C6F /* Objective-C */,
 				17EDBB311D10EEF200C7B7C5 /* Subclasses */,
 				174C95171D106CCD00EBFB07 /* AppDelegate.swift */,
 				17EDBB341D10EFAF00C7B7C5 /* Profile */,
@@ -165,14 +173,6 @@
 			path = "Info Center for League of LegendsUITests";
 			sourceTree = "<group>";
 		};
-		1783C5171D11B569004E4C6F /* Objective-C */ = {
-			isa = PBXGroup;
-			children = (
-				1783C5181D11B58C004E4C6F /* FMDB-Bridging-Header.h */,
-			);
-			name = "Objective-C";
-			sourceTree = "<group>";
-		};
 		17EDBB311D10EEF200C7B7C5 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +195,8 @@
 			children = (
 				17E5B9611D11A74100F213E6 /* libsqlite3.tbd */,
 				2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */,
+				3AD748C7C2466B765D461B63 /* Pods_Info_Center_for_League_of_LegendsTests.framework */,
+				428C3020155A1EB60F2A3812 /* Pods_Info_Center_for_League_of_LegendsUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -204,6 +206,10 @@
 			children = (
 				EABF361D88F86AB1565D7B3D /* Pods-Info Center for League of Legends.debug.xcconfig */,
 				920A493D3B84AECB3D66BDD5 /* Pods-Info Center for League of Legends.release.xcconfig */,
+				886832505159034B2533C8E0 /* Pods-Info Center for League of LegendsTests.debug.xcconfig */,
+				D6B17CC5A350CFD7AC80A0C9 /* Pods-Info Center for League of LegendsTests.release.xcconfig */,
+				C8ED9A44A445CF2C85EB1B21 /* Pods-Info Center for League of LegendsUITests.debug.xcconfig */,
+				883DB2D7EB75E9D80A6A9908 /* Pods-Info Center for League of LegendsUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -235,9 +241,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 174C95411D106CCE00EBFB07 /* Build configuration list for PBXNativeTarget "Info Center for League of LegendsTests" */;
 			buildPhases = (
+				A47F3D0328D73092B943D826 /* [CP] Check Pods Manifest.lock */,
 				174C95261D106CCE00EBFB07 /* Sources */,
 				174C95271D106CCE00EBFB07 /* Frameworks */,
 				174C95281D106CCE00EBFB07 /* Resources */,
+				F72AAA6B6FBDD3A7A426EE13 /* [CP] Embed Pods Frameworks */,
+				603F0D1A9DFBD77C13E4FE13 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,9 +262,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 174C95441D106CCE00EBFB07 /* Build configuration list for PBXNativeTarget "Info Center for League of LegendsUITests" */;
 			buildPhases = (
+				33325DBF1C0E162857ED0766 /* [CP] Check Pods Manifest.lock */,
 				174C95311D106CCE00EBFB07 /* Sources */,
 				174C95321D106CCE00EBFB07 /* Frameworks */,
 				174C95331D106CCE00EBFB07 /* Resources */,
+				56033B9036BFBBFD025582F5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -374,6 +385,66 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		33325DBF1C0E162857ED0766 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		56033B9036BFBBFD025582F5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of LegendsUITests/Pods-Info Center for League of LegendsUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		603F0D1A9DFBD77C13E4FE13 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of LegendsTests/Pods-Info Center for League of LegendsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A47F3D0328D73092B943D826 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		B869A32C4A8AF6D394BD24F7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -402,6 +473,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F72AAA6B6FBDD3A7A426EE13 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of LegendsTests/Pods-Info Center for League of LegendsTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -574,7 +660,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "5ce3c945-f0b9-4922-a187-0b9e59b9e309";
 				PROVISIONING_PROFILE_SPECIFIER = "84PD2967AA/IC: LoL Dev";
-				SWIFT_OBJC_BRIDGING_HEADER = "Info Center for League of Legends/Objective-C/FMDB-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
@@ -597,7 +683,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "a9c12f8d-8b98-4646-9ea2-622805936e26";
 				PROVISIONING_PROFILE_SPECIFIER = "84PD2967AA/IC: LoL Prod";
-				SWIFT_OBJC_BRIDGING_HEADER = "Info Center for League of Legends/Objective-C/FMDB-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
@@ -606,6 +692,7 @@
 		};
 		174C95421D106CCE00EBFB07 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 886832505159034B2533C8E0 /* Pods-Info Center for League of LegendsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
@@ -613,7 +700,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Tech-Genius.League-of-Legends-Center";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Info Center for League of Legends/Objective-C/FMDB-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Info Center for League of Legends.app/Info Center for League of Legends";
 			};
@@ -621,6 +708,7 @@
 		};
 		174C95431D106CCE00EBFB07 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6B17CC5A350CFD7AC80A0C9 /* Pods-Info Center for League of LegendsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
@@ -628,7 +716,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Tech-Genius.League-of-Legends-Center";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Info Center for League of Legends/Objective-C/FMDB-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Info Center for League of Legends.app/Info Center for League of Legends";
 			};
@@ -636,13 +724,14 @@
 		};
 		174C95451D106CCE00EBFB07 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8ED9A44A445CF2C85EB1B21 /* Pods-Info Center for League of LegendsUITests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				INFOPLIST_FILE = "Info Center for League of LegendsUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Tech-Genius.League-of-Legends-Center";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Info Center for League of Legends/Objective-C/FMDB-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Info Center for League of Legends";
 			};
@@ -650,13 +739,14 @@
 		};
 		174C95461D106CCE00EBFB07 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 883DB2D7EB75E9D80A6A9908 /* Pods-Info Center for League of LegendsUITests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				INFOPLIST_FILE = "Info Center for League of LegendsUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Tech-Genius.League-of-Legends-Center";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Info Center for League of Legends/Objective-C/FMDB-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Info Center for League of Legends";
 			};
