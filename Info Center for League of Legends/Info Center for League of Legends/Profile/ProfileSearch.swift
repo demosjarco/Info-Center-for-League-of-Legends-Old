@@ -24,10 +24,6 @@ class ProfileSearch: MainTableViewController {
     }
     
     func refresh() {
-        if DBManager.initializeDb("recentSummoners") {
-            print("Initialized recent summoners database")
-        }
-        
         autoreleasepool { ()
             
         }
