@@ -9,8 +9,8 @@
 import UIKit
 
 class ProfileSearch: MainTableViewController, UISearchBarDelegate {
-    var recentSummoners:NSArray = [];
-    var summonerInfoForSegue:NSDictionary = [:];
+    var recentSummoners:NSArray = []
+    var summonerInfoForSegue = SummonerDto()
     
 
     override func viewDidLoad() {
