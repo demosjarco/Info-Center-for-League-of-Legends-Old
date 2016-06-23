@@ -25,9 +25,10 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
     @IBAction func refresh() {
         self.refreshControl?.beginRefreshing()
         recentSummoners = PlistManager().loadRecentSummoners()
-        autoreleasepool { ()
-        }
         self.refreshControl?.endRefreshing()
+        self.tableView.beginUpdates()
+        self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
+        self.tableView.endUpdates()
     }
     
     // MARK: - Search Bar Delegate
