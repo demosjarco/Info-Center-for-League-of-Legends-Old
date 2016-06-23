@@ -49,6 +49,16 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
     
+    // Limit to 16 characters
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentCharacterCount = searchBar.text?.characters.count ?? 0
+        if (range.length + range.location > currentCharacterCount){
+            return false
+        }
+        let newLength = currentCharacterCount + text.characters.count - range.length
+        return newLength <= 16
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         
