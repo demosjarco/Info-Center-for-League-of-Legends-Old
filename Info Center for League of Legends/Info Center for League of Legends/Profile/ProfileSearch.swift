@@ -8,10 +8,9 @@
 
 import UIKit
 
-class ProfileSearch: MainTableViewController {
-    var dbFilePath: String = String()
-    var recentSummoners = [1, 2];
-    var summonerInfoForSegue = ["blah": "blah", "blah2": 1]
+class ProfileSearch: MainTableViewController, UISearchBarDelegate {
+    var recentSummoners:NSArray = [];
+    var summonerInfoForSegue:NSDictionary = [:];
     
 
     override func viewDidLoad() {
@@ -23,9 +22,45 @@ class ProfileSearch: MainTableViewController {
         refresh()
     }
     
-    func refresh() {
+    @IBAction func refresh() {
+        self.refreshControl?.beginRefreshing()
+        recentSummoners = PlistManager().loadRecentSummoners()
         autoreleasepool { ()
+        }
+        self.refreshControl?.endRefreshing()
+    }
+    
+    // MARK: - Search Bar Delegate
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(true, animated: true)
+        
+        return true
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        searchBar.setShowsCancelButton(false, animated: true)
+        
+        return true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        
+        autoreleasepool { ()
+            let loading = UIAlertController(title: "Loading...", message: "\n\n", preferredStyle: .alert)
+            let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+            indicator.color = UIColor.black()
+            indicator.hidesWhenStopped = true
+            indicator.center = CGPoint(x: 130.5, y: 65.5)
+            indicator.startAnimating()
             
+            loading.view.addSubview(indicator)
+            self.present(loading, animated: true, completion: nil)
         }
     }
 
@@ -36,8 +71,7 @@ class ProfileSearch: MainTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 10
+        return recentSummoners.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
