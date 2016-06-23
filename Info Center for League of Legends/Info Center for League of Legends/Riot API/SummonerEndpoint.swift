@@ -41,7 +41,12 @@ class SummonerEndpoint: NSObject {
                     completion(summonerMap: newDict)
                 })
             }, failure: { (task, error) in
-                FIRAnalytics.logEvent(withName: "api_eror", parameters: ["httpCode": error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode, "url": task!.response!.url!.absoluteString!, "region": Endpoints().getRegion(), "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                if error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode == 404 {
+                    notFound()
+                } else {
+                    errorBlock()
+                    FIRAnalytics.logEvent(withName: "api_eror", parameters: ["httpCode": error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode, "endpoint": "summoner", "subEndpoint": "by-name", "region": Endpoints().getRegion(), "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                }
             })
         }
     }
