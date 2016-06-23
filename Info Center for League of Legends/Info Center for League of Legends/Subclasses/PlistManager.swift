@@ -25,10 +25,10 @@ class PlistManager: NSObject {
             return NSArray()
         }
     }
-    func addToRecentSummoners(newSummoner: NSDictionary) -> NSArray {
+    func addToRecentSummoners(newSummoner: SummonerDto) -> NSArray {
         let recentSummoners = NSMutableArray(array: loadRecentSummoners())
         
-        recentSummoners.add(newSummoner)
+        recentSummoners.insert(newSummoner.summonerId, at: 0)
         
         recentSummoners.write(toFile: getDocumentDirectory().appending(baseDatabaseDirectory).appending(recentSummonersFileName), atomically: true)
         return NSArray(array: recentSummoners)
