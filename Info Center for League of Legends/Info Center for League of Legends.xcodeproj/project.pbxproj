@@ -12,14 +12,12 @@
 		174C95241D106CCE00EBFB07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174C95221D106CCE00EBFB07 /* LaunchScreen.storyboard */; };
 		174C952F1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C952E1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsTests.swift */; };
 		174C953A1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C95391D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift */; };
-		1770B79D1D145FAF0096AA9B /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770B79C1D145FAF0096AA9B /* DBManager.swift */; };
 		17D14E101D10D373007F6938 /* Special.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E0F1D10D373007F6938 /* Special.xcassets */; };
 		17D14E141D10D3A8007F6938 /* Fall.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E111D10D3A8007F6938 /* Fall.xcassets */; };
 		17D14E151D10D3A8007F6938 /* Normal.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E121D10D3A8007F6938 /* Normal.xcassets */; };
 		17D14E161D10D3A8007F6938 /* Winter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E131D10D3A8007F6938 /* Winter.xcassets */; };
 		17D14E181D10D928007F6938 /* Ranked.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E171D10D928007F6938 /* Ranked.xcassets */; };
 		17D14E1A1D10D947007F6938 /* FunRefresher.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E191D10D947007F6938 /* FunRefresher.xcassets */; };
-		17E5B9621D11A74100F213E6 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 17E5B9611D11A74100F213E6 /* libsqlite3.tbd */; };
 		17E5B9641D11ACC000F213E6 /* recentSummoners.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = 17E5B9631D11ACC000F213E6 /* recentSummoners.sqlite3 */; };
 		17EDBB301D10EEEF00C7B7C5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */; };
 		17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB321D10EFAC00C7B7C5 /* ProfileSearch.swift */; };
@@ -60,7 +58,6 @@
 		174C95391D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info_Center_for_League_of_LegendsUITests.swift; sourceTree = "<group>"; };
 		174C953B1D106CCE00EBFB07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1770B79B1D13B8790096AA9B /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Objective-C/Bridging-Header.h"; sourceTree = "<group>"; };
-		1770B79C1D145FAF0096AA9B /* DBManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBManager.swift; path = Subclasses/DBManager.swift; sourceTree = "<group>"; };
 		17D14E0E1D10D12A007F6938 /* Info Center for League of Legends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Info Center for League of Legends.entitlements"; sourceTree = "<group>"; };
 		17D14E0F1D10D373007F6938 /* Special.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Special.xcassets; sourceTree = "<group>"; };
 		17D14E111D10D3A8007F6938 /* Fall.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Fall.xcassets; sourceTree = "<group>"; };
@@ -90,7 +87,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17E5B9621D11A74100F213E6 /* libsqlite3.tbd in Frameworks */,
 				9BDD3013E0ED7A4DAF224558 /* Pods_Info_Center_for_League_of_Legends.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,7 +184,6 @@
 		17EDBB311D10EEF200C7B7C5 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
-				1770B79C1D145FAF0096AA9B /* DBManager.swift */,
 				17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */,
 				17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */,
 			);
@@ -638,7 +633,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1770B79D1D145FAF0096AA9B /* DBManager.swift in Sources */,
 				17EDBB301D10EEEF00C7B7C5 /* MainTableViewController.swift in Sources */,
 				174C95181D106CCD00EBFB07 /* AppDelegate.swift in Sources */,
 				17EDBB381D10F68D00C7B7C5 /* ExistingAppChecker.swift in Sources */,
