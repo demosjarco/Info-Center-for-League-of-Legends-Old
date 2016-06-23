@@ -62,6 +62,10 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
             
             loading.view.addSubview(indicator)
             self.present(loading, animated: true, completion: nil)
+            
+            SummonerEndpoint().getSummonersForSummonerNames(summonerNames: [searchBar.text!], completion: { (summonerMap) in
+                
+            })
         }
     }
 
