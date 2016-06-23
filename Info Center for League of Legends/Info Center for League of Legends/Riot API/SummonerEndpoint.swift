@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Firebase
+import AFNetworking
 
 class SummonerEndpoint: NSObject {
     func getSummonersForSummonerNames(summonerNames: [String], completion: (summonerMap: [String: SummonerDto]) -> Void) {
