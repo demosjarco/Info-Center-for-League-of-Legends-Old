@@ -65,10 +65,46 @@
                             <action selector="refresh" destination="Rgb-Gr-bsT" eventType="valueChanged" id="a7h-39-4mb"/>
                         </connections>
                     </refreshControl>
+                    <connections>
+                        <segue destination="aWa-Ow-Xf5" kind="show" identifier="showProfileInfo" id="csP-X1-n4C"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ZA-oU-md8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1702" y="-321"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="lzP-2j-WoV">
+            <objects>
+                <collectionViewController id="aWa-Ow-Xf5" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="c2U-N4-PZD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8nH-cn-dMX">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MEa-LU-t13">
+                                <frame key="frameInset" minY="64" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="aWa-Ow-Xf5" id="iCs-dK-AuN"/>
+                            <outlet property="delegate" destination="aWa-Ow-Xf5" id="TSQ-K4-gyX"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kri-VN-CS6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2654" y="-322"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Hsz-W1-fHm">
