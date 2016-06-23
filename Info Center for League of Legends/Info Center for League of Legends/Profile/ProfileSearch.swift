@@ -84,6 +84,16 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                 loading.dismiss(animated: true, completion: {
                     self.performSegue(withIdentifier: "showProfileInfo", sender: self)
                 })
+            }, notFound: {
+                indicator.stopAnimating()
+                loading.title = "Summoner doesn't exist"
+                loading.message = "Please check your spelling and/or region"
+                loading.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            }, errorBlock: {
+                indicator.stopAnimating()
+                loading.title = "Summoner lookup failed"
+                loading.message = "Please check your connection and/or try again later. This problem has been submitted for review."
+                loading.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
             })
         }
     }

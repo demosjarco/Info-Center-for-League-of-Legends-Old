@@ -11,8 +11,7 @@ import Firebase
 import AFNetworking
 
 class SummonerEndpoint: NSObject {
-    func getSummonersForSummonerNames(summonerNames: [String], completion: (summonerMap: [String: SummonerDto]) -> Void) {
-        
+    func getSummonersForSummonerNames(summonerNames: [String], completion: (summonerMap: [String: SummonerDto]) -> Void, notFound: () -> Void, errorBlock: () -> Void) {
         // Standardize names
         let standardizedSummonerNames = NSMutableArray()
         for summonerName:String in summonerNames {
