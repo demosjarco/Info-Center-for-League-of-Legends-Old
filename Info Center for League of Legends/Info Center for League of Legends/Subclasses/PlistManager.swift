@@ -25,15 +25,14 @@ class PlistManager: NSObject {
             return NSArray()
         }
     }
-    func addToRecentSummoners(newSummoner: SummonerDto) -> NSArray {
+    func addToRecentSummoners(newSummoner: SummonerDto) {
         let recentSummoners = NSMutableArray(array: loadRecentSummoners())
         
         recentSummoners.insert(newSummoner.summonerId, at: 0)
         
         recentSummoners.write(toFile: getDocumentDirectory().appending(baseDatabaseDirectory).appending(recentSummonersFileName), atomically: true)
-        return NSArray(array: recentSummoners)
     }
-    func moveItemInRecentSummoners(oldIndex: Int, newIndex: Int) -> NSArray {
+    func moveItemInRecentSummoners(oldIndex: Int, newIndex: Int) {
         let recentSummoners = NSMutableArray(array: loadRecentSummoners())
         
         let item = recentSummoners.object(at: oldIndex)
@@ -41,6 +40,5 @@ class PlistManager: NSObject {
         recentSummoners.insert(item, at: newIndex)
         
         recentSummoners.write(toFile: getDocumentDirectory().appending(baseDatabaseDirectory).appending(recentSummonersFileName), atomically: true)
-        return NSArray(array: recentSummoners)
     }
 }
