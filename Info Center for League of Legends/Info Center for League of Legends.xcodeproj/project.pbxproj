@@ -14,6 +14,8 @@
 		174C95241D106CCE00EBFB07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174C95221D106CCE00EBFB07 /* LaunchScreen.storyboard */; };
 		174C952F1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C952E1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsTests.swift */; };
 		174C953A1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C95391D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift */; };
+		176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D5B951D1C42A2000D9D85 /* Endpoints.swift */; };
+		176D5B981D1C478F000D9D85 /* SummonerDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D5B971D1C478F000D9D85 /* SummonerDto.swift */; };
 		17D14E101D10D373007F6938 /* Special.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E0F1D10D373007F6938 /* Special.xcassets */; };
 		17D14E141D10D3A8007F6938 /* Fall.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E111D10D3A8007F6938 /* Fall.xcassets */; };
 		17D14E151D10D3A8007F6938 /* Normal.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E121D10D3A8007F6938 /* Normal.xcassets */; };
@@ -60,6 +62,8 @@
 		174C95351D106CCE00EBFB07 /* Info Center for League of LegendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Info Center for League of LegendsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		174C95391D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info_Center_for_League_of_LegendsUITests.swift; sourceTree = "<group>"; };
 		174C953B1D106CCE00EBFB07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		176D5B951D1C42A2000D9D85 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Endpoints.swift; path = "Riot API/Endpoints.swift"; sourceTree = "<group>"; };
+		176D5B971D1C478F000D9D85 /* SummonerDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummonerDto.swift; path = "Riot API/SummonerEntities/SummonerDto.swift"; sourceTree = "<group>"; };
 		1770B79B1D13B8790096AA9B /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Objective-C/Bridging-Header.h"; sourceTree = "<group>"; };
 		17D14E0E1D10D12A007F6938 /* Info Center for League of Legends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Info Center for League of Legends.entitlements"; sourceTree = "<group>"; };
 		17D14E0F1D10D373007F6938 /* Special.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Special.xcassets; sourceTree = "<group>"; };
@@ -115,7 +119,9 @@
 		1739C4901D1C383A00B50BDC /* Riot API */ = {
 			isa = PBXGroup;
 			children = (
+				176D5B951D1C42A2000D9D85 /* Endpoints.swift */,
 				1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */,
+				176D5B941D1C3D98000D9D85 /* SummonerEntities */,
 			);
 			name = "Riot API";
 			sourceTree = "<group>";
@@ -181,6 +187,14 @@
 				174C953B1D106CCE00EBFB07 /* Info.plist */,
 			);
 			path = "Info Center for League of LegendsUITests";
+			sourceTree = "<group>";
+		};
+		176D5B941D1C3D98000D9D85 /* SummonerEntities */ = {
+			isa = PBXGroup;
+			children = (
+				176D5B971D1C478F000D9D85 /* SummonerDto.swift */,
+			);
+			name = SummonerEntities;
 			sourceTree = "<group>";
 		};
 		1770B79A1D13B8340096AA9B /* Objective-C */ = {
@@ -644,8 +658,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1739C4921D1C3A3800B50BDC /* SummonerEndpoint.swift in Sources */,
+				176D5B981D1C478F000D9D85 /* SummonerDto.swift in Sources */,
 				1739C48F1D1C281400B50BDC /* PlistManager.swift in Sources */,
 				17EDBB301D10EEEF00C7B7C5 /* MainTableViewController.swift in Sources */,
+				176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */,
 				174C95181D106CCD00EBFB07 /* AppDelegate.swift in Sources */,
 				17EDBB381D10F68D00C7B7C5 /* ExistingAppChecker.swift in Sources */,
 				17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */,
