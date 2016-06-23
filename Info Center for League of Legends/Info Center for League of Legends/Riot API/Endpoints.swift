@@ -10,6 +10,22 @@ import Foundation
 import Firebase
 
 class Endpoints: NSObject {
+    func getDeviceModel() -> String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        
+        let machine = systemInfo.machine
+        let mirror = Mirror(reflecting: machine)
+        var identifier = ""
+        
+        for child in mirror.children {
+            if let value = child.value as? Int8 where value != 0 {
+                identifier.append(UnicodeScalar(UInt8(value)))
+            }
+        }
+        return identifier
+    }
+    
     func getRegion() -> String {
         return UserDefaults.standard().string(forKey: "league_region")!
     }
