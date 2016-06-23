@@ -110,6 +110,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1739C4901D1C383A00B50BDC /* Riot API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Riot API";
+			sourceTree = "<group>";
+		};
 		174C950B1D106CCC00EBFB07 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				17D14E0E1D10D12A007F6938 /* Info Center for League of Legends.entitlements */,
+				1739C4901D1C383A00B50BDC /* Riot API */,
 				1770B79A1D13B8340096AA9B /* Objective-C */,
 				17EDBB311D10EEF200C7B7C5 /* Subclasses */,
 				174C95171D106CCD00EBFB07 /* AppDelegate.swift */,
