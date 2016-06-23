@@ -64,7 +64,16 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
             self.present(loading, animated: true, completion: nil)
             
             SummonerEndpoint().getSummonersForSummonerNames(summonerNames: [searchBar.text!], completion: { (summonerMap) in
+                self.summonerInfoForSegue = summonerMap.values.first!
                 
+                PlistManager().addToRecentSummoners(newSummoner: summonerMap.values.first!)
+                
+                self.refresh()
+                
+                indicator.stopAnimating()
+                loading.dismiss(animated: true, completion: {
+                    self.performSegue(withIdentifier: "showProfileInfo", sender: self)
+                })
             })
         }
     }
