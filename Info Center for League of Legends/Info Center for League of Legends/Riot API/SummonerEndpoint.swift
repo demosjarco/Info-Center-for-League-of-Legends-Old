@@ -19,13 +19,31 @@ class SummonerEndpoint: NSObject {
             standardizedSummonerNames.add(summonerName.replacingOccurrences(of: " ", with: "").lowercased())
         }
         
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = Endpoints().summoner_byName(summonerNames: standardizedSummonerNames.value(forKey: "description").componentsJoined(by: ","))
         Endpoints().getApiKey { (apiKey) in
-            components.query = "api_key=" + apiKey
+            let url = Endpoints().summoner_byName(summonerNames: standardizedSummonerNames.value(forKey: "description").componentsJoined(by: ",")).appending(apiKey)
             
-            
+            AFHTTPSessionManager().get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
+                autoreleasepool({ ()
+                    var newDict = [String: SummonerDto]()
+                    let dict = responseObject as! NSDictionary
+                    let dictValues = dict.allValues as! [[String: AnyObject]]
+                    for i in 0 ..< dictValues.count {
+                        var oldSummoner = dictValues[i]
+                        
+                        let newSummoner = SummonerDto()
+                        newSummoner.summonerId = oldSummoner["id"] as! CLong
+                        newSummoner.name = oldSummoner["name"] as! String
+                        newSummoner.profileIconId = oldSummoner["profileIconId"] as! Int
+                        newSummoner.revisionDate = oldSummoner["revisionDate"] as! CLong
+                        newSummoner.summonerLevel = oldSummoner["summonerLevel"] as! CLong
+                        
+                        newDict[dict.allKeys[i] as! String] = newSummoner
+                    }
+                    completion(summonerMap: newDict)
+                })
+            }, failure: { (task, error) in
+                FIRAnalytics.logEvent(withName: "api_eror", parameters: ["httpCode": error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode, "url": task!.response!.url!.absoluteString!, "region": Endpoints().getRegion(), "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+            })
         }
     }
 }
