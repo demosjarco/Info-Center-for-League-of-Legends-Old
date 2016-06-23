@@ -10,3 +10,5 @@
 #define Bridging_Header_h
 
 #endif /* Bridging_Header_h */
+
+#import <AFNetworking/AFNetworking.h>
