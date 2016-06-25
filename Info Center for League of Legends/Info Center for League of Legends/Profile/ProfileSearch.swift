@@ -6,8 +6,6 @@
 //  Copyright © 2016 Tech Genius. All rights reserved.
 //
 
-import UIKit
-
 class ProfileSearch: MainTableViewController, UISearchBarDelegate {
     var recentSummoners:NSArray = []
     var summonerInfoForSegue = SummonerDto()
