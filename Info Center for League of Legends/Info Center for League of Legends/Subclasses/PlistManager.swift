@@ -30,6 +30,13 @@ class PlistManager: NSObject {
         
         recentSummoners.insert(newSummoner.summonerId, at: 0)
         
+        if !FileManager.default().fileExists(atPath: getDocumentDirectory().appending(baseDatabaseDirectory)) {
+            do {
+                try FileManager.default().createDirectory(atPath: getDocumentDirectory().appending(baseDatabaseDirectory), withIntermediateDirectories: true, attributes: nil)
+            } catch let error as NSError {
+                print(error.localizedDescription);
+            }
+        }
         recentSummoners.write(toFile: getDocumentDirectory().appending(baseDatabaseDirectory).appending(recentSummonersFileName), atomically: true)
     }
     func moveItemInRecentSummoners(oldIndex: Int, newIndex: Int) {
