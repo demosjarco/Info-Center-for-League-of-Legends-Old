@@ -9,8 +9,12 @@
 import UIKit
 
 class ProfileView: MainCollectionViewController {
+    var tileOrder = NSArray()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tileOrder = PlistManager().loadProfileViewTileOrder()
     }
     
     // MARK: - Collection view data source
@@ -19,14 +23,30 @@ class ProfileView: MainCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return tileOrder.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch indexPath.row {
-            case 0:
+        switch tileOrder[indexPath.row]["tileType"] {
+            case "champMastery" as NSString:
                 // Champion Mastery
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_champ_mastery", for: indexPath) as! ProfileView_ChampMastery
+                return cell
+            case "recentGames" as NSString:
+                // Recent Games
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_recent_games", for: indexPath) as! ProfileView_RecentGames
+                return cell
+            case "masteries" as NSString:
+                // Masteries
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_masteries", for: indexPath) as! ProfileView_Masteries
+                return cell
+            case "runes" as NSString:
+                // Runes
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_runes", for: indexPath) as! ProfileView_Runes
+                return cell
+            case "teams" as NSString:
+                // Teams
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_teams", for: indexPath) as! ProfileView_Teams
                 return cell
             default:
                 return collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
@@ -50,6 +70,11 @@ class ProfileView: MainCollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        //
+        let newTileOrder = NSMutableArray(array: tileOrder)
+        newTileOrder.removeObject(at: sourceIndexPath.row)
+        newTileOrder.insert(tileOrder[sourceIndexPath.row], at: destinationIndexPath.row)
+        PlistManager().writeTileOrder(tileOrder: NSArray(array: newTileOrder))
+        
+        tileOrder = NSArray(array: newTileOrder)
     }
 }
