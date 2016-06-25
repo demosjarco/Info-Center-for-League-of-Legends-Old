@@ -10,6 +10,8 @@
 #define Bridging_Header_h
 
 #import <sys/utsname.h>
+
 #import <AFNetworking/AFNetworking.h>
+#import "AFNetworking/UIImageView+AFNetworking.h"
 
 #endif /* Bridging_Header_h */
