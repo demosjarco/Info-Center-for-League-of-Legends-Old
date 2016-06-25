@@ -108,23 +108,40 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return recentSummoners.count
+        return self.recentSummoners.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recentProfileCell", for: indexPath)
         
+        autoreleasepool { ()
+            var temp = recentSummoners[indexPath.row] as! SummonerDto
+            SummonerEndpoint().getSummonersForIds(summonerIds: [temp.summonerId], completion: { (summonerMap) in
+                self.recentSummoners.replaceObject(at: indexPath.row, with: summonerMap.values.first!)
+                temp = summonerMap.values.first!
+                
+                cell.textLabel?.text = temp.name
+                
+                DDragon().getProfileIcon(profileIconId: temp.profileIconId, completion: { (profileIconURL) in
+                    cell.imageView!.setImageWith(URLRequest(url: profileIconURL), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
+                        cell.imageView!.image = image
+                        cell.setNeedsLayout()
+                    }, failure: { (request, response, error) in
+                        cell.imageView!.image = UIImage(named: "poroIcon")
+                        cell.setNeedsLayout()
+                    })
+                })
+            }, errorBlock: {
+                    
+            })
+        }
         // Configure the cell...
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        autoreleasepool { ()
-            let temp = SummonerDto()
-            temp.summonerId = recentSummoners[indexPath.row] as! CLong
-            self.summonerInfoForSegue = temp
-        }
+        self.summonerInfoForSegue = recentSummoners[indexPath.row] as! SummonerDto
         return indexPath
     }
 
