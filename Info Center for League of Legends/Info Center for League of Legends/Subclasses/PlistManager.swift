@@ -14,6 +14,8 @@ class PlistManager: NSObject {
     let recentSummonersFileName: String = "/recentSummoners.plist"
     let rankedSummonerHistoryDirectoy: String = "/rankedSummonerHistory"
     
+    let profileViewTileOrderName: String = "/profileViewTileOrder.plist"
+    
     func getDocumentDirectory() -> String {
         return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
     }
@@ -47,5 +49,29 @@ class PlistManager: NSObject {
         recentSummoners.insert(item, at: newIndex)
         
         recentSummoners.write(toFile: getDocumentDirectory().appending(baseDatabaseDirectory).appending(recentSummonersFileName), atomically: true)
+    }
+    
+    func loadProfileViewTileOrder() -> NSArray {
+        if let tileOrder = NSArray(contentsOfFile: getDocumentDirectory().appending(baseDatabaseDirectory).appending(profileViewTileOrderName)) {
+            return tileOrder
+        } else {
+            let tempTileOrder = NSMutableArray()
+            tempTileOrder.add(NSDictionary(object: "champMastery", forKey: "tileType"))
+            tempTileOrder.add(NSDictionary(object: "recentGames", forKey: "tileType"))
+            tempTileOrder.add(NSDictionary(object: "masteries", forKey: "tileType"))
+            tempTileOrder.add(NSDictionary(object: "runes", forKey: "tileType"))
+            tempTileOrder.add(NSDictionary(object: "teams", forKey: "tileType"))
+            return NSArray(array: tempTileOrder)
+        }
+    }
+    func writeTileOrder(tileOrder: NSArray) {
+        if !FileManager.default().fileExists(atPath: getDocumentDirectory().appending(baseDatabaseDirectory)) {
+            do {
+                try FileManager.default().createDirectory(atPath: getDocumentDirectory().appending(baseDatabaseDirectory), withIntermediateDirectories: true, attributes: nil)
+            } catch let error as NSError {
+                print(error.localizedDescription);
+            }
+        }
+        tileOrder.write(toFile: getDocumentDirectory().appending(baseDatabaseDirectory).appending(profileViewTileOrderName), atomically: true)
     }
 }
