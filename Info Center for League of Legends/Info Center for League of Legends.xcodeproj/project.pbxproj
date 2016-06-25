@@ -211,6 +211,7 @@
 				1739C48E1D1C281400B50BDC /* PlistManager.swift */,
 				17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */,
 				17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */,
+				172101D21D1EDC880088DB1A /* MainCollectionViewController.swift */,
 			);
 			name = Subclasses;
 			sourceTree = "<group>";
