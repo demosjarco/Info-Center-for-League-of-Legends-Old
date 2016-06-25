@@ -12,6 +12,11 @@ import Foundation
 class ProfileView_Header: UICollectionReusableView {
     @IBOutlet var cover:UIImageView?
     
+    @IBOutlet var promotionGames:UILabel?
+    @IBOutlet var summonerName:UILabel?
+    @IBOutlet var summonerLevelRank:UILabel?
+    @IBOutlet var summonerChampMasteryScore:UILabel?
+    
     @IBOutlet var profilePic:UIImageView?
     @IBOutlet var statsScroller:UICollectionView?
 }

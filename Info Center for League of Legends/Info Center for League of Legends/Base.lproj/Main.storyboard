@@ -89,7 +89,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_champ_mastery" id="MEa-LU-t13" customClass="ProfileView_ChampMastery" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <frame key="frameInset" minX="38" minY="256" width="300" height="200"/>
+                                <frame key="frameInset" minX="38" minY="233" width="300" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
@@ -97,7 +97,7 @@
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_recent_games" id="Ijk-9N-9Qd" customClass="ProfileView_RecentGames" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <frame key="frameInset" minX="38" minY="466" width="300" height="200"/>
+                                <frame key="frameInset" minX="38" minY="443" width="300" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
@@ -105,7 +105,7 @@
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_masteries" id="RbO-XF-k3e" customClass="ProfileView_Masteries" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <frame key="frameInset" minX="38" minY="676" width="300" height="200"/>
+                                <frame key="frameInset" minX="38" minY="653" width="300" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
@@ -113,7 +113,7 @@
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_runes" id="5Du-qX-Luu" customClass="ProfileView_Runes" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <frame key="frameInset" minX="38" minY="886" width="300" height="200"/>
+                                <frame key="frameInset" minX="38" minY="863" width="300" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
@@ -121,7 +121,7 @@
                                 </view>
                             </collectionViewCell>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_teams" id="yjA-Fb-F9h" customClass="ProfileView_Teams" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <frame key="frameInset" minX="38" minY="1096" width="300" height="200"/>
+                                <frame key="frameInset" minX="38" minY="1073" width="300" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="200"/>
@@ -130,7 +130,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_header" id="jfk-L5-GNx" customClass="ProfileView_Header" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                            <frame key="frameInset" width="375" height="256"/>
+                            <frame key="frameInset" minY="-23" width="375" height="256"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kbV-rc-E4V">
@@ -144,6 +144,34 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <blurEffect style="dark"/>
                                 </visualEffectView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ye1-cE-TZ4">
+                                    <subviews>
+                                        <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8H-eP-9ta">
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cc2-Eh-wbY">
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12x-0O-VZC">
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrK-fn-4Qr">
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="og1-tu-Naf">
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -175,16 +203,20 @@
                                 </collectionView>
                             </subviews>
                             <constraints>
+                                <constraint firstItem="Ye1-cE-TZ4" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="topMargin" constant="20" id="5aS-dk-1Yh"/>
                                 <constraint firstItem="doK-DV-tJ3" firstAttribute="top" secondItem="wzf-a0-wf5" secondAttribute="bottom" id="6ag-3R-ufi"/>
                                 <constraint firstAttribute="trailing" secondItem="doK-DV-tJ3" secondAttribute="trailing" id="B1t-yf-2In"/>
                                 <constraint firstItem="wzf-a0-wf5" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leading" id="CSp-B3-gTv"/>
                                 <constraint firstAttribute="trailing" secondItem="wzf-a0-wf5" secondAttribute="trailing" id="FaW-1x-Q3H"/>
                                 <constraint firstAttribute="bottom" secondItem="doK-DV-tJ3" secondAttribute="bottom" id="Ha8-eO-Uj0"/>
+                                <constraint firstItem="Ye1-cE-TZ4" firstAttribute="leading" secondItem="og1-tu-Naf" secondAttribute="trailing" id="KkC-p8-qcR"/>
+                                <constraint firstItem="doK-DV-tJ3" firstAttribute="top" secondItem="Ye1-cE-TZ4" secondAttribute="bottom" id="SDI-mW-en8"/>
                                 <constraint firstItem="og1-tu-Naf" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leadingMargin" id="UKf-Qt-lYX"/>
                                 <constraint firstAttribute="trailing" secondItem="kbV-rc-E4V" secondAttribute="trailing" id="Ybn-dp-OUG"/>
                                 <constraint firstItem="doK-DV-tJ3" firstAttribute="leading" secondItem="og1-tu-Naf" secondAttribute="trailing" constant="-64" id="aym-ol-W9C"/>
                                 <constraint firstItem="kbV-rc-E4V" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leading" id="ebb-k8-qSB"/>
                                 <constraint firstItem="kbV-rc-E4V" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="top" id="efE-h0-7jH"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="Ye1-cE-TZ4" secondAttribute="trailing" id="fXA-at-A8Q"/>
                                 <constraint firstItem="doK-DV-tJ3" firstAttribute="top" secondItem="kbV-rc-E4V" secondAttribute="bottom" id="uJE-ls-yzi"/>
                                 <constraint firstItem="wzf-a0-wf5" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="top" id="ugw-AA-BYi"/>
                                 <constraint firstAttribute="bottom" secondItem="og1-tu-Naf" secondAttribute="bottom" id="vi1-c6-Nc3"/>
@@ -192,7 +224,11 @@
                             <connections>
                                 <outlet property="cover" destination="kbV-rc-E4V" id="0ma-xY-Xyg"/>
                                 <outlet property="profilePic" destination="og1-tu-Naf" id="4so-Xq-5I6"/>
+                                <outlet property="promotionGames" destination="s8H-eP-9ta" id="9DZ-aN-ZlH"/>
                                 <outlet property="statsScroller" destination="doK-DV-tJ3" id="4mw-aA-xqu"/>
+                                <outlet property="summonerChampMasteryScore" destination="wrK-fn-4Qr" id="8pS-ds-S8R"/>
+                                <outlet property="summonerLevelRank" destination="12x-0O-VZC" id="3Hf-Qh-bMd"/>
+                                <outlet property="summonerName" destination="Cc2-Eh-wbY" id="9Kv-bT-8sP"/>
                             </connections>
                         </collectionReusableView>
                         <connections>
