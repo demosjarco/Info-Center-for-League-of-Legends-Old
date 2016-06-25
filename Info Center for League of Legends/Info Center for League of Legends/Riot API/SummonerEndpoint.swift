@@ -50,4 +50,34 @@ class SummonerEndpoint: NSObject {
             })
         }
     }
+    
+    func getSummonersForIds(summonerIds: [CLong], completion: (summonerMap: [String: SummonerDto]) -> Void, errorBlock: () -> Void) {
+        Endpoints().getApiKey { (apiKey) in
+            let url = Endpoints().summoner_byId(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")).appending(apiKey)
+            
+            AFHTTPSessionManager().get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
+                autoreleasepool({ ()
+                    var newDict = [String: SummonerDto]()
+                    let dict = responseObject as! NSDictionary
+                    let dictValues = dict.allValues as! [[String: AnyObject]]
+                    for i in 0 ..< dictValues.count {
+                        var oldSummoner = dictValues[i]
+                        
+                        let newSummoner = SummonerDto()
+                        newSummoner.summonerId = oldSummoner["id"] as! CLong
+                        newSummoner.name = oldSummoner["name"] as! String
+                        newSummoner.profileIconId = oldSummoner["profileIconId"] as! Int
+                        newSummoner.revisionDate = oldSummoner["revisionDate"] as! CLong
+                        newSummoner.summonerLevel = oldSummoner["summonerLevel"] as! CLong
+                        
+                        newDict[dict.allKeys[i] as! String] = newSummoner
+                    }
+                    completion(summonerMap: newDict)
+                })
+            }, failure: { (task, error) in
+                errorBlock()
+                FIRAnalytics.logEvent(withName: "api_eror", parameters: ["httpCode": error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode, "endpoint": "summoner", "subEndpoint": "by-id", "region": Endpoints().getRegion(), "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+            })
+        }
+    }
 }
