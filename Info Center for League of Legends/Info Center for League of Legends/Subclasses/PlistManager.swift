@@ -17,6 +17,7 @@ class PlistManager: NSObject {
     let profileViewTileOrderName: String = "/profileViewTileOrder.plist"
     
     func getDocumentDirectory() -> String {
+        print("DATABASE DIRECTORY: " + NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!)
         return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
     }
     
