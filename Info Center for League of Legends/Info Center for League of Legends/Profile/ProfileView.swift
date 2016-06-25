@@ -9,10 +9,13 @@
 import UIKit
 
 class ProfileView: MainCollectionViewController {
+    var summoner = SummonerDto()
     var tileOrder = NSArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("SUMMONER ID: " + String(self.summoner.summonerId))
         
         tileOrder = PlistManager().loadProfileViewTileOrder()
     }
