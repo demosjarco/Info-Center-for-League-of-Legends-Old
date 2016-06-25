@@ -121,9 +121,6 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
         }
         return indexPath
     }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
 
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
