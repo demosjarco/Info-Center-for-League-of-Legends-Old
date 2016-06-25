@@ -7,7 +7,7 @@
 //
 
 class ProfileSearch: MainTableViewController, UISearchBarDelegate {
-    var recentSummoners:NSArray = []
+    var recentSummoners = NSMutableArray()
     var summonerInfoForSegue = SummonerDto()
 
     override func viewDidLoad() {
