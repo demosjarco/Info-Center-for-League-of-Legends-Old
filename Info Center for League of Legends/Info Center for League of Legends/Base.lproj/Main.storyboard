@@ -78,7 +78,7 @@
         <scene sceneID="lzP-2j-WoV">
             <objects>
                 <collectionViewController id="aWa-Ow-Xf5" customClass="ProfileView" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="c2U-N4-PZD">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" id="c2U-N4-PZD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8nH-cn-dMX">
@@ -203,7 +203,7 @@
                                 </collectionView>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="Ye1-cE-TZ4" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="topMargin" constant="20" id="5aS-dk-1Yh"/>
+                                <constraint firstItem="Ye1-cE-TZ4" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="topMargin" id="5aS-dk-1Yh"/>
                                 <constraint firstItem="doK-DV-tJ3" firstAttribute="top" secondItem="wzf-a0-wf5" secondAttribute="bottom" id="6ag-3R-ufi"/>
                                 <constraint firstAttribute="trailing" secondItem="doK-DV-tJ3" secondAttribute="trailing" id="B1t-yf-2In"/>
                                 <constraint firstItem="wzf-a0-wf5" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leading" id="CSp-B3-gTv"/>
@@ -215,10 +215,10 @@
                                 <constraint firstAttribute="trailing" secondItem="kbV-rc-E4V" secondAttribute="trailing" id="Ybn-dp-OUG"/>
                                 <constraint firstItem="doK-DV-tJ3" firstAttribute="leading" secondItem="og1-tu-Naf" secondAttribute="trailing" constant="-64" id="aym-ol-W9C"/>
                                 <constraint firstItem="kbV-rc-E4V" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leading" id="ebb-k8-qSB"/>
-                                <constraint firstItem="kbV-rc-E4V" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="top" id="efE-h0-7jH"/>
+                                <constraint firstItem="kbV-rc-E4V" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="top" constant="-20" id="efE-h0-7jH"/>
                                 <constraint firstAttribute="trailingMargin" secondItem="Ye1-cE-TZ4" secondAttribute="trailing" id="fXA-at-A8Q"/>
                                 <constraint firstItem="doK-DV-tJ3" firstAttribute="top" secondItem="kbV-rc-E4V" secondAttribute="bottom" id="uJE-ls-yzi"/>
-                                <constraint firstItem="wzf-a0-wf5" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="top" id="ugw-AA-BYi"/>
+                                <constraint firstItem="wzf-a0-wf5" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="top" constant="-20" id="ugw-AA-BYi"/>
                                 <constraint firstAttribute="bottom" secondItem="og1-tu-Naf" secondAttribute="bottom" id="vi1-c6-Nc3"/>
                             </constraints>
                             <connections>
