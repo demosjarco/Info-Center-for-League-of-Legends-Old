@@ -9,7 +9,6 @@
 class ProfileSearch: MainTableViewController, UISearchBarDelegate {
     var recentSummoners:NSArray = []
     var summonerInfoForSegue = SummonerDto()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,6 +112,18 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        autoreleasepool { ()
+            let temp = SummonerDto()
+            temp.summonerId = recentSummoners[indexPath.row] as! CLong
+            self.summonerInfoForSegue = temp
+        }
+        return indexPath
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
 
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -144,6 +155,9 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showProfileInfo" {
+            let profileView = segue.destinationViewController as! ProfileView
+            profileView.summoner = self.summonerInfoForSegue
+        }
     }
 }
