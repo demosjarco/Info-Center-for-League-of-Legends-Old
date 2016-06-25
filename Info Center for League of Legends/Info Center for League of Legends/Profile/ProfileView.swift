@@ -12,12 +12,36 @@ class ProfileView: MainCollectionViewController {
     var summoner = SummonerDto()
     var tileOrder = NSArray()
     
+    var profileHeader = ProfileView_Header()
+    
+    var champMasteryCell = ProfileView_ChampMastery()
+    var recentGamesCell = ProfileView_RecentGames()
+    var masteriesCell = ProfileView_Masteries()
+    var runesCell = ProfileView_Runes()
+    var teamsCell = ProfileView_Teams()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("SUMMONER ID: " + String(self.summoner.summonerId))
         
         tileOrder = PlistManager().loadProfileViewTileOrder()
+        
+        loadContent()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    func loadContent() {
+        self.title = self.summoner.name
     }
     
     // MARK: - Collection view data source
@@ -33,24 +57,39 @@ class ProfileView: MainCollectionViewController {
         switch tileOrder[indexPath.row]["tileType"] {
             case "champMastery" as NSString:
                 // Champion Mastery
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_champ_mastery", for: indexPath) as! ProfileView_ChampMastery
-                return cell
+                self.champMasteryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_champ_mastery", for: indexPath) as! ProfileView_ChampMastery
+                
+                
+                
+                return self.champMasteryCell
             case "recentGames" as NSString:
                 // Recent Games
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_recent_games", for: indexPath) as! ProfileView_RecentGames
-                return cell
+                self.recentGamesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_recent_games", for: indexPath) as! ProfileView_RecentGames
+                
+                
+                
+                return self.recentGamesCell
             case "masteries" as NSString:
                 // Masteries
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_masteries", for: indexPath) as! ProfileView_Masteries
-                return cell
+                self.masteriesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_masteries", for: indexPath) as! ProfileView_Masteries
+                
+                
+                
+                return self.masteriesCell
             case "runes" as NSString:
                 // Runes
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_runes", for: indexPath) as! ProfileView_Runes
-                return cell
+                self.runesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_runes", for: indexPath) as! ProfileView_Runes
+                
+                
+                
+                return self.runesCell
             case "teams" as NSString:
                 // Teams
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_teams", for: indexPath) as! ProfileView_Teams
-                return cell
+                self.teamsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_teams", for: indexPath) as! ProfileView_Teams
+                
+                
+                
+                return self.teamsCell
             default:
                 return collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
         }
@@ -59,8 +98,11 @@ class ProfileView: MainCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
             case UICollectionElementKindSectionHeader:
-                let profileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profile_view_header", for: indexPath)
-                return profileHeader
+                self.profileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profile_view_header", for: indexPath) as! ProfileView_Header
+                
+                self.profileHeader.initialLoad(loadedSummoner: self.summoner)
+                
+                return self.profileHeader
             case UICollectionElementKindSectionFooter:
                 return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "", for: indexPath)
             default:
