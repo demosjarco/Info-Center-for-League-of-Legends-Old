@@ -152,8 +152,8 @@
 		1739C4901D1C383A00B50BDC /* Riot API */ = {
 			isa = PBXGroup;
 			children = (
-				172101D61D1F26A00088DB1A /* DDragon.swift */,
 				176D5B951D1C42A2000D9D85 /* Endpoints.swift */,
+				172101D61D1F26A00088DB1A /* DDragon.swift */,
 				1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */,
 				176D5B941D1C3D98000D9D85 /* SummonerEntities */,
 			);
