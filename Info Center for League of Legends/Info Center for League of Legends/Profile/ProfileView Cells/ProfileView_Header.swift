@@ -10,5 +10,8 @@ import UIKit
 import Foundation
 
 class ProfileView_Header: UICollectionReusableView {
+    @IBOutlet var cover:UIImageView?
     
+    @IBOutlet var profilePic:UIImageView?
+    @IBOutlet var statsScroller:UICollectionView?
 }
