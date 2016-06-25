@@ -21,7 +21,13 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
     
     @IBAction func refresh() {
         self.refreshControl?.beginRefreshing()
-        recentSummoners = PlistManager().loadRecentSummoners()
+        for summonerId in PlistManager().loadRecentSummoners() as! [CLong] {
+            autoreleasepool({ ()
+                let temp = SummonerDto()
+                temp.summonerId = summonerId
+                recentSummoners.add(temp)
+            })
+        }
         self.refreshControl?.endRefreshing()
         self.tableView.beginUpdates()
         self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
