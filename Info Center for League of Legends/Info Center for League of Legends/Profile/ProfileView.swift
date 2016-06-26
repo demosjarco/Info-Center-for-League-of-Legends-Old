@@ -20,6 +20,10 @@ class ProfileView: MainCollectionViewController {
     var runesCell = ProfileView_Runes()
     var teamsCell = ProfileView_Teams()
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
