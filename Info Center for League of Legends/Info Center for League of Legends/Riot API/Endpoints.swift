@@ -41,10 +41,12 @@ class Endpoints: NSObject {
         })
     }
     
+    // MARK: - Endpoint URLs
+    
+    // Summoner
     func summoner_byName(summonerNames: String) -> String {
         return "https://" + getRegion() + ".api.pvp.net/api/lol/" + getRegion() + "/v1.4/summoner/by-name/" + summonerNames + "?api_key="
     }
-    
     func summoner_byId(summonerIds: String) -> String {
         return "https://" + getRegion() + ".api.pvp.net/api/lol/" + getRegion() + "/v1.4/summoner/" + summonerIds + "?api_key="
     }
