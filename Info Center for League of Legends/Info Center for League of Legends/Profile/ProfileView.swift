@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileView: MainCollectionViewController {
+class ProfileView: MainCollectionViewController, HeaderDelegate {
     var summoner = SummonerDto()
     var tileOrder = NSArray()
     
@@ -46,6 +46,15 @@ class ProfileView: MainCollectionViewController {
     
     func loadContent() {
         self.title = self.summoner.name
+    }
+    
+    // MARK: - Header delegate
+    func goBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func addSummonerToRecents() {
+        
     }
     
     // MARK: - Collection view data source
@@ -104,6 +113,7 @@ class ProfileView: MainCollectionViewController {
             case UICollectionElementKindSectionHeader:
                 self.profileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profile_view_header", for: indexPath) as! ProfileView_Header
                 
+                self.profileHeader.delegate = self
                 self.profileHeader.initialLoad(loadedSummoner: self.summoner)
                 
                 return self.profileHeader
