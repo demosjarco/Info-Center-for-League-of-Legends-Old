@@ -13,7 +13,7 @@ class MainCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tableBG = UIView(frame: self.tableView.frame)
+        let tableBG = UIView(frame: self.collectionView?.frame)
         tableBG.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         
         autoreleasepool {
