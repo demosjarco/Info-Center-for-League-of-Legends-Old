@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 
 class MainTableViewController: UITableViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
