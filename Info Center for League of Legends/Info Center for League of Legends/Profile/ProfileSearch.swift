@@ -21,6 +21,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
     
     @IBAction func refresh() {
         self.refreshControl?.beginRefreshing()
+        recentSummoners = NSMutableArray()
         for summonerId in PlistManager().loadRecentSummoners() as! [CLong] {
             autoreleasepool({ ()
                 let temp = SummonerDto()
