@@ -1,1032 +1,2401 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		172101C41D1EDB310088DB1A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C31D1EDB310088DB1A /* ProfileView.swift */; };
-		172101C71D1EDB9D0088DB1A /* ProfileView_Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C61D1EDB9D0088DB1A /* ProfileView_Header.swift */; };
-		172101CA1D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C81D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift */; };
-		172101CB1D1EDBDB0088DB1A /* ProfileView_RecentGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C91D1EDBDB0088DB1A /* ProfileView_RecentGames.swift */; };
-		172101CF1D1EDC2C0088DB1A /* ProfileView_Masteries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101CC1D1EDC2C0088DB1A /* ProfileView_Masteries.swift */; };
-		172101D01D1EDC2C0088DB1A /* ProfileView_Runes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101CD1D1EDC2C0088DB1A /* ProfileView_Runes.swift */; };
-		172101D11D1EDC2C0088DB1A /* ProfileView_Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101CE1D1EDC2C0088DB1A /* ProfileView_Teams.swift */; };
-		172101D31D1EDC880088DB1A /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101D21D1EDC880088DB1A /* MainCollectionViewController.swift */; };
-		172101D51D1F1A840088DB1A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 172101D41D1F1A840088DB1A /* Settings.bundle */; };
-		172101D71D1F26A00088DB1A /* DDragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101D61D1F26A00088DB1A /* DDragon.swift */; };
-		1739C48F1D1C281400B50BDC /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739C48E1D1C281400B50BDC /* PlistManager.swift */; };
-		1739C4921D1C3A3800B50BDC /* SummonerEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */; };
-		174C95181D106CCD00EBFB07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C95171D106CCD00EBFB07 /* AppDelegate.swift */; };
-		174C951F1D106CCD00EBFB07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174C951D1D106CCD00EBFB07 /* Main.storyboard */; };
-		174C95241D106CCE00EBFB07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174C95221D106CCE00EBFB07 /* LaunchScreen.storyboard */; };
-		174C952F1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C952E1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsTests.swift */; };
-		174C953A1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C95391D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift */; };
-		1765108E1D23101800A076BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1765108C1D230CB800A076BA /* QuartzCore.framework */; };
-		176510911D231DBE00A076BA /* ProfileView_Header_StatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176510901D231DBE00A076BA /* ProfileView_Header_StatsCell.swift */; };
-		176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D5B951D1C42A2000D9D85 /* Endpoints.swift */; };
-		176D5B981D1C478F000D9D85 /* SummonerDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D5B971D1C478F000D9D85 /* SummonerDto.swift */; };
-		17D14E101D10D373007F6938 /* Special.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E0F1D10D373007F6938 /* Special.xcassets */; };
-		17D14E141D10D3A8007F6938 /* Fall.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E111D10D3A8007F6938 /* Fall.xcassets */; };
-		17D14E151D10D3A8007F6938 /* Normal.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E121D10D3A8007F6938 /* Normal.xcassets */; };
-		17D14E161D10D3A8007F6938 /* Winter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E131D10D3A8007F6938 /* Winter.xcassets */; };
-		17D14E181D10D928007F6938 /* Ranked.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E171D10D928007F6938 /* Ranked.xcassets */; };
-		17D14E1A1D10D947007F6938 /* FunRefresher.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E191D10D947007F6938 /* FunRefresher.xcassets */; };
-		17EDBB301D10EEEF00C7B7C5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */; };
-		17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB321D10EFAC00C7B7C5 /* ProfileSearch.swift */; };
-		17EDBB361D10F12E00C7B7C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */; };
-		17EDBB381D10F68D00C7B7C5 /* ExistingAppChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */; };
-		9BDD3013E0ED7A4DAF224558 /* Pods_Info_Center_for_League_of_Legends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */; };
-		B83C44B1689A115821B7804E /* Pods_Info_Center_for_League_of_LegendsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD748C7C2466B765D461B63 /* Pods_Info_Center_for_League_of_LegendsTests.framework */; };
-		EE3B7C1DAE11E2D84B89985D /* Pods_Info_Center_for_League_of_LegendsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 428C3020155A1EB60F2A3812 /* Pods_Info_Center_for_League_of_LegendsUITests.framework */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		174C952B1D106CCE00EBFB07 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 174C950C1D106CCC00EBFB07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 174C95131D106CCC00EBFB07;
-			remoteInfo = "Info Center for League of Legends";
-		};
-		174C95361D106CCE00EBFB07 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 174C950C1D106CCC00EBFB07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 174C95131D106CCC00EBFB07;
-			remoteInfo = "Info Center for League of Legends";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		172101C31D1EDB310088DB1A /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView.swift; path = Profile/ProfileView.swift; sourceTree = "<group>"; };
-		172101C61D1EDB9D0088DB1A /* ProfileView_Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Header.swift; path = "Profile/ProfileView Cells/ProfileView_Header.swift"; sourceTree = "<group>"; };
-		172101C81D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_ChampMastery.swift; path = "Profile/ProfileView Cells/ProfileView_ChampMastery.swift"; sourceTree = "<group>"; };
-		172101C91D1EDBDB0088DB1A /* ProfileView_RecentGames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_RecentGames.swift; path = "Profile/ProfileView Cells/ProfileView_RecentGames.swift"; sourceTree = "<group>"; };
-		172101CC1D1EDC2C0088DB1A /* ProfileView_Masteries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Masteries.swift; path = "Profile/ProfileView Cells/ProfileView_Masteries.swift"; sourceTree = "<group>"; };
-		172101CD1D1EDC2C0088DB1A /* ProfileView_Runes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Runes.swift; path = "Profile/ProfileView Cells/ProfileView_Runes.swift"; sourceTree = "<group>"; };
-		172101CE1D1EDC2C0088DB1A /* ProfileView_Teams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Teams.swift; path = "Profile/ProfileView Cells/ProfileView_Teams.swift"; sourceTree = "<group>"; };
-		172101D21D1EDC880088DB1A /* MainCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionViewController.swift; path = Subclasses/MainCollectionViewController.swift; sourceTree = "<group>"; };
-		172101D41D1F1A840088DB1A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		172101D61D1F26A00088DB1A /* DDragon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDragon.swift; path = "Riot API/DDragon.swift"; sourceTree = "<group>"; };
-		1739C48E1D1C281400B50BDC /* PlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlistManager.swift; path = Subclasses/PlistManager.swift; sourceTree = "<group>"; };
-		1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummonerEndpoint.swift; path = "Riot API/SummonerEndpoint.swift"; sourceTree = "<group>"; };
-		174C95141D106CCD00EBFB07 /* Info Center for League of Legends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Info Center for League of Legends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		174C95171D106CCD00EBFB07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		174C951E1D106CCD00EBFB07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		174C95231D106CCE00EBFB07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		174C95251D106CCE00EBFB07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		174C952A1D106CCE00EBFB07 /* Info Center for League of LegendsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Info Center for League of LegendsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		174C952E1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info_Center_for_League_of_LegendsTests.swift; sourceTree = "<group>"; };
-		174C95301D106CCE00EBFB07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		174C95351D106CCE00EBFB07 /* Info Center for League of LegendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Info Center for League of LegendsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		174C95391D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info_Center_for_League_of_LegendsUITests.swift; sourceTree = "<group>"; };
-		174C953B1D106CCE00EBFB07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1765108C1D230CB800A076BA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		176510901D231DBE00A076BA /* ProfileView_Header_StatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Header_StatsCell.swift; path = "Profile/ProfileView Cells/ProfileView Stats/ProfileView_Header_StatsCell.swift"; sourceTree = "<group>"; };
-		176D5B951D1C42A2000D9D85 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Endpoints.swift; path = "Riot API/Endpoints.swift"; sourceTree = "<group>"; };
-		176D5B971D1C478F000D9D85 /* SummonerDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummonerDto.swift; path = "Riot API/SummonerEntities/SummonerDto.swift"; sourceTree = "<group>"; };
-		1770B79B1D13B8790096AA9B /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Objective-C/Bridging-Header.h"; sourceTree = "<group>"; };
-		17D14E0E1D10D12A007F6938 /* Info Center for League of Legends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Info Center for League of Legends.entitlements"; sourceTree = "<group>"; };
-		17D14E0F1D10D373007F6938 /* Special.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Special.xcassets; sourceTree = "<group>"; };
-		17D14E111D10D3A8007F6938 /* Fall.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Fall.xcassets; sourceTree = "<group>"; };
-		17D14E121D10D3A8007F6938 /* Normal.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Normal.xcassets; sourceTree = "<group>"; };
-		17D14E131D10D3A8007F6938 /* Winter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Winter.xcassets; sourceTree = "<group>"; };
-		17D14E171D10D928007F6938 /* Ranked.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Ranked.xcassets; sourceTree = "<group>"; };
-		17D14E191D10D947007F6938 /* FunRefresher.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FunRefresher.xcassets; sourceTree = "<group>"; };
-		17E5B9611D11A74100F213E6 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTableViewController.swift; path = Subclasses/MainTableViewController.swift; sourceTree = "<group>"; };
-		17EDBB321D10EFAC00C7B7C5 /* ProfileSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSearch.swift; path = Profile/ProfileSearch.swift; sourceTree = "<group>"; };
-		17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExistingAppChecker.swift; path = Subclasses/ExistingAppChecker.swift; sourceTree = "<group>"; };
-		2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Center_for_League_of_Legends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AD748C7C2466B765D461B63 /* Pods_Info_Center_for_League_of_LegendsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Center_for_League_of_LegendsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		428C3020155A1EB60F2A3812 /* Pods_Info_Center_for_League_of_LegendsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Center_for_League_of_LegendsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		883DB2D7EB75E9D80A6A9908 /* Pods-Info Center for League of LegendsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of LegendsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of LegendsUITests/Pods-Info Center for League of LegendsUITests.release.xcconfig"; sourceTree = "<group>"; };
-		886832505159034B2533C8E0 /* Pods-Info Center for League of LegendsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of LegendsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of LegendsTests/Pods-Info Center for League of LegendsTests.debug.xcconfig"; sourceTree = "<group>"; };
-		920A493D3B84AECB3D66BDD5 /* Pods-Info Center for League of Legends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of Legends.release.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends.release.xcconfig"; sourceTree = "<group>"; };
-		C8ED9A44A445CF2C85EB1B21 /* Pods-Info Center for League of LegendsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of LegendsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of LegendsUITests/Pods-Info Center for League of LegendsUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		D6B17CC5A350CFD7AC80A0C9 /* Pods-Info Center for League of LegendsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of LegendsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of LegendsTests/Pods-Info Center for League of LegendsTests.release.xcconfig"; sourceTree = "<group>"; };
-		EABF361D88F86AB1565D7B3D /* Pods-Info Center for League of Legends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Info Center for League of Legends.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends.debug.xcconfig"; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		174C95111D106CCC00EBFB07 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1765108E1D23101800A076BA /* QuartzCore.framework in Frameworks */,
-				9BDD3013E0ED7A4DAF224558 /* Pods_Info_Center_for_League_of_Legends.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		174C95271D106CCE00EBFB07 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B83C44B1689A115821B7804E /* Pods_Info_Center_for_League_of_LegendsTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		174C95321D106CCE00EBFB07 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EE3B7C1DAE11E2D84B89985D /* Pods_Info_Center_for_League_of_LegendsUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		172101C51D1EDB340088DB1A /* ProfileView Cells */ = {
-			isa = PBXGroup;
-			children = (
-				172101C61D1EDB9D0088DB1A /* ProfileView_Header.swift */,
-				1765108F1D231D5300A076BA /* ProfileView Stats */,
-				172101C81D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift */,
-				172101C91D1EDBDB0088DB1A /* ProfileView_RecentGames.swift */,
-				172101CC1D1EDC2C0088DB1A /* ProfileView_Masteries.swift */,
-				172101CD1D1EDC2C0088DB1A /* ProfileView_Runes.swift */,
-				172101CE1D1EDC2C0088DB1A /* ProfileView_Teams.swift */,
-			);
-			name = "ProfileView Cells";
-			sourceTree = "<group>";
-		};
-		1739C4901D1C383A00B50BDC /* Riot API */ = {
-			isa = PBXGroup;
-			children = (
-				176D5B951D1C42A2000D9D85 /* Endpoints.swift */,
-				172101D61D1F26A00088DB1A /* DDragon.swift */,
-				1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */,
-				176D5B941D1C3D98000D9D85 /* SummonerEntities */,
-			);
-			name = "Riot API";
-			sourceTree = "<group>";
-		};
-		174C950B1D106CCC00EBFB07 = {
-			isa = PBXGroup;
-			children = (
-				174C95161D106CCD00EBFB07 /* Info Center for League of Legends */,
-				174C952D1D106CCE00EBFB07 /* Info Center for League of LegendsTests */,
-				174C95381D106CCE00EBFB07 /* Info Center for League of LegendsUITests */,
-				174C95151D106CCD00EBFB07 /* Products */,
-				63A748F66287514342697000 /* Pods */,
-				21035380F080A49DE06B128A /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		174C95151D106CCD00EBFB07 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				174C95141D106CCD00EBFB07 /* Info Center for League of Legends.app */,
-				174C952A1D106CCE00EBFB07 /* Info Center for League of LegendsTests.xctest */,
-				174C95351D106CCE00EBFB07 /* Info Center for League of LegendsUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		174C95161D106CCD00EBFB07 /* Info Center for League of Legends */ = {
-			isa = PBXGroup;
-			children = (
-				17D14E0E1D10D12A007F6938 /* Info Center for League of Legends.entitlements */,
-				1739C4901D1C383A00B50BDC /* Riot API */,
-				1770B79A1D13B8340096AA9B /* Objective-C */,
-				17EDBB311D10EEF200C7B7C5 /* Subclasses */,
-				174C95171D106CCD00EBFB07 /* AppDelegate.swift */,
-				17EDBB341D10EFAF00C7B7C5 /* Profile */,
-				174C951D1D106CCD00EBFB07 /* Main.storyboard */,
-				17D14E131D10D3A8007F6938 /* Winter.xcassets */,
-				17D14E121D10D3A8007F6938 /* Normal.xcassets */,
-				17D14E111D10D3A8007F6938 /* Fall.xcassets */,
-				17D14E0F1D10D373007F6938 /* Special.xcassets */,
-				17D14E171D10D928007F6938 /* Ranked.xcassets */,
-				17D14E191D10D947007F6938 /* FunRefresher.xcassets */,
-				174C95221D106CCE00EBFB07 /* LaunchScreen.storyboard */,
-				174C95251D106CCE00EBFB07 /* Info.plist */,
-				17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */,
-				172101D41D1F1A840088DB1A /* Settings.bundle */,
-			);
-			path = "Info Center for League of Legends";
-			sourceTree = "<group>";
-		};
-		174C952D1D106CCE00EBFB07 /* Info Center for League of LegendsTests */ = {
-			isa = PBXGroup;
-			children = (
-				174C952E1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsTests.swift */,
-				174C95301D106CCE00EBFB07 /* Info.plist */,
-			);
-			path = "Info Center for League of LegendsTests";
-			sourceTree = "<group>";
-		};
-		174C95381D106CCE00EBFB07 /* Info Center for League of LegendsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				174C95391D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift */,
-				174C953B1D106CCE00EBFB07 /* Info.plist */,
-			);
-			path = "Info Center for League of LegendsUITests";
-			sourceTree = "<group>";
-		};
-		1765108F1D231D5300A076BA /* ProfileView Stats */ = {
-			isa = PBXGroup;
-			children = (
-				176510901D231DBE00A076BA /* ProfileView_Header_StatsCell.swift */,
-			);
-			name = "ProfileView Stats";
-			sourceTree = "<group>";
-		};
-		176D5B941D1C3D98000D9D85 /* SummonerEntities */ = {
-			isa = PBXGroup;
-			children = (
-				176D5B971D1C478F000D9D85 /* SummonerDto.swift */,
-			);
-			name = SummonerEntities;
-			sourceTree = "<group>";
-		};
-		1770B79A1D13B8340096AA9B /* Objective-C */ = {
-			isa = PBXGroup;
-			children = (
-				1770B79B1D13B8790096AA9B /* Bridging-Header.h */,
-			);
-			name = "Objective-C";
-			sourceTree = "<group>";
-		};
-		17EDBB311D10EEF200C7B7C5 /* Subclasses */ = {
-			isa = PBXGroup;
-			children = (
-				1739C48E1D1C281400B50BDC /* PlistManager.swift */,
-				17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */,
-				17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */,
-				172101D21D1EDC880088DB1A /* MainCollectionViewController.swift */,
-			);
-			name = Subclasses;
-			sourceTree = "<group>";
-		};
-		17EDBB341D10EFAF00C7B7C5 /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				17EDBB321D10EFAC00C7B7C5 /* ProfileSearch.swift */,
-				172101C31D1EDB310088DB1A /* ProfileView.swift */,
-				172101C51D1EDB340088DB1A /* ProfileView Cells */,
-			);
-			name = Profile;
-			sourceTree = "<group>";
-		};
-		21035380F080A49DE06B128A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1765108C1D230CB800A076BA /* QuartzCore.framework */,
-				17E5B9611D11A74100F213E6 /* libsqlite3.tbd */,
-				2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */,
-				3AD748C7C2466B765D461B63 /* Pods_Info_Center_for_League_of_LegendsTests.framework */,
-				428C3020155A1EB60F2A3812 /* Pods_Info_Center_for_League_of_LegendsUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		63A748F66287514342697000 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				EABF361D88F86AB1565D7B3D /* Pods-Info Center for League of Legends.debug.xcconfig */,
-				920A493D3B84AECB3D66BDD5 /* Pods-Info Center for League of Legends.release.xcconfig */,
-				886832505159034B2533C8E0 /* Pods-Info Center for League of LegendsTests.debug.xcconfig */,
-				D6B17CC5A350CFD7AC80A0C9 /* Pods-Info Center for League of LegendsTests.release.xcconfig */,
-				C8ED9A44A445CF2C85EB1B21 /* Pods-Info Center for League of LegendsUITests.debug.xcconfig */,
-				883DB2D7EB75E9D80A6A9908 /* Pods-Info Center for League of LegendsUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		174C95131D106CCC00EBFB07 /* Info Center for League of Legends */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 174C953E1D106CCE00EBFB07 /* Build configuration list for PBXNativeTarget "Info Center for League of Legends" */;
-			buildPhases = (
-				3DF85D96FCA0C734942FE9C3 /* 📦 Check Pods Manifest.lock */,
-				B869A32C4A8AF6D394BD24F7 /* [CP] Check Pods Manifest.lock */,
-				174C95101D106CCC00EBFB07 /* Sources */,
-				174C95111D106CCC00EBFB07 /* Frameworks */,
-				174C95121D106CCC00EBFB07 /* Resources */,
-				17A5686FE59E71CD95A7A322 /* [CP] Embed Pods Frameworks */,
-				F351271F06740BFD378CBCFE /* [CP] Copy Pods Resources */,
-				A96665C66C12F8B23E201544 /* 📦 Embed Pods Frameworks */,
-				E85207ED8490CF6C0708BE8B /* 📦 Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Info Center for League of Legends";
-			productName = "Info Center for League of Legends";
-			productReference = 174C95141D106CCD00EBFB07 /* Info Center for League of Legends.app */;
-			productType = "com.apple.product-type.application";
-		};
-		174C95291D106CCE00EBFB07 /* Info Center for League of LegendsTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 174C95411D106CCE00EBFB07 /* Build configuration list for PBXNativeTarget "Info Center for League of LegendsTests" */;
-			buildPhases = (
-				D4069ED77D0213EC88101EF4 /* 📦 Check Pods Manifest.lock */,
-				A47F3D0328D73092B943D826 /* [CP] Check Pods Manifest.lock */,
-				174C95261D106CCE00EBFB07 /* Sources */,
-				174C95271D106CCE00EBFB07 /* Frameworks */,
-				174C95281D106CCE00EBFB07 /* Resources */,
-				F72AAA6B6FBDD3A7A426EE13 /* [CP] Embed Pods Frameworks */,
-				603F0D1A9DFBD77C13E4FE13 /* [CP] Copy Pods Resources */,
-				624D9763CB769C0160FCF9D4 /* 📦 Embed Pods Frameworks */,
-				257CF2CA29B38C6F6202AB65 /* 📦 Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				174C952C1D106CCE00EBFB07 /* PBXTargetDependency */,
-			);
-			name = "Info Center for League of LegendsTests";
-			productName = "Info Center for League of LegendsTests";
-			productReference = 174C952A1D106CCE00EBFB07 /* Info Center for League of LegendsTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		174C95341D106CCE00EBFB07 /* Info Center for League of LegendsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 174C95441D106CCE00EBFB07 /* Build configuration list for PBXNativeTarget "Info Center for League of LegendsUITests" */;
-			buildPhases = (
-				CAD72C4AB90BC77B73BC311D /* 📦 Check Pods Manifest.lock */,
-				33325DBF1C0E162857ED0766 /* [CP] Check Pods Manifest.lock */,
-				174C95311D106CCE00EBFB07 /* Sources */,
-				174C95321D106CCE00EBFB07 /* Frameworks */,
-				174C95331D106CCE00EBFB07 /* Resources */,
-				56033B9036BFBBFD025582F5 /* [CP] Copy Pods Resources */,
-				53A4627FD2B44DACEC80387B /* 📦 Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				174C95371D106CCE00EBFB07 /* PBXTargetDependency */,
-			);
-			name = "Info Center for League of LegendsUITests";
-			productName = "Info Center for League of LegendsUITests";
-			productReference = 174C95351D106CCE00EBFB07 /* Info Center for League of LegendsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		174C950C1D106CCC00EBFB07 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = "Tech Genius";
-				TargetAttributes = {
-					174C95131D106CCC00EBFB07 = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 84PD2967AA;
-						DevelopmentTeamName = "Eugenia Ilisei";
-						ProvisioningStyle = Manual;
-						SystemCapabilities = {
-							com.apple.Push = {
-								enabled = 1;
-							};
-						};
-					};
-					174C95291D106CCE00EBFB07 = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 84PD2967AA;
-						DevelopmentTeamName = "Eugenia Ilisei";
-						ProvisioningStyle = Manual;
-						TestTargetID = 174C95131D106CCC00EBFB07;
-					};
-					174C95341D106CCE00EBFB07 = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 84PD2967AA;
-						DevelopmentTeamName = "Eugenia Ilisei";
-						ProvisioningStyle = Automatic;
-						TestTargetID = 174C95131D106CCC00EBFB07;
-					};
-				};
-			};
-			buildConfigurationList = 174C950F1D106CCC00EBFB07 /* Build configuration list for PBXProject "Info Center for League of Legends" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 174C950B1D106CCC00EBFB07;
-			productRefGroup = 174C95151D106CCD00EBFB07 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				174C95131D106CCC00EBFB07 /* Info Center for League of Legends */,
-				174C95291D106CCE00EBFB07 /* Info Center for League of LegendsTests */,
-				174C95341D106CCE00EBFB07 /* Info Center for League of LegendsUITests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		174C95121D106CCC00EBFB07 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				17D14E1A1D10D947007F6938 /* FunRefresher.xcassets in Resources */,
-				17D14E161D10D3A8007F6938 /* Winter.xcassets in Resources */,
-				172101D51D1F1A840088DB1A /* Settings.bundle in Resources */,
-				17EDBB361D10F12E00C7B7C5 /* GoogleService-Info.plist in Resources */,
-				17D14E151D10D3A8007F6938 /* Normal.xcassets in Resources */,
-				17D14E181D10D928007F6938 /* Ranked.xcassets in Resources */,
-				17D14E141D10D3A8007F6938 /* Fall.xcassets in Resources */,
-				174C95241D106CCE00EBFB07 /* LaunchScreen.storyboard in Resources */,
-				17D14E101D10D373007F6938 /* Special.xcassets in Resources */,
-				174C951F1D106CCD00EBFB07 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		174C95281D106CCE00EBFB07 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		174C95331D106CCE00EBFB07 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		17A5686FE59E71CD95A7A322 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		257CF2CA29B38C6F6202AB65 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of LegendsTests/Pods-Info Center for League of LegendsTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		33325DBF1C0E162857ED0766 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		3DF85D96FCA0C734942FE9C3 /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		53A4627FD2B44DACEC80387B /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of LegendsUITests/Pods-Info Center for League of LegendsUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		56033B9036BFBBFD025582F5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of LegendsUITests/Pods-Info Center for League of LegendsUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		603F0D1A9DFBD77C13E4FE13 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of LegendsTests/Pods-Info Center for League of LegendsTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		624D9763CB769C0160FCF9D4 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of LegendsTests/Pods-Info Center for League of LegendsTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A47F3D0328D73092B943D826 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		A96665C66C12F8B23E201544 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B869A32C4A8AF6D394BD24F7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		CAD72C4AB90BC77B73BC311D /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D4069ED77D0213EC88101EF4 /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		E85207ED8490CF6C0708BE8B /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F351271F06740BFD378CBCFE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F72AAA6B6FBDD3A7A426EE13 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of LegendsTests/Pods-Info Center for League of LegendsTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		174C95101D106CCC00EBFB07 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1739C4921D1C3A3800B50BDC /* SummonerEndpoint.swift in Sources */,
-				172101D31D1EDC880088DB1A /* MainCollectionViewController.swift in Sources */,
-				172101CB1D1EDBDB0088DB1A /* ProfileView_RecentGames.swift in Sources */,
-				176510911D231DBE00A076BA /* ProfileView_Header_StatsCell.swift in Sources */,
-				172101D01D1EDC2C0088DB1A /* ProfileView_Runes.swift in Sources */,
-				172101C71D1EDB9D0088DB1A /* ProfileView_Header.swift in Sources */,
-				172101D71D1F26A00088DB1A /* DDragon.swift in Sources */,
-				172101C41D1EDB310088DB1A /* ProfileView.swift in Sources */,
-				176D5B981D1C478F000D9D85 /* SummonerDto.swift in Sources */,
-				1739C48F1D1C281400B50BDC /* PlistManager.swift in Sources */,
-				17EDBB301D10EEEF00C7B7C5 /* MainTableViewController.swift in Sources */,
-				172101D11D1EDC2C0088DB1A /* ProfileView_Teams.swift in Sources */,
-				176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */,
-				174C95181D106CCD00EBFB07 /* AppDelegate.swift in Sources */,
-				172101CA1D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift in Sources */,
-				17EDBB381D10F68D00C7B7C5 /* ExistingAppChecker.swift in Sources */,
-				17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */,
-				172101CF1D1EDC2C0088DB1A /* ProfileView_Masteries.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		174C95261D106CCE00EBFB07 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				174C952F1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		174C95311D106CCE00EBFB07 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				174C953A1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		174C952C1D106CCE00EBFB07 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 174C95131D106CCC00EBFB07 /* Info Center for League of Legends */;
-			targetProxy = 174C952B1D106CCE00EBFB07 /* PBXContainerItemProxy */;
-		};
-		174C95371D106CCE00EBFB07 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 174C95131D106CCC00EBFB07 /* Info Center for League of Legends */;
-			targetProxy = 174C95361D106CCE00EBFB07 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		174C951D1D106CCD00EBFB07 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				174C951E1D106CCD00EBFB07 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		174C95221D106CCE00EBFB07 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				174C95231D106CCE00EBFB07 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		174C953C1D106CCE00EBFB07 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		174C953D1D106CCE00EBFB07 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		174C953F1D106CCE00EBFB07 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EABF361D88F86AB1565D7B3D /* Pods-Info Center for League of Legends.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
-				CODE_SIGN_ENTITLEMENTS = "Info Center for League of Legends/Info Center for League of Legends.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEFINES_MODULE = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				INFOPLIST_FILE = "Info Center for League of Legends/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Tech-Genius.League-of-Legends-Center";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5ce3c945-f0b9-4922-a187-0b9e59b9e309";
-				PROVISIONING_PROFILE_SPECIFIER = "84PD2967AA/IC: LoL Dev";
-				SWIFT_OBJC_BRIDGING_HEADER = "Info Center for League of Legends/Objective-C/Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Debug;
-		};
-		174C95401D106CCE00EBFB07 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 920A493D3B84AECB3D66BDD5 /* Pods-Info Center for League of Legends.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
-				CODE_SIGN_ENTITLEMENTS = "Info Center for League of Legends/Info Center for League of Legends.entitlements";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEFINES_MODULE = NO;
-				GCC_OPTIMIZATION_LEVEL = s;
-				INFOPLIST_FILE = "Info Center for League of Legends/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Tech-Genius.League-of-Legends-Center";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a9c12f8d-8b98-4646-9ea2-622805936e26";
-				PROVISIONING_PROFILE_SPECIFIER = "84PD2967AA/IC: LoL Prod";
-				SWIFT_OBJC_BRIDGING_HEADER = "Info Center for League of Legends/Objective-C/Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		174C95421D106CCE00EBFB07 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 886832505159034B2533C8E0 /* Pods-Info Center for League of LegendsTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
-				DEFINES_MODULE = NO;
-				INFOPLIST_FILE = "Info Center for League of LegendsTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Tech-Genius.League-of-Legends-Center";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = 84PD2967AA/;
-				SWIFT_OBJC_BRIDGING_HEADER = "Info Center for League of Legends/Objective-C/Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Info Center for League of Legends.app/Info Center for League of Legends";
-			};
-			name = Debug;
-		};
-		174C95431D106CCE00EBFB07 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6B17CC5A350CFD7AC80A0C9 /* Pods-Info Center for League of LegendsTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				DEFINES_MODULE = NO;
-				INFOPLIST_FILE = "Info Center for League of LegendsTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Tech-Genius.League-of-Legends-Center";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = 84PD2967AA/;
-				SWIFT_OBJC_BRIDGING_HEADER = "Info Center for League of Legends/Objective-C/Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Info Center for League of Legends.app/Info Center for League of Legends";
-			};
-			name = Release;
-		};
-		174C95451D106CCE00EBFB07 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C8ED9A44A445CF2C85EB1B21 /* Pods-Info Center for League of LegendsUITests.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
-				INFOPLIST_FILE = "Info Center for League of LegendsUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Tech-Genius.League-of-Legends-Center";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = "Info Center for League of Legends";
-			};
-			name = Debug;
-		};
-		174C95461D106CCE00EBFB07 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 883DB2D7EB75E9D80A6A9908 /* Pods-Info Center for League of LegendsUITests.release.xcconfig */;
-			buildSettings = {
-				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
-				INFOPLIST_FILE = "Info Center for League of LegendsUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Tech-Genius.League-of-Legends-Center";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = "Info Center for League of Legends";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		174C950F1D106CCC00EBFB07 /* Build configuration list for PBXProject "Info Center for League of Legends" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				174C953C1D106CCE00EBFB07 /* Debug */,
-				174C953D1D106CCE00EBFB07 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		174C953E1D106CCE00EBFB07 /* Build configuration list for PBXNativeTarget "Info Center for League of Legends" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				174C953F1D106CCE00EBFB07 /* Debug */,
-				174C95401D106CCE00EBFB07 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		174C95411D106CCE00EBFB07 /* Build configuration list for PBXNativeTarget "Info Center for League of LegendsTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				174C95421D106CCE00EBFB07 /* Debug */,
-				174C95431D106CCE00EBFB07 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		174C95441D106CCE00EBFB07 /* Build configuration list for PBXNativeTarget "Info Center for League of LegendsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				174C95451D106CCE00EBFB07 /* Debug */,
-				174C95461D106CCE00EBFB07 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 174C950C1D106CCC00EBFB07 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>172101C31D1EDB310088DB1A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ProfileView.swift</string>
+			<key>path</key>
+			<string>Profile/ProfileView.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>172101C41D1EDB310088DB1A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>172101C31D1EDB310088DB1A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>172101C51D1EDB340088DB1A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>172101C61D1EDB9D0088DB1A</string>
+				<string>1765108F1D231D5300A076BA</string>
+				<string>172101C81D1EDBDB0088DB1A</string>
+				<string>172101C91D1EDBDB0088DB1A</string>
+				<string>172101CC1D1EDC2C0088DB1A</string>
+				<string>172101CD1D1EDC2C0088DB1A</string>
+				<string>172101CE1D1EDC2C0088DB1A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>ProfileView Cells</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>172101C61D1EDB9D0088DB1A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ProfileView_Header.swift</string>
+			<key>path</key>
+			<string>Profile/ProfileView Cells/ProfileView_Header.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>172101C71D1EDB9D0088DB1A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>172101C61D1EDB9D0088DB1A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>172101C81D1EDBDB0088DB1A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ProfileView_ChampMastery.swift</string>
+			<key>path</key>
+			<string>Profile/ProfileView Cells/ProfileView_ChampMastery.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>172101C91D1EDBDB0088DB1A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ProfileView_RecentGames.swift</string>
+			<key>path</key>
+			<string>Profile/ProfileView Cells/ProfileView_RecentGames.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>172101CA1D1EDBDB0088DB1A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>172101C81D1EDBDB0088DB1A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>172101CB1D1EDBDB0088DB1A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>172101C91D1EDBDB0088DB1A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>172101CC1D1EDC2C0088DB1A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ProfileView_Masteries.swift</string>
+			<key>path</key>
+			<string>Profile/ProfileView Cells/ProfileView_Masteries.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>172101CD1D1EDC2C0088DB1A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ProfileView_Runes.swift</string>
+			<key>path</key>
+			<string>Profile/ProfileView Cells/ProfileView_Runes.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>172101CE1D1EDC2C0088DB1A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ProfileView_Teams.swift</string>
+			<key>path</key>
+			<string>Profile/ProfileView Cells/ProfileView_Teams.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>172101CF1D1EDC2C0088DB1A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>172101CC1D1EDC2C0088DB1A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>172101D01D1EDC2C0088DB1A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>172101CD1D1EDC2C0088DB1A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>172101D11D1EDC2C0088DB1A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>172101CE1D1EDC2C0088DB1A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>172101D21D1EDC880088DB1A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>MainCollectionViewController.swift</string>
+			<key>path</key>
+			<string>Subclasses/MainCollectionViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>172101D31D1EDC880088DB1A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>172101D21D1EDC880088DB1A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>172101D41D1F1A840088DB1A</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.plug-in</string>
+			<key>path</key>
+			<string>Settings.bundle</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>172101D51D1F1A840088DB1A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>172101D41D1F1A840088DB1A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>172101D61D1F26A00088DB1A</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>DDragon.swift</string>
+			<key>path</key>
+			<string>Riot API/DDragon.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>172101D71D1F26A00088DB1A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>172101D61D1F26A00088DB1A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1739C48E1D1C281400B50BDC</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>PlistManager.swift</string>
+			<key>path</key>
+			<string>Subclasses/PlistManager.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1739C48F1D1C281400B50BDC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1739C48E1D1C281400B50BDC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1739C4901D1C383A00B50BDC</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>176D5B951D1C42A2000D9D85</string>
+				<string>172101D61D1F26A00088DB1A</string>
+				<string>1739C4911D1C3A3800B50BDC</string>
+				<string>176D5B941D1C3D98000D9D85</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Riot API</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1739C4911D1C3A3800B50BDC</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>SummonerEndpoint.swift</string>
+			<key>path</key>
+			<string>Riot API/SummonerEndpoint.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1739C4921D1C3A3800B50BDC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1739C4911D1C3A3800B50BDC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>174C950B1D106CCC00EBFB07</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>174C95161D106CCD00EBFB07</string>
+				<string>174C952D1D106CCE00EBFB07</string>
+				<string>174C95381D106CCE00EBFB07</string>
+				<string>174C95151D106CCD00EBFB07</string>
+				<string>63A748F66287514342697000</string>
+				<string>21035380F080A49DE06B128A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>174C950C1D106CCC00EBFB07</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0800</string>
+				<key>LastUpgradeCheck</key>
+				<string>0800</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Tech Genius</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>174C95131D106CCC00EBFB07</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>8.0</string>
+						<key>DevelopmentTeam</key>
+						<string>84PD2967AA</string>
+						<key>DevelopmentTeamName</key>
+						<string>Eugenia Ilisei</string>
+						<key>ProvisioningStyle</key>
+						<string>Manual</string>
+						<key>SystemCapabilities</key>
+						<dict>
+							<key>com.apple.Push</key>
+							<dict>
+								<key>enabled</key>
+								<string>1</string>
+							</dict>
+						</dict>
+					</dict>
+					<key>174C95291D106CCE00EBFB07</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>8.0</string>
+						<key>DevelopmentTeam</key>
+						<string>84PD2967AA</string>
+						<key>DevelopmentTeamName</key>
+						<string>Eugenia Ilisei</string>
+						<key>ProvisioningStyle</key>
+						<string>Manual</string>
+						<key>TestTargetID</key>
+						<string>174C95131D106CCC00EBFB07</string>
+					</dict>
+					<key>174C95341D106CCE00EBFB07</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>8.0</string>
+						<key>DevelopmentTeam</key>
+						<string>84PD2967AA</string>
+						<key>DevelopmentTeamName</key>
+						<string>Eugenia Ilisei</string>
+						<key>ProvisioningStyle</key>
+						<string>Automatic</string>
+						<key>TestTargetID</key>
+						<string>174C95131D106CCC00EBFB07</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>174C950F1D106CCC00EBFB07</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>174C950B1D106CCC00EBFB07</string>
+			<key>productRefGroup</key>
+			<string>174C95151D106CCD00EBFB07</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>174C95131D106CCC00EBFB07</string>
+				<string>174C95291D106CCE00EBFB07</string>
+				<string>174C95341D106CCE00EBFB07</string>
+			</array>
+		</dict>
+		<key>174C950F1D106CCC00EBFB07</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>174C953C1D106CCE00EBFB07</string>
+				<string>174C953D1D106CCE00EBFB07</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>174C95101D106CCC00EBFB07</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>1739C4921D1C3A3800B50BDC</string>
+				<string>172101D31D1EDC880088DB1A</string>
+				<string>172101CB1D1EDBDB0088DB1A</string>
+				<string>176510911D231DBE00A076BA</string>
+				<string>172101D01D1EDC2C0088DB1A</string>
+				<string>172101C71D1EDB9D0088DB1A</string>
+				<string>172101D71D1F26A00088DB1A</string>
+				<string>172101C41D1EDB310088DB1A</string>
+				<string>176D5B981D1C478F000D9D85</string>
+				<string>1739C48F1D1C281400B50BDC</string>
+				<string>17EDBB301D10EEEF00C7B7C5</string>
+				<string>172101D11D1EDC2C0088DB1A</string>
+				<string>176D5B961D1C42A2000D9D85</string>
+				<string>174C95181D106CCD00EBFB07</string>
+				<string>172101CA1D1EDBDB0088DB1A</string>
+				<string>17EDBB381D10F68D00C7B7C5</string>
+				<string>17EDBB331D10EFAC00C7B7C5</string>
+				<string>172101CF1D1EDC2C0088DB1A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>174C95111D106CCC00EBFB07</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>1765108E1D23101800A076BA</string>
+				<string>9BDD3013E0ED7A4DAF224558</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>174C95121D106CCC00EBFB07</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>17D14E1A1D10D947007F6938</string>
+				<string>17D14E161D10D3A8007F6938</string>
+				<string>172101D51D1F1A840088DB1A</string>
+				<string>17EDBB361D10F12E00C7B7C5</string>
+				<string>17D14E151D10D3A8007F6938</string>
+				<string>17D14E181D10D928007F6938</string>
+				<string>17D14E141D10D3A8007F6938</string>
+				<string>174C95241D106CCE00EBFB07</string>
+				<string>17D14E101D10D373007F6938</string>
+				<string>174C951F1D106CCD00EBFB07</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>174C95131D106CCC00EBFB07</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>174C953E1D106CCE00EBFB07</string>
+			<key>buildPhases</key>
+			<array>
+				<string>3DF85D96FCA0C734942FE9C3</string>
+				<string>B869A32C4A8AF6D394BD24F7</string>
+				<string>174C95101D106CCC00EBFB07</string>
+				<string>174C95111D106CCC00EBFB07</string>
+				<string>174C95121D106CCC00EBFB07</string>
+				<string>17A5686FE59E71CD95A7A322</string>
+				<string>F351271F06740BFD378CBCFE</string>
+				<string>A96665C66C12F8B23E201544</string>
+				<string>E85207ED8490CF6C0708BE8B</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Info Center for League of Legends</string>
+			<key>productName</key>
+			<string>Info Center for League of Legends</string>
+			<key>productReference</key>
+			<string>174C95141D106CCD00EBFB07</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>174C95141D106CCD00EBFB07</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Info Center for League of Legends.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>174C95151D106CCD00EBFB07</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>174C95141D106CCD00EBFB07</string>
+				<string>174C952A1D106CCE00EBFB07</string>
+				<string>174C95351D106CCE00EBFB07</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>174C95161D106CCD00EBFB07</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>17D14E0E1D10D12A007F6938</string>
+				<string>1739C4901D1C383A00B50BDC</string>
+				<string>1770B79A1D13B8340096AA9B</string>
+				<string>17EDBB311D10EEF200C7B7C5</string>
+				<string>174C95171D106CCD00EBFB07</string>
+				<string>17EDBB341D10EFAF00C7B7C5</string>
+				<string>174C951D1D106CCD00EBFB07</string>
+				<string>17D14E131D10D3A8007F6938</string>
+				<string>17D14E121D10D3A8007F6938</string>
+				<string>17D14E111D10D3A8007F6938</string>
+				<string>17D14E0F1D10D373007F6938</string>
+				<string>17D14E171D10D928007F6938</string>
+				<string>17D14E191D10D947007F6938</string>
+				<string>174C95221D106CCE00EBFB07</string>
+				<string>174C95251D106CCE00EBFB07</string>
+				<string>17EDBB351D10F12E00C7B7C5</string>
+				<string>172101D41D1F1A840088DB1A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Info Center for League of Legends</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>174C95171D106CCD00EBFB07</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>174C95181D106CCD00EBFB07</key>
+		<dict>
+			<key>fileRef</key>
+			<string>174C95171D106CCD00EBFB07</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>174C951D1D106CCD00EBFB07</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>174C951E1D106CCD00EBFB07</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>174C951E1D106CCD00EBFB07</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>174C951F1D106CCD00EBFB07</key>
+		<dict>
+			<key>fileRef</key>
+			<string>174C951D1D106CCD00EBFB07</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>174C95221D106CCE00EBFB07</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>174C95231D106CCE00EBFB07</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>174C95231D106CCE00EBFB07</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>174C95241D106CCE00EBFB07</key>
+		<dict>
+			<key>fileRef</key>
+			<string>174C95221D106CCE00EBFB07</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>174C95251D106CCE00EBFB07</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>174C95261D106CCE00EBFB07</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>174C952F1D106CCE00EBFB07</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>174C95271D106CCE00EBFB07</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>B83C44B1689A115821B7804E</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>174C95281D106CCE00EBFB07</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>174C95291D106CCE00EBFB07</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>174C95411D106CCE00EBFB07</string>
+			<key>buildPhases</key>
+			<array>
+				<string>D4069ED77D0213EC88101EF4</string>
+				<string>A47F3D0328D73092B943D826</string>
+				<string>174C95261D106CCE00EBFB07</string>
+				<string>174C95271D106CCE00EBFB07</string>
+				<string>174C95281D106CCE00EBFB07</string>
+				<string>F72AAA6B6FBDD3A7A426EE13</string>
+				<string>603F0D1A9DFBD77C13E4FE13</string>
+				<string>624D9763CB769C0160FCF9D4</string>
+				<string>257CF2CA29B38C6F6202AB65</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>174C952C1D106CCE00EBFB07</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Info Center for League of LegendsTests</string>
+			<key>productName</key>
+			<string>Info Center for League of LegendsTests</string>
+			<key>productReference</key>
+			<string>174C952A1D106CCE00EBFB07</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>174C952A1D106CCE00EBFB07</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Info Center for League of LegendsTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>174C952B1D106CCE00EBFB07</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>174C950C1D106CCC00EBFB07</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>174C95131D106CCC00EBFB07</string>
+			<key>remoteInfo</key>
+			<string>Info Center for League of Legends</string>
+		</dict>
+		<key>174C952C1D106CCE00EBFB07</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>174C95131D106CCC00EBFB07</string>
+			<key>targetProxy</key>
+			<string>174C952B1D106CCE00EBFB07</string>
+		</dict>
+		<key>174C952D1D106CCE00EBFB07</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>174C952E1D106CCE00EBFB07</string>
+				<string>174C95301D106CCE00EBFB07</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Info Center for League of LegendsTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>174C952E1D106CCE00EBFB07</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Info_Center_for_League_of_LegendsTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>174C952F1D106CCE00EBFB07</key>
+		<dict>
+			<key>fileRef</key>
+			<string>174C952E1D106CCE00EBFB07</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>174C95301D106CCE00EBFB07</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>174C95311D106CCE00EBFB07</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>174C953A1D106CCE00EBFB07</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>174C95321D106CCE00EBFB07</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>EE3B7C1DAE11E2D84B89985D</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>174C95331D106CCE00EBFB07</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>174C95341D106CCE00EBFB07</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>174C95441D106CCE00EBFB07</string>
+			<key>buildPhases</key>
+			<array>
+				<string>CAD72C4AB90BC77B73BC311D</string>
+				<string>33325DBF1C0E162857ED0766</string>
+				<string>174C95311D106CCE00EBFB07</string>
+				<string>174C95321D106CCE00EBFB07</string>
+				<string>174C95331D106CCE00EBFB07</string>
+				<string>56033B9036BFBBFD025582F5</string>
+				<string>53A4627FD2B44DACEC80387B</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>174C95371D106CCE00EBFB07</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Info Center for League of LegendsUITests</string>
+			<key>productName</key>
+			<string>Info Center for League of LegendsUITests</string>
+			<key>productReference</key>
+			<string>174C95351D106CCE00EBFB07</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.ui-testing</string>
+		</dict>
+		<key>174C95351D106CCE00EBFB07</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Info Center for League of LegendsUITests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>174C95361D106CCE00EBFB07</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>174C950C1D106CCC00EBFB07</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>174C95131D106CCC00EBFB07</string>
+			<key>remoteInfo</key>
+			<string>Info Center for League of Legends</string>
+		</dict>
+		<key>174C95371D106CCE00EBFB07</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>174C95131D106CCC00EBFB07</string>
+			<key>targetProxy</key>
+			<string>174C95361D106CCE00EBFB07</string>
+		</dict>
+		<key>174C95381D106CCE00EBFB07</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>174C95391D106CCE00EBFB07</string>
+				<string>174C953B1D106CCE00EBFB07</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Info Center for League of LegendsUITests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>174C95391D106CCE00EBFB07</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Info_Center_for_League_of_LegendsUITests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>174C953A1D106CCE00EBFB07</key>
+		<dict>
+			<key>fileRef</key>
+			<string>174C95391D106CCE00EBFB07</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>174C953B1D106CCE00EBFB07</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>174C953C1D106CCE00EBFB07</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_DOCUMENTATION_COMMENTS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.0</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_ACTIVE_COMPILATION_CONDITIONS</key>
+				<string>DEBUG</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>174C953D1D106CCE00EBFB07</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_DOCUMENTATION_COMMENTS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.0</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Owholemodule</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1,2</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>174C953E1D106CCE00EBFB07</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>174C953F1D106CCE00EBFB07</string>
+				<string>174C95401D106CCE00EBFB07</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>174C953F1D106CCE00EBFB07</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>EABF361D88F86AB1565D7B3D</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES</key>
+				<string>NO</string>
+				<key>CODE_SIGN_ENTITLEMENTS</key>
+				<string>Info Center for League of Legends/Info Center for League of Legends.entitlements</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string>iPhone Developer</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>DEFINES_MODULE</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>s</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Info Center for League of Legends/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.Tech-Genius.League-of-Legends-Center</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string>5ce3c945-f0b9-4922-a187-0b9e59b9e309</string>
+				<key>PROVISIONING_PROFILE_SPECIFIER</key>
+				<string>84PD2967AA/IC: LoL Dev</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>Info Center for League of Legends/Objective-C/Bridging-Header.h</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Owholemodule</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>174C95401D106CCE00EBFB07</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>920A493D3B84AECB3D66BDD5</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES</key>
+				<string>NO</string>
+				<key>CODE_SIGN_ENTITLEMENTS</key>
+				<string>Info Center for League of Legends/Info Center for League of Legends.entitlements</string>
+				<key>CODE_SIGN_IDENTITY</key>
+				<string></string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Distribution</string>
+				<key>DEFINES_MODULE</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>s</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Info Center for League of Legends/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.Tech-Genius.League-of-Legends-Center</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE</key>
+				<string>a9c12f8d-8b98-4646-9ea2-622805936e26</string>
+				<key>PROVISIONING_PROFILE_SPECIFIER</key>
+				<string>84PD2967AA/IC: LoL Prod</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>Info Center for League of Legends/Objective-C/Bridging-Header.h</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Owholemodule</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>174C95411D106CCE00EBFB07</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>174C95421D106CCE00EBFB07</string>
+				<string>174C95431D106CCE00EBFB07</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>174C95421D106CCE00EBFB07</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>886832505159034B2533C8E0</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES</key>
+				<string>NO</string>
+				<key>DEFINES_MODULE</key>
+				<string>NO</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Info Center for League of LegendsTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.Tech-Genius.League-of-Legends-Center</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE_SPECIFIER</key>
+				<string>84PD2967AA/</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>Info Center for League of Legends/Objective-C/Bridging-Header.h</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Info Center for League of Legends.app/Info Center for League of Legends</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>174C95431D106CCE00EBFB07</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>D6B17CC5A350CFD7AC80A0C9</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES</key>
+				<string>NO</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Distribution</string>
+				<key>DEFINES_MODULE</key>
+				<string>NO</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Info Center for League of LegendsTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.Tech-Genius.League-of-Legends-Center</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>PROVISIONING_PROFILE_SPECIFIER</key>
+				<string>84PD2967AA/</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>Info Center for League of Legends/Objective-C/Bridging-Header.h</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Info Center for League of Legends.app/Info Center for League of Legends</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>174C95441D106CCE00EBFB07</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>174C95451D106CCE00EBFB07</string>
+				<string>174C95461D106CCE00EBFB07</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>174C95451D106CCE00EBFB07</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>C8ED9A44A445CF2C85EB1B21</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES</key>
+				<string>NO</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Info Center for League of LegendsUITests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.Tech-Genius.League-of-Legends-Center</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string></string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_TARGET_NAME</key>
+				<string>Info Center for League of Legends</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>174C95461D106CCE00EBFB07</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>883DB2D7EB75E9D80A6A9908</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES</key>
+				<string>NO</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Info Center for League of LegendsUITests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.Tech-Genius.League-of-Legends-Center</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string></string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_TARGET_NAME</key>
+				<string>Info Center for League of Legends</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>1765108C1D230CB800A076BA</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>QuartzCore.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/QuartzCore.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>1765108E1D23101800A076BA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1765108C1D230CB800A076BA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1765108F1D231D5300A076BA</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>176510901D231DBE00A076BA</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>ProfileView Stats</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>176510901D231DBE00A076BA</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ProfileView_Header_StatsCell.swift</string>
+			<key>path</key>
+			<string>Profile/ProfileView Cells/ProfileView Stats/ProfileView_Header_StatsCell.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>176510911D231DBE00A076BA</key>
+		<dict>
+			<key>fileRef</key>
+			<string>176510901D231DBE00A076BA</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>176D5B941D1C3D98000D9D85</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>176D5B971D1C478F000D9D85</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>SummonerEntities</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>176D5B951D1C42A2000D9D85</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>Endpoints.swift</string>
+			<key>path</key>
+			<string>Riot API/Endpoints.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>176D5B961D1C42A2000D9D85</key>
+		<dict>
+			<key>fileRef</key>
+			<string>176D5B951D1C42A2000D9D85</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>176D5B971D1C478F000D9D85</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>SummonerDto.swift</string>
+			<key>path</key>
+			<string>Riot API/SummonerEntities/SummonerDto.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>176D5B981D1C478F000D9D85</key>
+		<dict>
+			<key>fileRef</key>
+			<string>176D5B971D1C478F000D9D85</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1770B79A1D13B8340096AA9B</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1770B79B1D13B8790096AA9B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Objective-C</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1770B79B1D13B8790096AA9B</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>Bridging-Header.h</string>
+			<key>path</key>
+			<string>Objective-C/Bridging-Header.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>17A5686FE59E71CD95A7A322</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>17D14E0E1D10D12A007F6938</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xml</string>
+			<key>path</key>
+			<string>Info Center for League of Legends.entitlements</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>17D14E0F1D10D373007F6938</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Special.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>17D14E101D10D373007F6938</key>
+		<dict>
+			<key>fileRef</key>
+			<string>17D14E0F1D10D373007F6938</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>17D14E111D10D3A8007F6938</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Fall.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>17D14E121D10D3A8007F6938</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Normal.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>17D14E131D10D3A8007F6938</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Winter.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>17D14E141D10D3A8007F6938</key>
+		<dict>
+			<key>fileRef</key>
+			<string>17D14E111D10D3A8007F6938</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>17D14E151D10D3A8007F6938</key>
+		<dict>
+			<key>fileRef</key>
+			<string>17D14E121D10D3A8007F6938</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>17D14E161D10D3A8007F6938</key>
+		<dict>
+			<key>fileRef</key>
+			<string>17D14E131D10D3A8007F6938</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>17D14E171D10D928007F6938</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Ranked.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>17D14E181D10D928007F6938</key>
+		<dict>
+			<key>fileRef</key>
+			<string>17D14E171D10D928007F6938</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>17D14E191D10D947007F6938</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>FunRefresher.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>17D14E1A1D10D947007F6938</key>
+		<dict>
+			<key>fileRef</key>
+			<string>17D14E191D10D947007F6938</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>17E5B9611D11A74100F213E6</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.text-based-dylib-definition</string>
+			<key>name</key>
+			<string>libsqlite3.tbd</string>
+			<key>path</key>
+			<string>usr/lib/libsqlite3.tbd</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>17EDBB2F1D10EEEF00C7B7C5</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>MainTableViewController.swift</string>
+			<key>path</key>
+			<string>Subclasses/MainTableViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>17EDBB301D10EEEF00C7B7C5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>17EDBB2F1D10EEEF00C7B7C5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>17EDBB311D10EEF200C7B7C5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1739C48E1D1C281400B50BDC</string>
+				<string>17EDBB371D10F68D00C7B7C5</string>
+				<string>17EDBB2F1D10EEEF00C7B7C5</string>
+				<string>172101D21D1EDC880088DB1A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Subclasses</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>17EDBB321D10EFAC00C7B7C5</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ProfileSearch.swift</string>
+			<key>path</key>
+			<string>Profile/ProfileSearch.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>17EDBB331D10EFAC00C7B7C5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>17EDBB321D10EFAC00C7B7C5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>17EDBB341D10EFAF00C7B7C5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>17EDBB321D10EFAC00C7B7C5</string>
+				<string>172101C31D1EDB310088DB1A</string>
+				<string>172101C51D1EDB340088DB1A</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Profile</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>17EDBB351D10F12E00C7B7C5</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>GoogleService-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>17EDBB361D10F12E00C7B7C5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>17EDBB351D10F12E00C7B7C5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>17EDBB371D10F68D00C7B7C5</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>name</key>
+			<string>ExistingAppChecker.swift</string>
+			<key>path</key>
+			<string>Subclasses/ExistingAppChecker.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>17EDBB381D10F68D00C7B7C5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>17EDBB371D10F68D00C7B7C5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>21035380F080A49DE06B128A</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1765108C1D230CB800A076BA</string>
+				<string>17E5B9611D11A74100F213E6</string>
+				<string>2932808F146B2CA7C1F165DC</string>
+				<string>3AD748C7C2466B765D461B63</string>
+				<string>428C3020155A1EB60F2A3812</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>257CF2CA29B38C6F6202AB65</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of LegendsTests/Pods-Info Center for League of LegendsTests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>2932808F146B2CA7C1F165DC</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_Info_Center_for_League_of_Legends.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>33325DBF1C0E162857ED0766</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>3AD748C7C2466B765D461B63</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_Info_Center_for_League_of_LegendsTests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>3DF85D96FCA0C734942FE9C3</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>428C3020155A1EB60F2A3812</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_Info_Center_for_League_of_LegendsUITests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>53A4627FD2B44DACEC80387B</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of LegendsUITests/Pods-Info Center for League of LegendsUITests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>56033B9036BFBBFD025582F5</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of LegendsUITests/Pods-Info Center for League of LegendsUITests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>603F0D1A9DFBD77C13E4FE13</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of LegendsTests/Pods-Info Center for League of LegendsTests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>624D9763CB769C0160FCF9D4</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of LegendsTests/Pods-Info Center for League of LegendsTests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>63A748F66287514342697000</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>EABF361D88F86AB1565D7B3D</string>
+				<string>920A493D3B84AECB3D66BDD5</string>
+				<string>886832505159034B2533C8E0</string>
+				<string>D6B17CC5A350CFD7AC80A0C9</string>
+				<string>C8ED9A44A445CF2C85EB1B21</string>
+				<string>883DB2D7EB75E9D80A6A9908</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>883DB2D7EB75E9D80A6A9908</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Info Center for League of LegendsUITests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Info Center for League of LegendsUITests/Pods-Info Center for League of LegendsUITests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>886832505159034B2533C8E0</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Info Center for League of LegendsTests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Info Center for League of LegendsTests/Pods-Info Center for League of LegendsTests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>920A493D3B84AECB3D66BDD5</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Info Center for League of Legends.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>9BDD3013E0ED7A4DAF224558</key>
+		<dict>
+			<key>fileRef</key>
+			<string>2932808F146B2CA7C1F165DC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A47F3D0328D73092B943D826</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>A96665C66C12F8B23E201544</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>B83C44B1689A115821B7804E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3AD748C7C2466B765D461B63</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>B869A32C4A8AF6D394BD24F7</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>C8ED9A44A445CF2C85EB1B21</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Info Center for League of LegendsUITests.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Info Center for League of LegendsUITests/Pods-Info Center for League of LegendsUITests.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>CAD72C4AB90BC77B73BC311D</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>D4069ED77D0213EC88101EF4</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>D6B17CC5A350CFD7AC80A0C9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Info Center for League of LegendsTests.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Info Center for League of LegendsTests/Pods-Info Center for League of LegendsTests.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>E85207ED8490CF6C0708BE8B</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>EABF361D88F86AB1565D7B3D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Info Center for League of Legends.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>EE3B7C1DAE11E2D84B89985D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>428C3020155A1EB60F2A3812</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>F351271F06740BFD378CBCFE</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of Legends/Pods-Info Center for League of Legends-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>F72AAA6B6FBDD3A7A426EE13</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Info Center for League of LegendsTests/Pods-Info Center for League of LegendsTests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>174C950C1D106CCC00EBFB07</string>
+</dict>
+</plist>
