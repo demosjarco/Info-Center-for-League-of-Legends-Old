@@ -81,7 +81,7 @@ class ProfileView_Header: UICollectionReusableView, UICollectionViewDataSource, 
             shadowLayer.shadowColor = UIColor.black().cgColor
             shadowLayer.shadowPath = UIBezierPath(roundedRect: self.profilePicShadow!.bounds, cornerRadius: self.profilePic!.layer.cornerRadius).cgPath
             shadowLayer.shadowOffset = CGSize(width: 0, height: 0)
-            shadowLayer.shadowOpacity = 1.0 - 0.35
+            shadowLayer.shadowOpacity = 0.5
             shadowLayer.shadowRadius = 27.0
             //spread 15%
             self.profilePicShadow?.layer.addSublayer(shadowLayer)
