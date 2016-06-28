@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import QuartzCore
 
 protocol HeaderDelegate {
     func goBack()
@@ -39,16 +40,22 @@ class ProfileView_Header: UICollectionReusableView {
         }
         
         DDragon().getProfileIcon(profileIconId: self.summoner.profileIconId, completion: { (profileIconURL) in
+            self.profilePic?.layer.cornerRadius = (self.profilePic?.frame.size.height)! / 2
+            
+            /*
+            self.profilePic?.layer.shadowColor = UIColor.black().cgColor
+            self.profilePic?.layer.shadowOffset = CGSize(width: 0, height: 0)
+            self.profilePic?.layer.shadowOpacity = 0.35
+            self.profilePic?.layer.shadowRadius = 27.0
+            spread 15%
+            */
+            
             self.cover?.setImageWith(URLRequest(url: profileIconURL), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
                 self.cover?.image = image
                 self.profilePic?.image = image
-                
-                self.profilePic?.layer.cornerRadius = (self.profilePic?.frame.size.height)! / 2
-                }, failure: { (request, response, error) in
-                    self.cover?.image = UIImage(named: "poroIcon")
-                    self.profilePic?.image = UIImage(named: "poroIcon")
-                    
-                    self.profilePic?.layer.cornerRadius = (self.profilePic?.frame.size.height)! / 2
+            }, failure: { (request, response, error) in
+                self.cover?.image = UIImage(named: "poroIcon")
+                self.profilePic?.image = UIImage(named: "poroIcon")
             })
         })
     }

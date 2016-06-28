@@ -24,6 +24,7 @@
 		174C95241D106CCE00EBFB07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174C95221D106CCE00EBFB07 /* LaunchScreen.storyboard */; };
 		174C952F1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C952E1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsTests.swift */; };
 		174C953A1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C95391D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift */; };
+		1765108E1D23101800A076BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1765108C1D230CB800A076BA /* QuartzCore.framework */; };
 		176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D5B951D1C42A2000D9D85 /* Endpoints.swift */; };
 		176D5B981D1C478F000D9D85 /* SummonerDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D5B971D1C478F000D9D85 /* SummonerDto.swift */; };
 		17D14E101D10D373007F6938 /* Special.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E0F1D10D373007F6938 /* Special.xcassets */; };
@@ -82,6 +83,7 @@
 		174C95351D106CCE00EBFB07 /* Info Center for League of LegendsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Info Center for League of LegendsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		174C95391D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info_Center_for_League_of_LegendsUITests.swift; sourceTree = "<group>"; };
 		174C953B1D106CCE00EBFB07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1765108C1D230CB800A076BA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		176D5B951D1C42A2000D9D85 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Endpoints.swift; path = "Riot API/Endpoints.swift"; sourceTree = "<group>"; };
 		176D5B971D1C478F000D9D85 /* SummonerDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummonerDto.swift; path = "Riot API/SummonerEntities/SummonerDto.swift"; sourceTree = "<group>"; };
 		1770B79B1D13B8790096AA9B /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Objective-C/Bridging-Header.h"; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1765108E1D23101800A076BA /* QuartzCore.framework in Frameworks */,
 				9BDD3013E0ED7A4DAF224558 /* Pods_Info_Center_for_League_of_Legends.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +267,7 @@
 		21035380F080A49DE06B128A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1765108C1D230CB800A076BA /* QuartzCore.framework */,
 				17E5B9611D11A74100F213E6 /* libsqlite3.tbd */,
 				2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */,
 				3AD748C7C2466B765D461B63 /* Pods_Info_Center_for_League_of_LegendsTests.framework */,

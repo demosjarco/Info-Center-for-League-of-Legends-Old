@@ -27,7 +27,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="recentProfileCell" textLabel="YR4-YT-zyw" detailTextLabel="ATh-2c-KFw" style="IBUITableViewCellStyleSubtitle" id="ewZ-ok-VMR">
-                                <frame key="frameInset" minY="164" width="375" height="64"/>
+                                <frame key="frameInset" minY="163.5" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ewZ-ok-VMR" id="TmW-28-PWT">
                                     <frame key="frameInset" width="342" height="63.5"/>
@@ -243,6 +243,12 @@
                                         </collectionViewCell>
                                     </cells>
                                 </collectionView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileIconShadow" translatesAutoresizingMaskIntoConstraints="NO" id="5rc-NX-xTk">
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="152" id="96P-Q2-wUJ"/>
+                                        <constraint firstAttribute="width" constant="152" id="S9W-3c-QsB"/>
+                                    </constraints>
+                                </imageView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="og1-tu-Naf">
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -255,9 +261,11 @@
                             <constraints>
                                 <constraint firstItem="Ye1-cE-TZ4" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="topMargin" id="5aS-dk-1Yh"/>
                                 <constraint firstItem="doK-DV-tJ3" firstAttribute="top" secondItem="wzf-a0-wf5" secondAttribute="bottom" id="6ag-3R-ufi"/>
+                                <constraint firstItem="og1-tu-Naf" firstAttribute="centerY" secondItem="5rc-NX-xTk" secondAttribute="centerY" id="Apo-N3-8Gi"/>
                                 <constraint firstAttribute="trailing" secondItem="doK-DV-tJ3" secondAttribute="trailing" id="B1t-yf-2In"/>
                                 <constraint firstItem="wzf-a0-wf5" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leading" id="CSp-B3-gTv"/>
                                 <constraint firstAttribute="trailing" secondItem="wzf-a0-wf5" secondAttribute="trailing" id="FaW-1x-Q3H"/>
+                                <constraint firstItem="og1-tu-Naf" firstAttribute="centerX" secondItem="5rc-NX-xTk" secondAttribute="centerX" id="Fzf-oS-gdd"/>
                                 <constraint firstAttribute="bottom" secondItem="doK-DV-tJ3" secondAttribute="bottom" id="Ha8-eO-Uj0"/>
                                 <constraint firstItem="Ye1-cE-TZ4" firstAttribute="leading" secondItem="og1-tu-Naf" secondAttribute="trailing" id="KkC-p8-qcR"/>
                                 <constraint firstItem="XS3-3O-PA4" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leadingMargin" id="OgX-lz-Q4s"/>
@@ -370,4 +378,7 @@
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profileIconShadow" width="152" height="152"/>
+    </resources>
 </document>
