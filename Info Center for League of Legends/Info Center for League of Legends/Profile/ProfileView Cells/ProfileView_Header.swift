@@ -15,9 +15,10 @@ protocol HeaderDelegate {
     func addSummonerToRecents()
 }
 
-class ProfileView_Header: UICollectionReusableView {
+class ProfileView_Header: UICollectionReusableView, UICollectionViewDataSource, UICollectionViewDelegate {
     var delegate:HeaderDelegate?
     var summoner = SummonerDto()
+    var summonerStats = NSMutableArray()
     
     @IBOutlet var cover:UIImageView?
     @IBOutlet var addSummonerButton:UIButton?
@@ -40,6 +41,23 @@ class ProfileView_Header: UICollectionReusableView {
             addSummonerButton?.isEnabled = false
         }
         
+        self.setupSummonerStats()
+        self.downloadProfileIconCover()
+    }
+    
+    func setupSummonerStats() {
+        self.summonerStats.add(NSMutableDictionary(objects: ["Ranked Wins", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Ranked Losses", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["League Points", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Normal Takedowns", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Normal CS", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Normal Wins", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Aram Kills", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Aram Towers Destroyed", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Aram Wins", "--"], forKeys: ["statTitle", "statValue"]))
+    }
+    
+    func downloadProfileIconCover() {
         DDragon().getProfileIcon(profileIconId: self.summoner.profileIconId, completion: { (profileIconURL) in
             // Circle profile pic
             self.profilePic?.layer.cornerRadius = (self.profilePic?.frame.size.height)! / 2
@@ -48,10 +66,10 @@ class ProfileView_Header: UICollectionReusableView {
                 self.cover?.image = image
                 self.profilePic?.image = image
                 self.setShadowOnProfilePic()
-            }, failure: { (request, response, error) in
-                self.cover?.image = UIImage(named: "poroIcon")
-                self.profilePic?.image = UIImage(named: "poroIcon")
-                self.setShadowOnProfilePic()
+                }, failure: { (request, response, error) in
+                    self.cover?.image = UIImage(named: "poroIcon")
+                    self.profilePic?.image = UIImage(named: "poroIcon")
+                    self.setShadowOnProfilePic()
             })
         })
     }
@@ -63,7 +81,7 @@ class ProfileView_Header: UICollectionReusableView {
             shadowLayer.shadowColor = UIColor.black().cgColor
             shadowLayer.shadowPath = UIBezierPath(roundedRect: self.profilePicShadow!.bounds, cornerRadius: self.profilePic!.layer.cornerRadius).cgPath
             shadowLayer.shadowOffset = CGSize(width: 0, height: 0)
-            shadowLayer.shadowOpacity = 0.35
+            shadowLayer.shadowOpacity = 1.0 - 0.35
             shadowLayer.shadowRadius = 27.0
             //spread 15%
             self.profilePicShadow?.layer.addSublayer(shadowLayer)
@@ -77,5 +95,34 @@ class ProfileView_Header: UICollectionReusableView {
     
     @IBAction func addToRecentsPressed() {
         delegate?.addSummonerToRecents()
+    }
+    
+    // MARK: - Collection view data source
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.summonerStats.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileStats", for: indexPath) as! ProfileView_Header_StatsCell
+        
+        if indexPath.row == 0 {
+            cell.leftBorder?.isHidden = true
+        } else {
+            cell.leftBorder?.isHidden = false
+        }
+        if indexPath.row == self.summonerStats.count - 1 {
+            cell.rightBorder?.isHidden = true
+        } else {
+            cell.rightBorder?.isHidden = false
+        }
+        
+        cell.statTitle?.text = self.summonerStats[indexPath.row]["statTitle"] as? String
+        cell.statValue?.text = self.summonerStats[indexPath.row]["statValue"] as? String
+        
+        return cell
     }
 }

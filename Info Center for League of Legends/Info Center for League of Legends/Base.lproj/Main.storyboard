@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -221,27 +222,81 @@
                                         </label>
                                     </subviews>
                                 </stackView>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="doK-DV-tJ3">
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" indicatorStyle="white" dataMode="prototypes" prefetchingEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="doK-DV-tJ3">
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="64" id="vrX-0p-6YF"/>
                                     </constraints>
-                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UIH-0c-SWx">
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="UIH-0c-SWx">
                                         <size key="itemSize" width="161" height="64"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                         <inset key="sectionInset" minX="64" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                     <cells>
-                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="4Th-U9-5dQ">
-                                            <frame key="frameInset" minX="103" width="161" height="64"/>
+                                        <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profileStats" id="4Th-U9-5dQ" customClass="ProfileView_Header_StatsCell" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
+                                            <frame key="frameInset" minX="64" width="161" height="64"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                 <rect key="frame" x="0.0" y="0.0" width="161" height="64"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N2x-ey-1jX">
+                                                        <color key="backgroundColor" red="0.81176470588235294" green="0.72941176470588232" blue="0.41960784313725491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="1" id="eYR-FE-Mc5"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <stackView contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JfV-bH-Ljx">
+                                                        <subviews>
+                                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AY6-fk-LUg">
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <color key="textColor" red="0.81176470590000005" green="0.72941176470000002" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PBI-f9-Wey">
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                <color key="textColor" red="0.81176470590000005" green="0.72941176470000002" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </stackView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="skw-la-86l">
+                                                        <color key="backgroundColor" red="0.81176470590000005" green="0.72941176470000002" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="1" id="Ocz-0F-LEY"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
                                             </view>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="skw-la-86l" firstAttribute="height" secondItem="4Th-U9-5dQ" secondAttribute="height" multiplier="0.5" id="7jG-0R-nU1"/>
+                                                <constraint firstAttribute="trailing" secondItem="skw-la-86l" secondAttribute="trailing" id="GVw-eZ-ngA"/>
+                                                <constraint firstAttribute="bottom" secondItem="JfV-bH-Ljx" secondAttribute="bottom" id="Nso-4u-qtu"/>
+                                                <constraint firstItem="JfV-bH-Ljx" firstAttribute="top" secondItem="4Th-U9-5dQ" secondAttribute="top" id="Sl7-Q7-6PX"/>
+                                                <constraint firstItem="N2x-ey-1jX" firstAttribute="centerY" secondItem="4Th-U9-5dQ" secondAttribute="centerY" id="TMF-xg-Vxz"/>
+                                                <constraint firstItem="skw-la-86l" firstAttribute="leading" secondItem="JfV-bH-Ljx" secondAttribute="trailing" constant="2" id="U1W-86-whp"/>
+                                                <constraint firstItem="JfV-bH-Ljx" firstAttribute="leading" secondItem="N2x-ey-1jX" secondAttribute="trailing" constant="2" id="UbZ-e3-qWQ"/>
+                                                <constraint firstItem="N2x-ey-1jX" firstAttribute="height" secondItem="4Th-U9-5dQ" secondAttribute="height" multiplier="0.5" id="iMZ-cs-ctI"/>
+                                                <constraint firstItem="skw-la-86l" firstAttribute="centerY" secondItem="4Th-U9-5dQ" secondAttribute="centerY" id="u6A-u4-Tjq"/>
+                                                <constraint firstItem="N2x-ey-1jX" firstAttribute="leading" secondItem="4Th-U9-5dQ" secondAttribute="leading" id="zVC-wU-mZr"/>
+                                            </constraints>
+                                            <connections>
+                                                <outlet property="leftBorder" destination="N2x-ey-1jX" id="2QR-Tq-Ce1"/>
+                                                <outlet property="rightBorder" destination="skw-la-86l" id="iBF-kJ-Q6h"/>
+                                                <outlet property="statTitle" destination="PBI-f9-Wey" id="Wj1-em-KoY"/>
+                                                <outlet property="statValue" destination="AY6-fk-LUg" id="Vci-WH-FEO"/>
+                                            </connections>
                                         </collectionViewCell>
                                     </cells>
+                                    <connections>
+                                        <outlet property="dataSource" destination="jfk-L5-GNx" id="IBZ-Ye-nZV"/>
+                                        <outlet property="delegate" destination="jfk-L5-GNx" id="yxy-Us-O17"/>
+                                    </connections>
                                 </collectionView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwH-sZ-M7B">
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
