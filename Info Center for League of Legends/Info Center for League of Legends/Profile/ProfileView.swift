@@ -13,9 +13,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate {
     var tileOrder = NSArray()
     
     var profileHeader = ProfileView_Header()
-    
     var champMasteryCell = ProfileView_ChampMastery()
-    var summonerStats = NSMutableArray()
     
     var recentGamesCell = ProfileView_RecentGames()
     

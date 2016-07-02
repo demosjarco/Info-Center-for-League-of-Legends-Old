@@ -13,12 +13,12 @@ import QuartzCore
 protocol HeaderDelegate {
     func goBack()
     func addSummonerToRecents()
-    func getSummonerStats() -> NSMutableArray
 }
 
 class ProfileView_Header: UICollectionReusableView, UICollectionViewDataSource, UICollectionViewDelegate {
     var delegate:HeaderDelegate?
     var summoner = SummonerDto()
+    var summonerStats = NSMutableArray()
     
     @IBOutlet var cover:UIImageView?
     @IBOutlet var addSummonerButton:UIButton?
@@ -41,7 +41,20 @@ class ProfileView_Header: UICollectionReusableView, UICollectionViewDataSource, 
             addSummonerButton?.isEnabled = false
         }
         
+        self.setupSummonerStats()
         self.downloadProfileIconCover()
+    }
+    
+    func setupSummonerStats() {
+        self.summonerStats.add(NSMutableDictionary(objects: ["Ranked Wins", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Ranked Losses", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["League Points", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Normal Takedowns", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Normal CS", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Normal Wins", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Aram Kills", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Aram Towers Destroyed", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Aram Wins", "--"], forKeys: ["statTitle", "statValue"]))
     }
     
     func downloadProfileIconCover() {
@@ -90,7 +103,7 @@ class ProfileView_Header: UICollectionReusableView, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return delegate!.getSummonerStats().count
+        return self.summonerStats.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -101,14 +114,14 @@ class ProfileView_Header: UICollectionReusableView, UICollectionViewDataSource, 
         } else {
             cell.leftBorder?.isHidden = false
         }
-        if indexPath.row == delegate!.getSummonerStats().count - 1 {
+        if indexPath.row == self.summonerStats.count - 1 {
             cell.rightBorder?.isHidden = true
         } else {
             cell.rightBorder?.isHidden = false
         }
         
-        cell.statTitle?.text = delegate?.getSummonerStats()[indexPath.row]["statTitle"] as? String
-        cell.statValue?.text = delegate?.getSummonerStats()[indexPath.row]["statValue"] as? String
+        cell.statTitle?.text = self.summonerStats[indexPath.row]["statTitle"] as? String
+        cell.statValue?.text = self.summonerStats[indexPath.row]["statValue"] as? String
         
         return cell
     }
