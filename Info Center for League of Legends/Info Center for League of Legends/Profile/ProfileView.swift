@@ -15,9 +15,14 @@ class ProfileView: MainCollectionViewController, HeaderDelegate {
     var profileHeader = ProfileView_Header()
     
     var champMasteryCell = ProfileView_ChampMastery()
+    var summonerStats = NSMutableArray()
+    
     var recentGamesCell = ProfileView_RecentGames()
+    
     var masteriesCell = ProfileView_Masteries()
+    
     var runesCell = ProfileView_Runes()
+    
     var teamsCell = ProfileView_Teams()
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -46,6 +51,19 @@ class ProfileView: MainCollectionViewController, HeaderDelegate {
     
     func loadContent() {
         self.title = self.summoner.name
+        setupSummonerStats()
+    }
+    
+    func setupSummonerStats() {
+        self.summonerStats.add(NSMutableDictionary(objects: ["Ranked Wins", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Ranked Losses", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["League Points", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Normal Takedowns", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Normal CS", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Normal Wins", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Aram Kills", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Aram Towers Destroyed", "--"], forKeys: ["statTitle", "statValue"]))
+        self.summonerStats.add(NSMutableDictionary(objects: ["Aram Wins", "--"], forKeys: ["statTitle", "statValue"]))
     }
     
     // MARK: - Header delegate
@@ -55,6 +73,10 @@ class ProfileView: MainCollectionViewController, HeaderDelegate {
     
     func addSummonerToRecents() {
         
+    }
+    
+    func getSummonerStats() -> NSMutableArray {
+        return self.summonerStats
     }
     
     // MARK: - Collection view data source
