@@ -49,19 +49,55 @@ class ProfileView: MainCollectionViewController, HeaderDelegate {
     
     func loadContent() {
         self.title = self.summoner.name
-        setupSummonerStats()
+        loadRanked()
     }
     
-    func setupSummonerStats() {
-        self.summonerStats.add(NSMutableDictionary(objects: ["Ranked Wins", "--"], forKeys: ["statTitle", "statValue"]))
-        self.summonerStats.add(NSMutableDictionary(objects: ["Ranked Losses", "--"], forKeys: ["statTitle", "statValue"]))
-        self.summonerStats.add(NSMutableDictionary(objects: ["League Points", "--"], forKeys: ["statTitle", "statValue"]))
-        self.summonerStats.add(NSMutableDictionary(objects: ["Normal Takedowns", "--"], forKeys: ["statTitle", "statValue"]))
-        self.summonerStats.add(NSMutableDictionary(objects: ["Normal CS", "--"], forKeys: ["statTitle", "statValue"]))
-        self.summonerStats.add(NSMutableDictionary(objects: ["Normal Wins", "--"], forKeys: ["statTitle", "statValue"]))
-        self.summonerStats.add(NSMutableDictionary(objects: ["Aram Kills", "--"], forKeys: ["statTitle", "statValue"]))
-        self.summonerStats.add(NSMutableDictionary(objects: ["Aram Towers Destroyed", "--"], forKeys: ["statTitle", "statValue"]))
-        self.summonerStats.add(NSMutableDictionary(objects: ["Aram Wins", "--"], forKeys: ["statTitle", "statValue"]))
+    func loadRanked() {
+        LeagueEndpoint().getLeagueEntryBySummonerIds(summonerIds: [self.summoner.summonerId], completion: { (summonerMap) in
+            // Ranked
+            let currentSummoner = summonerMap.values.first
+            
+            var highestTier: Int = 7
+            var highestTierSpelledOut: String
+            var highestDivision: Int = 6
+            var highestDivisionRoman: String
+            
+            for league in currentSummoner! {
+                if league.queue == "RANKED_SOLO_5x5" {
+                    let entry = league.entries.first
+                    
+                    if entry?.miniSeries != nil {
+                        let progressWithHyphen = entry?.miniSeries?.progress.replacingOccurrences(of: "W", with: "✓ -").replacingOccurrences(of: "L", with: "X -").replacingOccurrences(of: "N", with: "○ -")
+                        let progress = progressWithHyphen?.components(separatedBy: "-")
+                        let progressString = NSMutableAttributedString()
+                        for substring in progress! {
+                            switch substring {
+                            case "✓ ":
+                                progressString.append(AttributedString(string: substring, attributes: [NSForegroundColorAttributeName: UIColor.green()]))
+                            case "X ":
+                                progressString.append(AttributedString(string: substring, attributes: [NSForegroundColorAttributeName: UIColor.red()]))
+                            case "○ ":
+                                progressString.append(AttributedString(string: substring, attributes: [NSForegroundColorAttributeName: UIColor.white()]))
+                            default:
+                                break
+                            }
+                        }
+                        self.profileHeader.promotionGames?.attributedText = progressString
+                    }
+                    
+                    autoreleasepool({ ()
+                        let lp = self.profileHeader.summonerStats[2] as! NSMutableDictionary
+                        lp.setObject(NSNumber(integerLiteral: entry!.leaguePoints), forKey: "statValue")
+                    })
+                    self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 2, section: 0)])
+                }
+            }
+        }, notFound: {
+            // Unranked
+            self.profileHeader.summonerLevelRank?.text = "Level " + String(self.summoner.summonerLevel)
+        }) {
+            // Error
+        }
     }
     
     // MARK: - Header delegate
@@ -71,10 +107,6 @@ class ProfileView: MainCollectionViewController, HeaderDelegate {
     
     func addSummonerToRecents() {
         
-    }
-    
-    func getSummonerStats() -> NSMutableArray {
-        return self.summonerStats
     }
     
     // MARK: - Collection view data source
