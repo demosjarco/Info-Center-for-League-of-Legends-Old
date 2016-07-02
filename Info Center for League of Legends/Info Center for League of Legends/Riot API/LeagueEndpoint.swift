@@ -45,70 +45,76 @@ class LeagueEndpoint: NSObject {
         }
     }
     
-    func getLeagueEntryBySummonerIds(summonerIds: [CLong], completion: (summonerMap: [String: LeagueDto]) -> Void, notFound: () -> Void, errorBlock: () -> Void) {
+    func getLeagueEntryBySummonerIds(summonerIds: [CLong], completion: (summonerMap: [String: [LeagueDto]]) -> Void, notFound: () -> Void, errorBlock: () -> Void) {
         Endpoints().getApiKey { (apiKey) in
             let url = Endpoints().league_bySummoner_entry(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")).appending(apiKey)
             
             AFHTTPSessionManager().get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
                 autoreleasepool({ ()
-                    var newDict = [String: LeagueDto]()
-                    let dict = responseObject as! NSDictionary
-                    let dictValues = dict.allValues as! [[String: AnyObject]]
-                    for i in 0 ..< dictValues.count {
-                        let oldLeague = dictValues[i]
-                        
-                        let newLeague = LeagueDto()
-                        autoreleasepool({ ()
-                            var newEntries = [LeagueEntryDto]()
-                            let oldEntries = oldLeague["entries"] as! [[String: AnyObject]]
-                            for j in 0 ..< oldEntries.count {
-                                let oldEntry = oldEntries[j]
-                                
-                                let newEntry = LeagueEntryDto()
-                                newEntry.division = oldEntry["division"] as! String
-                                newEntry.isFreshBlood = oldEntry["isFreshBlood"] as! Bool
-                                newEntry.isHotStreak = oldEntry["isHotStreak"] as! Bool
-                                newEntry.isInactive = oldEntry["isInactive"] as! Bool
-                                newEntry.isVeteran = oldEntry["isVeteran"] as! Bool
-                                newEntry.leaguePoints = oldEntry["leaguePoints"] as! Int
-                                newEntry.losses = oldEntry["losses"] as! Int
-                                if oldEntry["miniSeries"] != nil {
-                                    autoreleasepool({ ()
-                                        let oldMiniSeries = oldEntry["miniSeries"] as! [String: AnyObject]
-                                        
-                                        let newMiniSeries = MiniSeriesDto()
-                                        newMiniSeries.progress = oldMiniSeries["progress"] as! String
-                                        newMiniSeries.target = oldMiniSeries["target"] as! Int
-                                        newMiniSeries.losses = oldMiniSeries["losses"] as! Int
-                                        newMiniSeries.wins = oldMiniSeries["wins"] as! Int
-                                        
-                                        newEntry.miniSeries = newMiniSeries
-                                    })
+                    var newDict = [String: [LeagueDto]]()
+                    let json = responseObject as! NSDictionary
+                    for h in 0 ..< json.count {
+                        var leagueArray = [LeagueDto]()
+                        let summoner = json.allValues[h] as! NSArray
+                        for i in 0 ..< summoner.count {
+                            let oldLeague = summoner[i] as! NSDictionary
+                            
+                            let newLeague = LeagueDto()
+                            autoreleasepool({ ()
+                                var newEntries = [LeagueEntryDto]()
+                                let oldEntries = oldLeague["entries"] as! NSArray
+                                for j in 0 ..< oldEntries.count {
+                                    let oldEntry = oldEntries[j] as! NSDictionary
+                                    
+                                    let newEntry = LeagueEntryDto()
+                                    newEntry.division = oldEntry["division"] as! String
+                                    newEntry.isFreshBlood = oldEntry["isFreshBlood"] as! Bool
+                                    newEntry.isHotStreak = oldEntry["isHotStreak"] as! Bool
+                                    newEntry.isInactive = oldEntry["isInactive"] as! Bool
+                                    newEntry.isVeteran = oldEntry["isVeteran"] as! Bool
+                                    newEntry.leaguePoints = oldEntry["leaguePoints"] as! Int
+                                    newEntry.losses = oldEntry["losses"] as! Int
+                                    if oldEntry["miniSeries"] != nil {
+                                        autoreleasepool({ ()
+                                            let oldMiniSeries = oldEntry["miniSeries"] as! [String: AnyObject]
+                                            
+                                            let newMiniSeries = MiniSeriesDto()
+                                            newMiniSeries.progress = oldMiniSeries["progress"] as! String
+                                            newMiniSeries.target = oldMiniSeries["target"] as! Int
+                                            newMiniSeries.losses = oldMiniSeries["losses"] as! Int
+                                            newMiniSeries.wins = oldMiniSeries["wins"] as! Int
+                                            
+                                            newEntry.miniSeries = newMiniSeries
+                                        })
+                                    }
+                                    newEntry.playerOrTeamId = oldEntry["playerOrTeamId"] as! String
+                                    newEntry.playerOrTeamName = oldEntry["playerOrTeamName"] as! String
+                                    newEntry.wins = oldEntry["wins"] as! Int
+                                    
+                                    newEntries.append(newEntry)
                                 }
-                                newEntry.playerOrTeamId = oldEntry["playerOrTeamId"] as! String
-                                newEntry.playerOrTeamName = oldEntry["playerOrTeamName"] as! String
-                                newEntry.wins = oldEntry["wins"] as! Int
-                                
-                                newEntries.append(newEntry)
+                                newLeague.entries = newEntries
+                            })
+                            newLeague.name = oldLeague["name"] as! String
+                            if oldLeague["participantId"] != nil {
+                                newLeague.participantId = oldLeague["participantId"] as? String
                             }
-                            newLeague.entries = newEntries
-                        })
-                        newLeague.name = oldLeague["name"] as! String
-                        newLeague.participantId = oldLeague["participantId"] as! String
-                        newLeague.queue = oldLeague["queue"] as! String
-                        newLeague.tier = oldLeague["tier"] as! String
-                        
-                        newDict[dict.allKeys[i] as! String] = newLeague
+                            newLeague.queue = oldLeague["queue"] as! String
+                            newLeague.tier = oldLeague["tier"] as! String
+                            
+                            leagueArray.append(newLeague)
+                        }
+                        newDict[json.allKeys[h] as! String] = leagueArray
                     }
                     completion(summonerMap: newDict)
                 })
-                }, failure: { (task, error) in
-                    if error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode == 404 {
-                        notFound()
-                    } else {
-                        errorBlock()
-                        FIRAnalytics.logEvent(withName: "api_eror", parameters: ["httpCode": error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode, "endpoint": "summoner", "subEndpoint": "by-name", "region": Endpoints().getRegion(), "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
-                    }
+            }, failure: { (task, error) in
+                if error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode == 404 {
+                    notFound()
+                } else {
+                    errorBlock()
+                    FIRAnalytics.logEvent(withName: "api_eror", parameters: ["httpCode": error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode, "endpoint": "summoner", "subEndpoint": "by-name", "region": Endpoints().getRegion(), "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                }
             })
         }
     }
