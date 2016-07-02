@@ -11,7 +11,7 @@ import UIKit
 class LeagueDto: NSObject {
     var entries: [LeagueEntryDto] = [LeagueEntryDto]()
     var name: String = ""
-    var participantId: String = ""
+    var participantId: String?
     var queue: String = ""
     var tier: String = ""
 }
