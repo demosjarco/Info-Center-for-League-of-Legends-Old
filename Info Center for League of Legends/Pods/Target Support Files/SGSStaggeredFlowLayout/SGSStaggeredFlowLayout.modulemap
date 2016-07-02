@@ -1,6 +1,0 @@
-framework module SGSStaggeredFlowLayout {
-  umbrella header "SGSStaggeredFlowLayout-umbrella.h"
-
-  export *
-  module * { export * }
-}

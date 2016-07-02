@@ -8,17 +8,17 @@ target 'Info Center for League of Legends' do
 
 	# Pods for Info Center for League of Legends
 
-	pod 'AFNetworking'
 	pod 'Firebase/Database'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Messaging'
 	pod 'Firebase/RemoteConfig'
-	pod 'MBCircularProgressBar'
-	pod 'SGSStaggeredFlowLayout'
-	pod 'XCDYouTubeKit'
-	pod 'JSBadgeView'
-	pod 'AMPopTip'
-	pod 'BEMSimpleLineGraph'
+    pod 'AFNetworking'
+    pod 'BEMSimpleLineGraph'
+    # pod 'MBCircularProgressBar'
+    # pod 'SGSStaggeredFlowLayout'
+    # pod 'XCDYouTubeKit'
+    # pod 'JSBadgeView'
+    # pod 'AMPopTip'
 	
 	# pod 'FLAnimatedImage'
 	# pod 'M13ProgressSuite'
