@@ -123,7 +123,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate {
                     // Use division
                     self.profileHeader.summonerLevelRankIcon?.image = UIImage(named: highestTierSpelledOut.lowercased() + "_" + highestDivisionRoman.lowercased())
                     
-                    self.profileHeader.summonerLevelRank?.text = highestTierSpelledOut.capitalized + highestDivisionRoman.uppercased()
+                    self.profileHeader.summonerLevelRank?.text = highestTierSpelledOut.capitalized + " " + highestDivisionRoman.uppercased()
                 }
             }
         }, notFound: {
