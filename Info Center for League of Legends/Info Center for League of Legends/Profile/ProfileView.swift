@@ -58,9 +58,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate {
             let currentSummoner = summonerMap.values.first
             
             var highestTier: Int = 7
-            var highestTierSpelledOut: String
+            var highestTierSpelledOut: String = ""
             var highestDivision: Int = 6
-            var highestDivisionRoman: String
+            var highestDivisionRoman: String = ""
             
             for league in currentSummoner! {
                 if league.queue == "RANKED_SOLO_5x5" {
@@ -87,13 +87,49 @@ class ProfileView: MainCollectionViewController, HeaderDelegate {
                     
                     autoreleasepool({ ()
                         let lp = self.profileHeader.summonerStats[2] as! NSMutableDictionary
-                        lp.setObject(NSNumber(integerLiteral: entry!.leaguePoints), forKey: "statValue")
+                        lp.setObject(String(entry!.leaguePoints), forKey: "statValue")
                     })
                     self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 2, section: 0)])
+                }
+                
+                if highestTier > LeagueEndpoint().tierToNumber(tier: league.tier) {
+                    highestTier = LeagueEndpoint().tierToNumber(tier: league.tier)
+                    highestTierSpelledOut = league.tier
+                    highestDivision = 6
+                    
+                    for entry in league.entries {
+                        if highestDivision > LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division) {
+                            highestDivision = LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division)
+                            highestDivisionRoman = entry.division
+                        }
+                    }
+                } else if highestTier == LeagueEndpoint().tierToNumber(tier: league.tier) {
+                    for entry in league.entries {
+                        if highestDivision > LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division) {
+                            highestDivision = LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division)
+                            highestDivisionRoman = entry.division
+                        }
+                    }
+                }
+                
+                if highestTier < 2 {
+                    // Challenger & Master
+                    // Dont use division
+                    self.profileHeader.summonerLevelRankIcon?.image = UIImage(named: highestTierSpelledOut.lowercased())
+                    
+                    self.profileHeader.summonerLevelRank?.text = highestTierSpelledOut.capitalized
+                } else {
+                    // Diamond and lower
+                    // Use division
+                    self.profileHeader.summonerLevelRankIcon?.image = UIImage(named: highestTierSpelledOut.lowercased() + "_" + highestDivisionRoman.lowercased())
+                    
+                    self.profileHeader.summonerLevelRank?.text = highestTierSpelledOut.capitalized + highestDivisionRoman.uppercased()
                 }
             }
         }, notFound: {
             // Unranked
+            self.profileHeader.summonerLevelRankIcon?.image = UIImage(named: "provisional")
+            
             self.profileHeader.summonerLevelRank?.text = "Level " + String(self.summoner.summonerLevel)
         }) {
             // Error

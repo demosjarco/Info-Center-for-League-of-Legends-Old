@@ -26,6 +26,7 @@ class ProfileView_Header: UICollectionReusableView, UICollectionViewDataSource, 
     @IBOutlet var promotionGames:UILabel?
     @IBOutlet var summonerName:UILabel?
     @IBOutlet var summonerLevelRank:UILabel?
+    @IBOutlet var summonerLevelRankIcon:UIImageView?
     @IBOutlet var summonerChampMasteryScore:UILabel?
     
     @IBOutlet var profilePic:UIImageView?
