@@ -56,7 +56,6 @@ class PlistManager: NSObject {
     func removeItemInRecentSummoners(oldIndex: Int) {
         let recentSummoners = NSMutableArray(array: loadRecentSummoners())
         
-        let item = recentSummoners.object(at: oldIndex)
         recentSummoners.removeObject(at: oldIndex)
         
         recentSummoners.write(toFile: getDocumentDirectory().appending(baseDatabaseDirectory).appending(recentSummonersFileName), atomically: true)
