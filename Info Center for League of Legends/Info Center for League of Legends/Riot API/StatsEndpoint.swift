@@ -31,16 +31,17 @@ class StatsEndpoint: NSObject {
                                 
                                 newAggregatedStats.totalChampionKills = oldAggregatedStats["totalChampionKills"] as? Int
                                 newAggregatedStats.totalMinionKills = oldAggregatedStats["totalMinionKills"] as? Int
+                                newAggregatedStats.totalNeutralMinionsKilled = oldAggregatedStats["totalNeutralMinionsKilled"] as? Int
                                 newAggregatedStats.totalTurretsKilled = oldAggregatedStats["totalTurretsKilled"] as? Int
                                 
                                 newSummary.aggregatedStats = newAggregatedStats
                             })
-                            if (oldSummary["losses"] != nil) {
+                            if oldSummary["losses"] != nil {
                                 newSummary.losses = oldSummary["losses"] as! Int
                             }
                             newSummary.modifyDate = oldSummary["modifyDate"] as! CLong
                             newSummary.playerStatSummaryType = oldSummary["playerStatSummaryType"] as! String
-                            if (oldSummary["wins"] != nil) {
+                            if oldSummary["wins"] != nil {
                                 newSummary.wins = oldSummary["wins"] as! Int
                             }
                             
