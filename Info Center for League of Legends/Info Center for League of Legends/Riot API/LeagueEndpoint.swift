@@ -111,7 +111,7 @@ class LeagueEndpoint: NSObject {
                         notFound()
                     } else {
                         errorBlock()
-                        FIRAnalytics.logEvent(withName: "api_eror", parameters: ["httpCode": error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode, "endpoint": "summoner", "subEndpoint": "by-name", "region": Endpoints().getRegion(), "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                        FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
                     }
             })
         }
