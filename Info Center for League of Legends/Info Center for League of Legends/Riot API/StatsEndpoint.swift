@@ -35,10 +35,14 @@ class StatsEndpoint: NSObject {
                                 
                                 newSummary.aggregatedStats = newAggregatedStats
                             })
-                            newSummary.losses = oldSummary["losses"] as! Int
+                            if (oldSummary["losses"] != nil) {
+                                newSummary.losses = oldSummary["losses"] as! Int
+                            }
                             newSummary.modifyDate = oldSummary["modifyDate"] as! CLong
                             newSummary.playerStatSummaryType = oldSummary["playerStatSummaryType"] as! String
-                            newSummary.wins = oldSummary["wins"] as! Int
+                            if (oldSummary["wins"] != nil) {
+                                newSummary.wins = oldSummary["wins"] as! Int
+                            }
                             
                             newPlayerStatSummaries.append(newSummary)
                         })
