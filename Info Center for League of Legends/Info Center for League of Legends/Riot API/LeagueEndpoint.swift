@@ -46,10 +46,8 @@ class LeagueEndpoint: NSObject {
     }
     
     func getLeagueEntryBySummonerIds(summonerIds: [CLong], completion: (summonerMap: [String: [LeagueDto]]) -> Void, notFound: () -> Void, errorBlock: () -> Void) {
-        Endpoints().getApiKey { (apiKey) in
-            let url = Endpoints().league_bySummoner_entry(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")).appending(apiKey)
-            
-            AFHTTPSessionManager().get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
+        Endpoints().league_bySummoner_entry(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
+            AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 autoreleasepool({ ()
                     var newDict = [String: [LeagueDto]]()
                     let json = responseObject as! NSDictionary
@@ -108,13 +106,13 @@ class LeagueEndpoint: NSObject {
                     }
                     completion(summonerMap: newDict)
                 })
-            }, failure: { (task, error) in
-                if error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode == 404 {
-                    notFound()
-                } else {
-                    errorBlock()
-                    FIRAnalytics.logEvent(withName: "api_eror", parameters: ["httpCode": error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode, "endpoint": "summoner", "subEndpoint": "by-name", "region": Endpoints().getRegion(), "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
-                }
+                }, failure: { (task, error) in
+                    if error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode == 404 {
+                        notFound()
+                    } else {
+                        errorBlock()
+                        FIRAnalytics.logEvent(withName: "api_eror", parameters: ["httpCode": error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode, "endpoint": "summoner", "subEndpoint": "by-name", "region": Endpoints().getRegion(), "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                    }
             })
         }
     }

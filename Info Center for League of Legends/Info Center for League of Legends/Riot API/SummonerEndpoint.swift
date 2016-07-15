@@ -18,10 +18,8 @@ class SummonerEndpoint: NSObject {
             standardizedSummonerNames.add(summonerName.replacingOccurrences(of: " ", with: "").lowercased())
         }
         
-        Endpoints().getApiKey { (apiKey) in
-            let url = Endpoints().summoner_byName(summonerNames: standardizedSummonerNames.value(forKey: "description").componentsJoined(by: ",")).appending(apiKey)
-            
-            AFHTTPSessionManager().get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
+        Endpoints().summoner_byName(summonerNames: standardizedSummonerNames.value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
+            AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 autoreleasepool({ ()
                     var newDict = [String: SummonerDto]()
                     let dict = responseObject as! NSDictionary
@@ -52,10 +50,8 @@ class SummonerEndpoint: NSObject {
     }
     
     func getSummonersForIds(summonerIds: [CLong], completion: (summonerMap: [String: SummonerDto]) -> Void, errorBlock: () -> Void) {
-        Endpoints().getApiKey { (apiKey) in
-            let url = Endpoints().summoner_byId(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")).appending(apiKey)
-            
-            AFHTTPSessionManager().get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
+        Endpoints().summoner_byId(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
+            AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 autoreleasepool({ ()
                     var newDict = [String: SummonerDto]()
                     let dict = responseObject as! NSDictionary

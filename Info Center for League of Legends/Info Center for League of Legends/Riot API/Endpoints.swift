@@ -44,23 +44,32 @@ class Endpoints: NSObject {
     // MARK: - Endpoint URLs
     
     // League
-    func league_bySummoner_entry(summonerIds: String) -> String {
-        return "https://" + getRegion() + ".api.pvp.net/api/lol/" + getRegion() + "/v2.5/league/by-summoner/" + summonerIds + "/entry?api_key="
+    func league_bySummoner_entry(summonerIds: String, completion: (composedUrl: String) -> Void) {
+        self.getApiKey { (apiKey) in
+            let urlString = "https://" + self.getRegion() + ".api.pvp.net/api/lol/" + self.getRegion() + "/v2.5/league/by-summoner/" + summonerIds + "/entry?api_key=" + apiKey
+            completion(composedUrl: urlString)
+        }
     }
     
     // Stats
     func stats_bySummoner_summary(summonerId: String, completion: (composedUrl: String) -> Void) {
-        getApiKey { (apiKey) in
+        self.getApiKey { (apiKey) in
             let urlString = "https://" + self.getRegion() + ".api.pvp.net/api/lol/" + self.getRegion() + "/v1.3/stats/by-summoner/" + summonerId + "/summary?api_key=" + apiKey
             completion(composedUrl: urlString)
         }
     }
     
     // Summoner
-    func summoner_byName(summonerNames: String) -> String {
-        return "https://" + getRegion() + ".api.pvp.net/api/lol/" + getRegion() + "/v1.4/summoner/by-name/" + summonerNames + "?api_key="
+    func summoner_byName(summonerNames: String, completion: (composedUrl: String) -> Void) {
+        self.getApiKey { (apiKey) in
+            let urlString = "https://" + self.getRegion() + ".api.pvp.net/api/lol/" + self.getRegion() + "/v1.4/summoner/by-name/" + summonerNames + "?api_key=" + apiKey
+            completion(composedUrl: urlString)
+        }
     }
-    func summoner_byId(summonerIds: String) -> String {
-        return "https://" + getRegion() + ".api.pvp.net/api/lol/" + getRegion() + "/v1.4/summoner/" + summonerIds + "?api_key="
+    func summoner_byId(summonerIds: String, completion: (composedUrl: String) -> Void) {
+        self.getApiKey { (apiKey) in
+            let urlString = "https://" + self.getRegion() + ".api.pvp.net/api/lol/" + self.getRegion() + "/v1.4/summoner/" + summonerIds + "?api_key=" + apiKey
+            completion(composedUrl: urlString)
+        }
     }
 }
