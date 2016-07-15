@@ -48,6 +48,14 @@ class Endpoints: NSObject {
         return "https://" + getRegion() + ".api.pvp.net/api/lol/" + getRegion() + "/v2.5/league/by-summoner/" + summonerIds + "/entry?api_key="
     }
     
+    // Stats
+    func stats_bySummoner_summary(summonerId: String, completion: (composedUrl: String) -> Void) {
+        getApiKey { (apiKey) in
+            let urlString = "https://" + self.getRegion() + ".api.pvp.net/api/lol/" + self.getRegion() + "/v1.3/stats/by-summoner/" + summonerId + "/summary?api_key=" + apiKey
+            completion(composedUrl: urlString)
+        }
+    }
+    
     // Summoner
     func summoner_byName(summonerNames: String) -> String {
         return "https://" + getRegion() + ".api.pvp.net/api/lol/" + getRegion() + "/v1.4/summoner/by-name/" + summonerNames + "?api_key="
