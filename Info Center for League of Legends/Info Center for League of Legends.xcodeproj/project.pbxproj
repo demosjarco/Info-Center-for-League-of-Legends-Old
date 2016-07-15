@@ -32,6 +32,7 @@
 		1771CBD11D282B6D00D0DB08 /* LeagueDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771CBD01D282B6D00D0DB08 /* LeagueDto.swift */; };
 		1771CBD41D282B9800D0DB08 /* LeagueEntryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771CBD21D282B9800D0DB08 /* LeagueEntryDto.swift */; };
 		1771CBD51D282B9800D0DB08 /* MiniSeriesDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771CBD31D282B9800D0DB08 /* MiniSeriesDto.swift */; };
+		17C583CB1D388441007AAC43 /* StatsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C583CA1D388441007AAC43 /* StatsEndpoint.swift */; };
 		17D14E101D10D373007F6938 /* Special.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E0F1D10D373007F6938 /* Special.xcassets */; };
 		17D14E141D10D3A8007F6938 /* Fall.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E111D10D3A8007F6938 /* Fall.xcassets */; };
 		17D14E151D10D3A8007F6938 /* Normal.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E121D10D3A8007F6938 /* Normal.xcassets */; };
@@ -97,6 +98,7 @@
 		1771CBD01D282B6D00D0DB08 /* LeagueDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeagueDto.swift; path = "Riot API/LeagueEntities/LeagueDto.swift"; sourceTree = "<group>"; };
 		1771CBD21D282B9800D0DB08 /* LeagueEntryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeagueEntryDto.swift; path = "Riot API/LeagueEntities/LeagueEntryDto.swift"; sourceTree = "<group>"; };
 		1771CBD31D282B9800D0DB08 /* MiniSeriesDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiniSeriesDto.swift; path = "Riot API/LeagueEntities/MiniSeriesDto.swift"; sourceTree = "<group>"; };
+		17C583CA1D388441007AAC43 /* StatsEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsEndpoint.swift; path = "Riot API/StatsEndpoint.swift"; sourceTree = "<group>"; };
 		17D14E0E1D10D12A007F6938 /* Info Center for League of Legends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Info Center for League of Legends.entitlements"; sourceTree = "<group>"; };
 		17D14E0F1D10D373007F6938 /* Special.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Special.xcassets; sourceTree = "<group>"; };
 		17D14E111D10D3A8007F6938 /* Fall.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Fall.xcassets; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				172101D61D1F26A00088DB1A /* DDragon.swift */,
 				1771CBCD1D28290200D0DB08 /* LeagueEndpoint.swift */,
 				1771CBCF1D282B1900D0DB08 /* LeagueEntities */,
+				17C583CA1D388441007AAC43 /* StatsEndpoint.swift */,
 				1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */,
 				176D5B941D1C3D98000D9D85 /* SummonerEntities */,
 			);
@@ -738,6 +741,7 @@
 				176510911D231DBE00A076BA /* ProfileView_Header_StatsCell.swift in Sources */,
 				1771CBD11D282B6D00D0DB08 /* LeagueDto.swift in Sources */,
 				172101D01D1EDC2C0088DB1A /* ProfileView_Runes.swift in Sources */,
+				17C583CB1D388441007AAC43 /* StatsEndpoint.swift in Sources */,
 				172101C71D1EDB9D0088DB1A /* ProfileView_Header.swift in Sources */,
 				172101D71D1F26A00088DB1A /* DDragon.swift in Sources */,
 				172101C41D1EDB310088DB1A /* ProfileView.swift in Sources */,
