@@ -53,6 +53,14 @@ class PlistManager: NSObject {
         
         recentSummoners.write(toFile: getDocumentDirectory().appending(baseDatabaseDirectory).appending(recentSummonersFileName), atomically: true)
     }
+    func removeItemInRecentSummoners(oldIndex: Int) {
+        let recentSummoners = NSMutableArray(array: loadRecentSummoners())
+        
+        let item = recentSummoners.object(at: oldIndex)
+        recentSummoners.removeObject(at: oldIndex)
+        
+        recentSummoners.write(toFile: getDocumentDirectory().appending(baseDatabaseDirectory).appending(recentSummonersFileName), atomically: true)
+    }
     
     func loadProfileViewTileOrder() -> NSArray {
         if let tileOrder = NSArray(contentsOfFile: getDocumentDirectory().appending(baseDatabaseDirectory).appending(profileViewTileOrderName)) {
