@@ -162,6 +162,10 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
 
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let item = recentSummoners.object(at: sourceIndexPath.row)
+        recentSummoners.removeObject(at: sourceIndexPath.row)
+        recentSummoners.insert(item, at: destinationIndexPath.row)
+        
         PlistManager().moveItemInRecentSummoners(oldIndex: sourceIndexPath.row, newIndex: destinationIndexPath.row)
     }
 
