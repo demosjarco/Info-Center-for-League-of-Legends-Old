@@ -16,7 +16,7 @@ class ExistingAppChecker: NSObject {
     
     func checkRegion(viewController: UIViewController) {
         autoreleasepool {
-            let prefs = UserDefaults.standard()
+            let prefs = UserDefaults.standard
             
             if let region = prefs.string(forKey: "league_region") {
                 print("App Region: " + region)

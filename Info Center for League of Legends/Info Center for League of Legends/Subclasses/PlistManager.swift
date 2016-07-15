@@ -34,9 +34,9 @@ class PlistManager: NSObject {
         if !recentSummoners.contains(newSummoner.summonerId) {
             recentSummoners.insert(newSummoner.summonerId, at: 0)
             
-            if !FileManager.default().fileExists(atPath: getDocumentDirectory().appending(baseDatabaseDirectory)) {
+            if !FileManager.default.fileExists(atPath: getDocumentDirectory().appending(baseDatabaseDirectory)) {
                 do {
-                    try FileManager.default().createDirectory(atPath: getDocumentDirectory().appending(baseDatabaseDirectory), withIntermediateDirectories: true, attributes: nil)
+                    try FileManager.default.createDirectory(atPath: getDocumentDirectory().appending(baseDatabaseDirectory), withIntermediateDirectories: true, attributes: nil)
                 } catch let error as NSError {
                     print(error.localizedDescription);
                 }
@@ -77,9 +77,9 @@ class PlistManager: NSObject {
         }
     }
     func writeTileOrder(tileOrder: NSArray) {
-        if !FileManager.default().fileExists(atPath: getDocumentDirectory().appending(baseDatabaseDirectory)) {
+        if !FileManager.default.fileExists(atPath: getDocumentDirectory().appending(baseDatabaseDirectory)) {
             do {
-                try FileManager.default().createDirectory(atPath: getDocumentDirectory().appending(baseDatabaseDirectory), withIntermediateDirectories: true, attributes: nil)
+                try FileManager.default.createDirectory(atPath: getDocumentDirectory().appending(baseDatabaseDirectory), withIntermediateDirectories: true, attributes: nil)
             } catch let error as NSError {
                 print(error.localizedDescription);
             }
