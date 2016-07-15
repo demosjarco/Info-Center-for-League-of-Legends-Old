@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		171A1C0F1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */; };
+		171A1C111D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */; };
+		171A1C131D38989D00BAB5B4 /* AggregatedStatsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C121D38989D00BAB5B4 /* AggregatedStatsDto.swift */; };
 		172101C41D1EDB310088DB1A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C31D1EDB310088DB1A /* ProfileView.swift */; };
 		172101C71D1EDB9D0088DB1A /* ProfileView_Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C61D1EDB9D0088DB1A /* ProfileView_Header.swift */; };
 		172101CA1D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C81D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift */; };
@@ -66,6 +69,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryListDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryListDto.swift"; sourceTree = "<group>"; };
+		171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryDto.swift"; sourceTree = "<group>"; };
+		171A1C121D38989D00BAB5B4 /* AggregatedStatsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AggregatedStatsDto.swift; path = "Riot API/StatsEntities/AggregatedStatsDto.swift"; sourceTree = "<group>"; };
 		172101C31D1EDB310088DB1A /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView.swift; path = Profile/ProfileView.swift; sourceTree = "<group>"; };
 		172101C61D1EDB9D0088DB1A /* ProfileView_Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Header.swift; path = "Profile/ProfileView Cells/ProfileView_Header.swift"; sourceTree = "<group>"; };
 		172101C81D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_ChampMastery.swift; path = "Profile/ProfileView Cells/ProfileView_ChampMastery.swift"; sourceTree = "<group>"; };
@@ -151,6 +157,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		171A1C0D1D38970500BAB5B4 /* StatsEntities */ = {
+			isa = PBXGroup;
+			children = (
+				171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */,
+				171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */,
+				171A1C121D38989D00BAB5B4 /* AggregatedStatsDto.swift */,
+			);
+			name = StatsEntities;
+			sourceTree = "<group>";
+		};
 		172101C51D1EDB340088DB1A /* ProfileView Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +189,7 @@
 				1771CBCD1D28290200D0DB08 /* LeagueEndpoint.swift */,
 				1771CBCF1D282B1900D0DB08 /* LeagueEntities */,
 				17C583CA1D388441007AAC43 /* StatsEndpoint.swift */,
+				171A1C0D1D38970500BAB5B4 /* StatsEntities */,
 				1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */,
 				176D5B941D1C3D98000D9D85 /* SummonerEntities */,
 			);
@@ -734,6 +751,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				171A1C131D38989D00BAB5B4 /* AggregatedStatsDto.swift in Sources */,
 				1739C4921D1C3A3800B50BDC /* SummonerEndpoint.swift in Sources */,
 				172101D31D1EDC880088DB1A /* MainCollectionViewController.swift in Sources */,
 				1771CBD41D282B9800D0DB08 /* LeagueEntryDto.swift in Sources */,
@@ -741,6 +759,7 @@
 				176510911D231DBE00A076BA /* ProfileView_Header_StatsCell.swift in Sources */,
 				1771CBD11D282B6D00D0DB08 /* LeagueDto.swift in Sources */,
 				172101D01D1EDC2C0088DB1A /* ProfileView_Runes.swift in Sources */,
+				171A1C111D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift in Sources */,
 				17C583CB1D388441007AAC43 /* StatsEndpoint.swift in Sources */,
 				172101C71D1EDB9D0088DB1A /* ProfileView_Header.swift in Sources */,
 				172101D71D1F26A00088DB1A /* DDragon.swift in Sources */,
@@ -757,6 +776,7 @@
 				17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */,
 				172101CF1D1EDC2C0088DB1A /* ProfileView_Masteries.swift in Sources */,
 				1771CBCE1D28290200D0DB08 /* LeagueEndpoint.swift in Sources */,
+				171A1C0F1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
