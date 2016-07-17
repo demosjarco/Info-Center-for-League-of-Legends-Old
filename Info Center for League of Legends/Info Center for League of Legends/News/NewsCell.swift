@@ -7,13 +7,44 @@
 //
 
 import UIKit
+import QuartzCore
 
 class NewsCell: UICollectionViewCell {
     @IBOutlet var newsStoryImage: UIImageView?
-    @IBOutlet var newsStoryImageBlur: UIVisualEffectView?
+    @IBOutlet var newsStoryImageForBlur: UIImageView?
+    @IBOutlet var newsStoryImageBlur: UIView?
     @IBOutlet var newsStoryBlurTitle: UILabel?
     @IBOutlet var newsStoryBlurContent: UILabel?
     
     @IBOutlet var newsStoryTitle: UILabel?
     @IBOutlet var newsStoryContent: UILabel?
+    
+    func setStoryImage(storyImage: UIImage) {
+        self.newsStoryImage?.image = storyImage
+        self.newsStoryImageForBlur?.image = storyImage
+        self.newsStoryImage?.isHidden = false
+        self.newsStoryImage?.setNeedsDisplay()
+        
+        self.newsStoryImageBlur?.isHidden = false
+        // Gradient Mask
+        autoreleasepool { ()
+            /*UIImage *_maskingImage = [UIImage imageNamed:@"NewsCellBlurMask"];
+            CALayer *_maskingLayer = [CALayer layer];
+            _maskingLayer.frame = CGRectMake(0, 0, _maskingImage.size.width, _maskingImage.size.height);
+            [_maskingLayer setContents:(id)[_maskingImage CGImage]];
+            [newsStoryImageBlur.layer setMask:_maskingLayer];*/
+            let _maskingImage = UIImage(named: "NewsCellBlurMask")
+            let _maskingLayer = CALayer()
+            _maskingLayer.frame = CGRect(origin: CGPoint.zero, size: _maskingImage!.size)
+            _maskingLayer.contents = _maskingImage?.cgImage
+            self.newsStoryImageBlur?.layer.mask = _maskingLayer
+        }
+        self.newsStoryImageBlur?.setNeedsDisplay()
+        
+        self.newsStoryTitle?.isHidden = true
+        self.newsStoryTitle?.setNeedsDisplay()
+        
+        self.newsStoryContent?.isHidden = true
+        self.newsStoryContent?.setNeedsDisplay()
+    }
 }
