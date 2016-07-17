@@ -31,11 +31,11 @@
                                 <frame key="frameInset" minY="164" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ewZ-ok-VMR" id="TmW-28-PWT">
-                                    <frame key="frameInset" width="342" height="63.5"/>
+                                    <frame key="frameInset" width="342" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label multipleTouchEnabled="YES" contentMode="left" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" id="YR4-YT-zyw">
-                                            <frame key="frameInset" minX="15" minY="14" width="15.5" height="20.5"/>
+                                            <frame key="frameInset" minX="15" minY="13" width="16" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -43,7 +43,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label multipleTouchEnabled="YES" contentMode="left" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" id="ATh-2c-KFw">
-                                            <frame key="frameInset" minX="15" minY="34.5" width="12.5" height="16"/>
+                                            <frame key="frameInset" minX="15" minY="34" width="13" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -645,7 +645,46 @@ last 10 games</string>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j5I-Um-2Rh">
+                                            <subviews>
+                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMU-du-UQx">
+                                                    <frame key="frameInset" width="240" height="220"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Content" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uX-g3-7bg">
+                                                    <frame key="frameInset" minY="220" width="240" height="21"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </stackView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F6J-V3-n9C">
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="F6J-V3-n9C" secondAttribute="bottom" id="7gi-1Y-k0O"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="j5I-Um-2Rh" secondAttribute="trailing" id="Cal-xo-kae"/>
+                                    <constraint firstAttribute="trailing" secondItem="F6J-V3-n9C" secondAttribute="trailing" id="FJc-dw-qX5"/>
+                                    <constraint firstItem="F6J-V3-n9C" firstAttribute="leading" secondItem="SEf-ZJ-xUB" secondAttribute="leading" id="Hu8-Nt-JXU"/>
+                                    <constraint firstItem="j5I-Um-2Rh" firstAttribute="top" secondItem="SEf-ZJ-xUB" secondAttribute="topMargin" id="Oid-3X-Ynf"/>
+                                    <constraint firstItem="j5I-Um-2Rh" firstAttribute="leading" secondItem="SEf-ZJ-xUB" secondAttribute="leadingMargin" id="ShV-zT-jHp"/>
+                                    <constraint firstItem="F6J-V3-n9C" firstAttribute="top" secondItem="SEf-ZJ-xUB" secondAttribute="top" id="fTg-Ku-VSl"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="j5I-Um-2Rh" secondAttribute="bottom" id="feD-nb-nC7"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="newsStoryContent" destination="9uX-g3-7bg" id="0zw-Vy-kIw"/>
+                                    <outlet property="newsStoryImage" destination="F6J-V3-n9C" id="aJ8-hE-05a"/>
+                                    <outlet property="newsStoryTitle" destination="CMU-du-UQx" id="9zF-Nh-jH9"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -657,7 +696,7 @@ last 10 games</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qal-yk-T45" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1702" y="1039"/>
+            <point key="canvasLocation" x="1701.5999999999999" y="1038.5307346326838"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

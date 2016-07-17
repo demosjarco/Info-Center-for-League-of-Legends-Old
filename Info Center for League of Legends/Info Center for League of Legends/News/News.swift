@@ -125,7 +125,18 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout {
             
         }
         
-        // Configure the cell
+        cell.newsStoryBlurTitle?.text = entries[indexPath.row]["title"] as? String
+        cell.newsStoryTitle?.text = entries[indexPath.row]["title"] as? String
+        
+        autoreleasepool { ()
+            let temp = entries[indexPath.row]["content"] as! String
+            do {
+                try cell.newsStoryBlurContent?.text = AttributedString(data: temp.data(using: String.Encoding.utf8)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil).string
+                try cell.newsStoryContent?.text = AttributedString(data: temp.data(using: String.Encoding.utf8)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil).string
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
         
         return cell
     }
