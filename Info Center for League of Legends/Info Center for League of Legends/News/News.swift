@@ -109,6 +109,9 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newsCell", for: indexPath) as! NewsCell
+        // Rasterizing a UIVisualEffectView crashes for now
+        // cell.layer.shouldRasterize = true
+        // cell.layer.rasterizationScale = UIScreen.main().scale
         
         let img1 = self.entries[indexPath.row]["content"] as! String
         let img2 = img1.components(separatedBy: "src=\"").last?.components(separatedBy: "\"")
