@@ -18,11 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.tintColor = UIColor(colorLiteralRed: 207/255.0, green: 186/255.0, blue: 107/255.0, alpha: 1.0)
         FIRApp.configure()
         
-        /*FIRAuth.auth()?.signInAnonymously(completion: { (user, error) in
+        FIRAuth.auth()?.signInAnonymously(completion: { (user, error) in
             NSLog("User id: %@", user!.uid)
-        })*/
-        FIRAuth.auth()?.signIn(withEmail: "vilisei@gmail.com", password: "victor", completion: { (user, error) in
-            print("User id: " + user!.uid)
         })
         
         return true

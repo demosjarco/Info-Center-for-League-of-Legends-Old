@@ -20,6 +20,7 @@
 		172101D31D1EDC880088DB1A /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101D21D1EDC880088DB1A /* MainCollectionViewController.swift */; };
 		172101D51D1F1A840088DB1A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 172101D41D1F1A840088DB1A /* Settings.bundle */; };
 		172101D71D1F26A00088DB1A /* DDragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101D61D1F26A00088DB1A /* DDragon.swift */; };
+		17353B681D3AC7F100C56768 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17353B671D3AC7F100C56768 /* News.swift */; };
 		1739C48F1D1C281400B50BDC /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739C48E1D1C281400B50BDC /* PlistManager.swift */; };
 		1739C4921D1C3A3800B50BDC /* SummonerEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */; };
 		174C95181D106CCD00EBFB07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C95171D106CCD00EBFB07 /* AppDelegate.swift */; };
@@ -82,6 +83,7 @@
 		172101D21D1EDC880088DB1A /* MainCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionViewController.swift; path = Subclasses/MainCollectionViewController.swift; sourceTree = "<group>"; };
 		172101D41D1F1A840088DB1A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		172101D61D1F26A00088DB1A /* DDragon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDragon.swift; path = "Riot API/DDragon.swift"; sourceTree = "<group>"; };
+		17353B671D3AC7F100C56768 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = News.swift; path = News/News.swift; sourceTree = "<group>"; };
 		1739C48E1D1C281400B50BDC /* PlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlistManager.swift; path = Subclasses/PlistManager.swift; sourceTree = "<group>"; };
 		1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummonerEndpoint.swift; path = "Riot API/SummonerEndpoint.swift"; sourceTree = "<group>"; };
 		174C95141D106CCD00EBFB07 /* Info Center for League of Legends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Info Center for League of Legends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +183,14 @@
 			name = "ProfileView Cells";
 			sourceTree = "<group>";
 		};
+		17353B691D3AC7F400C56768 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				17353B671D3AC7F100C56768 /* News.swift */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
 		1739C4901D1C383A00B50BDC /* Riot API */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +237,7 @@
 				17EDBB311D10EEF200C7B7C5 /* Subclasses */,
 				174C95171D106CCD00EBFB07 /* AppDelegate.swift */,
 				17EDBB341D10EFAF00C7B7C5 /* Profile */,
+				17353B691D3AC7F400C56768 /* News */,
 				174C951D1D106CCD00EBFB07 /* Main.storyboard */,
 				17D14E131D10D3A8007F6938 /* Winter.xcassets */,
 				17D14E121D10D3A8007F6938 /* Normal.xcassets */,
@@ -788,6 +799,7 @@
 				176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */,
 				174C95181D106CCD00EBFB07 /* AppDelegate.swift in Sources */,
 				172101CA1D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift in Sources */,
+				17353B681D3AC7F100C56768 /* News.swift in Sources */,
 				17EDBB381D10F68D00C7B7C5 /* ExistingAppChecker.swift in Sources */,
 				17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */,
 				172101CF1D1EDC2C0088DB1A /* ProfileView_Masteries.swift in Sources */,
