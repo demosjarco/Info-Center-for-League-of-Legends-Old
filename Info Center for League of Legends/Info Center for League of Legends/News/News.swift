@@ -119,11 +119,9 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout {
             imageUrl = components?.url
         }
         
-        UIImageView().setImageWith(URLRequest(url: imageUrl!), placeholderImage: nil, success: { (request, response, image) in
-            
-        }) { (request, response, error) in
-            
-        }
+        cell.newsStoryImage?.setImageWith(URLRequest(url: imageUrl!), placeholderImage: nil, success: { (request, response, image) in
+            cell.setStoryImage(storyImage: image)
+        }, failure: nil)
         
         cell.newsStoryBlurTitle?.text = entries[indexPath.row]["title"] as? String
         cell.newsStoryTitle?.text = entries[indexPath.row]["title"] as? String
