@@ -28,11 +28,6 @@ class NewsCell: UICollectionViewCell {
         self.newsStoryImageBlur?.isHidden = false
         // Gradient Mask
         autoreleasepool { ()
-            /*UIImage *_maskingImage = [UIImage imageNamed:@"NewsCellBlurMask"];
-            CALayer *_maskingLayer = [CALayer layer];
-            _maskingLayer.frame = CGRectMake(0, 0, _maskingImage.size.width, _maskingImage.size.height);
-            [_maskingLayer setContents:(id)[_maskingImage CGImage]];
-            [newsStoryImageBlur.layer setMask:_maskingLayer];*/
             let _maskingImage = UIImage(named: "NewsCellBlurMask")
             let _maskingLayer = CALayer()
             _maskingLayer.frame = CGRect(origin: CGPoint.zero, size: _maskingImage!.size)
