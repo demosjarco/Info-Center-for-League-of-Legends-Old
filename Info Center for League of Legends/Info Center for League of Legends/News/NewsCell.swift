@@ -9,5 +9,11 @@
 import UIKit
 
 class NewsCell: UICollectionViewCell {
+    @IBOutlet var newsStoryImage: UIImageView?
+    @IBOutlet var newsStoryImageBlur: UIVisualEffectView?
+    @IBOutlet var newsStoryBlurTitle: UILabel?
+    @IBOutlet var newsStoryBlurContent: UILabel?
     
+    @IBOutlet var newsStoryTitle: UILabel?
+    @IBOutlet var newsStoryContent: UILabel?
 }
