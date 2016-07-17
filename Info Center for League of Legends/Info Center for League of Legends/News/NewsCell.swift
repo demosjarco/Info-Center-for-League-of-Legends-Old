@@ -1,5 +1,5 @@
 //
-//  NewsCell_woImg.swift
+//  NewsCell.swift
 //  Info Center for League of Legends
 //
 //  Created by Victor Ilisei on 7/17/16.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class NewsCell_woImg: UICollectionViewCell {
+class NewsCell: UICollectionViewCell {
     
 }

@@ -104,11 +104,26 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return self.entries.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imgNewsCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newsCell", for: indexPath) as! NewsCell
+        
+        let img1 = self.entries[indexPath.row]["content"] as! String
+        let img2 = img1.components(separatedBy: "src=\"").last?.components(separatedBy: "\"")
+        var imageUrl:URL?
+        autoreleasepool { ()
+            var components = URLComponents(string: img2!.first!)
+            components?.scheme = "https"
+            imageUrl = components?.url
+        }
+        
+        UIImageView().setImageWith(URLRequest(url: imageUrl!), placeholderImage: nil, success: { (request, response, image) in
+            
+        }) { (request, response, error) in
+            
+        }
         
         // Configure the cell
         
