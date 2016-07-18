@@ -44,9 +44,8 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
     func refresh(sender: UIRefreshControl) {
         UIView.animate(withDuration: 0.25, delay: 0, options: .beginFromCurrentState, animations: {
             self.collectionView?.contentOffset = CGPoint(x: 0, y: -sender.frame.size.height)
-        }) { (finished: Bool) in
-            sender.beginRefreshing()
-        }
+        }, completion: nil)
+        sender.beginRefreshing()
         
         FIRDatabase.database().reference().child("news_languages").observe(FIRDataEventType.value, with: { (snapshot) in
             let languages = snapshot.value as! [String: AnyObject]
