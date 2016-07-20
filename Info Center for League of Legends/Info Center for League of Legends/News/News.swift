@@ -96,7 +96,16 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
      */
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        self.collectionView?.collectionViewLayout.invalidateLayout()
+        autoreleasepool { ()
+            let flowLayout = SGSStaggeredFlowLayout()
+            flowLayout.layoutMode = SGSStaggeredFlowLayoutMode_Centered
+            flowLayout.minimumLineSpacing = 0
+            flowLayout.minimumInteritemSpacing = 0
+            flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            flowLayout.itemSize = CGSize(width: MAX_CELL_SIZE, height: MAX_CELL_SIZE)
+            
+            self.collectionView?.setCollectionViewLayout(flowLayout, animated: true)
+        }
     }
     
     // MARK: UICollectionViewDataSource
