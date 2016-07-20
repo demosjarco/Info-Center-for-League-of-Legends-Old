@@ -121,15 +121,18 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if screenSizeLeftHorizontal < CGFloat(MAX_CELL_SIZE) {
-            screenSizeLeftHorizontal = collectionView.frame.size.width
+        if collectionView.frame.size.width >= CGFloat(MAX_CELL_SIZE * 2) {
+            if screenSizeLeftHorizontal < CGFloat(MAX_CELL_SIZE) {
+                screenSizeLeftHorizontal = collectionView.frame.size.width
+            }
+            
+            let maxColums = Int(floor(screenSizeLeftHorizontal / CGFloat(MAX_CELL_SIZE)))
+            let random = Int(arc4random_uniform(UInt32(maxColums - 1))) + 1
+            screenSizeLeftHorizontal -= CGFloat(MAX_CELL_SIZE * random)
+            
+            return CGSize(width: MAX_CELL_SIZE * random, height: MAX_CELL_SIZE)
         }
-        
-        let maxColums = Int(floor(screenSizeLeftHorizontal / CGFloat(MAX_CELL_SIZE)))
-        let random = Int(arc4random_uniform(UInt32(maxColums - 1))) + 1
-        screenSizeLeftHorizontal -= CGFloat(MAX_CELL_SIZE * random)
-        
-        return CGSize(width: MAX_CELL_SIZE * random, height: MAX_CELL_SIZE)
+        return CGSize(width: collectionView.frame.size.width, height: CGFloat(MAX_CELL_SIZE))
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
