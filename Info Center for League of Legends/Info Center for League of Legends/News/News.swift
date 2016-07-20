@@ -28,7 +28,7 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
             flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             flowLayout.itemSize = CGSize(width: MAX_CELL_SIZE, height: MAX_CELL_SIZE)
             
-            self.collectionView?.collectionViewLayout = flowLayout
+            self.collectionView?.setCollectionViewLayout(flowLayout, animated: true)
         }
         
         autoreleasepool { ()
