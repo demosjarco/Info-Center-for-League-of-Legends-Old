@@ -141,6 +141,48 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                         cell.setNeedsLayout()
                     })
                 })
+                
+                LeagueEndpoint().getLeagueEntryBySummonerIds(summonerIds: [temp.summonerId], completion: { (summonerMap) in
+                    //
+                }, notFound: {
+                    autoreleasepool { ()
+                        let tierIcon = NSTextAttachment()
+                        autoreleasepool { ()
+                            let pictureHeight = tableView.rectForRow(at: indexPath).size.height / 2
+                            
+                            UIGraphicsBeginImageContextWithOptions(CGSize(width: pictureHeight, height: pictureHeight), false, 1.0)
+                            UIImage(named: "provisional")?.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: pictureHeight, height: pictureHeight)))
+                            tierIcon.image = UIGraphicsGetImageFromCurrentImageContext()
+                            UIGraphicsEndImageContext()
+                        }
+                        
+                        let attString = NSMutableAttributedString(string: " Level " + String(temp.summonerLevel))
+                        attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
+                        attString.replaceCharacters(in: NSMakeRange(0, 1), with: AttributedString(attachment: tierIcon))
+                        cell.detailTextLabel?.attributedText = attString
+                        cell.detailTextLabel?.setNeedsLayout()
+                        cell.setNeedsLayout()
+                    }
+                }, errorBlock: {
+                    autoreleasepool { ()
+                        let tierIcon = NSTextAttachment()
+                        autoreleasepool { ()
+                            let pictureHeight = tableView.rectForRow(at: indexPath).size.height / 2
+                            
+                            UIGraphicsBeginImageContextWithOptions(CGSize(width: pictureHeight, height: pictureHeight), false, 1.0)
+                            UIImage(named: "provisional")?.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: pictureHeight, height: pictureHeight)))
+                            tierIcon.image = UIGraphicsGetImageFromCurrentImageContext()
+                            UIGraphicsEndImageContext()
+                        }
+                        
+                        let attString = NSMutableAttributedString(string: " Level " + String(temp.summonerLevel))
+                        attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
+                        attString.replaceCharacters(in: NSMakeRange(0, 1), with: AttributedString(attachment: tierIcon))
+                        cell.detailTextLabel?.attributedText = attString
+                        cell.detailTextLabel?.setNeedsLayout()
+                        cell.setNeedsLayout()
+                    }
+                })
             }, errorBlock: {
                     
             })
