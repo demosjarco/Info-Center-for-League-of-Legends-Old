@@ -143,8 +143,83 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                 })
                 
                 LeagueEndpoint().getLeagueEntryBySummonerIds(summonerIds: [temp.summonerId], completion: { (summonerMap) in
-                    //
+                    // Ranked
+                    autoreleasepool({ ()
+                        let currentSummoner = summonerMap.values.first
+                        
+                        var highestTier: Int = 7
+                        var highestTierSpelledOut: String = ""
+                        var highestDivision: Int = 6
+                        var highestDivisionRoman: String = ""
+                        
+                        for league in currentSummoner! {
+                            if highestTier > LeagueEndpoint().tierToNumber(tier: league.tier) {
+                                highestTier = LeagueEndpoint().tierToNumber(tier: league.tier)
+                                highestTierSpelledOut = league.tier
+                                highestDivision = 6
+                                
+                                for entry in league.entries {
+                                    if highestDivision > LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division) {
+                                        highestDivision = LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division)
+                                        highestDivisionRoman = entry.division
+                                    }
+                                }
+                            } else if highestTier == LeagueEndpoint().tierToNumber(tier: league.tier) {
+                                for entry in league.entries {
+                                    if highestDivision > LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division) {
+                                        highestDivision = LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division)
+                                        highestDivisionRoman = entry.division
+                                    }
+                                }
+                            }
+                            
+                            if highestTier < 2 {
+                                // Challenger & Master
+                                // Dont use division
+                                autoreleasepool { ()
+                                    let tierIcon = NSTextAttachment()
+                                    autoreleasepool { ()
+                                        let pictureHeight = tableView.rectForRow(at: indexPath).size.height / 2
+                                        
+                                        UIGraphicsBeginImageContextWithOptions(CGSize(width: pictureHeight, height: pictureHeight), false, 1.0)
+                                        UIImage(named: highestTierSpelledOut.lowercased())?.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: pictureHeight, height: pictureHeight)))
+                                        tierIcon.image = UIGraphicsGetImageFromCurrentImageContext()
+                                        UIGraphicsEndImageContext()
+                                    }
+                                    
+                                    let attString = NSMutableAttributedString(string: " " + highestTierSpelledOut.capitalized)
+                                    attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
+                                    attString.replaceCharacters(in: NSMakeRange(0, 1), with: AttributedString(attachment: tierIcon))
+                                    cell.detailTextLabel?.attributedText = attString
+                                    cell.detailTextLabel?.setNeedsLayout()
+                                    cell.setNeedsLayout()
+                                }
+                            } else {
+                                // Diamond and lower
+                                // Use division
+                                autoreleasepool { ()
+                                    let tierIcon = NSTextAttachment()
+                                    autoreleasepool { ()
+                                        let pictureHeight = tableView.rectForRow(at: indexPath).size.height / 2
+                                        
+                                        UIGraphicsBeginImageContextWithOptions(CGSize(width: pictureHeight, height: pictureHeight), false, 1.0)
+                                        UIImage(named: highestTierSpelledOut.lowercased() + "_" + highestDivisionRoman.lowercased())?.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: pictureHeight, height: pictureHeight)))
+                                        tierIcon.image = UIGraphicsGetImageFromCurrentImageContext()
+                                        UIGraphicsEndImageContext()
+                                    }
+                                    
+                                    let attString = NSMutableAttributedString(string: " " + highestTierSpelledOut.capitalized + " " + highestDivisionRoman.uppercased())
+                                    attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
+                                    attString.replaceCharacters(in: NSMakeRange(0, 1), with: AttributedString(attachment: tierIcon))
+                                    cell.detailTextLabel?.attributedText = attString
+                                    cell.detailTextLabel?.setNeedsLayout()
+                                    cell.setNeedsLayout()
+                                }
+                            }
+                        }
+                    })
                 }, notFound: {
+                    // Unranked
                     autoreleasepool { ()
                         let tierIcon = NSTextAttachment()
                         autoreleasepool { ()
@@ -164,6 +239,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                         cell.setNeedsLayout()
                     }
                 }, errorBlock: {
+                    // Error
                     autoreleasepool { ()
                         let tierIcon = NSTextAttachment()
                         autoreleasepool { ()
