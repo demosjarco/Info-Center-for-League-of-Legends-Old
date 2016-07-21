@@ -81,7 +81,6 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                 self.summonerInfoForSegue = summonerMap.values.first!
                 
                 PlistManager().addToRecentSummoners(newSummoner: summonerMap.values.first!)
-                
                 self.refresh()
                 
                 indicator.stopAnimating()
