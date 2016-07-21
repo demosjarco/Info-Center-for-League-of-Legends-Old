@@ -114,9 +114,18 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recentProfileCell", for: indexPath)
+        // Performance
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.main().scale
+        
+        // Clear old values
+        cell.imageView?.image = UIImage(named: "poroIcon")
+        cell.textLabel?.text = "--"
+        cell.detailTextLabel?.text = "--"
         
         autoreleasepool { ()
             var temp = recentSummoners[indexPath.row] as! SummonerDto
+            
             SummonerEndpoint().getSummonersForIds(summonerIds: [temp.summonerId], completion: { (summonerMap) in
                 self.recentSummoners.replaceObject(at: indexPath.row, with: summonerMap.values.first!)
                 temp = summonerMap.values.first!
