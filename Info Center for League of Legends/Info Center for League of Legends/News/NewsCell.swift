@@ -32,7 +32,7 @@ class NewsCell: UICollectionViewCell {
             _gradientLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main().bounds.size.width, height: 256)
             _gradientLayer.colors = [UIColor.clear().cgColor, UIColor.black().cgColor]
             _gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
-            _gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.7)
+            _gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.4 + 1.0 / 3.0)
             let _maskingLayer = CALayer()
             _maskingLayer.frame = CGRect(origin: CGPoint.zero, size: _gradientLayer.frame.size)
             _maskingLayer.addSublayer(_gradientLayer)
