@@ -9,6 +9,20 @@
 import UIKit
 import Foundation
 
-class ProfileView_RecentGames: UICollectionViewCell {
+protocol RecentGames_SummaryTileDelegate {
+    func refreshRecentGames()
+}
+
+class ProfileView_RecentGames: ProfileView_SummaryTile {
+    var delegate:RecentGames_SummaryTileDelegate?
     
+    @IBOutlet var winratePercentage: UILabel?
+    
+    // Last game
+    @IBOutlet var lastGameChamp: UIImageView?
+    @IBOutlet var lastGameScore: UILabel?
+    
+    override func refreshTile(sender: UIButton) {
+        delegate?.refreshRecentGames()
+    }
 }
