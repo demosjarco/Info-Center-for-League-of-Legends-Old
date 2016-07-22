@@ -9,13 +9,14 @@
 import UIKit
 import Foundation
 import QuartzCore
+import BEMSimpleLineGraph
 
 protocol HeaderDelegate {
     func goBack()
     func addSummonerToRecents()
 }
 
-class ProfileView_Header: UICollectionReusableView, UICollectionViewDataSource, UICollectionViewDelegate {
+class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
     var delegate:HeaderDelegate?
     var summoner = SummonerDto()
     var summonerStats = NSMutableArray()
@@ -96,6 +97,17 @@ class ProfileView_Header: UICollectionReusableView, UICollectionViewDataSource, 
     
     @IBAction func addToRecentsPressed() {
         delegate?.addSummonerToRecents()
+    }
+    
+    // MARK: - Graph Delegate
+    
+    // MARK: - Graph Data Source
+    func numberOfPoints(inLineGraph graph: BEMSimpleLineGraphView) -> Int {
+        return Int(arc4random_uniform(50) + 2)
+    }
+    
+    func lineGraph(_ graph: BEMSimpleLineGraphView, valueForPointAt index: Int) -> CGFloat {
+        return CGFloat(arc4random_uniform(100))
     }
     
     // MARK: - Collection view data source
