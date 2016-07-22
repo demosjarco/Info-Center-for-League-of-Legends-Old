@@ -9,6 +9,8 @@
 import UIKit
 
 class RecentGamesDto: NSObject {
+    /// Collection of recent games played (max 10).
     var games = [GameDto]()
+    /// Summoner ID.
     var summonerId:CLong = 0
 }
