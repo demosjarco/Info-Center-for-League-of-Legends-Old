@@ -13,15 +13,6 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     var tileOrder = NSArray()
     
     var profileHeader = ProfileView_Header()
-    var champMasteryCell = ProfileView_ChampMastery()
-    
-    var recentGamesCell = ProfileView_RecentGames()
-    
-    var masteriesCell = ProfileView_Masteries()
-    
-    var runesCell = ProfileView_Runes()
-    
-    var teamsCell = ProfileView_Teams()
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .lightContent
@@ -220,39 +211,39 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         switch tileOrder[indexPath.row]["tileType"] {
             case "champMastery" as NSString:
                 // Champion Mastery
-                self.champMasteryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_champ_mastery", for: indexPath) as! ProfileView_ChampMastery
+                let champMasteryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_champ_mastery", for: indexPath) as! ProfileView_ChampMastery
                 
-                self.champMasteryCell.setupCell()
+                champMasteryCell.setupCell()
                 
-                return self.champMasteryCell
+                return champMasteryCell
             case "recentGames" as NSString:
                 // Recent Games
-                self.recentGamesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_recent_games", for: indexPath) as! ProfileView_RecentGames
+                let recentGamesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_recent_games", for: indexPath) as! ProfileView_RecentGames
                 
-                self.recentGamesCell.setupCell()
+                recentGamesCell.setupCell()
                 
-                return self.recentGamesCell
+                return recentGamesCell
             case "masteries" as NSString:
                 // Masteries
-                self.masteriesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_masteries", for: indexPath) as! ProfileView_Masteries
+                let masteriesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_masteries", for: indexPath) as! ProfileView_Masteries
                 
-                self.masteriesCell.setupCell()
+                masteriesCell.setupCell()
                 
-                return self.masteriesCell
+                return masteriesCell
             case "runes" as NSString:
                 // Runes
-                self.runesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_runes", for: indexPath) as! ProfileView_Runes
+                let runesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_runes", for: indexPath) as! ProfileView_Runes
                 
-                self.runesCell.setupCell()
+                runesCell.setupCell()
                 
-                return self.runesCell
+                return runesCell
             case "teams" as NSString:
                 // Teams
-                self.teamsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_teams", for: indexPath) as! ProfileView_Teams
+                let teamsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_teams", for: indexPath) as! ProfileView_Teams
                 
-                self.teamsCell.setupCell()
+                teamsCell.setupCell()
                 
-                return self.teamsCell
+                return teamsCell
             default:
                 return collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
         }
