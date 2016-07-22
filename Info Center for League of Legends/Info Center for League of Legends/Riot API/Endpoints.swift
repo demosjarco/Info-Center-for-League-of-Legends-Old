@@ -26,6 +26,10 @@ class Endpoints: NSObject {
         return identifier
     }
     
+    func getBaseEndpoint() -> String {
+        return "https://" + self.getRegion() + ".api.pvp.net/api/lol/" + self.getRegion()
+    }
+    
     func getRegion() -> String {
         return UserDefaults.standard.string(forKey: "league_region")!
     }
@@ -54,7 +58,7 @@ class Endpoints: NSObject {
     // Stats
     func stats_bySummoner_summary(summonerId: String, completion: (composedUrl: String) -> Void) {
         self.getApiKey { (apiKey) in
-            let urlString = "https://" + self.getRegion() + ".api.pvp.net/api/lol/" + self.getRegion() + "/v1.3/stats/by-summoner/" + summonerId + "/summary?api_key=" + apiKey
+            let urlString = self.getBaseEndpoint() + "/v1.3/stats/by-summoner/" + summonerId + "/summary?api_key=" + apiKey
             completion(composedUrl: urlString)
         }
     }
@@ -62,13 +66,13 @@ class Endpoints: NSObject {
     // Summoner
     func summoner_byName(summonerNames: String, completion: (composedUrl: String) -> Void) {
         self.getApiKey { (apiKey) in
-            let urlString = "https://" + self.getRegion() + ".api.pvp.net/api/lol/" + self.getRegion() + "/v1.4/summoner/by-name/" + summonerNames + "?api_key=" + apiKey
+            let urlString = self.getBaseEndpoint() + "/v1.4/summoner/by-name/" + summonerNames + "?api_key=" + apiKey
             completion(composedUrl: urlString)
         }
     }
     func summoner_byId(summonerIds: String, completion: (composedUrl: String) -> Void) {
         self.getApiKey { (apiKey) in
-            let urlString = "https://" + self.getRegion() + ".api.pvp.net/api/lol/" + self.getRegion() + "/v1.4/summoner/" + summonerIds + "?api_key=" + apiKey
+            let urlString = self.getBaseEndpoint() + "/v1.4/summoner/" + summonerIds + "?api_key=" + apiKey
             completion(composedUrl: urlString)
         }
     }
