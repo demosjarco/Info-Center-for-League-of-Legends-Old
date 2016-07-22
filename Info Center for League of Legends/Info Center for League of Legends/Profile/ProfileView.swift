@@ -206,10 +206,6 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     }
     
     // MARK: - Recent Games delegate
-    func refreshRecentGames() {
-        loadRanked()
-        loadSummonerStats()
-    }
     
     // MARK: - Collection view data source
     override func numberOfSections(in collectionView: UICollectionView) -> Int {

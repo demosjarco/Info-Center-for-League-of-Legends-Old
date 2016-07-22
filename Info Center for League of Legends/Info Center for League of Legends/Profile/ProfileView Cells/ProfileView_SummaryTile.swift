@@ -9,9 +9,7 @@
 import UIKit
 
 class ProfileView_SummaryTile: UICollectionViewCell {
-    // @IBOutlet var refreshButton: UIButton?
-    
-    @IBAction func refreshTile(sender: UIButton) {
-        // Override
+    func setupCell() {
+        //
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 protocol RecentGames_SummaryTileDelegate {
-    func refreshRecentGames()
+    
 }
 
 class ProfileView_RecentGames: ProfileView_SummaryTile {
@@ -21,8 +21,4 @@ class ProfileView_RecentGames: ProfileView_SummaryTile {
     // Last game
     @IBOutlet var lastGameChamp: UIImageView?
     @IBOutlet var lastGameScore: UILabel?
-    
-    override func refreshTile(sender: UIButton) {
-        delegate?.refreshRecentGames()
-    }
 }
