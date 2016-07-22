@@ -47,10 +47,18 @@ class Endpoints: NSObject {
     
     // MARK: - Endpoint URLs
     
+    // Game
+    func game_BySummoner(summonerId: String, completion: (composedUrl: String) -> Void) {
+        self.getApiKey { (apiKey) in
+            let urlString = self.getBaseEndpoint() + "/v1.3/game/by-summoner/" + summonerId + "/recent?api_key=" + apiKey
+            completion(composedUrl: urlString)
+        }
+    }
+    
     // League
     func league_bySummoner_entry(summonerIds: String, completion: (composedUrl: String) -> Void) {
         self.getApiKey { (apiKey) in
-            let urlString = "https://" + self.getRegion() + ".api.pvp.net/api/lol/" + self.getRegion() + "/v2.5/league/by-summoner/" + summonerIds + "/entry?api_key=" + apiKey
+            let urlString = self.getBaseEndpoint() + "/v2.5/league/by-summoner/" + summonerIds + "/entry?api_key=" + apiKey
             completion(composedUrl: urlString)
         }
     }
