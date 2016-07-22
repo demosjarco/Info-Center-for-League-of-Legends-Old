@@ -273,41 +273,36 @@ last 10 games</string>
                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DOb-dU-MW2">
                                         <frame key="frameInset"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfk-AE-brA" customClass="BEMSimpleLineGraphView">
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableBezierCurve" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableYAxisLabel" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="enableXAxisLabel" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="colorBottom">
-                                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="colorLine">
-                                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="colorTop">
-                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="alphaBottom">
-                                                        <real key="value" value="0.25"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="alphaLine">
-                                                        <real key="value" value="0.25"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="pfk-AE-brA" secondAttribute="trailing" id="Ca3-fy-jxb"/>
-                                            <constraint firstItem="pfk-AE-brA" firstAttribute="top" secondItem="DOb-dU-MW2" secondAttribute="top" id="Fe4-pq-Tm7"/>
-                                            <constraint firstItem="pfk-AE-brA" firstAttribute="leading" secondItem="DOb-dU-MW2" secondAttribute="leading" id="bbF-5i-snQ"/>
-                                            <constraint firstAttribute="bottom" secondItem="pfk-AE-brA" secondAttribute="bottom" constant="-20" id="pHZ-KX-mYC"/>
-                                        </constraints>
                                     </view>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <blurEffect style="dark"/>
                                 </visualEffectView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfk-AE-brA" customClass="BEMSimpleLineGraphView">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="enableBezierCurve" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="enableYAxisLabel" value="NO"/>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="enableXAxisLabel" value="NO"/>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="colorBottom">
+                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="colorLine">
+                                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="colorTop">
+                                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="alphaBottom">
+                                            <real key="value" value="0.25"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="alphaLine">
+                                            <real key="value" value="0.25"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outlet property="dataSource" destination="jfk-L5-GNx" id="Xs7-Fe-c4E"/>
+                                    </connections>
+                                </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XS3-3O-PA4">
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="44"/>
                                     <state key="normal" title="‹"/>
@@ -472,6 +467,7 @@ last 10 games</string>
                                 <constraint firstItem="Ye1-cE-TZ4" firstAttribute="leading" secondItem="og1-tu-Naf" secondAttribute="trailing" id="KkC-p8-qcR"/>
                                 <constraint firstItem="XS3-3O-PA4" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leadingMargin" id="OgX-lz-Q4s"/>
                                 <constraint firstItem="doK-DV-tJ3" firstAttribute="top" secondItem="Ye1-cE-TZ4" secondAttribute="bottom" id="SDI-mW-en8"/>
+                                <constraint firstItem="doK-DV-tJ3" firstAttribute="top" secondItem="pfk-AE-brA" secondAttribute="bottom" constant="-20" id="Swl-Id-g15"/>
                                 <constraint firstItem="og1-tu-Naf" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leadingMargin" id="UKf-Qt-lYX"/>
                                 <constraint firstAttribute="trailing" secondItem="kbV-rc-E4V" secondAttribute="trailing" id="Ybn-dp-OUG"/>
                                 <constraint firstItem="doK-DV-tJ3" firstAttribute="leading" secondItem="og1-tu-Naf" secondAttribute="trailing" constant="-64" id="aym-ol-W9C"/>
@@ -482,9 +478,12 @@ last 10 games</string>
                                 <constraint firstItem="cwH-sZ-M7B" firstAttribute="centerX" secondItem="og1-tu-Naf" secondAttribute="centerX" id="gK4-Im-K2a"/>
                                 <constraint firstItem="viW-7c-R4i" firstAttribute="leading" secondItem="XS3-3O-PA4" secondAttribute="trailing" constant="16" id="iXh-ka-NTe"/>
                                 <constraint firstItem="XS3-3O-PA4" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="top" constant="-10" id="jxy-xU-M1j"/>
+                                <constraint firstAttribute="trailing" secondItem="pfk-AE-brA" secondAttribute="trailing" id="lKl-dt-U9S"/>
+                                <constraint firstItem="pfk-AE-brA" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leading" id="tcL-a8-dX4"/>
                                 <constraint firstItem="doK-DV-tJ3" firstAttribute="top" secondItem="kbV-rc-E4V" secondAttribute="bottom" id="uJE-ls-yzi"/>
                                 <constraint firstItem="wzf-a0-wf5" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="top" constant="-20" id="ugw-AA-BYi"/>
                                 <constraint firstAttribute="bottom" secondItem="og1-tu-Naf" secondAttribute="bottom" id="vi1-c6-Nc3"/>
+                                <constraint firstItem="pfk-AE-brA" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="top" constant="-20" id="xOB-0K-UoJ"/>
                             </constraints>
                             <connections>
                                 <outlet property="addSummonerButton" destination="viW-7c-R4i" id="Nze-yM-5w4"/>
