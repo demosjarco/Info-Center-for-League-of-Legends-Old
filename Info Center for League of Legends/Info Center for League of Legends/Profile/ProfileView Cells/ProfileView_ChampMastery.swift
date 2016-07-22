@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import Foundation
 
-class ProfileView_ChampMastery: UICollectionViewCell {
+class ProfileView_ChampMastery: ProfileView_SummaryTile {
     
 }

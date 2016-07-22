@@ -9,6 +9,6 @@
 import UIKit
 import Foundation
 
-class ProfileView_Teams: UICollectionViewCell {
+class ProfileView_Teams: ProfileView_SummaryTile {
     
 }

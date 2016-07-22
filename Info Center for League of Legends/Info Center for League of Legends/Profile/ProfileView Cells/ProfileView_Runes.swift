@@ -9,6 +9,6 @@
 import UIKit
 import Foundation
 
-class ProfileView_Runes: UICollectionViewCell {
+class ProfileView_Runes: ProfileView_SummaryTile {
     
 }

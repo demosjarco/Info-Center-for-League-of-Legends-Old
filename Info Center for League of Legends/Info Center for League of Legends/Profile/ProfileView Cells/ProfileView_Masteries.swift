@@ -9,6 +9,6 @@
 import UIKit
 import Foundation
 
-class ProfileView_Masteries: UICollectionViewCell {
+class ProfileView_Masteries: ProfileView_SummaryTile {
     
 }
