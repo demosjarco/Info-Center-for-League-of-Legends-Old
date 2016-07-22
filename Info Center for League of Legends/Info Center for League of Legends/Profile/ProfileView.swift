@@ -30,8 +30,6 @@ class ProfileView: MainCollectionViewController, HeaderDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("SUMMONER ID: " + String(self.summoner.summonerId))
-        
         tileOrder = PlistManager().loadProfileViewTileOrder()
         
         loadContent()
