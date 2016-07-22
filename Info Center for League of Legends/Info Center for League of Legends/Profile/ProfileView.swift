@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileView: MainCollectionViewController, HeaderDelegate {
+class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_SummaryTileDelegate {
     var summoner = SummonerDto()
     var tileOrder = NSArray()
     
