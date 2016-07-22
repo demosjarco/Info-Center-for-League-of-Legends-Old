@@ -202,7 +202,13 @@ class ProfileView: MainCollectionViewController, HeaderDelegate {
     }
     
     func addSummonerToRecents() {
-        
+        PlistManager().addToRecentSummoners(newSummoner: self.summoner)
+    }
+    
+    // MARK: - Recent Games delegate
+    func refreshRecentGames() {
+        loadRanked()
+        loadSummonerStats()
     }
     
     // MARK: - Collection view data source
