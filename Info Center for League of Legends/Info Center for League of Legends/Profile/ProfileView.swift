@@ -40,6 +40,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         self.title = self.summoner.name
         loadRanked()
         loadSummonerStats()
+        loadRecentGames()
     }
     
     func loadRanked() {
@@ -185,6 +186,10 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         }) { 
             // Error
         }
+    }
+    
+    func loadRecentGames() {
+        
     }
     
     // MARK: - Header delegate
