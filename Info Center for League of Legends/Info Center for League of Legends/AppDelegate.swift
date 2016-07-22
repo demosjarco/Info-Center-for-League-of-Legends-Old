@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         
         FIRAuth.auth()?.signInAnonymously(completion: { (user, error) in
-            NSLog("User id: %@", user!.uid)
+            print("User id: " + String(user!.uid))
         })
         
         return true
