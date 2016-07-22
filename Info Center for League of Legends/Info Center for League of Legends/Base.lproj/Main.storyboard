@@ -176,11 +176,9 @@ last 10 games</string>
                                                                 </view>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NXJ-eX-l5Z">
                                                                     <subviews>
-                                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9YT-78-yza">
-                                                                            <frame key="frameInset" minX="1" width="106" height="50"/>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9YT-78-yza">
                                                                             <subviews>
-                                                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="17/2/8 LOSS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zHR-Un-N6X">
-                                                                                    <frame key="frameInset" minY="30" width="106.5" height="20"/>
+                                                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17/2/8 LOSS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zHR-Un-N6X">
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -194,11 +192,9 @@ last 10 games</string>
                                                                                 <constraint firstItem="zHR-Un-N6X" firstAttribute="leading" secondItem="9YT-78-yza" secondAttribute="leading" id="XBq-2K-Gsn"/>
                                                                             </constraints>
                                                                         </view>
-                                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qp3-Cs-pCh">
-                                                                            <frame key="frameInset" minX="1" minY="50" width="106" height="50"/>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qp3-Cs-pCh">
                                                                             <subviews>
-                                                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Last Game" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ma-hT-4tM">
-                                                                                    <frame key="frameInset" width="106.5" height="20.5"/>
+                                                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Game" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ma-hT-4tM">
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -487,7 +483,7 @@ last 10 games</string>
                                 <constraint firstItem="doK-DV-tJ3" firstAttribute="top" secondItem="kbV-rc-E4V" secondAttribute="bottom" id="uJE-ls-yzi"/>
                                 <constraint firstItem="wzf-a0-wf5" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="top" constant="-20" id="ugw-AA-BYi"/>
                                 <constraint firstAttribute="bottom" secondItem="og1-tu-Naf" secondAttribute="bottom" id="vi1-c6-Nc3"/>
-                                <constraint firstItem="pfk-AE-brA" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="top" constant="-20" id="xOB-0K-UoJ"/>
+                                <constraint firstItem="pfk-AE-brA" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="top" id="xOB-0K-UoJ"/>
                             </constraints>
                             <connections>
                                 <outlet property="addSummonerButton" destination="viW-7c-R4i" id="Nze-yM-5w4"/>
@@ -606,7 +602,7 @@ last 10 games</string>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="newsCell" id="SEf-ZJ-xUB" customClass="NewsCell" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <frame key="frameInset" minX="60" minY="64" width="256" height="256"/>
+                                <frame key="frameInset" minX="59" minY="64" width="256" height="256"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
@@ -614,15 +610,15 @@ last 10 games</string>
                                     <subviews>
                                         <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j5I-Um-2Rh">
                                             <subviews>
-                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMU-du-UQx">
-                                                    <frame key="frameInset" width="240" height="21"/>
+                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMU-du-UQx">
+                                                    <frame key="frameInset" width="240" height="220"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Content" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uX-g3-7bg">
-                                                    <frame key="frameInset" minY="21" width="240" height="220"/>
+                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Content" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uX-g3-7bg">
+                                                    <frame key="frameInset" minY="220" width="240" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
