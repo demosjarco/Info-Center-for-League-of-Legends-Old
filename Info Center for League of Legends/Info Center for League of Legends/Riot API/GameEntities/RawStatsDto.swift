@@ -10,181 +10,181 @@ import UIKit
 
 class RawStatsDto: NSObject {
     ///
-    var assists:Int = 0
+    var assists:Int?
     /// Number of enemy inhibitors killed.
-    var barracksKilled:Int = 0
+    var barracksKilled:Int?
     ///
-    var bountyLevel:Int = 0
+    var bountyLevel:Int?
     ///
-    var championsKilled:Int = 0
+    var championsKilled:Int?
     ///
-    var combatPlayerScore:Int = 0
+    var combatPlayerScore:Int?
     ///
-    var consumablesPurchased:Int = 0
+    var consumablesPurchased:Int?
     ///
-    var damageDealtPlayer:Int = 0
+    var damageDealtPlayer:Int?
     ///
-    var doubleKills:Int = 0
+    var doubleKills:Int?
     ///
-    var firstBlood:Int = 0
+    var firstBlood:Int?
     ///
-    var gold:Int = 0
+    var gold:Int?
     ///
-    var goldEarned:Int = 0
+    var goldEarned:Int?
     ///
-    var goldSpent:Int = 0
+    var goldSpent:Int?
     ///
-    var item0:Int = 0
+    var item0:Int?
     ///
-    var item1:Int = 0
+    var item1:Int?
     ///
-    var item2:Int = 0
+    var item2:Int?
     ///
-    var item3:Int = 0
+    var item3:Int?
     ///
-    var item4:Int = 0
+    var item4:Int?
     ///
-    var item5:Int = 0
+    var item5:Int?
     ///
-    var item6:Int = 0
+    var item6:Int?
     ///
-    var itemsPurchased:Int = 0
+    var itemsPurchased:Int?
     ///
-    var killingSprees:Int = 0
+    var killingSprees:Int?
     ///
-    var largestCriticalStrike:Int = 0
+    var largestCriticalStrike:Int?
     ///
-    var largestKillingSpree:Int = 0
+    var largestKillingSpree:Int?
     ///
-    var largestMultiKill:Int = 0
+    var largestMultiKill:Int?
     /// Number of tier 3 items built.
-    var legendaryItemsCreated:Int = 0
+    var legendaryItemsCreated:Int?
     ///
-    var level:Int = 0
+    var level:Int?
     ///
-    var magicDamageDealtPlayer:Int = 0
+    var magicDamageDealtPlayer:Int?
     ///
-    var magicDamageDealtToChampions:Int = 0
+    var magicDamageDealtToChampions:Int?
     ///
-    var magicDamageTaken:Int = 0
+    var magicDamageTaken:Int?
     ///
-    var minionsDenied:Int = 0
+    var minionsDenied:Int?
     ///
-    var minionsKilled:Int = 0
+    var minionsKilled:Int?
     ///
-    var neutralMinionsKilled:Int = 0
+    var neutralMinionsKilled:Int?
     ///
-    var neutralMinionsKilledEnemyJungle:Int = 0
+    var neutralMinionsKilledEnemyJungle:Int?
     ///
-    var neutralMinionsKilledYourJungle:Int = 0
+    var neutralMinionsKilledYourJungle:Int?
     /// Flag specifying if the summoner got the killing blow on the nexus.
-    var nexusKilled = false
+    var nexusKilled:Bool?
     ///
-    var nodeCapture:Int = 0
+    var nodeCapture:Int?
     ///
-    var nodeCaptureAssist:Int = 0
+    var nodeCaptureAssist:Int?
     ///
-    var nodeNeutralize:Int = 0
+    var nodeNeutralize:Int?
     ///
-    var nodeNeutralizeAssist:Int = 0
+    var nodeNeutralizeAssist:Int?
     ///
-    var numDeaths:Int = 0
+    var numDeaths:Int?
     ///
-    var numItemsBought:Int = 0
+    var numItemsBought:Int?
     ///
-    var objectivePlayerScore:Int = 0
+    var objectivePlayerScore:Int?
     ///
-    var pentaKills:Int = 0
+    var pentaKills:Int?
     ///
-    var physicalDamageDealtPlayer:Int = 0
+    var physicalDamageDealtPlayer:Int?
     ///
-    var physicalDamageDealtToChampions:Int = 0
+    var physicalDamageDealtToChampions:Int?
     ///
-    var physicalDamageTaken:Int = 0
+    var physicalDamageTaken:Int?
     /// Player position (Legal values: TOP(1), MIDDLE(2), JUNGLE(3), BOT(4))
-    var playerPosition:Int = 0
+    var playerPosition:Int?
     /// Player role (Legal values: DUO(1), SUPPORT(2), CARRY(3), SOLO(4))
-    var playerRole:Int = 0
+    var playerRole:Int?
     ///
-    var playerScore0:Int = 0
+    var playerScore0:Int?
     ///
-    var playerScore1:Int = 0
+    var playerScore1:Int?
     ///
-    var playerScore2:Int = 0
+    var playerScore2:Int?
     ///
-    var playerScore3:Int = 0
+    var playerScore3:Int?
     ///
-    var playerScore4:Int = 0
+    var playerScore4:Int?
     ///
-    var playerScore5:Int = 0
+    var playerScore5:Int?
     ///
-    var playerScore6:Int = 0
+    var playerScore6:Int?
     ///
-    var playerScore7:Int = 0
+    var playerScore7:Int?
     ///
-    var playerScore8:Int = 0
+    var playerScore8:Int?
     ///
-    var playerScore9:Int = 0
+    var playerScore9:Int?
     ///
-    var quadraKills:Int = 0
+    var quadraKills:Int?
     ///
-    var sightWardsBought:Int = 0
+    var sightWardsBought:Int?
     /// Number of times first champion spell was cast.
-    var spell1Cast:Int = 0
+    var spell1Cast:Int?
     /// Number of times second champion spell was cast.
-    var spell2Cast:Int = 0
+    var spell2Cast:Int?
     /// Number of times third champion spell was cast.
-    var spell3Cast:Int = 0
+    var spell3Cast:Int?
     /// Number of times fourth champion spell was cast.
-    var spell4Cast:Int = 0
+    var spell4Cast:Int?
     ///
-    var summonSpell1Cast:Int = 0
+    var summonSpell1Cast:Int?
     ///
-    var summonSpell2Cast:Int = 0
+    var summonSpell2Cast:Int?
     ///
-    var superMonsterKilled:Int = 0
+    var superMonsterKilled:Int?
     ///
-    var team:Int = 0
+    var team:Int?
     ///
-    var teamObjective:Int = 0
+    var teamObjective:Int?
     ///
-    var timePlayed:Int = 0
+    var timePlayed:Int?
     ///
-    var totalDamageDealt:Int = 0
+    var totalDamageDealt:Int?
     ///
-    var totalDamageDealtToChampions:Int = 0
+    var totalDamageDealtToChampions:Int?
     ///
-    var totalDamageTaken:Int = 0
+    var totalDamageTaken:Int?
     ///
-    var totalHeal:Int = 0
+    var totalHeal:Int?
     ///
-    var totalPlayerScore:Int = 0
+    var totalPlayerScore:Int?
     ///
-    var totalScoreRank:Int = 0
+    var totalScoreRank:Int?
     ///
-    var totalTimeCrowdControlDealt:Int = 0
+    var totalTimeCrowdControlDealt:Int?
     ///
-    var totalUnitsHealed:Int = 0
+    var totalUnitsHealed:Int?
     ///
-    var tripleKills:Int = 0
+    var tripleKills:Int?
     ///
-    var trueDamageDealtPlayer:Int = 0
+    var trueDamageDealtPlayer:Int?
     ///
-    var trueDamageDealtToChampions:Int = 0
+    var trueDamageDealtToChampions:Int?
     ///
-    var trueDamageTaken:Int = 0
+    var trueDamageTaken:Int?
     ///
-    var turretsKilled:Int = 0
+    var turretsKilled:Int?
     ///
-    var unrealKills:Int = 0
+    var unrealKills:Int?
     ///
-    var victoryPointTotal:Int = 0
+    var victoryPointTotal:Int?
     ///
-    var visionWardsBought:Int = 0
+    var visionWardsBought:Int?
     ///
-    var wardKilled:Int = 0
+    var wardKilled:Int?
     ///
-    var wardPlaced:Int = 0
+    var wardPlaced:Int?
     /// Flag specifying whether or not this game was won.
     var win = false
 }
