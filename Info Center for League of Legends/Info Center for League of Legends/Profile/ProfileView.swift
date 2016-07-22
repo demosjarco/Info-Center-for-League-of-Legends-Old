@@ -226,35 +226,35 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 // Champion Mastery
                 self.champMasteryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_champ_mastery", for: indexPath) as! ProfileView_ChampMastery
                 
-                
+                self.champMasteryCell.setupCell()
                 
                 return self.champMasteryCell
             case "recentGames" as NSString:
                 // Recent Games
                 self.recentGamesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_recent_games", for: indexPath) as! ProfileView_RecentGames
                 
-                
+                self.recentGamesCell.setupCell()
                 
                 return self.recentGamesCell
             case "masteries" as NSString:
                 // Masteries
                 self.masteriesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_masteries", for: indexPath) as! ProfileView_Masteries
                 
-                
+                self.masteriesCell.setupCell()
                 
                 return self.masteriesCell
             case "runes" as NSString:
                 // Runes
                 self.runesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_runes", for: indexPath) as! ProfileView_Runes
                 
-                
+                self.runesCell.setupCell()
                 
                 return self.runesCell
             case "teams" as NSString:
                 // Teams
                 self.teamsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_teams", for: indexPath) as! ProfileView_Teams
                 
-                
+                self.teamsCell.setupCell()
                 
                 return self.teamsCell
             default:
