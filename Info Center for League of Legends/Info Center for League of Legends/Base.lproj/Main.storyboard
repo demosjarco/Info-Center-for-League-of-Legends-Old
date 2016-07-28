@@ -97,7 +97,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_champ_mastery" id="MEa-LU-t13" customClass="ProfileView_ChampMastery" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <frame key="frameInset" minX="28" minY="110" width="320" height="200"/>
+                                <frame key="frameInset" minX="28" minY="121" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -106,7 +106,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_recent_games" id="Ijk-9N-9Qd" customClass="ProfileView_RecentGames" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <frame key="frameInset" minX="28" minY="320" width="320" height="200"/>
+                                <frame key="frameInset" minX="28" minY="331" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -138,7 +138,7 @@
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                     <string key="text">winrate
 last 10 games</string>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -196,7 +196,7 @@ last 10 games</string>
                                                                             <subviews>
                                                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6ma-hT-4tM">
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
@@ -236,7 +236,7 @@ last 10 games</string>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_masteries" id="RbO-XF-k3e" customClass="ProfileView_Masteries" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <frame key="frameInset" minX="28" minY="530" width="320" height="200"/>
+                                <frame key="frameInset" minX="28" minY="541" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -245,7 +245,7 @@ last 10 games</string>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_runes" id="5Du-qX-Luu" customClass="ProfileView_Runes" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <frame key="frameInset" minX="28" minY="740" width="320" height="200"/>
+                                <frame key="frameInset" minX="28" minY="751" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -254,7 +254,7 @@ last 10 games</string>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_teams" id="yjA-Fb-F9h" customClass="ProfileView_Teams" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <frame key="frameInset" minX="28" minY="950" width="320" height="200"/>
+                                <frame key="frameInset" minX="28" minY="961" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -264,7 +264,7 @@ last 10 games</string>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_header" id="jfk-L5-GNx" customClass="ProfileView_Header" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                            <frame key="frameInset" minY="-156" width="375" height="256"/>
+                            <frame key="frameInset" minY="-145" width="375" height="256"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kbV-rc-E4V">
