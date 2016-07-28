@@ -60,7 +60,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchImageIcon" width="1920" height="1080"/>
+        <image name="LaunchImageIcon" width="1024" height="1024"/>
         <image name="summonersRift" width="1920" height="1080"/>
     </resources>
 </document>
