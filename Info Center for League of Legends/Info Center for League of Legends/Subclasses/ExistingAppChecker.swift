@@ -64,10 +64,10 @@ class ExistingAppChecker: NSObject {
                         prefs.setValue("oce", forKey: "league_region")
                         FIRMessaging.messaging().subscribe(toTopic: "/topics/oce")
                     })
-                    alert.addAction(UIAlertAction(title: "Republic of Korea", style: .default) { (action) in
+                    /*alert.addAction(UIAlertAction(title: "Republic of Korea", style: .default) { (action) in
                         prefs.setValue("kr", forKey: "league_region")
                         FIRMessaging.messaging().subscribe(toTopic: "/topics/kr")
-                    })
+                    })*/
                     
                     viewController.present(alert, animated: true) {
                         // ...
