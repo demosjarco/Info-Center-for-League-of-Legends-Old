@@ -11,7 +11,7 @@ import Firebase
 import AFNetworking
 
 class GameEndpoint: NSObject {
-    func getRecentGamesBySummonerId(summonerId: CLong, completion: (recentGamesMap: RecentGamesDto) -> Void, errorBock: () -> Void) {
+    func getRecentGamesBySummonerId(summonerId: CLong, completion: (recentGamesMap: RecentGamesDto) -> Void, errorBlock: () -> Void) {
         Endpoints().game_BySummoner(summonerId: String(summonerId)) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 autoreleasepool({ ()
@@ -24,12 +24,69 @@ class GameEndpoint: NSObject {
                             let newGame = GameDto()
                             
                             newGame.championId = oldGame["championId"] as! Int
-                            newGame.createDate = NSDate(timeIntervalSince1970: (oldGame["createDate"] as! CLong) / 1000)
-                            
+                            // newGame.createDate = NSDate(timeIntervalSince1970: (oldGame["createDate"] as! CLong) / 1000)
+                            // newGame.fellowPlayers
                             newGame.gameId = oldGame["gameId"] as! CLong
                             newGame.gameMode = oldGame["gameMode"] as! String
                             newGame.gameType = oldGame["gameType"] as! String
+                            newGame.invalid = oldGame["invalid"] as! Bool
+                            newGame.ipEarned = oldGame["ipEarned"] as! Int
+                            newGame.level = oldGame["level"] as! Int
+                            newGame.mapId = oldGame["mapId"] as! Int
+                            newGame.spell1 = oldGame["spell1"] as! Int
+                            newGame.spell2 = oldGame["spell2"] as! Int
                             
+                            autoreleasepool({ ()
+                                let newStats = newGame.stats
+                                let oldStats = oldGame["stats"] as! [String: AnyObject]
+                                
+                                newStats.assists = oldStats["assists"] as? Int
+                                
+                                
+                                newStats.championsKilled = oldStats["championsKilled"] as? Int
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                newStats.numDeaths = oldStats["numDeaths"] as? Int
+                                newStats.win = oldStats["win"] as! Bool
+                                
+                                newGame.stats = newStats
+                            })
+                            
+                            newGame.subType = oldGame["subType"] as! String
+                            newGame.teamId = oldGame["teamId"] as! Int
                             
                             recentGames.games.append(newGame)
                         }
