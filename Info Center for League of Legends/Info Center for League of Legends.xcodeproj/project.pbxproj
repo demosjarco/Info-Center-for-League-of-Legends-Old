@@ -476,6 +476,9 @@
 							com.apple.Push = {
 								enabled = 1;
 							};
+							com.apple.Siri = {
+								enabled = 1;
+							};
 						};
 					};
 					174C95291D106CCE00EBFB07 = {
