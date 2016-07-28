@@ -11,9 +11,9 @@ import UIKit
 class ProfileView_SummaryTile: UICollectionViewCell {
     func setupCell() {
         // Shadow
-        self.layer.shadowColor = UIColor.black().cgColor
-        self.layer.shadowRadius = 5.0
-        self.layer.shadowOpacity = 0.75
-        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        // self.layer.shadowColor = UIColor.black().cgColor
+        // self.layer.shadowRadius = 5.0
+        // self.layer.shadowOpacity = 0.75
+        // self.layer.shadowOffset = CGSize(width: 0, height: 0)
     }
 }
