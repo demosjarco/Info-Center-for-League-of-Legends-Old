@@ -26,11 +26,10 @@ class DDragon: NSObject {
     func getProfileIcon(profileIconId: Int, completion: (profileIconURL: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
             self.getLatestDDragonVersion(dataType: "profileicon", completion: { (version) in
-                do {
-                    try completion(profileIconURL: (URL(string: cdnUrl)?.appendingPathComponent(version).appendingPathComponent("img").appendingPathComponent("profileicon").appendingPathComponent(String(profileIconId)).appendingPathExtension("png"))!)
-                } catch {
-                    
-                }
+                completion(profileIconURL: URL(string: cdnUrl + "/" + version + "/img/profileicon/" + String(profileIconId) + ".png")!)
+            })
+        }
+    }
             })
         }
     }
