@@ -17,6 +17,7 @@ class ProfileView_RecentGames: ProfileView_SummaryTile {
     var delegate:RecentGames_SummaryTileDelegate?
     
     @IBOutlet var winratePercentage: UILabel?
+    @IBOutlet var totalGamesCounted: UILabel?
     
     // Last game
     @IBOutlet var lastGameChamp: UIImageView?

@@ -227,6 +227,19 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 
                 recentGamesCell.setupCell()
                 
+                autoreleasepool({ ()
+                    var percentage = 0
+                    if self.rc_totalGames > 0 {
+                        percentage = self.rc_gamesWon * 100 / self.rc_totalGames
+                    }
+                    recentGamesCell.winratePercentage?.text = String(percentage) + "%"
+                    if percentage >= 0 && percentage <= 50 {
+                        recentGamesCell.winratePercentage?.textColor = UIColor(colorLiteralRed: Float(1), green: Float(percentage * 2) / 100, blue: Float(0), alpha: Float(1))
+                    } else {
+                        recentGamesCell.winratePercentage?.textColor = UIColor(colorLiteralRed: Float(1) - Float(percentage - 50) / 100, green: Float(1), blue: Float(0), alpha: Float(1))
+                    }
+                })
+                recentGamesCell.totalGamesCounted?.text = "winrate\nlast " + String(self.rc_totalGames) + " games"
                 return recentGamesCell
             case "masteries" as NSString:
                 // Masteries
