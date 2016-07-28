@@ -14,6 +14,11 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     
     var profileHeader = ProfileView_Header()
     
+    // Recent Games
+    var rc_totalGames = 0
+    var rc_gamesWon = 0
+    var rc_lastGame = GameDto()
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .lightContent
     }
@@ -189,7 +194,26 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     }
     
     func loadRecentGames() {
-        
+        GameEndpoint().getRecentGamesBySummonerId(summonerId: self.summoner.summonerId, completion: { (recentGamesMap) in
+            self.rc_lastGame = recentGamesMap.games.first!
+            self.rc_totalGames = 0
+            self.rc_gamesWon = 0
+            for game in recentGamesMap.games {
+                if !game.invalid {
+                    self.rc_totalGames += 1
+                    if game.stats.win {
+                        self.rc_gamesWon += 1
+                    }
+                }
+            }
+            for tile in self.tileOrder {
+                if tile["tileType"] as! String == "recentGames" {
+                    self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
+                }
+            }
+        }) { 
+            // Error
+        }
     }
     
     // MARK: - Header delegate
