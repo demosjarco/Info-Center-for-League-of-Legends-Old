@@ -264,6 +264,38 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                     }
                 })
                 recentGamesCell.totalGamesCounted?.text = "winrate\nlast " + String(self.rc_totalGames) + " games"
+                
+                if self.rc_lastGame.mapId == 10 {
+                    recentGamesCell.lastGameMap?.image = UIImage(named: "shadowIsles")
+                } else if self.rc_lastGame.mapId == 1 || self.rc_lastGame.mapId == 11 {
+                    recentGamesCell.lastGameMap?.image = UIImage(named: "summonersRift")
+                } else if self.rc_lastGame.mapId == 12 {
+                    recentGamesCell.lastGameMap?.image = UIImage(named: "howlingAbyss")
+                }
+                
+                autoreleasepool({ ()
+                    var kills = 0
+                    if self.rc_lastGame.stats.championsKilled != nil {
+                        kills = self.rc_lastGame.stats.championsKilled!
+                    }
+                    var deaths = 0
+                    if self.rc_lastGame.stats.numDeaths != nil {
+                        deaths = self.rc_lastGame.stats.numDeaths!
+                    }
+                    var assists = 0
+                    if self.rc_lastGame.stats.assists != nil {
+                        assists = self.rc_lastGame.stats.assists!
+                    }
+                    var won = ""
+                    if self.rc_lastGame.stats.win {
+                        won = " WIN"
+                    } else {
+                        won = " LOSS"
+                    }
+                    
+                    recentGamesCell.lastGameScore?.text = String(kills) + "/" + String(deaths) + "/" + String(assists) + won
+                })
+                
                 return recentGamesCell
             case "masteries" as NSString:
                 // Masteries
