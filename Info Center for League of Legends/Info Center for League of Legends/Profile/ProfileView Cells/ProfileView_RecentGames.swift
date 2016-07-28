@@ -20,6 +20,7 @@ class ProfileView_RecentGames: ProfileView_SummaryTile {
     @IBOutlet var totalGamesCounted: UILabel?
     
     // Last game
+    @IBOutlet var lastGameMap: UIImageView?
     @IBOutlet var lastGameChamp: UIImageView?
     @IBOutlet var lastGameScore: UILabel?
 }
