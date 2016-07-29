@@ -48,6 +48,17 @@ class DDragon: NSObject {
             })
         }
     }
+    
+    func getMasteryIcon(masteryId: Int, gray: Bool, completion: (masteryIconUrl: URL) -> Void) {
+        self.getCDNurl { (cdnUrl) in
+            self.getLatestDDragonVersion(dataType: "mastery", completion: { (version) in
+                autoreleasepool({ ()
+                    var grayText = ""
+                    if gray {
+                        grayText = "gray_"
+                    }
+                    completion(masteryIconUrl: URL(string: cdnUrl + "/" + version + "/img/mastery/" + grayText + String(masteryId) + ".png")!)
+                })
             })
         }
     }
