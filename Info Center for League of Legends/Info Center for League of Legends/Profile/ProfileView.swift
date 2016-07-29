@@ -19,6 +19,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     var rc_gamesWon = 0
     var rc_lastGame = GameDto()
     
+    // Masteries
+    var mas_currentPage = MasteryPageDto()
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .lightContent
     }
@@ -46,6 +49,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         loadRanked()
         loadSummonerStats()
         loadRecentGames()
+        loadMasteries()
     }
     
     func loadRanked() {
@@ -216,6 +220,28 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         }
     }
     
+    func loadMasteries() {
+        SummonerEndpoint().getMasteriesForSummonerIds(summonerIds: [self.summoner.summonerId], completion: { (summonerMap) in
+            autoreleasepool({ ()
+                let currentSummoner = summonerMap.values.first
+                
+                for page in currentSummoner!.pages {
+                    if page.current {
+                        self.mas_currentPage = page
+                        break
+                    }
+                }
+            })
+            for tile in self.tileOrder {
+                if tile["tileType"] as! String == "masteries" {
+                    self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
+                }
+            }
+        }) { 
+            // Error
+        }
+    }
+    
     // MARK: - Header delegate
     func goBack() {
         self.navigationController?.popViewController(animated: true)
@@ -302,6 +328,74 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 let masteriesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_masteries", for: indexPath) as! ProfileView_Masteries
                 
                 masteriesCell.setupCell()
+                
+                masteriesCell.masteryPageName?.text = self.mas_currentPage.name
+                autoreleasepool({ ()
+                    var leftColumnCount = 0
+                    for mastery in self.mas_currentPage.masteries {
+                        if mastery.masteryId > 6100 && mastery.masteryId < 6200 {
+                            leftColumnCount += mastery.rank
+                            if mastery.masteryId == 6161 || mastery.masteryId == 6162 || mastery.masteryId == 6164 {
+                                // Keystone
+                                DDragon().getMasteryIcon(masteryId: mastery.masteryId, gray: false, completion: { (masteryIconUrl) in
+                                    masteriesCell.leftColumnKeystone?.setImageWith(URLRequest(url: masteryIconUrl), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
+                                        masteriesCell.leftColumnKeystone?.image = image
+                                        masteriesCell.leftColumnKeystone?.isHidden = false
+                                    }, failure: { (request, response, error) in
+                                        masteriesCell.leftColumnKeystone?.image = UIImage(named: "poroIcon")
+                                        masteriesCell.leftColumnKeystone?.isHidden = false
+                                    })
+                                })
+                            }
+                        }
+                    }
+                    masteriesCell.leftColumnValue?.text = String(leftColumnCount)
+                })
+                
+                autoreleasepool({ ()
+                    var middleColumnCount = 0
+                    for mastery in self.mas_currentPage.masteries {
+                        if mastery.masteryId > 6300 && mastery.masteryId < 6400 {
+                            middleColumnCount += mastery.rank
+                            if mastery.masteryId == 6361 || mastery.masteryId == 6362 || mastery.masteryId == 6363 {
+                                // Keystone
+                                DDragon().getMasteryIcon(masteryId: mastery.masteryId, gray: false, completion: { (masteryIconUrl) in
+                                    print(String(masteryIconUrl))
+                                    masteriesCell.middleColumnKeystone?.setImageWith(URLRequest(url: masteryIconUrl), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
+                                        masteriesCell.middleColumnKeystone?.image = image
+                                        masteriesCell.middleColumnKeystone?.isHidden = false
+                                    }, failure: { (request, response, error) in
+                                        masteriesCell.middleColumnKeystone?.image = UIImage(named: "poroIcon")
+                                        masteriesCell.middleColumnKeystone?.isHidden = false
+                                    })
+                                })
+                            }
+                        }
+                    }
+                    masteriesCell.middleColumnValue?.text = String(middleColumnCount)
+                })
+                
+                autoreleasepool({ ()
+                    var rightColumnCount = 0
+                    for mastery in self.mas_currentPage.masteries {
+                        if mastery.masteryId > 6200 && mastery.masteryId < 6300 {
+                            rightColumnCount += mastery.rank
+                            if mastery.masteryId == 6261 || mastery.masteryId == 6262 || mastery.masteryId == 6263 {
+                                // Keystone
+                                DDragon().getMasteryIcon(masteryId: mastery.masteryId, gray: false, completion: { (masteryIconUrl) in
+                                    masteriesCell.rightColumnKeystone?.setImageWith(URLRequest(url: masteryIconUrl), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
+                                        masteriesCell.rightColumnKeystone?.image = image
+                                        masteriesCell.rightColumnKeystone?.isHidden = false
+                                    }, failure: { (request, response, error) in
+                                        masteriesCell.rightColumnKeystone?.image = UIImage(named: "poroIcon")
+                                        masteriesCell.rightColumnKeystone?.isHidden = false
+                                    })
+                                })
+                            }
+                        }
+                    }
+                    masteriesCell.rightColumnValue?.text = String(rightColumnCount)
+                })
                 
                 return masteriesCell
             case "runes" as NSString:
