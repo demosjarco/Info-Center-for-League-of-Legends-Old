@@ -19,4 +19,6 @@ class ProfileView_Masteries: ProfileView_SummaryTile {
     @IBOutlet var leftColumnKeystone: UIImageView?
     @IBOutlet var middleColumnKeystone: UIImageView?
     @IBOutlet var rightColumnKeystone: UIImageView?
+    
+    @IBOutlet var masteryPageName: UILabel?
 }
