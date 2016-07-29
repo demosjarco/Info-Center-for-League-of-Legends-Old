@@ -107,7 +107,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
     }
     
     func lineGraph(_ graph: BEMSimpleLineGraphView, valueForPointAt index: Int) -> CGFloat {
-        return CGFloat(arc4random_uniform(100))
+        return CGFloat(arc4random_uniform(100) + 2)
     }
     
     // MARK: - Collection view data source
