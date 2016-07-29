@@ -119,7 +119,7 @@ class SummonerEndpoint: NSObject {
                                     })
                                 }
                             })
-                            newMasteryPages.summonerId = oldMasteryPages[""] as! CLong
+                            newMasteryPages.summonerId = oldMasteryPages["summonerId"] as! CLong
                             
                             newResponse[json.allKeys[i] as! String] = newMasteryPages
                         })
