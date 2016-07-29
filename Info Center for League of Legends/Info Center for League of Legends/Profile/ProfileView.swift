@@ -360,7 +360,6 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                             if mastery.masteryId == 6361 || mastery.masteryId == 6362 || mastery.masteryId == 6363 {
                                 // Keystone
                                 DDragon().getMasteryIcon(masteryId: mastery.masteryId, gray: false, completion: { (masteryIconUrl) in
-                                    print(String(masteryIconUrl))
                                     masteriesCell.middleColumnKeystone?.setImageWith(URLRequest(url: masteryIconUrl), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
                                         masteriesCell.middleColumnKeystone?.image = image
                                         masteriesCell.middleColumnKeystone?.isHidden = false
