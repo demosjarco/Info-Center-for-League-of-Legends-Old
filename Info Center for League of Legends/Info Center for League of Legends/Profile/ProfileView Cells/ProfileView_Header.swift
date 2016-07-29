@@ -68,10 +68,10 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
                 self.cover?.image = image
                 self.profilePic?.image = image
                 self.setShadowOnProfilePic()
-                }, failure: { (request, response, error) in
-                    self.cover?.image = UIImage(named: "poroIcon")
-                    self.profilePic?.image = UIImage(named: "poroIcon")
-                    self.setShadowOnProfilePic()
+            }, failure: { (request, response, error) in
+                self.cover?.image = UIImage(named: "poroIcon")
+                self.profilePic?.image = UIImage(named: "poroIcon")
+                self.setShadowOnProfilePic()
             })
         })
     }
