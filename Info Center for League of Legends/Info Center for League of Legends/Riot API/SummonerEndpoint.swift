@@ -57,16 +57,18 @@ class SummonerEndpoint: NSObject {
                     let dict = responseObject as! NSDictionary
                     let dictValues = dict.allValues as! [[String: AnyObject]]
                     for i in 0 ..< dictValues.count {
-                        var oldSummoner = dictValues[i]
-                        
-                        let newSummoner = SummonerDto()
-                        newSummoner.summonerId = oldSummoner["id"] as! CLong
-                        newSummoner.name = oldSummoner["name"] as! String
-                        newSummoner.profileIconId = oldSummoner["profileIconId"] as! Int
-                        newSummoner.revisionDate = oldSummoner["revisionDate"] as! CLong
-                        newSummoner.summonerLevel = oldSummoner["summonerLevel"] as! CLong
-                        
-                        newDict[dict.allKeys[i] as! String] = newSummoner
+                        autoreleasepool({ ()
+                            let oldSummoner = dictValues[i]
+                            
+                            let newSummoner = SummonerDto()
+                            newSummoner.summonerId = oldSummoner["id"] as! CLong
+                            newSummoner.name = oldSummoner["name"] as! String
+                            newSummoner.profileIconId = oldSummoner["profileIconId"] as! Int
+                            newSummoner.revisionDate = oldSummoner["revisionDate"] as! CLong
+                            newSummoner.summonerLevel = oldSummoner["summonerLevel"] as! CLong
+                            
+                            newDict[dict.allKeys[i] as! String] = newSummoner
+                        })
                     }
                     completion(summonerMap: newDict)
                 })
