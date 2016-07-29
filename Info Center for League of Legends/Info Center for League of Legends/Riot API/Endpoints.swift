@@ -84,4 +84,10 @@ class Endpoints: NSObject {
             completion(composedUrl: urlString)
         }
     }
+    func summoner_masteriesById(summonerIds: String, completion: (composedUrl: String) -> Void) {
+        self.getApiKey { (apiKey) in
+            let urlString = self.getBaseEndpoint() + "/v1.4/summoner/" + summonerIds + "/masteries?api_key=" + apiKey
+            completion(composedUrl: urlString)
+        }
+    }
 }
