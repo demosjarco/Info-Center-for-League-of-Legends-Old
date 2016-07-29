@@ -101,7 +101,7 @@ class SummonerEndpoint: NSObject {
                                         newPage.current = oldPage["current"] as! Bool
                                         newPage.masteryPageId = oldPage["id"] as! CLong
                                         autoreleasepool({ ()
-                                            let oldMasteries = oldPage[""] as! [[String: AnyObject]]
+                                            let oldMasteries = oldPage["masteries"] as! [[String: AnyObject]]
                                             for oldMastery in oldMasteries {
                                                 autoreleasepool({ ()
                                                     let newMastery = MasteryDto()
