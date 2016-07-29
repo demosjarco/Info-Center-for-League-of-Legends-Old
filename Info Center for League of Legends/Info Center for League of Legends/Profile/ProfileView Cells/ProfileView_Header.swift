@@ -103,11 +103,13 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
     
     // MARK: - Graph Data Source
     func numberOfPoints(inLineGraph graph: BEMSimpleLineGraphView) -> Int {
-        return Int(arc4random_uniform(50) + 2)
+        // Anywhere between 250 - 500 points
+        return Int(arc4random_uniform(250) + 250)
     }
     
     func lineGraph(_ graph: BEMSimpleLineGraphView, valueForPointAt index: Int) -> CGFloat {
-        return CGFloat(arc4random_uniform(100) + 2)
+        // Anywhere between 50 - 100
+        return CGFloat(arc4random_uniform(50) + 50)
     }
     
     // MARK: - Collection view data source
