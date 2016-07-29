@@ -41,11 +41,13 @@ class DDragon: NSObject {
             completion(champLoadingArtUrl: URL(string: cdnUrl + "/img/champion/loading/" + fullImageName.replacingOccurrences(of: ".png", with: "_" + String(skinNumber) + ".jpg"))!)
         }
     }
-    
-    func getChampionSquareArt(fullImageName: String, completion: (champSquareArt: URL) -> Void) {
+    func getChampionSquareArt(fullImageName: String, completion: (champSquareArtUrl: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
             self.getLatestDDragonVersion(dataType: "champion", completion: { (version) in
-                completion(champSquareArt: URL(string: cdnUrl + "/" + version + "/img/champion/" + fullImageName)!)
+                completion(champSquareArtUrl: URL(string: cdnUrl + "/" + version + "/img/champion/" + fullImageName)!)
+            })
+        }
+    }
             })
         }
     }
