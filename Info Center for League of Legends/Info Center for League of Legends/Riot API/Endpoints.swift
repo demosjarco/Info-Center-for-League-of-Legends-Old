@@ -134,6 +134,22 @@ class Endpoints: NSObject {
         }
     }
     
+    // Static Data
+    func staticData_champion_id(championId: String, champData: String, completion: (composedUrl: String) -> Void) {
+        self.getApiKey { (apiKey) in
+            self.optimalLocaleForRegion(completion: { (optimalLocale) in
+                var urlString = self.getStaticDataBaseEndpoint() + "champion/" + championId
+                if optimalLocale {
+                    urlString += "?locale=" + Locale.autoupdatingCurrent.localeIdentifier + "&champData=" + champData + "&api_key=" + apiKey
+                } else {
+                    urlString += "?champData=" + champData + "&api_key=" + apiKey
+                }
+                completion(composedUrl: urlString)
+            })
+        }
+        
+    }
+    
     func staticData_languages(completion: (composedUrl: String) -> Void) {
         self.getApiKey { (apiKey) in
             let urlString = self.getStaticDataBaseEndpoint() + "languages?api_key=" + apiKey
