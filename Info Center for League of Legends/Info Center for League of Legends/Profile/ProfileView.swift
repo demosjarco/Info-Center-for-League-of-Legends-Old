@@ -29,6 +29,21 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Layout
+        autoreleasepool { ()
+            let oldLayout = self.collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
+            let strechyLayout = StretchyHeaderCollectionViewLayout()
+            strechyLayout.minimumLineSpacing = oldLayout.minimumLineSpacing
+            strechyLayout.minimumInteritemSpacing = oldLayout.minimumInteritemSpacing
+            strechyLayout.itemSize = oldLayout.itemSize
+            strechyLayout.estimatedItemSize = oldLayout.estimatedItemSize
+            strechyLayout.scrollDirection = oldLayout.scrollDirection
+            strechyLayout.headerReferenceSize = oldLayout.headerReferenceSize
+            strechyLayout.footerReferenceSize = oldLayout.footerReferenceSize
+            strechyLayout.sectionInset = oldLayout.sectionInset
+            self.collectionView?.collectionViewLayout = strechyLayout
+        }
+        
         tileOrder = PlistManager().loadProfileViewTileOrder()
         
         loadContent()
