@@ -44,6 +44,10 @@ class Endpoints: NSObject {
         return "https://" + self.getRegion() + ".api.pvp.net/api/lol/" + self.getRegion()
     }
     
+    func getStaticDataBaseEndpoint() -> String {
+        return "https://global.api.pvp.net/api/lol/static-data/" + self.getRegion() + "/v1.2/"
+    }
+    
     func getRegion() -> String {
         return UserDefaults.standard.string(forKey: "league_region")!
     }
