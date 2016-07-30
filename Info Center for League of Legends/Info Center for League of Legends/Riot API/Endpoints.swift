@@ -47,6 +47,49 @@ class Endpoints: NSObject {
     
     // MARK: - Endpoint URLs
     
+    // Champion Mastery
+    func championMastery_bySummonerId_topChampions(summonerId: String, count: Int, completion: (composedUrl: String) -> Void) {
+        autoreleasepool { ()
+            var region:String
+            switch self.getRegion() {
+            case "br":
+                region = platformId.br.rawValue
+            case "eune":
+                region = platformId.eune.rawValue
+            case "euw":
+                region = platformId.euw.rawValue
+            case "jp":
+                region = platformId.br.rawValue
+            case "kr":
+                region = platformId.br.rawValue
+            case "lan":
+                region = platformId.br.rawValue
+            case "las":
+                region = platformId.br.rawValue
+            case "na":
+                region = platformId.br.rawValue
+            case "oce":
+                region = platformId.br.rawValue
+            case "ru":
+                region = platformId.br.rawValue
+            case "tr":
+                region = platformId.br.rawValue
+            default:
+                region = ""
+            }
+            
+            self.getApiKey { (apiKey) in
+                var urlString = "https://" + self.getRegion() + ".api.pvp.net/championmastery/location/" + region + "/player/" + summonerId + "/topchampions"
+                if count == 0 {
+                    urlString = urlString + "?api_key=" + apiKey
+                } else {
+                    urlString = urlString + "?count=" + String(count) + "&api_key=" + apiKey
+                }
+                completion(composedUrl: urlString)
+            }
+        }
+    }
+    
     // Game
     func game_BySummoner(summonerId: String, completion: (composedUrl: String) -> Void) {
         self.getApiKey { (apiKey) in
