@@ -226,7 +226,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
             }
         }, notFound: {
             // ???
-        }) { 
+        }) {
             // Error
         }
     }
