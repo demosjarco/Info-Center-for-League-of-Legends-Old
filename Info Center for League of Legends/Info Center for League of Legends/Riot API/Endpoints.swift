@@ -10,6 +10,20 @@ import Foundation
 import Firebase
 
 class Endpoints: NSObject {
+    enum platformId: String {
+        case br = "BR1"
+        case eune = "EUN1"
+        case euw = "EUW1"
+        case jp = "JP1"
+        case kr = "KR"
+        case lan = "LA1"
+        case las = "LA2"
+        case na = "NA1"
+        case oce = "OC1"
+        case ru = "RU"
+        case tr = "TR1"
+    }
+    
     func getDeviceModel() -> String {
         var systemInfo = utsname()
         uname(&systemInfo)
