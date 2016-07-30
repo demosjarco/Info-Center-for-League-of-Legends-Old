@@ -63,6 +63,16 @@ class Endpoints: NSObject {
         })
     }
     
+    func optimalLocaleForRegion(completion: (optimalLocale: Bool) -> Void) {
+        StaticDataEndpoint().getRegionValidLocales { (languages) in
+            if languages.contains(Locale.autoupdatingCurrent.localeIdentifier)  {
+                completion(optimalLocale: true)
+            } else {
+                completion(optimalLocale: false)
+            }
+        }
+    }
+    
     // MARK: - Endpoint URLs
     
     // Champion Mastery
