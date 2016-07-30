@@ -134,6 +134,13 @@ class Endpoints: NSObject {
         }
     }
     
+    func staticData_languages(completion: (composedUrl: String) -> Void) {
+        self.getApiKey { (apiKey) in
+            let urlString = self.getStaticDataBaseEndpoint() + "languages?api_key=" + apiKey
+            completion(composedUrl: urlString)
+        }
+    }
+    
     // Stats
     func stats_bySummoner_summary(summonerId: String, completion: (composedUrl: String) -> Void) {
         self.getApiKey { (apiKey) in
