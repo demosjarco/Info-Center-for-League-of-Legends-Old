@@ -14,6 +14,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     
     var profileHeader = ProfileView_Header()
     
+    // Champion Mastery
+    var cm_top3champs = [ChampionMasteryDto]()
+    
     // Recent Games
     var rc_totalGames = 0
     var rc_gamesWon = 0
@@ -63,6 +66,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         self.title = self.summoner.name
         loadRanked()
         loadSummonerStats()
+        loadCHampionMastery()
         loadRecentGames()
         loadMasteries()
     }
@@ -212,6 +216,21 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         }
     }
     
+    func loadCHampionMastery() {
+        ChampionMasteryEndpoint().getTopChampsBySummonerId(summonerId: self.summoner.summonerId, count: 3, completion: { (championMasteryList) in
+            self.cm_top3champs = championMasteryList
+            for tile in self.tileOrder {
+                if tile["tileType"] as! String == "champMastery" {
+                    self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
+                }
+            }
+        }, notFound: {
+            // ???
+        }) { 
+            // Error
+        }
+    }
+    
     func loadRecentGames() {
         GameEndpoint().getRecentGamesBySummonerId(summonerId: self.summoner.summonerId, completion: { (recentGamesMap) in
             self.rc_lastGame = recentGamesMap.games.first!
@@ -284,6 +303,8 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 let champMasteryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_champ_mastery", for: indexPath) as! ProfileView_ChampMastery
                 
                 champMasteryCell.setupCell()
+                
+                
                 
                 return champMasteryCell
             case "recentGames" as NSString:
