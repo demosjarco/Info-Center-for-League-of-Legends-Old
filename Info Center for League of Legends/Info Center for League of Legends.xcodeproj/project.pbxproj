@@ -185,14 +185,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		171A1C0D1D38970500BAB5B4 /* StatsEntities */ = {
+		171A1C0D1D38970500BAB5B4 /* Stats Entities */ = {
 			isa = PBXGroup;
 			children = (
 				171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */,
 				171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */,
 				171A1C121D38989D00BAB5B4 /* AggregatedStatsDto.swift */,
 			);
-			name = StatsEntities;
+			name = "Stats Entities";
 			sourceTree = "<group>";
 		};
 		172101C51D1EDB340088DB1A /* ProfileView Cells */ = {
@@ -225,13 +225,13 @@
 				176D5B951D1C42A2000D9D85 /* Endpoints.swift */,
 				172101D61D1F26A00088DB1A /* DDragon.swift */,
 				17FDDF5F1D4D391200CC7277 /* ChampionMasteryEndpoint.swift */,
-				17FDDF611D4D391A00CC7277 /* ChampionMasteryEntities */,
+				17FDDF611D4D391A00CC7277 /* ChampionMastery Entities */,
 				1775F64E1D41C95800E58003 /* GameEndpoint.swift */,
-				178B95761D428A1C00CAD47A /* GameEntities */,
+				178B95761D428A1C00CAD47A /* Game Entities */,
 				1771CBCD1D28290200D0DB08 /* LeagueEndpoint.swift */,
-				1771CBCF1D282B1900D0DB08 /* LeagueEntities */,
+				1771CBCF1D282B1900D0DB08 /* League Entities */,
 				17C583CA1D388441007AAC43 /* StatsEndpoint.swift */,
-				171A1C0D1D38970500BAB5B4 /* StatsEntities */,
+				171A1C0D1D38970500BAB5B4 /* Stats Entities */,
 				1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */,
 				176D5B941D1C3D98000D9D85 /* SummonerEntities */,
 			);
@@ -331,17 +331,17 @@
 			name = "Objective-C";
 			sourceTree = "<group>";
 		};
-		1771CBCF1D282B1900D0DB08 /* LeagueEntities */ = {
+		1771CBCF1D282B1900D0DB08 /* League Entities */ = {
 			isa = PBXGroup;
 			children = (
 				1771CBD01D282B6D00D0DB08 /* LeagueDto.swift */,
 				1771CBD21D282B9800D0DB08 /* LeagueEntryDto.swift */,
 				1771CBD31D282B9800D0DB08 /* MiniSeriesDto.swift */,
 			);
-			name = LeagueEntities;
+			name = "League Entities";
 			sourceTree = "<group>";
 		};
-		178B95761D428A1C00CAD47A /* GameEntities */ = {
+		178B95761D428A1C00CAD47A /* Game Entities */ = {
 			isa = PBXGroup;
 			children = (
 				178B95781D428A1C00CAD47A /* RecentGamesDto.swift */,
@@ -349,7 +349,7 @@
 				178B957B1D428A4D00CAD47A /* PlayerDto.swift */,
 				178B957D1D428A5A00CAD47A /* RawStatsDto.swift */,
 			);
-			name = GameEntities;
+			name = "Game Entities";
 			path = "Riot API/GameEntities";
 			sourceTree = "<group>";
 		};
@@ -375,11 +375,11 @@
 			name = Profile;
 			sourceTree = "<group>";
 		};
-		17FDDF611D4D391A00CC7277 /* ChampionMasteryEntities */ = {
+		17FDDF611D4D391A00CC7277 /* ChampionMastery Entities */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = ChampionMasteryEntities;
+			name = "ChampionMastery Entities";
 			sourceTree = "<group>";
 		};
 		21035380F080A49DE06B128A /* Frameworks */ = {
