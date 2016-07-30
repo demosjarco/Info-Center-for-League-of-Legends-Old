@@ -66,7 +66,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         self.title = self.summoner.name
         loadRanked()
         loadSummonerStats()
-        loadCHampionMastery()
+        loadChampionMastery()
         loadRecentGames()
         loadMasteries()
     }
@@ -216,7 +216,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         }
     }
     
-    func loadCHampionMastery() {
+    func loadChampionMastery() {
         ChampionMasteryEndpoint().getTopChampsBySummonerId(summonerId: self.summoner.summonerId, count: 3, completion: { (championMasteryList) in
             self.cm_top3champs = championMasteryList
             for tile in self.tileOrder {
