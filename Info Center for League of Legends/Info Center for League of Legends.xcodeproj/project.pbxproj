@@ -61,6 +61,7 @@
 		17EDBB381D10F68D00C7B7C5 /* ExistingAppChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */; };
 		17FDDF601D4D391200CC7277 /* ChampionMasteryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDDF5F1D4D391200CC7277 /* ChampionMasteryEndpoint.swift */; };
 		17FDDF631D4D398100CC7277 /* ChampionMasteryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDDF621D4D398100CC7277 /* ChampionMasteryDto.swift */; };
+		17FDDF651D4D494600CC7277 /* StaticDataEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDDF641D4D494600CC7277 /* StaticDataEndpoint.swift */; };
 		9BDD3013E0ED7A4DAF224558 /* Pods_Info_Center_for_League_of_Legends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */; };
 		B83C44B1689A115821B7804E /* Pods_Info_Center_for_League_of_LegendsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AD748C7C2466B765D461B63 /* Pods_Info_Center_for_League_of_LegendsTests.framework */; };
 		EE3B7C1DAE11E2D84B89985D /* Pods_Info_Center_for_League_of_LegendsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 428C3020155A1EB60F2A3812 /* Pods_Info_Center_for_League_of_LegendsUITests.framework */; };
@@ -147,6 +148,7 @@
 		17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExistingAppChecker.swift; path = Subclasses/ExistingAppChecker.swift; sourceTree = "<group>"; };
 		17FDDF5F1D4D391200CC7277 /* ChampionMasteryEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChampionMasteryEndpoint.swift; path = "Riot API/ChampionMasteryEndpoint.swift"; sourceTree = "<group>"; };
 		17FDDF621D4D398100CC7277 /* ChampionMasteryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChampionMasteryDto.swift; path = ChampionMasteryEntities/ChampionMasteryDto.swift; sourceTree = "<group>"; };
+		17FDDF641D4D494600CC7277 /* StaticDataEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StaticDataEndpoint.swift; path = "Riot API/StaticDataEndpoint.swift"; sourceTree = "<group>"; };
 		2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Center_for_League_of_Legends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AD748C7C2466B765D461B63 /* Pods_Info_Center_for_League_of_LegendsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Center_for_League_of_LegendsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		428C3020155A1EB60F2A3812 /* Pods_Info_Center_for_League_of_LegendsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Center_for_League_of_LegendsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +234,7 @@
 				178B95761D428A1C00CAD47A /* Game Entities */,
 				1771CBCD1D28290200D0DB08 /* LeagueEndpoint.swift */,
 				1771CBCF1D282B1900D0DB08 /* League Entities */,
+				17FDDF641D4D494600CC7277 /* StaticDataEndpoint.swift */,
 				17C583CA1D388441007AAC43 /* StatsEndpoint.swift */,
 				171A1C0D1D38970500BAB5B4 /* Stats Entities */,
 				1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */,
@@ -848,6 +851,7 @@
 				1739C4921D1C3A3800B50BDC /* SummonerEndpoint.swift in Sources */,
 				172101D31D1EDC880088DB1A /* MainCollectionViewController.swift in Sources */,
 				178B95791D428A1C00CAD47A /* GameDto.swift in Sources */,
+				17FDDF651D4D494600CC7277 /* StaticDataEndpoint.swift in Sources */,
 				178B957E1D428A5A00CAD47A /* RawStatsDto.swift in Sources */,
 				178B957A1D428A1C00CAD47A /* RecentGamesDto.swift in Sources */,
 				1771CBD41D282B9800D0DB08 /* LeagueEntryDto.swift in Sources */,
