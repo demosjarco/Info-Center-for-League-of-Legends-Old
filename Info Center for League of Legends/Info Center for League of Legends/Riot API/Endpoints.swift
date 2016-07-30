@@ -73,19 +73,19 @@ class Endpoints: NSObject {
             case "euw":
                 region = platformId.euw.rawValue
             case "jp":
-                region = platformId.br.rawValue
+                region = platformId.jp.rawValue
             case "kr":
-                region = platformId.br.rawValue
+                region = platformId.kr.rawValue
             case "lan":
-                region = platformId.br.rawValue
+                region = platformId.lan.rawValue
             case "las":
-                region = platformId.br.rawValue
+                region = platformId.las.rawValue
             case "na":
-                region = platformId.br.rawValue
+                region = platformId.na.rawValue
             case "oce":
-                region = platformId.br.rawValue
+                region = platformId.oce.rawValue
             case "ru":
-                region = platformId.br.rawValue
+                region = platformId.ru.rawValue
             case "tr":
                 region = platformId.br.rawValue
             default:
