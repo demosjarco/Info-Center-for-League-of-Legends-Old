@@ -12,7 +12,6 @@ import AFNetworking
 
 class ChampionMasteryEndpoint: NSObject {
     func getTopChampsBySummonerId(summonerId: CLong, count: Int, completion: (championMasteryList: [ChampionMasteryDto]) -> Void, notFound: () -> Void, errorBlock: () -> Void) {
-        
         Endpoints().championMastery_bySummonerId_topChampions(summonerId: String(summonerId), count: count) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 autoreleasepool({ ()
