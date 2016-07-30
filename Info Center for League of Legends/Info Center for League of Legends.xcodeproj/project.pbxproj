@@ -235,6 +235,7 @@
 				1771CBCD1D28290200D0DB08 /* LeagueEndpoint.swift */,
 				1771CBCF1D282B1900D0DB08 /* League Entities */,
 				17FDDF641D4D494600CC7277 /* StaticDataEndpoint.swift */,
+				17B9B3071D4D68A100D8A755 /* StaticData Entities */,
 				17C583CA1D388441007AAC43 /* StatsEndpoint.swift */,
 				171A1C0D1D38970500BAB5B4 /* Stats Entities */,
 				1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */,
@@ -356,6 +357,13 @@
 			);
 			name = "Game Entities";
 			path = "Riot API/GameEntities";
+			sourceTree = "<group>";
+		};
+		17B9B3071D4D68A100D8A755 /* StaticData Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "StaticData Entities";
 			sourceTree = "<group>";
 		};
 		17EDBB311D10EEF200C7B7C5 /* Subclasses */ = {
