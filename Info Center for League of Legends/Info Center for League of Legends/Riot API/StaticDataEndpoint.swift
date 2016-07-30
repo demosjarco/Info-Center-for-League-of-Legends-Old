@@ -6,7 +6,6 @@
 //  Copyright © 2016 Tech Genius. All rights reserved.
 //
 
-import UIKit
 import Foundation
 import Firebase
 import AFNetworking
