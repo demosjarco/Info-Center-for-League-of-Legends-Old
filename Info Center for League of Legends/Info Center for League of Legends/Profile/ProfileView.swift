@@ -304,7 +304,52 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 
                 champMasteryCell.setupCell()
                 
-                
+                if self.cm_top3champs.count == 3 {
+                    autoreleasepool({ ()
+                        let championMastery = self.cm_top3champs[0]
+                        
+                        champMasteryCell.champ1progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
+                        champMasteryCell.champ1progressBar?.maxValue = CGFloat(championMastery.championPointsSinceLastLevel + championMastery.championPointsUntilNextLevel)
+                        
+                        champMasteryCell.champ1masteryIcon?.image = UIImage(named: "rank" + String(championMastery.championLevel))
+                        
+                        if championMastery.championPointsUntilNextLevel > 0 {
+                            champMasteryCell.champ1masteryScore?.text = String(championMastery.championPoints) + " / " + String(championMastery.championPoints + championMastery.championPointsUntilNextLevel)
+                        } else {
+                            champMasteryCell.champ1masteryScore?.text = String(championMastery.championPoints)
+                        }
+                    })
+                    
+                    autoreleasepool({ ()
+                        let championMastery = self.cm_top3champs[1]
+                        
+                        champMasteryCell.champ2progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
+                        champMasteryCell.champ2progressBar?.maxValue = CGFloat(championMastery.championPointsSinceLastLevel + championMastery.championPointsUntilNextLevel)
+                        
+                        champMasteryCell.champ2masteryIcon?.image = UIImage(named: "rank" + String(championMastery.championLevel))
+                        
+                        if championMastery.championPointsUntilNextLevel > 0 {
+                            champMasteryCell.champ2masteryScore?.text = String(championMastery.championPoints) + " / " + String(championMastery.championPoints + championMastery.championPointsUntilNextLevel)
+                        } else {
+                            champMasteryCell.champ2masteryScore?.text = String(championMastery.championPoints)
+                        }
+                    })
+                    
+                    autoreleasepool({ ()
+                        let championMastery = self.cm_top3champs[2]
+                        
+                        champMasteryCell.champ3progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
+                        champMasteryCell.champ3progressBar?.maxValue = CGFloat(championMastery.championPointsSinceLastLevel + championMastery.championPointsUntilNextLevel)
+                        
+                        champMasteryCell.champ3masteryIcon?.image = UIImage(named: "rank" + String(championMastery.championLevel))
+                        
+                        if championMastery.championPointsUntilNextLevel > 0 {
+                            champMasteryCell.champ3masteryScore?.text = String(championMastery.championPoints) + " / " + String(championMastery.championPoints + championMastery.championPointsUntilNextLevel)
+                        } else {
+                            champMasteryCell.champ3masteryScore?.text = String(championMastery.championPoints)
+                        }
+                    })
+                }
                 
                 return champMasteryCell
             case "recentGames" as NSString:
