@@ -68,6 +68,7 @@
 		17D14E161D10D3A8007F6938 /* Winter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E131D10D3A8007F6938 /* Winter.xcassets */; };
 		17D14E181D10D928007F6938 /* Ranked.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E171D10D928007F6938 /* Ranked.xcassets */; };
 		17D14E1A1D10D947007F6938 /* FunRefresher.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E191D10D947007F6938 /* FunRefresher.xcassets */; };
+		17DB5F4E1D4E575C00C01960 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17DB5F4D1D4E575C00C01960 /* CloudKit.framework */; };
 		17EDBB301D10EEEF00C7B7C5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */; };
 		17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB321D10EFAC00C7B7C5 /* ProfileSearch.swift */; };
 		17EDBB361D10F12E00C7B7C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */; };
@@ -166,6 +167,7 @@
 		17D14E131D10D3A8007F6938 /* Winter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Winter.xcassets; sourceTree = "<group>"; };
 		17D14E171D10D928007F6938 /* Ranked.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Ranked.xcassets; sourceTree = "<group>"; };
 		17D14E191D10D947007F6938 /* FunRefresher.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FunRefresher.xcassets; sourceTree = "<group>"; };
+		17DB5F4D1D4E575C00C01960 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		17E5B9611D11A74100F213E6 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTableViewController.swift; path = Subclasses/MainTableViewController.swift; sourceTree = "<group>"; };
 		17EDBB321D10EFAC00C7B7C5 /* ProfileSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSearch.swift; path = Profile/ProfileSearch.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17DB5F4E1D4E575C00C01960 /* CloudKit.framework in Frameworks */,
 				1765108E1D23101800A076BA /* QuartzCore.framework in Frameworks */,
 				9BDD3013E0ED7A4DAF224558 /* Pods_Info_Center_for_League_of_Legends.framework in Frameworks */,
 			);
@@ -435,6 +438,7 @@
 		21035380F080A49DE06B128A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17DB5F4D1D4E575C00C01960 /* CloudKit.framework */,
 				1765108C1D230CB800A076BA /* QuartzCore.framework */,
 				17E5B9611D11A74100F213E6 /* libsqlite3.tbd */,
 				2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */,
