@@ -35,7 +35,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
             }
             self.refreshControl?.endRefreshing()
             self.tableView.beginUpdates()
-            self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
+            self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
             self.tableView.endUpdates()
         }
     }
@@ -86,7 +86,8 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                 self.summonerInfoForSegue = summonerMap.values.first!
                 
                 PlistManager().addToRecentSummoners(newSummoner: summonerMap.values.first!)
-                self.refresh()
+                self.recentSummoners.insert(summonerMap.values.first!, at: 0)
+                self.tableView.insertRows(at: [IndexPath(row: self.recentSummoners.index(of: summonerMap.values.first!), section: 0)], with: .automatic)
                 
                 indicator.stopAnimating()
                 loading.dismiss(animated: true, completion: {
