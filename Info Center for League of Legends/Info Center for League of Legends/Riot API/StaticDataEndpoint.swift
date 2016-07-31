@@ -172,9 +172,57 @@ class StaticDataEndpoint: NSObject {
                             newChampion.skins = newSkins
                         })
                     }
-                    /*if (json["spells"] != nil) {
-                        newChampion.<#property#> = json["<#key#>"] as! <#type#>
-                    }*/
+                    if (json["spells"] != nil) {
+                        autoreleasepool({ ()
+                            let oldSpells = json["spells"] as! [[String: AnyObject]]
+                            var newSpells = [ChampionSpellDto]()
+                            
+                            for oldSpell in oldSpells {
+                                autoreleasepool({ ()
+                                    let newSpell = ChampionSpellDto()
+                                    
+//                                    newSpell.altimages = oldSpell["<#key#>"] as! <#type#>
+//                                    newSpell.cooldown = oldSpell["<#key#>"] as! <#type#>
+                                    newSpell.cooldownBurn = oldSpell["cooldownBurn"] as! String
+                                    newSpell.cost = oldSpell["cost"] as! [Int]
+                                    newSpell.costBurn = oldSpell["costBurn"] as! String
+                                    newSpell.costType = oldSpell["costType"] as! String
+                                    newSpell.spellDescription = oldSpell["description"] as! String
+//                                    newSpell.effect = oldSpell["<#key#>"] as! <#type#>
+                                    newSpell.effectBurn = oldSpell["effectBurn"] as! [String]
+//                                    newSpell.image = oldSpell["<#key#>"] as! <#type#>
+                                    newSpell.key = oldSpell["key"] as! String
+//                                    newSpell.leveltip = oldSpell["<#key#>"] as! <#type#>
+                                    newSpell.maxrank = oldSpell["maxrank"] as! Int
+                                    newSpell.name = oldSpell["name"] as! String
+//                                    newSpell.range = oldSpell["<#key#>"] as! <#type#>
+                                    newSpell.rangeBurn = oldSpell["rangeBurn"] as! String
+                                    newSpell.resource = oldSpell["resource"] as! String
+                                    newSpell.sanitizedDescription = oldSpell["sanitizedDescription"] as! String
+                                    newSpell.sanitizedTooltip = oldSpell["sanitizedTooltip"] as! String
+                                    newSpell.tooltip = oldSpell["tooltip"] as! String
+                                    let oldVars = oldSpell["vars"] as! [[String: AnyObject]]
+                                    for oldVar in oldVars {
+                                        autoreleasepool({ ()
+                                            let newVar = SpellVarsDto()
+                                            
+                                            newVar.coeff = oldVar["coeff"] as! [Double]
+                                            newVar.dyn = oldVar["dyn"] as! String
+                                            newVar.key = oldVar["key"] as! String
+                                            newVar.link = oldVar["link"] as! String
+                                            newVar.ranksWith = oldVar["ranksWith"] as! String
+                                            
+                                            newSpell.vars.append(newVar)
+                                        })
+                                    }
+                                    
+                                    newSpells.append(newSpell)
+                                })
+                            }
+                            
+                            newChampion.spells = newSpells
+                        })
+                    }
                     if (json["stats"] != nil) {
                         autoreleasepool({ ()
                             let oldStats = json["stats"] as! [String: AnyObject]
