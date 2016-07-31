@@ -216,7 +216,12 @@ class StaticDataEndpoint: NSObject {
                                         newSpell.image.y = oldImage["y"] as! Int
                                     })
                                     newSpell.key = oldSpell["key"] as! String
-//                                    newSpell.leveltip = oldSpell["<#key#>"] as! <#type#>
+                                    autoreleasepool({ ()
+                                        let oldLevelTip = oldSpell["leveltip"] as! [String: AnyObject]
+                                        
+                                        newSpell.leveltip.effect = oldLevelTip["effect"] as! [String]
+                                        newSpell.leveltip.label = oldLevelTip["label"] as! [String]
+                                    })
                                     newSpell.maxrank = oldSpell["maxrank"] as! Int
                                     newSpell.name = oldSpell["name"] as! String
                                     let oldRange = oldSpell["range"] as! [AnyObject]
