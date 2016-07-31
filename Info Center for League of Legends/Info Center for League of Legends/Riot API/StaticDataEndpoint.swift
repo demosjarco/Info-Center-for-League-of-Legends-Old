@@ -195,7 +195,16 @@ class StaticDataEndpoint: NSObject {
 //                                    newSpell.leveltip = oldSpell["<#key#>"] as! <#type#>
                                     newSpell.maxrank = oldSpell["maxrank"] as! Int
                                     newSpell.name = oldSpell["name"] as! String
-//                                    newSpell.range = oldSpell["<#key#>"] as! <#type#>
+                                    let oldRange = oldSpell["range"] as! [AnyObject]
+                                    for range in oldRange {
+                                        if String(range) == "self" {
+                                            // Self ability - set as 0
+                                            newSpell.range.append(0)
+                                        } else {
+                                            // Int
+                                            newSpell.range.append(range as! Int)
+                                        }
+                                    }
                                     newSpell.rangeBurn = oldSpell["rangeBurn"] as! String
                                     newSpell.resource = oldSpell["resource"] as! String
                                     newSpell.sanitizedDescription = oldSpell["sanitizedDescription"] as! String
