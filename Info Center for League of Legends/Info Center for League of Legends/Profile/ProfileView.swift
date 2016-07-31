@@ -308,6 +308,20 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                     autoreleasepool({ ()
                         let championMastery = self.cm_top3champs[0]
                         
+                        StaticDataEndpoint().getChampionInfoById(champId: championMastery.championId, championData: .Image, completion: { (champion) in
+                            DDragon().getChampionLoadingArt(fullImageName: champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
+                                champMasteryCell.champ1bg?.setImageWith(champLoadingArtUrl)
+                            })
+                            DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
+                                champMasteryCell.champ1squareIcon?.setImageWith(champSquareArtUrl)
+                            })
+                            champMasteryCell.champ1name?.text = champion.name
+                        }, notFound: {
+                            // 404
+                        }, error: {
+                            // Error
+                        })
+                        
                         champMasteryCell.champ1progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
                         champMasteryCell.champ1progressBar?.maxValue = CGFloat(championMastery.championPointsSinceLastLevel + championMastery.championPointsUntilNextLevel)
                         
@@ -323,6 +337,20 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                     autoreleasepool({ ()
                         let championMastery = self.cm_top3champs[1]
                         
+                        StaticDataEndpoint().getChampionInfoById(champId: championMastery.championId, championData: .Image, completion: { (champion) in
+                            DDragon().getChampionLoadingArt(fullImageName: champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
+                                champMasteryCell.champ2bg?.setImageWith(champLoadingArtUrl)
+                            })
+                            DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
+                                champMasteryCell.champ2squareIcon?.setImageWith(champSquareArtUrl)
+                            })
+                            champMasteryCell.champ2name?.text = champion.name
+                        }, notFound: {
+                            // 404
+                        }, error: {
+                            // Error
+                        })
+                        
                         champMasteryCell.champ2progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
                         champMasteryCell.champ2progressBar?.maxValue = CGFloat(championMastery.championPointsSinceLastLevel + championMastery.championPointsUntilNextLevel)
                         
@@ -337,6 +365,20 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                     
                     autoreleasepool({ ()
                         let championMastery = self.cm_top3champs[2]
+                        
+                        StaticDataEndpoint().getChampionInfoById(champId: championMastery.championId, championData: .Image, completion: { (champion) in
+                            DDragon().getChampionLoadingArt(fullImageName: champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
+                                champMasteryCell.champ3bg?.setImageWith(champLoadingArtUrl)
+                            })
+                            DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
+                                champMasteryCell.champ3squareIcon?.setImageWith(champSquareArtUrl)
+                            })
+                            champMasteryCell.champ3name?.text = champion.name
+                        }, notFound: {
+                            // 404
+                        }, error: {
+                            // Error
+                        })
                         
                         champMasteryCell.champ3progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
                         champMasteryCell.champ3progressBar?.maxValue = CGFloat(championMastery.championPointsSinceLastLevel + championMastery.championPointsUntilNextLevel)
