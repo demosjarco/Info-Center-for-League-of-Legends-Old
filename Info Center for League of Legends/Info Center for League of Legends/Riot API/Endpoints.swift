@@ -40,19 +40,23 @@ class Endpoints: NSObject {
         return identifier
     }
     
-    func getBaseEndpoint() -> String {
-        return "https://" + self.getRegion() + ".api.pvp.net/api/lol/" + self.getRegion()
+    func getBaseEndpoint(completion: (baseEndpoint: String) -> Void) {
+        self.getRegion { (regionCode) in
+            completion(baseEndpoint: "https://" + regionCode + ".api.pvp.net/api/lol/" + regionCode)
+        }
     }
     
-    func getStaticDataBaseEndpoint() -> String {
-        return "https://global.api.pvp.net/api/lol/static-data/" + self.getRegion() + "/v1.2/"
+    func getStaticDataBaseEndpoint(completion: (baseEndpoint: String) -> Void) {
+        self.getRegion { (regionCode) in
+            completion(baseEndpoint: "https://global.api.pvp.net/api/lol/static-data/" + regionCode + "/v1.2/")
+        }
     }
     
-    func getRegion() -> String {
+    func getRegion(completion: (regionCode: String) -> Void) {
         if (UserDefaults.standard.object(forKey: "league_region") != nil) {
-            return UserDefaults.standard.string(forKey: "league_region")!
+            completion(regionCode: UserDefaults.standard.string(forKey: "league_region")!)
         } else {
-            return ""
+            completion(regionCode: "")
         }
     }
     
@@ -81,111 +85,129 @@ class Endpoints: NSObject {
     
     // Champion Mastery
     func championMastery_bySummonerId_topChampions(summonerId: String, count: Int, completion: (composedUrl: String) -> Void) {
-        autoreleasepool { ()
-            var region:String
-            switch self.getRegion() {
-            case "br":
-                region = platformId.br.rawValue
-            case "eune":
-                region = platformId.eune.rawValue
-            case "euw":
-                region = platformId.euw.rawValue
-            case "jp":
-                region = platformId.jp.rawValue
-            case "kr":
-                region = platformId.kr.rawValue
-            case "lan":
-                region = platformId.lan.rawValue
-            case "las":
-                region = platformId.las.rawValue
-            case "na":
-                region = platformId.na.rawValue
-            case "oce":
-                region = platformId.oce.rawValue
-            case "ru":
-                region = platformId.ru.rawValue
-            case "tr":
-                region = platformId.br.rawValue
-            default:
-                region = ""
-            }
-            
-            self.getApiKey { (apiKey) in
-                var urlString = "https://" + self.getRegion() + ".api.pvp.net/championmastery/location/" + region + "/player/" + summonerId + "/topchampions"
-                if count == 0 {
-                    urlString = urlString + "?api_key=" + apiKey
-                } else {
-                    urlString = urlString + "?count=" + String(count) + "&api_key=" + apiKey
+        self.getRegion { (regionCode) in
+            autoreleasepool { ()
+                var region:String
+                switch regionCode {
+                case "br":
+                    region = platformId.br.rawValue
+                case "eune":
+                    region = platformId.eune.rawValue
+                case "euw":
+                    region = platformId.euw.rawValue
+                case "jp":
+                    region = platformId.jp.rawValue
+                case "kr":
+                    region = platformId.kr.rawValue
+                case "lan":
+                    region = platformId.lan.rawValue
+                case "las":
+                    region = platformId.las.rawValue
+                case "na":
+                    region = platformId.na.rawValue
+                case "oce":
+                    region = platformId.oce.rawValue
+                case "ru":
+                    region = platformId.ru.rawValue
+                case "tr":
+                    region = platformId.br.rawValue
+                default:
+                    region = ""
                 }
-                completion(composedUrl: urlString)
+                
+                self.getApiKey { (apiKey) in
+                    var urlString = "https://" + regionCode + ".api.pvp.net/championmastery/location/" + region + "/player/" + summonerId + "/topchampions"
+                    if count == 0 {
+                        urlString = urlString + "?api_key=" + apiKey
+                    } else {
+                        urlString = urlString + "?count=" + String(count) + "&api_key=" + apiKey
+                    }
+                    completion(composedUrl: urlString)
+                }
             }
         }
     }
     
     // Game
     func game_BySummoner(summonerId: String, completion: (composedUrl: String) -> Void) {
-        self.getApiKey { (apiKey) in
-            let urlString = self.getBaseEndpoint() + "/v1.3/game/by-summoner/" + summonerId + "/recent?api_key=" + apiKey
-            completion(composedUrl: urlString)
+        self.getBaseEndpoint { (baseEndpoint) in
+            self.getApiKey { (apiKey) in
+                let urlString = baseEndpoint + "/v1.3/game/by-summoner/" + summonerId + "/recent?api_key=" + apiKey
+                completion(composedUrl: urlString)
+            }
         }
     }
     
     // League
     func league_bySummoner_entry(summonerIds: String, completion: (composedUrl: String) -> Void) {
-        self.getApiKey { (apiKey) in
-            let urlString = self.getBaseEndpoint() + "/v2.5/league/by-summoner/" + summonerIds + "/entry?api_key=" + apiKey
-            completion(composedUrl: urlString)
+        self.getBaseEndpoint { (baseEndpoint) in
+            self.getApiKey { (apiKey) in
+                let urlString = baseEndpoint + "/v2.5/league/by-summoner/" + summonerIds + "/entry?api_key=" + apiKey
+                completion(composedUrl: urlString)
+            }
         }
     }
     
     // Static Data
     func staticData_champion_id(championId: String, champData: String, completion: (composedUrl: String) -> Void) {
-        self.getApiKey { (apiKey) in
-            self.optimalLocaleForRegion(completion: { (optimalLocale) in
-                var urlString = self.getStaticDataBaseEndpoint() + "champion/" + championId
-                if optimalLocale {
-                    urlString += "?locale=" + Locale.autoupdatingCurrent.localeIdentifier + "&champData=" + champData + "&api_key=" + apiKey
-                } else {
-                    urlString += "?champData=" + champData + "&api_key=" + apiKey
-                }
-                completion(composedUrl: urlString)
-            })
+        self.getStaticDataBaseEndpoint { (baseEndpoint) in
+            self.getApiKey { (apiKey) in
+                self.optimalLocaleForRegion(completion: { (optimalLocale) in
+                    var urlString = baseEndpoint + "champion/" + championId
+                    if optimalLocale {
+                        urlString += "?locale=" + Locale.autoupdatingCurrent.localeIdentifier + "&champData=" + champData + "&api_key=" + apiKey
+                    } else {
+                        urlString += "?champData=" + champData + "&api_key=" + apiKey
+                    }
+                    completion(composedUrl: urlString)
+                })
+            }
         }
         
     }
     
     func staticData_languages(completion: (composedUrl: String) -> Void) {
-        self.getApiKey { (apiKey) in
-            let urlString = self.getStaticDataBaseEndpoint() + "languages?api_key=" + apiKey
-            completion(composedUrl: urlString)
+        self.getStaticDataBaseEndpoint { (baseEndpoint) in
+            self.getApiKey { (apiKey) in
+                let urlString = baseEndpoint + "languages?api_key=" + apiKey
+                completion(composedUrl: urlString)
+            }
         }
     }
     
     // Stats
     func stats_bySummoner_summary(summonerId: String, completion: (composedUrl: String) -> Void) {
-        self.getApiKey { (apiKey) in
-            let urlString = self.getBaseEndpoint() + "/v1.3/stats/by-summoner/" + summonerId + "/summary?api_key=" + apiKey
-            completion(composedUrl: urlString)
+        self.getBaseEndpoint { (baseEndpoint) in
+            self.getApiKey { (apiKey) in
+                let urlString = baseEndpoint + "/v1.3/stats/by-summoner/" + summonerId + "/summary?api_key=" + apiKey
+                completion(composedUrl: urlString)
+            }
         }
     }
     
     // Summoner
     func summoner_byName(summonerNames: String, completion: (composedUrl: String) -> Void) {
-        self.getApiKey { (apiKey) in
-            let urlString = self.getBaseEndpoint() + "/v1.4/summoner/by-name/" + summonerNames + "?api_key=" + apiKey
-            completion(composedUrl: urlString)
+        self.getBaseEndpoint { (baseEndpoint) in
+            self.getApiKey { (apiKey) in
+                let urlString = baseEndpoint + "/v1.4/summoner/by-name/" + summonerNames + "?api_key=" + apiKey
+                completion(composedUrl: urlString)
+            }
         }
     }
     func summoner_byId(summonerIds: String, completion: (composedUrl: String) -> Void) {
-        self.getApiKey { (apiKey) in
-            let urlString = self.getBaseEndpoint() + "/v1.4/summoner/" + summonerIds + "?api_key=" + apiKey
-            completion(composedUrl: urlString)
+        self.getBaseEndpoint { (baseEndpoint) in
+            self.getApiKey { (apiKey) in
+                let urlString = baseEndpoint + "/v1.4/summoner/" + summonerIds + "?api_key=" + apiKey
+                completion(composedUrl: urlString)
+            }
         }
     }
     func summoner_masteriesById(summonerIds: String, completion: (composedUrl: String) -> Void) {
-        self.getApiKey { (apiKey) in
-            let urlString = self.getBaseEndpoint() + "/v1.4/summoner/" + summonerIds + "/masteries?api_key=" + apiKey
-            completion(composedUrl: urlString)
+        self.getBaseEndpoint { (baseEndpoint) in
+            self.getApiKey { (apiKey) in
+                let urlString = baseEndpoint + "/v1.4/summoner/" + summonerIds + "/masteries?api_key=" + apiKey
+                completion(composedUrl: urlString)
+            }
         }
     }
 }
