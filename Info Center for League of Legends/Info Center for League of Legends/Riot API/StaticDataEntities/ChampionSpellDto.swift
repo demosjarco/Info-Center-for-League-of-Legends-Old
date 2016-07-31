@@ -24,8 +24,8 @@ class ChampionSpellDto: NSObject {
     var leveltip = LevelTipDto()
     var maxrank:Int = 0
     var name:String = ""
-    /// This field is either a List of Integer or the String 'self' for spells that target one's own champion.
-    var range:AnyObject
+    /// Range of 0 denotes self
+    var range = [Int]()
     var rangeBurn:String = ""
     var resource:String = ""
     var sanitizedDescription:String = ""
