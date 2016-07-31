@@ -49,38 +49,40 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
         
         FIRDatabase.database().reference().child("news_languages").observe(FIRDataEventType.value, with: { (snapshot) in
             let languages = snapshot.value as! [String: AnyObject]
-            let languagesForRegion = languages[Endpoints().getRegion()] as! [String]
-            
-            let baseUrl = languages["baseUrl"] as! NSString
-            var rssUrl = NSString()
-            if languagesForRegion.contains(Locale.preferredLanguages[0].components(separatedBy: "-")[0]) {
-                rssUrl = NSString(format: baseUrl, Endpoints().getRegion(), Locale.preferredLanguages[0].components(separatedBy: "-")[0])
-            } else {
-                rssUrl = NSString(format: baseUrl, Endpoints().getRegion(), languagesForRegion[0])
-            }
-            rssUrl = rssUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!.replacingOccurrences(of: ":", with: "%3A")
-            
-            let convertUrl = languages["rssToJsonUrl"] as! NSString
-            let url = NSString(format: convertUrl, rssUrl) as String
-            
-            AFHTTPSessionManager().get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
-                let json = responseObject as! [String: AnyObject]
-                if json["status"] as! String == "ok" {
-                    if json["feed"]?["title"] != nil {
-                        let feed = json["feed"] as! [String: String]
-                        let title = feed["title"]
-                        self.title = title
-                        self.tabBarItem.title = title
-                    }
-                    self.entries = json["items"] as! [[String: AnyObject]]
+            Endpoints().getRegion(completion: { (regionCode) in
+                let languagesForRegion = languages[regionCode] as! [String]
+                
+                let baseUrl = languages["baseUrl"] as! NSString
+                var rssUrl = NSString()
+                if languagesForRegion.contains(Locale.preferredLanguages[0].components(separatedBy: "-")[0]) {
+                    rssUrl = NSString(format: baseUrl, regionCode, Locale.preferredLanguages[0].components(separatedBy: "-")[0])
                 } else {
-                    FIRDatabase.database().reference().child("news_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "errorMessage": json["errorMessage"] as! String, "url": url, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                    rssUrl = NSString(format: baseUrl, regionCode, languagesForRegion[0])
                 }
-                self.collectionView?.reloadSections(IndexSet(integer: 0))
-                sender.endRefreshing()
-            }, failure: { (task, error) in
-                FIRDatabase.database().reference().child("news_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode, "url": url, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
-                sender.endRefreshing()
+                rssUrl = rssUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!.replacingOccurrences(of: ":", with: "%3A")
+                
+                let convertUrl = languages["rssToJsonUrl"] as! NSString
+                let url = NSString(format: convertUrl, rssUrl) as String
+                
+                AFHTTPSessionManager().get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
+                    let json = responseObject as! [String: AnyObject]
+                    if json["status"] as! String == "ok" {
+                        if json["feed"]?["title"] != nil {
+                            let feed = json["feed"] as! [String: String]
+                            let title = feed["title"]
+                            self.title = title
+                            self.tabBarItem.title = title
+                        }
+                        self.entries = json["items"] as! [[String: AnyObject]]
+                    } else {
+                        FIRDatabase.database().reference().child("news_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "errorMessage": json["errorMessage"] as! String, "url": url, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                    }
+                    self.collectionView?.reloadSections(IndexSet(integer: 0))
+                    sender.endRefreshing()
+                    }, failure: { (task, error) in
+                        FIRDatabase.database().reference().child("news_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode, "url": url, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                        sender.endRefreshing()
+                })
             })
         })
     }
