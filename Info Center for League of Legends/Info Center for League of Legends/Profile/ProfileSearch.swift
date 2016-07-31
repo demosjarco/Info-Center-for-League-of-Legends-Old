@@ -22,7 +22,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
     @IBAction func refresh() {
         UIView.animate(withDuration: 0.25, delay: 0, options: .beginFromCurrentState, animations: {
             self.tableView.contentOffset = CGPoint(x: 0, y: -self.refreshControl!.frame.size.height)
-            }, completion: nil)
+        }, completion: nil)
         self.refreshControl?.beginRefreshing()
         recentSummoners = NSMutableArray()
         PlistManager().loadRecentSummoners { (recentSummonersLoaded) in
