@@ -422,6 +422,16 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                     recentGamesCell.lastGameMap?.image = UIImage(named: "howlingAbyss")
                 }
                 
+                StaticDataEndpoint().getChampionInfoById(champId: self.rc_lastGame.championId, championData: .Image, completion: { (champion) in
+                    DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
+                        recentGamesCell.lastGameChamp?.setImageWith(champSquareArtUrl)
+                    })
+                }, notFound: {
+                    // 404
+                }, error: {
+                    // Error
+                })
+                
                 autoreleasepool({ ()
                     var kills = 0
                     if self.rc_lastGame.stats.championsKilled != nil {
