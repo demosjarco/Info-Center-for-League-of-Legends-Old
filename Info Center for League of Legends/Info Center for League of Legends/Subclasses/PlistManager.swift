@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CloudKit
 
 class PlistManager: NSObject {
     let baseDatabaseDirectory: String = "/databases"
