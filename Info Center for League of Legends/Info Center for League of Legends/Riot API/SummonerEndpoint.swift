@@ -100,19 +100,21 @@ class SummonerEndpoint: NSObject {
                                         
                                         newPage.current = oldPage["current"] as! Bool
                                         newPage.masteryPageId = oldPage["id"] as! CLong
-                                        autoreleasepool({ ()
-                                            let oldMasteries = oldPage["masteries"] as! [[String: AnyObject]]
-                                            for oldMastery in oldMasteries {
-                                                autoreleasepool({ ()
-                                                    let newMastery = MasteryDto()
-                                                    
-                                                    newMastery.masteryId = oldMastery["id"] as! Int
-                                                    newMastery.rank = oldMastery["rank"] as! Int
-                                                    
-                                                    newPage.masteries.append(newMastery)
-                                                })
-                                            }
-                                        })
+                                        if (oldPage["masteries"] != nil) {
+                                            autoreleasepool({ ()
+                                                let oldMasteries = oldPage["masteries"] as! [[String: AnyObject]]
+                                                for oldMastery in oldMasteries {
+                                                    autoreleasepool({ ()
+                                                        let newMastery = MasteryDto()
+                                                        
+                                                        newMastery.masteryId = oldMastery["id"] as! Int
+                                                        newMastery.rank = oldMastery["rank"] as! Int
+                                                        
+                                                        newPage.masteries.append(newMastery)
+                                                    })
+                                                }
+                                            })
+                                        }
                                         newPage.name = oldPage["name"] as! String
                                         
                                         newMasteryPages.pages.append(newPage)
