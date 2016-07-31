@@ -37,13 +37,13 @@ class StaticDataEndpoint: NSObject {
                     let json = responseObject as! [String: AnyObject]
                     
                     if (json["allytips"] != nil) {
-                        newChampion.allytips = json["allytips"] as! [String]
+                        newChampion.allytips = json["allytips"] as? [String]
                     }
                     if (json["blurb"] != nil) {
-                        newChampion.blurb = json["blurb"] as! String
+                        newChampion.blurb = json["blurb"] as? String
                     }
                     if (json["enemytips"] != nil) {
-                        newChampion.enemytips = json["enemytips"] as! [String]
+                        newChampion.enemytips = json["enemytips"] as? [String]
                     }
                     newChampion.champId = json["id"] as! Int
                     if (json["image"] != nil) {
@@ -77,11 +77,11 @@ class StaticDataEndpoint: NSObject {
                     }
                     newChampion.key = json["key"] as! String
                     if (json["lore"] != nil) {
-                        newChampion.lore = json["lore"] as! String
+                        newChampion.lore = json["lore"] as? String
                     }
                     newChampion.name = json["name"] as! String
                     if (json["partype"] != nil) {
-                        newChampion.partype = json["partype"] as! String
+                        newChampion.partype = json["partype"] as? String
                     }
                     if (json["passive"] != nil) {
                         autoreleasepool({ ()
@@ -303,7 +303,7 @@ class StaticDataEndpoint: NSObject {
                         })
                     }
                     if (json["tags"] != nil) {
-                        newChampion.tags = json["tags"] as! [String]
+                        newChampion.tags = json["tags"] as? [String]
                     }
                     newChampion.title = json["title"] as! String
                     
