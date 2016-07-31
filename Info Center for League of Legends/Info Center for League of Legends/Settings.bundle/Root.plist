@@ -69,6 +69,24 @@
 		<dict>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>iCloud</string>
+			<key>FooterText</key>
+			<string>Use iCloud to sync recent summoners list and other user preferences.</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Use iCloud</string>
+			<key>Key</key>
+			<string>league_useIcloud</string>
+			<key>DefaultValue</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
 		</dict>
 		<dict>
 			<key>Type</key>
