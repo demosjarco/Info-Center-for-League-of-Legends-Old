@@ -91,17 +91,14 @@ class StaticDataEndpoint: NSObject {
                             newPassive.rawDescription = oldPassive["description"] as! String
                             autoreleasepool({ ()
                                 let oldImage = oldPassive["image"] as! [String: AnyObject]
-                                let newImage = ImageDto()
                                 
-                                newImage.full = oldImage["full"] as! String
-                                newImage.group = oldImage["group"] as! String
-                                newImage.h = oldImage["h"] as! Int
-                                newImage.sprite = oldImage["sprite"] as! String
-                                newImage.w = oldImage["w"] as! Int
-                                newImage.x = oldImage["x"] as! Int
-                                newImage.y = oldImage["y"] as! Int
-                                
-                                newPassive.image = newImage
+                                newPassive.image.full = oldImage["full"] as! String
+                                newPassive.image.group = oldImage["group"] as! String
+                                newPassive.image.h = oldImage["h"] as! Int
+                                newPassive.image.sprite = oldImage["sprite"] as! String
+                                newPassive.image.w = oldImage["w"] as! Int
+                                newPassive.image.x = oldImage["x"] as! Int
+                                newPassive.image.y = oldImage["y"] as! Int
                             })
                             newPassive.name = oldPassive["name"] as! String
                             newPassive.sanitizedDescription = oldPassive["sanitizedDescription"] as! String
