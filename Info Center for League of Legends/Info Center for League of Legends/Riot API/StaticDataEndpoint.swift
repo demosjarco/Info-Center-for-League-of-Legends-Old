@@ -179,7 +179,7 @@ class StaticDataEndpoint: NSObject {
                                     let newSpell = ChampionSpellDto()
                                     
 //                                    newSpell.altimages = oldSpell["<#key#>"] as! <#type#>
-//                                    newSpell.cooldown = oldSpell["<#key#>"] as! <#type#>
+                                    newSpell.cooldown = oldSpell["cooldown"] as! [Double]
                                     newSpell.cooldownBurn = oldSpell["cooldownBurn"] as! String
                                     newSpell.cost = oldSpell["cost"] as! [Int]
                                     newSpell.costBurn = oldSpell["costBurn"] as! String
