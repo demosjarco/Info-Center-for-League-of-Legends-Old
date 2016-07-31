@@ -202,7 +202,19 @@ class StaticDataEndpoint: NSObject {
                                     newSpell.costBurn = oldSpell["costBurn"] as! String
                                     newSpell.costType = oldSpell["costType"] as! String
                                     newSpell.rawDescription = oldSpell["description"] as! String
-//                                    newSpell.effect = oldSpell["<#key#>"] as! <#type#>
+                                    autoreleasepool({ ()
+                                        let oldEffects = oldSpell["effect"] as! NSArray
+                                        for oldEffect in oldEffects {
+                                            switch oldEffect {
+                                            case is NSNull:
+                                                newSpell.effect.append([Double]())
+                                                break
+                                            default:
+                                                newSpell.effect.append(oldEffect as! [Double])
+                                                break
+                                            }
+                                        }
+                                    })
                                     newSpell.effectBurn = oldSpell["effectBurn"] as! [String]
                                     autoreleasepool({ ()
                                         let oldImage = oldSpell["image"] as! [String: AnyObject]
