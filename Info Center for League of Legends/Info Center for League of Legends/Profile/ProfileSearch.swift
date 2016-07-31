@@ -22,17 +22,19 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
     @IBAction func refresh() {
         self.refreshControl?.beginRefreshing()
         recentSummoners = NSMutableArray()
-        for summonerId in PlistManager().loadRecentSummoners() as! [CLong] {
-            autoreleasepool({ ()
-                let temp = SummonerDto()
-                temp.summonerId = summonerId
-                recentSummoners.add(temp)
-            })
+        PlistManager().loadRecentSummoners { (recentSummonersLoaded) in
+            for summonerId in recentSummonersLoaded as! [CLong] {
+                autoreleasepool({ ()
+                    let temp = SummonerDto()
+                    temp.summonerId = summonerId
+                    self.recentSummoners.add(temp)
+                })
+            }
+            self.refreshControl?.endRefreshing()
+            self.tableView.beginUpdates()
+            self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
+            self.tableView.endUpdates()
         }
-        self.refreshControl?.endRefreshing()
-        self.tableView.beginUpdates()
-        self.tableView.reloadSections(NSIndexSet(index: 0) as IndexSet, with: .automatic)
-        self.tableView.endUpdates()
     }
     
     // MARK: - Search Bar Delegate
