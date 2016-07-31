@@ -11,7 +11,7 @@ import Foundation
 class PlistManager: NSObject {
     let baseDatabaseDirectory: String = "/databases"
     
-    let recentSummonersFileName: String = "/recentSummoners.plist"
+    let recentSummonersFileName: String = "/" + Endpoints().getRegion() + "_recentSummoners.plist"
     let rankedSummonerHistoryDirectoy: String = "/rankedSummonerHistory"
     
     let profileViewTileOrderName: String = "/profileViewTileOrder.plist"
