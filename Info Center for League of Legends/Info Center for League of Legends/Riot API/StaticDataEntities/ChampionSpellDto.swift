@@ -15,7 +15,7 @@ class ChampionSpellDto: NSObject {
     var cost = [Int]()
     var costBurn:String = ""
     var costType:String = ""
-    var spellDescription:String = ""
+    var rawDescription:String = ""
     /// This field is a List of List of Double.
     var effect:[AnyObject] = []
     var effectBurn = [String]()

@@ -88,7 +88,7 @@ class StaticDataEndpoint: NSObject {
                             let oldPassive = json["passive"] as! [String: AnyObject]
                             let newPassive = PassiveDto()
                             
-                            newPassive.description = oldPassive["description"] as! String
+                            newPassive.rawDescription = oldPassive["description"] as! String
                             autoreleasepool({ ()
                                 let oldImage = oldPassive["image"] as! [String: AnyObject]
                                 let newImage = ImageDto()
@@ -187,7 +187,7 @@ class StaticDataEndpoint: NSObject {
                                     newSpell.cost = oldSpell["cost"] as! [Int]
                                     newSpell.costBurn = oldSpell["costBurn"] as! String
                                     newSpell.costType = oldSpell["costType"] as! String
-                                    newSpell.spellDescription = oldSpell["description"] as! String
+                                    newSpell.rawDescription = oldSpell["description"] as! String
 //                                    newSpell.effect = oldSpell["<#key#>"] as! <#type#>
                                     newSpell.effectBurn = oldSpell["effectBurn"] as! [String]
 //                                    newSpell.image = oldSpell["<#key#>"] as! <#type#>
