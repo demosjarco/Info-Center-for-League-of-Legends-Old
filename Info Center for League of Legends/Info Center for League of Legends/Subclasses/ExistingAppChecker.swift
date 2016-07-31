@@ -57,13 +57,13 @@ class ExistingAppChecker: NSObject {
     }
     
     func onlineMode(viewController: UIViewController) {
-        CKContainer.default().privateCloudDatabase.fetch(withRecordID: CKRecordID(recordName: "savedRegion")) { (record, error) in
+        CKContainer.default().privateCloudDatabase.fetch(withRecordID: CKRecordID(recordName: "savedPreferences")) { (record, error) in
             if (error != nil) {
                 // Not saved in iCloud
                 if (UserDefaults.standard.object(forKey: "league_region") != nil) {
                     // Locally saved
                     
-                    let regionRecord = CKRecord(recordType: "UserPreferences", recordID: CKRecordID(recordName: "savedRegion"))
+                    let regionRecord = CKRecord(recordType: "UserPreferences", recordID: CKRecordID(recordName: "savedPreferences"))
                     regionRecord["regionCode"] = UserDefaults.standard.string(forKey: "league_region")
                     CKContainer.default().privateCloudDatabase.save(regionRecord, completionHandler: { (savedRecord, saveError) in
                         if (saveError != nil) {
@@ -75,7 +75,7 @@ class ExistingAppChecker: NSObject {
                     // Doesn't exist local - ask user
                     self.promptUserForRegion(viewController: viewController, userChose: { (region) in
                         UserDefaults.standard.setValue(region, forKey: "league_region")
-                        let regionRecord = CKRecord(recordType: "UserPreferences", recordID: CKRecordID(recordName: "savedRegion"))
+                        let regionRecord = CKRecord(recordType: "UserPreferences", recordID: CKRecordID(recordName: "savedPreferences"))
                         regionRecord["regionCode"] = region
                         CKContainer.default().privateCloudDatabase.save(regionRecord, completionHandler: { (savedRecord, saveError) in
                             if (saveError != nil) {
