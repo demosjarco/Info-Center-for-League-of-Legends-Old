@@ -49,7 +49,11 @@ class Endpoints: NSObject {
     }
     
     func getRegion() -> String {
-        return UserDefaults.standard.string(forKey: "league_region")!
+        if (UserDefaults.standard.object(forKey: "league_region") != nil) {
+            return UserDefaults.standard.string(forKey: "league_region")!
+        } else {
+            return ""
+        }
     }
     
     func getApiKey(completion: (apiKey:String) -> Void) {
