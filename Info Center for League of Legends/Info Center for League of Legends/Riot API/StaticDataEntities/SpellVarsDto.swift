@@ -9,5 +9,9 @@
 import UIKit
 
 class SpellVarsDto: NSObject {
-
+    var coeff = [Double]()
+    var dyn:String
+    var key:String
+    var link:String
+    var ranksWith:String
 }

@@ -9,5 +9,6 @@
 import UIKit
 
 class LevelTipDto: NSObject {
-
+    var effect = [String]()
+    var label = [String]()
 }

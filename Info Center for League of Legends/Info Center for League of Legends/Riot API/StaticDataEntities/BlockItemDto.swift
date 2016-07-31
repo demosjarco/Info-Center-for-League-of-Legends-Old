@@ -9,5 +9,6 @@
 import UIKit
 
 class BlockItemDto: NSObject {
-
+    var count:Int = 0
+    var itemId:Int = 0
 }

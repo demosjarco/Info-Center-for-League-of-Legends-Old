@@ -9,5 +9,8 @@
 import UIKit
 
 class PassiveDto: NSObject {
-
+    var rawDescription:String = ""
+    var image = ImageDto()
+    var name:String = ""
+    var sanitizedDescription:String = ""
 }

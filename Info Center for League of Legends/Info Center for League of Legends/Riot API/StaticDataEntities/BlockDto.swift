@@ -9,5 +9,7 @@
 import UIKit
 
 class BlockDto: NSObject {
-
+    var items = [BlockItemDto]()
+    var recMath:Bool = false
+    var type:String = ""
 }

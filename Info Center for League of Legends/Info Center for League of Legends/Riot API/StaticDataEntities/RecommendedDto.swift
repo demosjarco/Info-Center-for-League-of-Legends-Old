@@ -9,5 +9,11 @@
 import UIKit
 
 class RecommendedDto: NSObject {
-
+    var block = [BlockDto]()
+    var champion:String = ""
+    var map:String = ""
+    var mode:String = ""
+    var priority:Bool = false
+    var title:String = ""
+    var type:String = ""
 }

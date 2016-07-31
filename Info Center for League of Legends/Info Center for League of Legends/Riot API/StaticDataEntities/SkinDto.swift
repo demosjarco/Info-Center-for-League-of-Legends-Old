@@ -9,5 +9,7 @@
 import UIKit
 
 class SkinDto: NSObject {
-
+    var skinId:Int = 0
+    var name:String = ""
+    var num:Int = 0
 }
