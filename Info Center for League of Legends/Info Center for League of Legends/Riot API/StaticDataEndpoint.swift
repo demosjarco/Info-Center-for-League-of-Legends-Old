@@ -190,7 +190,17 @@ class StaticDataEndpoint: NSObject {
                                     newSpell.rawDescription = oldSpell["description"] as! String
 //                                    newSpell.effect = oldSpell["<#key#>"] as! <#type#>
                                     newSpell.effectBurn = oldSpell["effectBurn"] as! [String]
-//                                    newSpell.image = oldSpell["<#key#>"] as! <#type#>
+                                    autoreleasepool({ ()
+                                        let oldImage = oldSpell["image"] as! [String: AnyObject]
+                                        
+                                        newSpell.image.full = oldImage["full"] as! String
+                                        newSpell.image.group = oldImage["group"] as! String
+                                        newSpell.image.h = oldImage["h"] as! Int
+                                        newSpell.image.sprite = oldImage["sprite"] as! String
+                                        newSpell.image.w = oldImage["w"] as! Int
+                                        newSpell.image.x = oldImage["x"] as! Int
+                                        newSpell.image.y = oldImage["y"] as! Int
+                                    })
                                     newSpell.key = oldSpell["key"] as! String
 //                                    newSpell.leveltip = oldSpell["<#key#>"] as! <#type#>
                                     newSpell.maxrank = oldSpell["maxrank"] as! Int
