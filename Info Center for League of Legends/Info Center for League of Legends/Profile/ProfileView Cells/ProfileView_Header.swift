@@ -39,8 +39,10 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
         self.summonerName?.text = self.summoner.name
         
         // Disable add summoner to recents if already there
-        if PlistManager().loadRecentSummoners().contains(self.summoner.summonerId) {
-            addSummonerButton?.isEnabled = false
+        PlistManager().loadRecentSummoners { (recentSummoners) in
+            if recentSummoners.contains(self.summoner.summonerId) {
+                self.addSummonerButton?.isEnabled = false
+            }
         }
         
         self.setupSummonerStats()
