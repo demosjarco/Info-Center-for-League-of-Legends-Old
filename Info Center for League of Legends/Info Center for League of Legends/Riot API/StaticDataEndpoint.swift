@@ -29,11 +29,187 @@ class StaticDataEndpoint: NSObject {
         case Tags = "tags"
     }
     
-    func getChampionInfoById(champId: Int, championData: champData, completion: () -> Void, notFound: () -> Void, error: () -> Void) {
+    func getChampionInfoById(champId: Int, championData: champData, completion: (ChampionDto) -> Void, notFound: () -> Void, error: () -> Void) {
         Endpoints().staticData_champion_id(championId: String(champId), champData: championData.rawValue) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 autoreleasepool({ ()
+                    let newChampion = ChampionDto()
                     let json = responseObject as! [String: AnyObject]
+                    
+                    if (json["allytips"] != nil) {
+                        newChampion.allytips = json["allytips"] as! [String]
+                    }
+                    if (json["blurb"] != nil) {
+                        newChampion.blurb = json["blurb"] as! String
+                    }
+                    if (json["enemytips"] != nil) {
+                        newChampion.enemytips = json["enemytips"] as! [String]
+                    }
+                    newChampion.champId = json["id"] as! Int
+                    if (json["image"] != nil) {
+                        autoreleasepool({ ()
+                            let oldImage = json["image"] as! [String: AnyObject]
+                            let newImage = ImageDto()
+                            
+                            newImage.full = oldImage["full"] as! String
+                            newImage.group = oldImage["group"] as! String
+                            newImage.h = oldImage["h"] as! Int
+                            newImage.sprite = oldImage["sprite"] as! String
+                            newImage.w = oldImage["w"] as! Int
+                            newImage.x = oldImage["x"] as! Int
+                            newImage.y = oldImage["y"] as! Int
+                            
+                            newChampion.image = newImage
+                        })
+                    }
+                    if (json["info"] != nil) {
+                        autoreleasepool({ ()
+                            let oldInfo = json["info"] as! [String: AnyObject]
+                            let newInfo = InfoDto()
+                            
+                            newInfo.attack = oldInfo["attack"] as! Int
+                            newInfo.defense = oldInfo["defense"] as! Int
+                            newInfo.difficulty = oldInfo["difficulty"] as! Int
+                            newInfo.magic = oldInfo["magic"] as! Int
+                            
+                            newChampion.info = newInfo
+                        })
+                    }
+                    newChampion.key = json["key"] as! String
+                    if (json["lore"] != nil) {
+                        newChampion.lore = json["lore"] as! String
+                    }
+                    newChampion.name = json["name"] as! String
+                    if (json["partype"] != nil) {
+                        newChampion.partype = json["partype"] as! String
+                    }
+                    if (json["passive"] != nil) {
+                        autoreleasepool({ ()
+                            let oldPassive = json["passive"] as! [String: AnyObject]
+                            let newPassive = PassiveDto()
+                            
+                            newPassive.description = oldPassive["description"] as! String
+                            autoreleasepool({ ()
+                                let oldImage = oldPassive["image"] as! [String: AnyObject]
+                                let newImage = ImageDto()
+                                
+                                newImage.full = oldImage["full"] as! String
+                                newImage.group = oldImage["group"] as! String
+                                newImage.h = oldImage["h"] as! Int
+                                newImage.sprite = oldImage["sprite"] as! String
+                                newImage.w = oldImage["w"] as! Int
+                                newImage.x = oldImage["x"] as! Int
+                                newImage.y = oldImage["y"] as! Int
+                                
+                                newPassive.image = newImage
+                            })
+                            newPassive.name = oldPassive["name"] as! String
+                            newPassive.sanitizedDescription = oldPassive["sanitizedDescription"] as! String
+                            
+                            newChampion.passive = newPassive
+                        })
+                    }
+                    if (json["recommended"] != nil) {
+                        autoreleasepool({ ()
+                            let oldRecommendedList = json["recommended"] as! [[String: AnyObject]]
+                            var newRecommendedList = [RecommendedDto]()
+                            
+                            for oldRecommended in oldRecommendedList {
+                                let newRecommended = RecommendedDto()
+                                
+                                let oldBlocks = oldRecommended["blocks"] as! [[String: AnyObject]]
+                                for oldBlock in oldBlocks {
+                                    autoreleasepool({ ()
+                                        let newBlock = BlockDto()
+                                        
+                                        let oldItems = oldBlock["items"] as! [[String: AnyObject]]
+                                        for oldItem in oldItems {
+                                            autoreleasepool({ ()
+                                                let newItem = BlockItemDto()
+                                                
+                                                newItem.count = oldItem["count"] as! Int
+                                                newItem.itemId = oldItem["id"] as! Int
+                                                
+                                                newBlock.items.append(newItem)
+                                            })
+                                        }
+                                        newBlock.recMath = oldBlock["recMath"] as! Bool
+                                        newBlock.type = oldBlock["type"] as! String
+                                        
+                                        newRecommended.blocks.append(newBlock)
+                                    })
+                                }
+                                newRecommended.champion = oldRecommended["champion"] as! String
+                                newRecommended.map = oldRecommended["map"] as! String
+                                newRecommended.mode = oldRecommended["mode"] as! String
+                                newRecommended.priority = oldRecommended["priority"] as! Bool
+                                newRecommended.title = oldRecommended["title"] as! String
+                                newRecommended.type = oldRecommended["type"] as! String
+                                
+                                newRecommendedList.append(newRecommended)
+                            }
+                            
+                            newChampion.recommended = newRecommendedList
+                        })
+                    }
+                    if (json["skins"] != nil) {
+                        autoreleasepool({ ()
+                            let oldSkins = json["skins"] as! [[String: AnyObject]]
+                            var newSkins = [SkinDto]()
+                            
+                            for oldSkin in oldSkins {
+                                autoreleasepool({ ()
+                                    let newSkin = SkinDto()
+                                    
+                                    newSkin.skinId = oldSkin["id"] as! Int
+                                    newSkin.name = oldSkin["name"] as! String
+                                    newSkin.num = oldSkin["num"] as! Int
+                                    
+                                    newSkins.append(newSkin)
+                                })
+                            }
+                            
+                            newChampion.skins = newSkins
+                        })
+                    }
+                    /*if (json["spells"] != nil) {
+                        newChampion.<#property#> = json["<#key#>"] as! <#type#>
+                    }*/
+                    if (json["stats"] != nil) {
+                        autoreleasepool({ ()
+                            let oldStats = json["stats"] as! [String: AnyObject]
+                            let newStats = StatsDto()
+                            
+                            newStats.armor = oldStats["armor"] as! Double
+                            newStats.armorperlevel = oldStats["armorperlevel"] as! Double
+                            newStats.attackdamage = oldStats["attackdamage"] as! Double
+                            newStats.attackdamageperlevel = oldStats["attackdamageperlevel"] as! Double
+                            newStats.attackrange = oldStats["attackrange"] as! Double
+                            newStats.attackspeedoffset = oldStats["attackspeedoffset"] as! Double
+                            newStats.attackspeedperlevel = oldStats["attackspeedperlevel"] as! Double
+                            newStats.crit = oldStats["crit"] as! Double
+                            newStats.critperlevel = oldStats["critperlevel"] as! Double
+                            newStats.hp = oldStats["hp"] as! Double
+                            newStats.hpperlevel = oldStats["hpperlevel"] as! Double
+                            newStats.hpregen = oldStats["hpregen"] as! Double
+                            newStats.hpregenperlevel = oldStats["hpregenperlevel"] as! Double
+                            newStats.movespeed = oldStats["movespeed"] as! Double
+                            newStats.mp = oldStats["mp"] as! Double
+                            newStats.mpperlevel = oldStats["mpperlevel"] as! Double
+                            newStats.mpregen = oldStats["mpregen"] as! Double
+                            newStats.mpregenperlevel = oldStats["mpregenperlevel"] as! Double
+                            newStats.spellblock = oldStats["spellblock"] as! Double
+                            newStats.spellblockperlevel = oldStats["spellblockperlevel"] as! Double
+                            
+                            newChampion.stats = newStats
+                        })
+                    }
+                    if (json["tags"] != nil) {
+                        newChampion.tags = json["tags"] as! [String]
+                    }
+                    newChampion.title = json["title"] as! String
+                    
+                    completion(newChampion)
                 })
             }, failure: { (task, error) in
                 FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
