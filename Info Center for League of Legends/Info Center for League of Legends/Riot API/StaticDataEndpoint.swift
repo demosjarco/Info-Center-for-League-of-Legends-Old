@@ -178,7 +178,24 @@ class StaticDataEndpoint: NSObject {
                                 autoreleasepool({ ()
                                     let newSpell = ChampionSpellDto()
                                     
-//                                    newSpell.altimages = oldSpell["<#key#>"] as! <#type#>
+                                    autoreleasepool({ ()
+                                        let oldAltImages = oldSpell["altimages"] as! [[String: AnyObject]]
+                                        for oldAltImage in oldAltImages {
+                                            autoreleasepool({ ()
+                                                let newAltImage = ImageDto()
+                                                
+                                                newAltImage.full = oldAltImage["full"] as! String
+                                                newAltImage.group = oldAltImage["group"] as! String
+                                                newAltImage.h = oldAltImage["h"] as! Int
+                                                newAltImage.sprite = oldAltImage["sprite"] as! String
+                                                newAltImage.w = oldAltImage["w"] as! Int
+                                                newAltImage.x = oldAltImage["x"] as! Int
+                                                newAltImage.y = oldAltImage["y"] as! Int
+                                                
+                                                newSpell.altimages.append(newAltImage)
+                                            })
+                                        }
+                                    })
                                     newSpell.cooldown = oldSpell["cooldown"] as! [Double]
                                     newSpell.cooldownBurn = oldSpell["cooldownBurn"] as! String
                                     newSpell.cost = oldSpell["cost"] as! [Int]
