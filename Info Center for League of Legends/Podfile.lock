@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - AMPopTip (1.2.0)
   - BEMSimpleLineGraph (4.1)
   - Firebase/Analytics (3.4.0):
     - FirebaseAnalytics (~> 3.3)
@@ -70,9 +71,11 @@ PODS:
     - GoogleSymbolUtilities (~> 1.0)
   - MBCircularProgressBar (0.3.4)
   - SGSStaggeredFlowLayout (0.0.1)
+  - XCDYouTubeKit (2.5.3)
 
 DEPENDENCIES:
   - AFNetworking
+  - AMPopTip
   - BEMSimpleLineGraph
   - Firebase/Auth
   - Firebase/Database
@@ -80,9 +83,11 @@ DEPENDENCIES:
   - Firebase/RemoteConfig
   - MBCircularProgressBar
   - SGSStaggeredFlowLayout
+  - XCDYouTubeKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AMPopTip: 853bcb307ecc6f71742cccdbc5b594bea097f188
   BEMSimpleLineGraph: 44fd451f27f8e9cf96f2da5bea27603093576dd1
   Firebase: 754562547af419cc2f4b15247fee419081924bc2
   FirebaseAnalytics: 228be2991cb28efb96cdafc4d62f64680e615c69
@@ -99,7 +104,8 @@ SPEC CHECKSUMS:
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   MBCircularProgressBar: ff3b8e2f441214d9ee122a24ba0d4d00cc7de881
   SGSStaggeredFlowLayout: 7b20a3b7ac88a0db063ce9c4ac71c5fc95e165c2
+  XCDYouTubeKit: 90690f9e3523735dc93b8024269d991b0cfffe78
 
-PODFILE CHECKSUM: d430b82a82cb190021159dc3d2678d4083b845b9
+PODFILE CHECKSUM: f9586a9dda04a7f7d52cbba65d77b7e4d96d86cc
 
 COCOAPODS: 1.1.0.beta.1
