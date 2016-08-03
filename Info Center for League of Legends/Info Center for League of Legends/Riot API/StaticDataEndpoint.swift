@@ -32,7 +32,7 @@ class StaticDataEndpoint: NSObject {
     func getChampionInfoById(champId: Int, championData: champData, completion: (ChampionDto) -> Void, notFound: () -> Void, error: () -> Void) {
         Endpoints().staticData_champion_id(championId: String(champId), champData: championData.rawValue) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
-                autoreleasepool({ ()
+                autoreleasepool(invoking: { ()
                     let newChampion = ChampionDto()
                     let json = responseObject as! [String: AnyObject]
                     
@@ -318,7 +318,7 @@ class StaticDataEndpoint: NSObject {
     func getRegionValidLocales(completion: (languages: [String]) -> Void) {
         Endpoints().staticData_languages { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
-                autoreleasepool({ ()
+                autoreleasepool(invoking: { ()
                     let json = responseObject as! [String]
                     completion(languages: json)
                 })

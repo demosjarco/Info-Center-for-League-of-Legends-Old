@@ -14,7 +14,7 @@ class GameEndpoint: NSObject {
     func getRecentGamesBySummonerId(summonerId: CLong, completion: (recentGamesMap: RecentGamesDto) -> Void, errorBlock: () -> Void) {
         Endpoints().game_BySummoner(summonerId: String(summonerId)) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
-                autoreleasepool({ ()
+                autoreleasepool(invoking: { ()
                     let recentGames = RecentGamesDto()
                     let json = responseObject as! NSDictionary
                     

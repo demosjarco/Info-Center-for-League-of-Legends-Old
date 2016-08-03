@@ -48,7 +48,7 @@ class LeagueEndpoint: NSObject {
     func getLeagueEntryBySummonerIds(summonerIds: [CLong], completion: (summonerMap: [String: [LeagueDto]]) -> Void, notFound: () -> Void, errorBlock: () -> Void) {
         Endpoints().league_bySummoner_entry(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
-                autoreleasepool({ ()
+                autoreleasepool(invoking: { ()
                     var newDict = [String: [LeagueDto]]()
                     let json = responseObject as! NSDictionary
                     for h in 0 ..< json.count {
@@ -58,7 +58,7 @@ class LeagueEndpoint: NSObject {
                             let oldLeague = summoner[i] as! NSDictionary
                             
                             let newLeague = LeagueDto()
-                            autoreleasepool({ ()
+                            autoreleasepool(invoking: { ()
                                 var newEntries = [LeagueEntryDto]()
                                 let oldEntries = oldLeague["entries"] as! NSArray
                                 for j in 0 ..< oldEntries.count {
@@ -73,7 +73,7 @@ class LeagueEndpoint: NSObject {
                                     newEntry.leaguePoints = oldEntry["leaguePoints"] as! Int
                                     newEntry.losses = oldEntry["losses"] as! Int
                                     if oldEntry["miniSeries"] != nil {
-                                        autoreleasepool({ ()
+                                        autoreleasepool(invoking: { ()
                                             let oldMiniSeries = oldEntry["miniSeries"] as! [String: AnyObject]
                                             
                                             let newMiniSeries = MiniSeriesDto()

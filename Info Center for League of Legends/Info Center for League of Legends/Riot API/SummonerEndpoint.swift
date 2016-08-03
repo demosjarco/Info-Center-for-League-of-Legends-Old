@@ -20,7 +20,7 @@ class SummonerEndpoint: NSObject {
         
         Endpoints().summoner_byName(summonerNames: standardizedSummonerNames.value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
-                autoreleasepool({ ()
+                autoreleasepool(invoking: { ()
                     var newDict = [String: SummonerDto]()
                     let dict = responseObject as! NSDictionary
                     let dictValues = dict.allValues as! [[String: AnyObject]]
@@ -52,12 +52,12 @@ class SummonerEndpoint: NSObject {
     func getSummonersForIds(summonerIds: [CLong], completion: (summonerMap: [String: SummonerDto]) -> Void, errorBlock: () -> Void) {
         Endpoints().summoner_byId(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
-                autoreleasepool({ ()
+                autoreleasepool(invoking: { ()
                     var newDict = [String: SummonerDto]()
                     let dict = responseObject as! NSDictionary
                     let dictValues = dict.allValues as! [[String: AnyObject]]
                     for i in 0 ..< dictValues.count {
-                        autoreleasepool({ ()
+                        autoreleasepool(invoking: { ()
                             let oldSummoner = dictValues[i]
                             
                             let newSummoner = SummonerDto()
@@ -82,29 +82,29 @@ class SummonerEndpoint: NSObject {
     func getMasteriesForSummonerIds(summonerIds: [CLong], completion: (summonerMap: [String: MasteryPagesDto]) -> Void, errorBlock: () -> Void) {
         Endpoints().summoner_masteriesById(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
-                autoreleasepool({ ()
+                autoreleasepool(invoking: { ()
                     var newResponse = [String: MasteryPagesDto]()
                     let json = responseObject as! NSDictionary
                     let jsonValues = json.allValues as! [[String: AnyObject]]
                     for i in 0 ..< jsonValues.count {
-                        autoreleasepool({ ()
+                        autoreleasepool(invoking: { ()
                             let oldMasteryPages = jsonValues[i]
                             
                             let newMasteryPages = MasteryPagesDto()
-                            autoreleasepool({ ()
+                            autoreleasepool(invoking: { ()
                                 let oldPages = oldMasteryPages["pages"] as! [[String: AnyObject]]
                                 
                                 for oldPage in oldPages {
-                                    autoreleasepool({ ()
+                                    autoreleasepool(invoking: { ()
                                         let newPage = MasteryPageDto()
                                         
                                         newPage.current = oldPage["current"] as! Bool
                                         newPage.masteryPageId = oldPage["id"] as! CLong
                                         if (oldPage["masteries"] != nil) {
-                                            autoreleasepool({ ()
+                                            autoreleasepool(invoking: { ()
                                                 let oldMasteries = oldPage["masteries"] as! [[String: AnyObject]]
                                                 for oldMastery in oldMasteries {
-                                                    autoreleasepool({ ()
+                                                    autoreleasepool(invoking: { ()
                                                         let newMastery = MasteryDto()
                                                         
                                                         newMastery.masteryId = oldMastery["id"] as! Int

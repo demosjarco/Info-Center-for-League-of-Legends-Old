@@ -27,7 +27,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
         recentSummoners = NSMutableArray()
         PlistManager().loadRecentSummoners { (recentSummonersLoaded) in
             for summonerId in recentSummonersLoaded as! [CLong] {
-                autoreleasepool({ ()
+                autoreleasepool(invoking: { ()
                     let temp = SummonerDto()
                     temp.summonerId = summonerId
                     self.recentSummoners.add(temp)
@@ -150,7 +150,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                 
                 LeagueEndpoint().getLeagueEntryBySummonerIds(summonerIds: [temp.summonerId], completion: { (summonerMap) in
                     // Ranked
-                    autoreleasepool({ ()
+                    autoreleasepool(invoking: { ()
                         let currentSummoner = summonerMap.values.first
                         
                         var highestTier: Int = 7

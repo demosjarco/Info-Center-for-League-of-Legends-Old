@@ -56,7 +56,7 @@ class DDragon: NSObject {
     func getMasteryIcon(masteryId: Int, gray: Bool, completion: (masteryIconUrl: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
             self.getLatestDDragonVersion(dataType: "mastery", completion: { (version) in
-                autoreleasepool({ ()
+                autoreleasepool(invoking: { ()
                     var grayText = ""
                     if gray {
                         grayText = "gray_"
