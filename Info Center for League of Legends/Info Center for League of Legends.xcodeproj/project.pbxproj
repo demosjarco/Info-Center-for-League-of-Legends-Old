@@ -302,6 +302,7 @@
 				17EDBB311D10EEF200C7B7C5 /* Subclasses */,
 				174C95171D106CCD00EBFB07 /* AppDelegate.swift */,
 				17EDBB341D10EFAF00C7B7C5 /* Profile */,
+				177666A61D52756600C846BA /* Lcs */,
 				17353B691D3AC7F400C56768 /* News */,
 				174C951D1D106CCD00EBFB07 /* Main.storyboard */,
 				17D14E131D10D3A8007F6938 /* Winter.xcassets */,
@@ -372,6 +373,13 @@
 				1771CBD31D282B9800D0DB08 /* MiniSeriesDto.swift */,
 			);
 			name = "League Entities";
+			sourceTree = "<group>";
+		};
+		177666A61D52756600C846BA /* Lcs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Lcs;
 			sourceTree = "<group>";
 		};
 		178B95761D428A1C00CAD47A /* Game Entities */ = {
