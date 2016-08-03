@@ -29,8 +29,8 @@ class NewsCell: UICollectionViewCell {
         // Gradient Mask
         autoreleasepool { ()
             let _gradientLayer = CAGradientLayer()
-            _gradientLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main().bounds.size.width, height: 256)
-            _gradientLayer.colors = [UIColor.clear().cgColor, UIColor.black().cgColor]
+            _gradientLayer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 256)
+            _gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
             _gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
             _gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.4 + 1.0 / 3.0)
             let _maskingLayer = CALayer()

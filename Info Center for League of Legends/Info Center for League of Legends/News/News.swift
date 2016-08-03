@@ -33,7 +33,7 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
         
         autoreleasepool { ()
             let refresher = UIRefreshControl(frame: self.collectionView!.frame)
-            refresher.tintColor = UIColor.lightText()
+            refresher.tintColor = UIColor.lightText
             refresher.addTarget(self, action: #selector(self.refresh(sender:)), for: .valueChanged)
             self.collectionView?.insertSubview(refresher, at: self.collectionView!.subviews.count - 1)
             
