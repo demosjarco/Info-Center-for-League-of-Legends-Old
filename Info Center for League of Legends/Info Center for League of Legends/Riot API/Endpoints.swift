@@ -73,7 +73,7 @@ class Endpoints: NSObject {
     
     func optimalLocaleForRegion(completion: (optimalLocale: Bool) -> Void) {
         StaticDataEndpoint().getRegionValidLocales { (languages) in
-            if languages.contains(Locale.autoupdatingCurrent.localeIdentifier)  {
+            if languages.contains(Locale.autoupdatingCurrent.identifier)  {
                 completion(optimalLocale: true)
             } else {
                 completion(optimalLocale: false)
@@ -155,7 +155,7 @@ class Endpoints: NSObject {
                 self.optimalLocaleForRegion(completion: { (optimalLocale) in
                     var urlString = baseEndpoint + "champion/" + championId
                     if optimalLocale {
-                        urlString += "?locale=" + Locale.autoupdatingCurrent.localeIdentifier + "&champData=" + champData + "&api_key=" + apiKey
+                        urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&champData=" + champData + "&api_key=" + apiKey
                     } else {
                         urlString += "?champData=" + champData + "&api_key=" + apiKey
                     }
