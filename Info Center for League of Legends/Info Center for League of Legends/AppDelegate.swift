@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         window?.tintColor = UIColor(colorLiteralRed: 207/255.0, green: 186/255.0, blue: 107/255.0, alpha: 1.0)
+        UITextField().keyboardAppearance = UIKeyboardAppearance.dark
         FIRApp.configure()
         
         FIRAuth.auth()?.signInAnonymously(completion: { (user, error) in
