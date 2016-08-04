@@ -145,8 +145,7 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
         let img2 = img1.components(separatedBy: "src=\"").last?.components(separatedBy: "\"")
         var components = URLComponents(string: img2!.first!)
         components?.scheme = "https"
-        var imageUrl = components?.url
-        
+        let imageUrl = components?.url
         
         cell.newsStoryImage?.setImageWith(URLRequest(url: imageUrl!), placeholderImage: nil, success: { (request, response, image) in
             cell.setStoryImage(storyImage: image)
