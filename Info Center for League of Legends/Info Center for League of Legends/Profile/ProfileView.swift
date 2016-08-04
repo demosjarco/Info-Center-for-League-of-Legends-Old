@@ -209,6 +209,14 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         }) {
             // Error
         }
+        
+        ChampionMasteryEndpoint().getMasteryScoreBySummonerId(playerId: self.summoner.summonerId, completion: { (championScore) in
+            self.profileHeader.summonerChampMasteryScore?.text = String(championScore) + " Mastery Score"
+        }, notFound: {
+            // ???
+        }) { 
+            // Error
+        }
     }
     
     func loadRecentGames() {
