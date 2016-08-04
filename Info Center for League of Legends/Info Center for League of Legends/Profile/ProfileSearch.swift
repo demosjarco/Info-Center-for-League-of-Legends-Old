@@ -292,7 +292,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         if segue.identifier == "showProfileInfo" {
-            let profileView = segue.destinationViewController as! ProfileView
+            let profileView = segue.destination as! ProfileView
             profileView.summoner = self.summonerInfoForSegue
         }
     }
