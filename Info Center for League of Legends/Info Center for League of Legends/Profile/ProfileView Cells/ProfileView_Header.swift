@@ -81,7 +81,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
     func setShadowOnProfilePic() {
         // Rounded shadow on seperate UIView behind profile pic
         let shadowLayer = CAShapeLayer()
-        shadowLayer.shadowColor = UIColor.black().cgColor
+        shadowLayer.shadowColor = UIColor.black.cgColor
         shadowLayer.shadowPath = UIBezierPath(roundedRect: self.profilePicShadow!.bounds, cornerRadius: self.profilePic!.layer.cornerRadius).cgPath
         shadowLayer.shadowOffset = CGSize(width: 0, height: 0)
         shadowLayer.shadowOpacity = 0.5
