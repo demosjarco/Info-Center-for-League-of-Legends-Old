@@ -14,7 +14,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         ExistingAppChecker().checkIfAppSetup(viewController: self)
 
-        self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         refresh()
     }
@@ -71,7 +71,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
         
         let loading = UIAlertController(title: "Loading...", message: "\n\n", preferredStyle: .alert)
         let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        indicator.color = UIColor.black()
+        indicator.color = UIColor.black
         indicator.hidesWhenStopped = true
         indicator.center = CGPoint(x: 130.5, y: 65.5)
         indicator.startAnimating()
