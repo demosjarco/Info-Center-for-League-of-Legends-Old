@@ -90,11 +90,11 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                         for substring in progress! {
                             switch substring {
                             case "✓ ":
-                                progressString.append(AttributedString(string: substring, attributes: [NSForegroundColorAttributeName: UIColor.green()]))
+                                progressString.append(NSAttributedString(string: substring, attributes: [NSForegroundColorAttributeName: UIColor.green()]))
                             case "X ":
-                                progressString.append(AttributedString(string: substring, attributes: [NSForegroundColorAttributeName: UIColor.red()]))
+                                progressString.append(NSAttributedString(string: substring, attributes: [NSForegroundColorAttributeName: UIColor.red()]))
                             case "○ ":
-                                progressString.append(AttributedString(string: substring, attributes: [NSForegroundColorAttributeName: UIColor.white()]))
+                                progressString.append(NSAttributedString(string: substring, attributes: [NSForegroundColorAttributeName: UIColor.white()]))
                             default:
                                 break
                             }

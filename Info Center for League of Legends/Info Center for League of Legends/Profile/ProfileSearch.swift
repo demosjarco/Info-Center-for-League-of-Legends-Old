@@ -186,7 +186,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                         
                         let attString = NSMutableAttributedString(string: " " + highestTierSpelledOut.capitalized)
                         attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
-                        attString.replaceCharacters(in: NSMakeRange(0, 1), with: AttributedString(attachment: tierIcon))
+                        attString.replaceCharacters(in: NSMakeRange(0, 1), with: NSAttributedString(attachment: tierIcon))
                         cell.detailTextLabel?.attributedText = attString
                         cell.detailTextLabel?.setNeedsLayout()
                         cell.setNeedsLayout()
@@ -203,7 +203,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                         
                         let attString = NSMutableAttributedString(string: " " + highestTierSpelledOut.capitalized + " " + highestDivisionRoman.uppercased())
                         attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
-                        attString.replaceCharacters(in: NSMakeRange(0, 1), with: AttributedString(attachment: tierIcon))
+                        attString.replaceCharacters(in: NSMakeRange(0, 1), with: NSAttributedString(attachment: tierIcon))
                         cell.detailTextLabel?.attributedText = attString
                         cell.detailTextLabel?.setNeedsLayout()
                         cell.setNeedsLayout()
@@ -221,7 +221,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                 
                 let attString = NSMutableAttributedString(string: " Level " + String(temp.summonerLevel))
                 attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
-                attString.replaceCharacters(in: NSMakeRange(0, 1), with: AttributedString(attachment: tierIcon))
+                attString.replaceCharacters(in: NSMakeRange(0, 1), with: NSAttributedString(attachment: tierIcon))
                 cell.detailTextLabel?.attributedText = attString
                 cell.detailTextLabel?.setNeedsLayout()
                 cell.setNeedsLayout()
@@ -237,7 +237,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                 
                 let attString = NSMutableAttributedString(string: " Level " + String(temp.summonerLevel))
                 attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
-                attString.replaceCharacters(in: NSMakeRange(0, 1), with: AttributedString(attachment: tierIcon))
+                attString.replaceCharacters(in: NSMakeRange(0, 1), with: NSAttributedString(attachment: tierIcon))
                 cell.detailTextLabel?.attributedText = attString
                 cell.detailTextLabel?.setNeedsLayout()
                 cell.setNeedsLayout()
