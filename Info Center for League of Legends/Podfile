@@ -16,8 +16,8 @@ target 'Info Center for League of Legends' do
     pod 'BEMSimpleLineGraph'
     pod 'MBCircularProgressBar'
     pod 'SGSStaggeredFlowLayout'
-    pod 'XCDYouTubeKit'
-    pod 'AMPopTip'
+    # pod 'XCDYouTubeKit'
+    # pod 'AMPopTip'
     # pod 'JSBadgeView'
 	
 	# pod 'FLAnimatedImage'
