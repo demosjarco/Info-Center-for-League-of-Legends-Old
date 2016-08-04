@@ -75,8 +75,9 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
                     }
                     self.collectionView?.reloadSections(IndexSet(integer: 0))
                     sender.endRefreshing()
-                    }, failure: { (task, error) in
-                        FIRDatabase.database().reference().child("news_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode, "url": url, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                }, failure: { (task, error) in
+                        let response = task!.response as! HTTPURLResponse
+                        FIRDatabase.database().reference().child("news_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": url, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
                         sender.endRefreshing()
                 })
             })
