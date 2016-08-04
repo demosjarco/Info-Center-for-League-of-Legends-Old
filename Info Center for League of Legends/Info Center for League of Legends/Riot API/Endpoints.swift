@@ -84,7 +84,7 @@ class Endpoints: NSObject {
     // MARK: - Endpoint URLs
     
     // Champion Mastery
-    func championMastery_bySummonerId_topChampions(summonerId: String, count: Int, completion: (composedUrl: String) -> Void) {
+    func championMastery_bySummonerId_score(playerId: String, completion: (composedUrl: String) -> Void) {
         self.getRegion { (regionCode) in
             var region:String
             switch regionCode {
@@ -115,7 +115,44 @@ class Endpoints: NSObject {
             }
             
             self.getApiKey { (apiKey) in
-                var urlString = "https://" + regionCode + ".api.pvp.net/championmastery/location/" + region + "/player/" + summonerId + "/topchampions"
+                let urlString = "https://" + regionCode + ".api.pvp.net/championmastery/location/" + region + "/player/" + playerId + "/score" + "?api_key=" + apiKey
+                completion(composedUrl: urlString)
+            }
+        }
+    }
+    
+    func championMastery_bySummonerId_topChampions(playerId: String, count: Int, completion: (composedUrl: String) -> Void) {
+        self.getRegion { (regionCode) in
+            var region:String
+            switch regionCode {
+            case "br":
+                region = platformId.br.rawValue
+            case "eune":
+                region = platformId.eune.rawValue
+            case "euw":
+                region = platformId.euw.rawValue
+            case "jp":
+                region = platformId.jp.rawValue
+            case "kr":
+                region = platformId.kr.rawValue
+            case "lan":
+                region = platformId.lan.rawValue
+            case "las":
+                region = platformId.las.rawValue
+            case "na":
+                region = platformId.na.rawValue
+            case "oce":
+                region = platformId.oce.rawValue
+            case "ru":
+                region = platformId.ru.rawValue
+            case "tr":
+                region = platformId.br.rawValue
+            default:
+                region = ""
+            }
+            
+            self.getApiKey { (apiKey) in
+                var urlString = "https://" + regionCode + ".api.pvp.net/championmastery/location/" + region + "/player/" + playerId + "/topchampions"
                 if count == 0 {
                     urlString = urlString + "?api_key=" + apiKey
                 } else {

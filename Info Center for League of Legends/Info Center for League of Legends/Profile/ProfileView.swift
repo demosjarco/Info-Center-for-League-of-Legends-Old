@@ -197,7 +197,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     }
     
     func loadChampionMastery() {
-        ChampionMasteryEndpoint().getTopChampsBySummonerId(summonerId: self.summoner.summonerId, count: 3, completion: { (championMasteryList) in
+        ChampionMasteryEndpoint().getTopChampsBySummonerId(playerId: self.summoner.summonerId, count: 3, completion: { (championMasteryList) in
             self.cm_top3champs = championMasteryList
             for tile in self.tileOrder {
                 if tile["tileType"] as! String == "champMastery" {
