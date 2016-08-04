@@ -32,9 +32,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                 self.recentSummoners.add(temp)
             }
             self.refreshControl?.endRefreshing()
-            self.tableView.beginUpdates()
             self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-            self.tableView.endUpdates()
         }
     }
     
