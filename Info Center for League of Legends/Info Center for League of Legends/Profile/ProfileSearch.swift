@@ -27,11 +27,9 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
         recentSummoners = NSMutableArray()
         PlistManager().loadRecentSummoners { (recentSummonersLoaded) in
             for summonerId in recentSummonersLoaded as! [CLong] {
-                autoreleasepool(invoking: { ()
-                    let temp = SummonerDto()
-                    temp.summonerId = summonerId
-                    self.recentSummoners.add(temp)
-                })
+                let temp = SummonerDto()
+                temp.summonerId = summonerId
+                self.recentSummoners.add(temp)
             }
             self.refreshControl?.endRefreshing()
             self.tableView.beginUpdates()
@@ -71,28 +69,27 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         
-        autoreleasepool { ()
-            let loading = UIAlertController(title: "Loading...", message: "\n\n", preferredStyle: .alert)
-            let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-            indicator.color = UIColor.black()
-            indicator.hidesWhenStopped = true
-            indicator.center = CGPoint(x: 130.5, y: 65.5)
-            indicator.startAnimating()
+        let loading = UIAlertController(title: "Loading...", message: "\n\n", preferredStyle: .alert)
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        indicator.color = UIColor.black()
+        indicator.hidesWhenStopped = true
+        indicator.center = CGPoint(x: 130.5, y: 65.5)
+        indicator.startAnimating()
+        
+        loading.view.addSubview(indicator)
+        self.present(loading, animated: true, completion: nil)
+        
+        SummonerEndpoint().getSummonersForSummonerNames(summonerNames: [searchBar.text!], completion: { (summonerMap) in
+            self.summonerInfoForSegue = summonerMap.values.first!
             
-            loading.view.addSubview(indicator)
-            self.present(loading, animated: true, completion: nil)
+            PlistManager().addToRecentSummoners(newSummoner: summonerMap.values.first!)
+            self.recentSummoners.insert(summonerMap.values.first!, at: 0)
+            self.tableView.insertRows(at: [IndexPath(row: self.recentSummoners.index(of: summonerMap.values.first!), section: 0)], with: .automatic)
             
-            SummonerEndpoint().getSummonersForSummonerNames(summonerNames: [searchBar.text!], completion: { (summonerMap) in
-                self.summonerInfoForSegue = summonerMap.values.first!
-                
-                PlistManager().addToRecentSummoners(newSummoner: summonerMap.values.first!)
-                self.recentSummoners.insert(summonerMap.values.first!, at: 0)
-                self.tableView.insertRows(at: [IndexPath(row: self.recentSummoners.index(of: summonerMap.values.first!), section: 0)], with: .automatic)
-                
-                indicator.stopAnimating()
-                loading.dismiss(animated: true, completion: {
-                    self.performSegue(withIdentifier: "showProfileInfo", sender: self)
-                })
+            indicator.stopAnimating()
+            loading.dismiss(animated: true, completion: {
+                self.performSegue(withIdentifier: "showProfileInfo", sender: self)
+            })
             }, notFound: {
                 indicator.stopAnimating()
                 loading.title = "Summoner doesn't exist"
@@ -103,8 +100,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                 loading.title = "Summoner lookup failed"
                 loading.message = "Please check your connection and/or try again later. This problem has been submitted for review."
                 loading.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
-            })
-        }
+        })
     }
 
     // MARK: - Table view data source
@@ -129,146 +125,126 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
         cell.textLabel?.text = "--"
         cell.detailTextLabel?.text = "--"
         
-        autoreleasepool { ()
-            var temp = recentSummoners[indexPath.row] as! SummonerDto
+        var temp = recentSummoners[indexPath.row] as! SummonerDto
+        
+        SummonerEndpoint().getSummonersForIds(summonerIds: [temp.summonerId], completion: { (summonerMap) in
+            self.recentSummoners.replaceObject(at: indexPath.row, with: summonerMap.values.first!)
+            temp = summonerMap.values.first!
             
-            SummonerEndpoint().getSummonersForIds(summonerIds: [temp.summonerId], completion: { (summonerMap) in
-                self.recentSummoners.replaceObject(at: indexPath.row, with: summonerMap.values.first!)
-                temp = summonerMap.values.first!
-                
-                cell.textLabel?.text = temp.name
-                
-                DDragon().getProfileIcon(profileIconId: temp.profileIconId, completion: { (profileIconURL) in
-                    cell.imageView!.setImageWith(URLRequest(url: profileIconURL), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
-                        cell.imageView!.image = image
-                        cell.setNeedsLayout()
+            cell.textLabel?.text = temp.name
+            
+            DDragon().getProfileIcon(profileIconId: temp.profileIconId, completion: { (profileIconURL) in
+                cell.imageView!.setImageWith(URLRequest(url: profileIconURL), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
+                    cell.imageView!.image = image
+                    cell.setNeedsLayout()
                     }, failure: { (request, response, error) in
                         cell.imageView!.image = UIImage(named: "poroIcon")
                         cell.setNeedsLayout()
-                    })
                 })
-                
-                LeagueEndpoint().getLeagueEntryBySummonerIds(summonerIds: [temp.summonerId], completion: { (summonerMap) in
-                    // Ranked
-                    autoreleasepool(invoking: { ()
-                        let currentSummoner = summonerMap.values.first
-                        
-                        var highestTier: Int = 7
-                        var highestTierSpelledOut: String = ""
-                        var highestDivision: Int = 6
-                        var highestDivisionRoman: String = ""
-                        
-                        for league in currentSummoner! {
-                            if highestTier > LeagueEndpoint().tierToNumber(tier: league.tier) {
-                                highestTier = LeagueEndpoint().tierToNumber(tier: league.tier)
-                                highestTierSpelledOut = league.tier
-                                highestDivision = 6
-                                
-                                for entry in league.entries {
-                                    if highestDivision > LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division) {
-                                        highestDivision = LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division)
-                                        highestDivisionRoman = entry.division
-                                    }
-                                }
-                            } else if highestTier == LeagueEndpoint().tierToNumber(tier: league.tier) {
-                                for entry in league.entries {
-                                    if highestDivision > LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division) {
-                                        highestDivision = LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division)
-                                        highestDivisionRoman = entry.division
-                                    }
-                                }
-                            }
-                            
-                            if highestTier < 2 {
-                                // Challenger & Master
-                                // Dont use division
-                                autoreleasepool { ()
-                                    let tierIcon = NSTextAttachment()
-                                    autoreleasepool { ()
-                                        let pictureHeight = tableView.rectForRow(at: indexPath).size.height / 2
-                                        
-                                        UIGraphicsBeginImageContextWithOptions(CGSize(width: pictureHeight, height: pictureHeight), false, 1.0)
-                                        UIImage(named: highestTierSpelledOut.lowercased())?.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: pictureHeight, height: pictureHeight)))
-                                        tierIcon.image = UIGraphicsGetImageFromCurrentImageContext()
-                                        UIGraphicsEndImageContext()
-                                    }
-                                    
-                                    let attString = NSMutableAttributedString(string: " " + highestTierSpelledOut.capitalized)
-                                    attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
-                                    attString.replaceCharacters(in: NSMakeRange(0, 1), with: AttributedString(attachment: tierIcon))
-                                    cell.detailTextLabel?.attributedText = attString
-                                    cell.detailTextLabel?.setNeedsLayout()
-                                    cell.setNeedsLayout()
-                                }
-                            } else {
-                                // Diamond and lower
-                                // Use division
-                                autoreleasepool { ()
-                                    let tierIcon = NSTextAttachment()
-                                    autoreleasepool { ()
-                                        let pictureHeight = tableView.rectForRow(at: indexPath).size.height / 2
-                                        
-                                        UIGraphicsBeginImageContextWithOptions(CGSize(width: pictureHeight, height: pictureHeight), false, 1.0)
-                                        UIImage(named: highestTierSpelledOut.lowercased() + "_" + highestDivisionRoman.lowercased())?.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: pictureHeight, height: pictureHeight)))
-                                        tierIcon.image = UIGraphicsGetImageFromCurrentImageContext()
-                                        UIGraphicsEndImageContext()
-                                    }
-                                    
-                                    let attString = NSMutableAttributedString(string: " " + highestTierSpelledOut.capitalized + " " + highestDivisionRoman.uppercased())
-                                    attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
-                                    attString.replaceCharacters(in: NSMakeRange(0, 1), with: AttributedString(attachment: tierIcon))
-                                    cell.detailTextLabel?.attributedText = attString
-                                    cell.detailTextLabel?.setNeedsLayout()
-                                    cell.setNeedsLayout()
-                                }
-                            }
-                        }
-                    })
-                }, notFound: {
-                    // Unranked
-                    autoreleasepool { ()
-                        let tierIcon = NSTextAttachment()
-                        autoreleasepool { ()
-                            let pictureHeight = tableView.rectForRow(at: indexPath).size.height / 2
-                            
-                            UIGraphicsBeginImageContextWithOptions(CGSize(width: pictureHeight, height: pictureHeight), false, 1.0)
-                            UIImage(named: "provisional")?.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: pictureHeight, height: pictureHeight)))
-                            tierIcon.image = UIGraphicsGetImageFromCurrentImageContext()
-                            UIGraphicsEndImageContext()
-                        }
-                        
-                        let attString = NSMutableAttributedString(string: " Level " + String(temp.summonerLevel))
-                        attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
-                        attString.replaceCharacters(in: NSMakeRange(0, 1), with: AttributedString(attachment: tierIcon))
-                        cell.detailTextLabel?.attributedText = attString
-                        cell.detailTextLabel?.setNeedsLayout()
-                        cell.setNeedsLayout()
-                    }
-                }, errorBlock: {
-                    // Error
-                    autoreleasepool { ()
-                        let tierIcon = NSTextAttachment()
-                        autoreleasepool { ()
-                            let pictureHeight = tableView.rectForRow(at: indexPath).size.height / 2
-                            
-                            UIGraphicsBeginImageContextWithOptions(CGSize(width: pictureHeight, height: pictureHeight), false, 1.0)
-                            UIImage(named: "provisional")?.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: pictureHeight, height: pictureHeight)))
-                            tierIcon.image = UIGraphicsGetImageFromCurrentImageContext()
-                            UIGraphicsEndImageContext()
-                        }
-                        
-                        let attString = NSMutableAttributedString(string: " Level " + String(temp.summonerLevel))
-                        attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
-                        attString.replaceCharacters(in: NSMakeRange(0, 1), with: AttributedString(attachment: tierIcon))
-                        cell.detailTextLabel?.attributedText = attString
-                        cell.detailTextLabel?.setNeedsLayout()
-                        cell.setNeedsLayout()
-                    }
-                })
-            }, errorBlock: {
-                    
             })
-        }
+            
+            LeagueEndpoint().getLeagueEntryBySummonerIds(summonerIds: [temp.summonerId], completion: { (summonerMap) in
+                // Ranked
+                let currentSummoner = summonerMap.values.first
+                
+                var highestTier: Int = 7
+                var highestTierSpelledOut: String = ""
+                var highestDivision: Int = 6
+                var highestDivisionRoman: String = ""
+                
+                for league in currentSummoner! {
+                    if highestTier > LeagueEndpoint().tierToNumber(tier: league.tier) {
+                        highestTier = LeagueEndpoint().tierToNumber(tier: league.tier)
+                        highestTierSpelledOut = league.tier
+                        highestDivision = 6
+                        
+                        for entry in league.entries {
+                            if highestDivision > LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division) {
+                                highestDivision = LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division)
+                                highestDivisionRoman = entry.division
+                            }
+                        }
+                    } else if highestTier == LeagueEndpoint().tierToNumber(tier: league.tier) {
+                        for entry in league.entries {
+                            if highestDivision > LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division) {
+                                highestDivision = LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division)
+                                highestDivisionRoman = entry.division
+                            }
+                        }
+                    }
+                    
+                    if highestTier < 2 {
+                        // Challenger & Master
+                        // Dont use division
+                        let tierIcon = NSTextAttachment()
+                        let pictureHeight = tableView.rectForRow(at: indexPath).size.height / 2
+                        
+                        UIGraphicsBeginImageContextWithOptions(CGSize(width: pictureHeight, height: pictureHeight), false, 1.0)
+                        UIImage(named: highestTierSpelledOut.lowercased())?.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: pictureHeight, height: pictureHeight)))
+                        tierIcon.image = UIGraphicsGetImageFromCurrentImageContext()
+                        UIGraphicsEndImageContext()
+                        
+                        let attString = NSMutableAttributedString(string: " " + highestTierSpelledOut.capitalized)
+                        attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
+                        attString.replaceCharacters(in: NSMakeRange(0, 1), with: AttributedString(attachment: tierIcon))
+                        cell.detailTextLabel?.attributedText = attString
+                        cell.detailTextLabel?.setNeedsLayout()
+                        cell.setNeedsLayout()
+                    } else {
+                        // Diamond and lower
+                        // Use division
+                        let tierIcon = NSTextAttachment()
+                        let pictureHeight = tableView.rectForRow(at: indexPath).size.height / 2
+                        
+                        UIGraphicsBeginImageContextWithOptions(CGSize(width: pictureHeight, height: pictureHeight), false, 1.0)
+                        UIImage(named: highestTierSpelledOut.lowercased() + "_" + highestDivisionRoman.lowercased())?.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: pictureHeight, height: pictureHeight)))
+                        tierIcon.image = UIGraphicsGetImageFromCurrentImageContext()
+                        UIGraphicsEndImageContext()
+                        
+                        let attString = NSMutableAttributedString(string: " " + highestTierSpelledOut.capitalized + " " + highestDivisionRoman.uppercased())
+                        attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
+                        attString.replaceCharacters(in: NSMakeRange(0, 1), with: AttributedString(attachment: tierIcon))
+                        cell.detailTextLabel?.attributedText = attString
+                        cell.detailTextLabel?.setNeedsLayout()
+                        cell.setNeedsLayout()
+                    }
+                }
+            }, notFound: {
+                // Unranked
+                let tierIcon = NSTextAttachment()
+                let pictureHeight = tableView.rectForRow(at: indexPath).size.height / 2
+                
+                UIGraphicsBeginImageContextWithOptions(CGSize(width: pictureHeight, height: pictureHeight), false, 1.0)
+                UIImage(named: "provisional")?.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: pictureHeight, height: pictureHeight)))
+                tierIcon.image = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                
+                let attString = NSMutableAttributedString(string: " Level " + String(temp.summonerLevel))
+                attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
+                attString.replaceCharacters(in: NSMakeRange(0, 1), with: AttributedString(attachment: tierIcon))
+                cell.detailTextLabel?.attributedText = attString
+                cell.detailTextLabel?.setNeedsLayout()
+                cell.setNeedsLayout()
+            }, errorBlock: {
+                // Error
+                let tierIcon = NSTextAttachment()
+                let pictureHeight = tableView.rectForRow(at: indexPath).size.height / 2
+                
+                UIGraphicsBeginImageContextWithOptions(CGSize(width: pictureHeight, height: pictureHeight), false, 1.0)
+                UIImage(named: "provisional")?.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: pictureHeight, height: pictureHeight)))
+                tierIcon.image = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                
+                let attString = NSMutableAttributedString(string: " Level " + String(temp.summonerLevel))
+                attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
+                attString.replaceCharacters(in: NSMakeRange(0, 1), with: AttributedString(attachment: tierIcon))
+                cell.detailTextLabel?.attributedText = attString
+                cell.detailTextLabel?.setNeedsLayout()
+                cell.setNeedsLayout()
+            })
+        }, errorBlock: {
+        
+        })
         // Configure the cell...
 
         return cell

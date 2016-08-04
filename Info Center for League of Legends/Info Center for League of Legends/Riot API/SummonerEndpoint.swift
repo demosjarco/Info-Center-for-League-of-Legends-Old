@@ -20,24 +20,22 @@ class SummonerEndpoint: NSObject {
         
         Endpoints().summoner_byName(summonerNames: standardizedSummonerNames.value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
-                autoreleasepool(invoking: { ()
-                    var newDict = [String: SummonerDto]()
-                    let dict = responseObject as! NSDictionary
-                    let dictValues = dict.allValues as! [[String: AnyObject]]
-                    for i in 0 ..< dictValues.count {
-                        var oldSummoner = dictValues[i]
-                        
-                        let newSummoner = SummonerDto()
-                        newSummoner.summonerId = oldSummoner["id"] as! CLong
-                        newSummoner.name = oldSummoner["name"] as! String
-                        newSummoner.profileIconId = oldSummoner["profileIconId"] as! Int
-                        newSummoner.revisionDate = oldSummoner["revisionDate"] as! CLong
-                        newSummoner.summonerLevel = oldSummoner["summonerLevel"] as! CLong
-                        
-                        newDict[dict.allKeys[i] as! String] = newSummoner
-                    }
-                    completion(summonerMap: newDict)
-                })
+                var newDict = [String: SummonerDto]()
+                let dict = responseObject as! NSDictionary
+                let dictValues = dict.allValues as! [[String: AnyObject]]
+                for i in 0 ..< dictValues.count {
+                    var oldSummoner = dictValues[i]
+                    
+                    let newSummoner = SummonerDto()
+                    newSummoner.summonerId = oldSummoner["id"] as! CLong
+                    newSummoner.name = oldSummoner["name"] as! String
+                    newSummoner.profileIconId = oldSummoner["profileIconId"] as! Int
+                    newSummoner.revisionDate = oldSummoner["revisionDate"] as! CLong
+                    newSummoner.summonerLevel = oldSummoner["summonerLevel"] as! CLong
+                    
+                    newDict[dict.allKeys[i] as! String] = newSummoner
+                }
+                completion(summonerMap: newDict)
             }, failure: { (task, error) in
                 if error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode == 404 {
                     notFound()
@@ -52,26 +50,22 @@ class SummonerEndpoint: NSObject {
     func getSummonersForIds(summonerIds: [CLong], completion: (summonerMap: [String: SummonerDto]) -> Void, errorBlock: () -> Void) {
         Endpoints().summoner_byId(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
-                autoreleasepool(invoking: { ()
-                    var newDict = [String: SummonerDto]()
-                    let dict = responseObject as! NSDictionary
-                    let dictValues = dict.allValues as! [[String: AnyObject]]
-                    for i in 0 ..< dictValues.count {
-                        autoreleasepool(invoking: { ()
-                            let oldSummoner = dictValues[i]
-                            
-                            let newSummoner = SummonerDto()
-                            newSummoner.summonerId = oldSummoner["id"] as! CLong
-                            newSummoner.name = oldSummoner["name"] as! String
-                            newSummoner.profileIconId = oldSummoner["profileIconId"] as! Int
-                            newSummoner.revisionDate = oldSummoner["revisionDate"] as! CLong
-                            newSummoner.summonerLevel = oldSummoner["summonerLevel"] as! CLong
-                            
-                            newDict[dict.allKeys[i] as! String] = newSummoner
-                        })
-                    }
-                    completion(summonerMap: newDict)
-                })
+                var newDict = [String: SummonerDto]()
+                let dict = responseObject as! NSDictionary
+                let dictValues = dict.allValues as! [[String: AnyObject]]
+                for i in 0 ..< dictValues.count {
+                    let oldSummoner = dictValues[i]
+                    
+                    let newSummoner = SummonerDto()
+                    newSummoner.summonerId = oldSummoner["id"] as! CLong
+                    newSummoner.name = oldSummoner["name"] as! String
+                    newSummoner.profileIconId = oldSummoner["profileIconId"] as! Int
+                    newSummoner.revisionDate = oldSummoner["revisionDate"] as! CLong
+                    newSummoner.summonerLevel = oldSummoner["summonerLevel"] as! CLong
+                    
+                    newDict[dict.allKeys[i] as! String] = newSummoner
+                }
+                completion(summonerMap: newDict)
             }, failure: { (task, error) in
                 errorBlock()
                 FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
@@ -82,52 +76,40 @@ class SummonerEndpoint: NSObject {
     func getMasteriesForSummonerIds(summonerIds: [CLong], completion: (summonerMap: [String: MasteryPagesDto]) -> Void, errorBlock: () -> Void) {
         Endpoints().summoner_masteriesById(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
-                autoreleasepool(invoking: { ()
-                    var newResponse = [String: MasteryPagesDto]()
-                    let json = responseObject as! NSDictionary
-                    let jsonValues = json.allValues as! [[String: AnyObject]]
-                    for i in 0 ..< jsonValues.count {
-                        autoreleasepool(invoking: { ()
-                            let oldMasteryPages = jsonValues[i]
-                            
-                            let newMasteryPages = MasteryPagesDto()
-                            autoreleasepool(invoking: { ()
-                                let oldPages = oldMasteryPages["pages"] as! [[String: AnyObject]]
+                var newResponse = [String: MasteryPagesDto]()
+                let json = responseObject as! NSDictionary
+                let jsonValues = json.allValues as! [[String: AnyObject]]
+                for i in 0 ..< jsonValues.count {
+                    let oldMasteryPages = jsonValues[i]
+                    
+                    let newMasteryPages = MasteryPagesDto()
+                    let oldPages = oldMasteryPages["pages"] as! [[String: AnyObject]]
+                    
+                    for oldPage in oldPages {
+                        let newPage = MasteryPageDto()
+                        
+                        newPage.current = oldPage["current"] as! Bool
+                        newPage.masteryPageId = oldPage["id"] as! CLong
+                        if (oldPage["masteries"] != nil) {
+                            let oldMasteries = oldPage["masteries"] as! [[String: AnyObject]]
+                            for oldMastery in oldMasteries {
+                                let newMastery = MasteryDto()
                                 
-                                for oldPage in oldPages {
-                                    autoreleasepool(invoking: { ()
-                                        let newPage = MasteryPageDto()
-                                        
-                                        newPage.current = oldPage["current"] as! Bool
-                                        newPage.masteryPageId = oldPage["id"] as! CLong
-                                        if (oldPage["masteries"] != nil) {
-                                            autoreleasepool(invoking: { ()
-                                                let oldMasteries = oldPage["masteries"] as! [[String: AnyObject]]
-                                                for oldMastery in oldMasteries {
-                                                    autoreleasepool(invoking: { ()
-                                                        let newMastery = MasteryDto()
-                                                        
-                                                        newMastery.masteryId = oldMastery["id"] as! Int
-                                                        newMastery.rank = oldMastery["rank"] as! Int
-                                                        
-                                                        newPage.masteries.append(newMastery)
-                                                    })
-                                                }
-                                            })
-                                        }
-                                        newPage.name = oldPage["name"] as! String
-                                        
-                                        newMasteryPages.pages.append(newPage)
-                                    })
-                                }
-                            })
-                            newMasteryPages.summonerId = oldMasteryPages["summonerId"] as! CLong
-                            
-                            newResponse[json.allKeys[i] as! String] = newMasteryPages
-                        })
+                                newMastery.masteryId = oldMastery["id"] as! Int
+                                newMastery.rank = oldMastery["rank"] as! Int
+                                
+                                newPage.masteries.append(newMastery)
+                            }
+                        }
+                        newPage.name = oldPage["name"] as! String
+                        
+                        newMasteryPages.pages.append(newPage)
                     }
-                    completion(summonerMap: newResponse)
-                })
+                    newMasteryPages.summonerId = oldMasteryPages["summonerId"] as! CLong
+                    
+                    newResponse[json.allKeys[i] as! String] = newMasteryPages
+                }
+                completion(summonerMap: newResponse)
             }, failure: { (task, error) in
                 errorBlock()
                 FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey]!.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])

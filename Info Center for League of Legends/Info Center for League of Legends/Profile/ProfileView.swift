@@ -33,19 +33,17 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         super.viewDidLoad()
         
         // Layout
-        autoreleasepool { ()
-            let oldLayout = self.collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
-            let strechyLayout = StretchyHeaderCollectionViewLayout()
-            strechyLayout.minimumLineSpacing = oldLayout.minimumLineSpacing
-            strechyLayout.minimumInteritemSpacing = oldLayout.minimumInteritemSpacing
-            strechyLayout.itemSize = oldLayout.itemSize
-            strechyLayout.estimatedItemSize = oldLayout.estimatedItemSize
-            strechyLayout.scrollDirection = oldLayout.scrollDirection
-            strechyLayout.headerReferenceSize = oldLayout.headerReferenceSize
-            strechyLayout.footerReferenceSize = oldLayout.footerReferenceSize
-            strechyLayout.sectionInset = oldLayout.sectionInset
-            self.collectionView?.collectionViewLayout = strechyLayout
-        }
+        let oldLayout = self.collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
+        let strechyLayout = StretchyHeaderCollectionViewLayout()
+        strechyLayout.minimumLineSpacing = oldLayout.minimumLineSpacing
+        strechyLayout.minimumInteritemSpacing = oldLayout.minimumInteritemSpacing
+        strechyLayout.itemSize = oldLayout.itemSize
+        strechyLayout.estimatedItemSize = oldLayout.estimatedItemSize
+        strechyLayout.scrollDirection = oldLayout.scrollDirection
+        strechyLayout.headerReferenceSize = oldLayout.headerReferenceSize
+        strechyLayout.footerReferenceSize = oldLayout.footerReferenceSize
+        strechyLayout.sectionInset = oldLayout.sectionInset
+        self.collectionView?.collectionViewLayout = strechyLayout
         
         tileOrder = PlistManager().loadProfileViewTileOrder()
         
@@ -104,10 +102,8 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                         self.profileHeader.promotionGames?.attributedText = progressString
                     }
                     
-                    autoreleasepool({ ()
-                        let lp = self.profileHeader.summonerStats[2] as! NSMutableDictionary
-                        lp.setObject(String(entry!.leaguePoints), forKey: "statValue")
-                    })
+                    let lp = self.profileHeader.summonerStats[2] as! NSMutableDictionary
+                    lp.setObject(String(entry!.leaguePoints), forKey: "statValue")
                     self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 2, section: 0)])
                 }
                 
@@ -159,55 +155,39 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         StatsEndpoint().getStatsSummaryBySummonerId(summonerId: self.summoner.summonerId, completion: { (summaryList) in
             for summary in summaryList.playerStatSummaries {
                 if summary.playerStatSummaryType == "RankedSolo5x5" {
-                    autoreleasepool({ ()
-                        let rWins = self.profileHeader.summonerStats[0] as! NSMutableDictionary
-                        rWins.setObject(String(summary.wins), forKey: "statValue")
-                    })
+                    let rWins = self.profileHeader.summonerStats[0] as! NSMutableDictionary
+                    rWins.setObject(String(summary.wins), forKey: "statValue")
                     self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 0, section: 0)])
-                    autoreleasepool({ ()
-                        let rLosses = self.profileHeader.summonerStats[1] as! NSMutableDictionary
-                        rLosses.setObject(String(summary.losses), forKey: "statValue")
-                    })
+                    let rLosses = self.profileHeader.summonerStats[1] as! NSMutableDictionary
+                    rLosses.setObject(String(summary.losses), forKey: "statValue")
                     self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 1, section: 0)])
                 } else if summary.playerStatSummaryType == "Unranked" {
                     if summary.aggregatedStats.totalChampionKills != nil {
-                        autoreleasepool({ ()
-                            let nKills = self.profileHeader.summonerStats[3] as! NSMutableDictionary
-                            nKills.setObject(String(summary.aggregatedStats.totalChampionKills!), forKey: "statValue")
-                        })
+                        let nKills = self.profileHeader.summonerStats[3] as! NSMutableDictionary
+                        nKills.setObject(String(summary.aggregatedStats.totalChampionKills!), forKey: "statValue")
                         self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 3, section: 0)])
                     }
                     if summary.aggregatedStats.totalMinionKills != nil && summary.aggregatedStats.totalNeutralMinionsKilled != nil {
-                        autoreleasepool({ ()
-                            let nCS = self.profileHeader.summonerStats[4] as! NSMutableDictionary
-                            nCS.setObject(String(summary.aggregatedStats.totalMinionKills! + summary.aggregatedStats.totalNeutralMinionsKilled!), forKey: "statValue")
-                        })
+                        let nCS = self.profileHeader.summonerStats[4] as! NSMutableDictionary
+                        nCS.setObject(String(summary.aggregatedStats.totalMinionKills! + summary.aggregatedStats.totalNeutralMinionsKilled!), forKey: "statValue")
                         self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 4, section: 0)])
                     }
-                    autoreleasepool({ ()
-                        let nWins = self.profileHeader.summonerStats[5] as! NSMutableDictionary
-                        nWins.setObject(String(summary.wins), forKey: "statValue")
-                    })
+                    let nWins = self.profileHeader.summonerStats[5] as! NSMutableDictionary
+                    nWins.setObject(String(summary.wins), forKey: "statValue")
                     self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 5, section: 0)])
                 } else if summary.playerStatSummaryType == "AramUnranked5x5" {
                     if summary.aggregatedStats.totalChampionKills != nil {
-                        autoreleasepool({ ()
-                            let aKills = self.profileHeader.summonerStats[6] as! NSMutableDictionary
-                            aKills.setObject(String(summary.aggregatedStats.totalChampionKills!), forKey: "statValue")
-                        })
+                        let aKills = self.profileHeader.summonerStats[6] as! NSMutableDictionary
+                        aKills.setObject(String(summary.aggregatedStats.totalChampionKills!), forKey: "statValue")
                         self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 6, section: 0)])
                     }
                     if summary.aggregatedStats.totalTurretsKilled != nil {
-                        autoreleasepool({ ()
-                            let aTurrets = self.profileHeader.summonerStats[7] as! NSMutableDictionary
-                            aTurrets.setObject(String(summary.aggregatedStats.totalTurretsKilled!), forKey: "statValue")
-                        })
+                        let aTurrets = self.profileHeader.summonerStats[7] as! NSMutableDictionary
+                        aTurrets.setObject(String(summary.aggregatedStats.totalTurretsKilled!), forKey: "statValue")
                         self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 7, section: 0)])
                     }
-                    autoreleasepool({ ()
-                        let aWins = self.profileHeader.summonerStats[8] as! NSMutableDictionary
-                        aWins.setObject(String(summary.wins), forKey: "statValue")
-                    })
+                    let aWins = self.profileHeader.summonerStats[8] as! NSMutableDictionary
+                    aWins.setObject(String(summary.wins), forKey: "statValue")
                     self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 8, section: 0)])
                 }
             }
@@ -256,16 +236,14 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     
     func loadMasteries() {
         SummonerEndpoint().getMasteriesForSummonerIds(summonerIds: [self.summoner.summonerId], completion: { (summonerMap) in
-            autoreleasepool({ ()
-                let currentSummoner = summonerMap.values.first
-                
-                for page in currentSummoner!.pages {
-                    if page.current {
-                        self.mas_currentPage = page
-                        break
-                    }
+            let currentSummoner = summonerMap.values.first
+            
+            for page in currentSummoner!.pages {
+                if page.current {
+                    self.mas_currentPage = page
+                    break
                 }
-            })
+            }
             for tile in self.tileOrder {
                 if tile["tileType"] as! String == "masteries" {
                     self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
@@ -305,92 +283,86 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 champMasteryCell.setupCell()
                 
                 if self.cm_top3champs.count == 3 {
-                    autoreleasepool({ ()
-                        let championMastery = self.cm_top3champs[0]
-                        
-                        StaticDataEndpoint().getChampionInfoById(champId: championMastery.championId, championData: .Image, completion: { (champion) in
-                            DDragon().getChampionLoadingArt(fullImageName: champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
-                                champMasteryCell.champ1bg?.setImageWith(champLoadingArtUrl)
-                            })
-                            DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
-                                champMasteryCell.champ1squareIcon?.setImageWith(champSquareArtUrl)
-                            })
-                            champMasteryCell.champ1name?.text = champion.name
+                    let championMastery = self.cm_top3champs[0]
+                    
+                    StaticDataEndpoint().getChampionInfoById(champId: championMastery.championId, championData: .Image, completion: { (champion) in
+                        DDragon().getChampionLoadingArt(fullImageName: champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
+                            champMasteryCell.champ1bg?.setImageWith(champLoadingArtUrl)
+                        })
+                        DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
+                            champMasteryCell.champ1squareIcon?.setImageWith(champSquareArtUrl)
+                        })
+                        champMasteryCell.champ1name?.text = champion.name
                         }, notFound: {
                             // 404
                         }, error: {
                             // Error
-                        })
-                        
-                        champMasteryCell.champ1progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
-                        champMasteryCell.champ1progressBar?.maxValue = CGFloat(championMastery.championPointsSinceLastLevel + championMastery.championPointsUntilNextLevel)
-                        
-                        champMasteryCell.champ1masteryIcon?.image = UIImage(named: "rank" + String(championMastery.championLevel))
-                        
-                        if championMastery.championPointsUntilNextLevel > 0 {
-                            champMasteryCell.champ1masteryScore?.text = String(championMastery.championPoints) + " / " + String(championMastery.championPoints + championMastery.championPointsUntilNextLevel)
-                        } else {
-                            champMasteryCell.champ1masteryScore?.text = String(championMastery.championPoints)
-                        }
                     })
                     
-                    autoreleasepool({ ()
-                        let championMastery = self.cm_top3champs[1]
-                        
-                        StaticDataEndpoint().getChampionInfoById(champId: championMastery.championId, championData: .Image, completion: { (champion) in
-                            DDragon().getChampionLoadingArt(fullImageName: champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
-                                champMasteryCell.champ2bg?.setImageWith(champLoadingArtUrl)
-                            })
-                            DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
-                                champMasteryCell.champ2squareIcon?.setImageWith(champSquareArtUrl)
-                            })
-                            champMasteryCell.champ2name?.text = champion.name
+                    champMasteryCell.champ1progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
+                    champMasteryCell.champ1progressBar?.maxValue = CGFloat(championMastery.championPointsSinceLastLevel + championMastery.championPointsUntilNextLevel)
+                    
+                    champMasteryCell.champ1masteryIcon?.image = UIImage(named: "rank" + String(championMastery.championLevel))
+                    
+                    if championMastery.championPointsUntilNextLevel > 0 {
+                        champMasteryCell.champ1masteryScore?.text = String(championMastery.championPoints) + " / " + String(championMastery.championPoints + championMastery.championPointsUntilNextLevel)
+                    } else {
+                        champMasteryCell.champ1masteryScore?.text = String(championMastery.championPoints)
+                    }
+                    
+                    let championMastery = self.cm_top3champs[1]
+                    
+                    StaticDataEndpoint().getChampionInfoById(champId: championMastery.championId, championData: .Image, completion: { (champion) in
+                        DDragon().getChampionLoadingArt(fullImageName: champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
+                            champMasteryCell.champ2bg?.setImageWith(champLoadingArtUrl)
+                        })
+                        DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
+                            champMasteryCell.champ2squareIcon?.setImageWith(champSquareArtUrl)
+                        })
+                        champMasteryCell.champ2name?.text = champion.name
                         }, notFound: {
                             // 404
                         }, error: {
                             // Error
-                        })
-                        
-                        champMasteryCell.champ2progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
-                        champMasteryCell.champ2progressBar?.maxValue = CGFloat(championMastery.championPointsSinceLastLevel + championMastery.championPointsUntilNextLevel)
-                        
-                        champMasteryCell.champ2masteryIcon?.image = UIImage(named: "rank" + String(championMastery.championLevel))
-                        
-                        if championMastery.championPointsUntilNextLevel > 0 {
-                            champMasteryCell.champ2masteryScore?.text = String(championMastery.championPoints) + " / " + String(championMastery.championPoints + championMastery.championPointsUntilNextLevel)
-                        } else {
-                            champMasteryCell.champ2masteryScore?.text = String(championMastery.championPoints)
-                        }
                     })
                     
-                    autoreleasepool({ ()
-                        let championMastery = self.cm_top3champs[2]
-                        
-                        StaticDataEndpoint().getChampionInfoById(champId: championMastery.championId, championData: .Image, completion: { (champion) in
-                            DDragon().getChampionLoadingArt(fullImageName: champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
-                                champMasteryCell.champ3bg?.setImageWith(champLoadingArtUrl)
-                            })
-                            DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
-                                champMasteryCell.champ3squareIcon?.setImageWith(champSquareArtUrl)
-                            })
-                            champMasteryCell.champ3name?.text = champion.name
+                    champMasteryCell.champ2progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
+                    champMasteryCell.champ2progressBar?.maxValue = CGFloat(championMastery.championPointsSinceLastLevel + championMastery.championPointsUntilNextLevel)
+                    
+                    champMasteryCell.champ2masteryIcon?.image = UIImage(named: "rank" + String(championMastery.championLevel))
+                    
+                    if championMastery.championPointsUntilNextLevel > 0 {
+                        champMasteryCell.champ2masteryScore?.text = String(championMastery.championPoints) + " / " + String(championMastery.championPoints + championMastery.championPointsUntilNextLevel)
+                    } else {
+                        champMasteryCell.champ2masteryScore?.text = String(championMastery.championPoints)
+                    }
+                    
+                    let championMastery = self.cm_top3champs[2]
+                    
+                    StaticDataEndpoint().getChampionInfoById(champId: championMastery.championId, championData: .Image, completion: { (champion) in
+                        DDragon().getChampionLoadingArt(fullImageName: champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
+                            champMasteryCell.champ3bg?.setImageWith(champLoadingArtUrl)
+                        })
+                        DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
+                            champMasteryCell.champ3squareIcon?.setImageWith(champSquareArtUrl)
+                        })
+                        champMasteryCell.champ3name?.text = champion.name
                         }, notFound: {
                             // 404
                         }, error: {
                             // Error
-                        })
-                        
-                        champMasteryCell.champ3progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
-                        champMasteryCell.champ3progressBar?.maxValue = CGFloat(championMastery.championPointsSinceLastLevel + championMastery.championPointsUntilNextLevel)
-                        
-                        champMasteryCell.champ3masteryIcon?.image = UIImage(named: "rank" + String(championMastery.championLevel))
-                        
-                        if championMastery.championPointsUntilNextLevel > 0 {
-                            champMasteryCell.champ3masteryScore?.text = String(championMastery.championPoints) + " / " + String(championMastery.championPoints + championMastery.championPointsUntilNextLevel)
-                        } else {
-                            champMasteryCell.champ3masteryScore?.text = String(championMastery.championPoints)
-                        }
                     })
+                    
+                    champMasteryCell.champ3progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
+                    champMasteryCell.champ3progressBar?.maxValue = CGFloat(championMastery.championPointsSinceLastLevel + championMastery.championPointsUntilNextLevel)
+                    
+                    champMasteryCell.champ3masteryIcon?.image = UIImage(named: "rank" + String(championMastery.championLevel))
+                    
+                    if championMastery.championPointsUntilNextLevel > 0 {
+                        champMasteryCell.champ3masteryScore?.text = String(championMastery.championPoints) + " / " + String(championMastery.championPoints + championMastery.championPointsUntilNextLevel)
+                    } else {
+                        champMasteryCell.champ3masteryScore?.text = String(championMastery.championPoints)
+                    }
                 }
                 
                 return champMasteryCell
@@ -400,18 +372,16 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 
                 recentGamesCell.setupCell()
                 
-                autoreleasepool({ ()
-                    var percentage = 0
-                    if self.rc_totalGames > 0 {
-                        percentage = self.rc_gamesWon * 100 / self.rc_totalGames
-                    }
-                    recentGamesCell.winratePercentage?.text = String(percentage) + "%"
-                    if percentage >= 0 && percentage <= 50 {
-                        recentGamesCell.winratePercentage?.textColor = UIColor(colorLiteralRed: Float(1), green: Float(percentage * 2) / 100, blue: Float(0), alpha: Float(1))
-                    } else {
-                        recentGamesCell.winratePercentage?.textColor = UIColor(colorLiteralRed: Float(1) - Float(percentage - 50) / 100, green: Float(1), blue: Float(0), alpha: Float(1))
-                    }
-                })
+                var percentage = 0
+                if self.rc_totalGames > 0 {
+                    percentage = self.rc_gamesWon * 100 / self.rc_totalGames
+                }
+                recentGamesCell.winratePercentage?.text = String(percentage) + "%"
+                if percentage >= 0 && percentage <= 50 {
+                    recentGamesCell.winratePercentage?.textColor = UIColor(colorLiteralRed: Float(1), green: Float(percentage * 2) / 100, blue: Float(0), alpha: Float(1))
+                } else {
+                    recentGamesCell.winratePercentage?.textColor = UIColor(colorLiteralRed: Float(1) - Float(percentage - 50) / 100, green: Float(1), blue: Float(0), alpha: Float(1))
+                }
                 recentGamesCell.totalGamesCounted?.text = "winrate\nlast " + String(self.rc_totalGames) + " games"
                 
                 if self.rc_lastGame.mapId == 10 {
@@ -432,28 +402,26 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                     // Error
                 })
                 
-                autoreleasepool({ ()
-                    var kills = 0
-                    if self.rc_lastGame.stats.championsKilled != nil {
-                        kills = self.rc_lastGame.stats.championsKilled!
-                    }
-                    var deaths = 0
-                    if self.rc_lastGame.stats.numDeaths != nil {
-                        deaths = self.rc_lastGame.stats.numDeaths!
-                    }
-                    var assists = 0
-                    if self.rc_lastGame.stats.assists != nil {
-                        assists = self.rc_lastGame.stats.assists!
-                    }
-                    var won = ""
-                    if self.rc_lastGame.stats.win {
-                        won = " WIN"
-                    } else {
-                        won = " LOSS"
-                    }
-                    
-                    recentGamesCell.lastGameScore?.text = String(kills) + "/" + String(deaths) + "/" + String(assists) + won
-                })
+                var kills = 0
+                if self.rc_lastGame.stats.championsKilled != nil {
+                    kills = self.rc_lastGame.stats.championsKilled!
+                }
+                var deaths = 0
+                if self.rc_lastGame.stats.numDeaths != nil {
+                    deaths = self.rc_lastGame.stats.numDeaths!
+                }
+                var assists = 0
+                if self.rc_lastGame.stats.assists != nil {
+                    assists = self.rc_lastGame.stats.assists!
+                }
+                var won = ""
+                if self.rc_lastGame.stats.win {
+                    won = " WIN"
+                } else {
+                    won = " LOSS"
+                }
+                
+                recentGamesCell.lastGameScore?.text = String(kills) + "/" + String(deaths) + "/" + String(assists) + won
                 
                 return recentGamesCell
             case "masteries" as NSString:
@@ -463,71 +431,65 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 masteriesCell.setupCell()
                 
                 masteriesCell.masteryPageName?.text = self.mas_currentPage.name
-                autoreleasepool({ ()
-                    var leftColumnCount = 0
-                    for mastery in self.mas_currentPage.masteries {
-                        if mastery.masteryId > 6100 && mastery.masteryId < 6200 {
-                            leftColumnCount += mastery.rank
-                            if mastery.masteryId == 6161 || mastery.masteryId == 6162 || mastery.masteryId == 6164 {
-                                // Keystone
-                                DDragon().getMasteryIcon(masteryId: mastery.masteryId, gray: false, completion: { (masteryIconUrl) in
-                                    masteriesCell.leftColumnKeystone?.setImageWith(URLRequest(url: masteryIconUrl), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
-                                        masteriesCell.leftColumnKeystone?.image = image
-                                        masteriesCell.leftColumnKeystone?.isHidden = false
+                var leftColumnCount = 0
+                for mastery in self.mas_currentPage.masteries {
+                    if mastery.masteryId > 6100 && mastery.masteryId < 6200 {
+                        leftColumnCount += mastery.rank
+                        if mastery.masteryId == 6161 || mastery.masteryId == 6162 || mastery.masteryId == 6164 {
+                            // Keystone
+                            DDragon().getMasteryIcon(masteryId: mastery.masteryId, gray: false, completion: { (masteryIconUrl) in
+                                masteriesCell.leftColumnKeystone?.setImageWith(URLRequest(url: masteryIconUrl), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
+                                    masteriesCell.leftColumnKeystone?.image = image
+                                    masteriesCell.leftColumnKeystone?.isHidden = false
                                     }, failure: { (request, response, error) in
                                         masteriesCell.leftColumnKeystone?.image = UIImage(named: "poroIcon")
                                         masteriesCell.leftColumnKeystone?.isHidden = false
-                                    })
                                 })
-                            }
+                            })
                         }
                     }
-                    masteriesCell.leftColumnValue?.text = String(leftColumnCount)
-                })
+                }
+                masteriesCell.leftColumnValue?.text = String(leftColumnCount)
                 
-                autoreleasepool({ ()
-                    var middleColumnCount = 0
-                    for mastery in self.mas_currentPage.masteries {
-                        if mastery.masteryId > 6300 && mastery.masteryId < 6400 {
-                            middleColumnCount += mastery.rank
-                            if mastery.masteryId == 6361 || mastery.masteryId == 6362 || mastery.masteryId == 6363 {
-                                // Keystone
-                                DDragon().getMasteryIcon(masteryId: mastery.masteryId, gray: false, completion: { (masteryIconUrl) in
-                                    masteriesCell.middleColumnKeystone?.setImageWith(URLRequest(url: masteryIconUrl), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
-                                        masteriesCell.middleColumnKeystone?.image = image
-                                        masteriesCell.middleColumnKeystone?.isHidden = false
+                var middleColumnCount = 0
+                for mastery in self.mas_currentPage.masteries {
+                    if mastery.masteryId > 6300 && mastery.masteryId < 6400 {
+                        middleColumnCount += mastery.rank
+                        if mastery.masteryId == 6361 || mastery.masteryId == 6362 || mastery.masteryId == 6363 {
+                            // Keystone
+                            DDragon().getMasteryIcon(masteryId: mastery.masteryId, gray: false, completion: { (masteryIconUrl) in
+                                masteriesCell.middleColumnKeystone?.setImageWith(URLRequest(url: masteryIconUrl), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
+                                    masteriesCell.middleColumnKeystone?.image = image
+                                    masteriesCell.middleColumnKeystone?.isHidden = false
                                     }, failure: { (request, response, error) in
                                         masteriesCell.middleColumnKeystone?.image = UIImage(named: "poroIcon")
                                         masteriesCell.middleColumnKeystone?.isHidden = false
-                                    })
                                 })
-                            }
+                            })
                         }
                     }
-                    masteriesCell.middleColumnValue?.text = String(middleColumnCount)
-                })
+                }
+                masteriesCell.middleColumnValue?.text = String(middleColumnCount)
                 
-                autoreleasepool({ ()
-                    var rightColumnCount = 0
-                    for mastery in self.mas_currentPage.masteries {
-                        if mastery.masteryId > 6200 && mastery.masteryId < 6300 {
-                            rightColumnCount += mastery.rank
-                            if mastery.masteryId == 6261 || mastery.masteryId == 6262 || mastery.masteryId == 6263 {
-                                // Keystone
-                                DDragon().getMasteryIcon(masteryId: mastery.masteryId, gray: false, completion: { (masteryIconUrl) in
-                                    masteriesCell.rightColumnKeystone?.setImageWith(URLRequest(url: masteryIconUrl), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
-                                        masteriesCell.rightColumnKeystone?.image = image
-                                        masteriesCell.rightColumnKeystone?.isHidden = false
+                var rightColumnCount = 0
+                for mastery in self.mas_currentPage.masteries {
+                    if mastery.masteryId > 6200 && mastery.masteryId < 6300 {
+                        rightColumnCount += mastery.rank
+                        if mastery.masteryId == 6261 || mastery.masteryId == 6262 || mastery.masteryId == 6263 {
+                            // Keystone
+                            DDragon().getMasteryIcon(masteryId: mastery.masteryId, gray: false, completion: { (masteryIconUrl) in
+                                masteriesCell.rightColumnKeystone?.setImageWith(URLRequest(url: masteryIconUrl), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
+                                    masteriesCell.rightColumnKeystone?.image = image
+                                    masteriesCell.rightColumnKeystone?.isHidden = false
                                     }, failure: { (request, response, error) in
                                         masteriesCell.rightColumnKeystone?.image = UIImage(named: "poroIcon")
                                         masteriesCell.rightColumnKeystone?.isHidden = false
-                                    })
                                 })
-                            }
+                            })
                         }
                     }
-                    masteriesCell.rightColumnValue?.text = String(rightColumnCount)
-                })
+                }
+                masteriesCell.rightColumnValue?.text = String(rightColumnCount)
                 
                 return masteriesCell
             case "runes" as NSString:

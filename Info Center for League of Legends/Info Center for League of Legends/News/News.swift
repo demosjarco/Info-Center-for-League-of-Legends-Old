@@ -20,25 +20,21 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        autoreleasepool { ()
-            let flowLayout = SGSStaggeredFlowLayout()
-            flowLayout.layoutMode = SGSStaggeredFlowLayoutMode_Centered
-            flowLayout.minimumLineSpacing = 0
-            flowLayout.minimumInteritemSpacing = 0
-            flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            flowLayout.itemSize = CGSize(width: MAX_CELL_SIZE, height: MAX_CELL_SIZE)
-            
-            self.collectionView?.setCollectionViewLayout(flowLayout, animated: true)
-        }
+        let flowLayout = SGSStaggeredFlowLayout()
+        flowLayout.layoutMode = SGSStaggeredFlowLayoutMode_Centered
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        flowLayout.itemSize = CGSize(width: MAX_CELL_SIZE, height: MAX_CELL_SIZE)
         
-        autoreleasepool { ()
-            let refresher = UIRefreshControl(frame: self.collectionView!.frame)
-            refresher.tintColor = UIColor.lightText
-            refresher.addTarget(self, action: #selector(self.refresh(sender:)), for: .valueChanged)
-            self.collectionView?.insertSubview(refresher, at: self.collectionView!.subviews.count - 1)
-            
-            self.refresh(sender: refresher)
-        }
+        self.collectionView?.setCollectionViewLayout(flowLayout, animated: true)
+        
+        let refresher = UIRefreshControl(frame: self.collectionView!.frame)
+        refresher.tintColor = UIColor.lightText
+        refresher.addTarget(self, action: #selector(self.refresh(sender:)), for: .valueChanged)
+        self.collectionView?.insertSubview(refresher, at: self.collectionView!.subviews.count - 1)
+        
+        self.refresh(sender: refresher)
     }
     
     func refresh(sender: UIRefreshControl) {
@@ -98,16 +94,14 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
      */
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        autoreleasepool { ()
-            let flowLayout = SGSStaggeredFlowLayout()
-            flowLayout.layoutMode = SGSStaggeredFlowLayoutMode_Centered
-            flowLayout.minimumLineSpacing = 0
-            flowLayout.minimumInteritemSpacing = 0
-            flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            flowLayout.itemSize = CGSize(width: MAX_CELL_SIZE, height: MAX_CELL_SIZE)
-            
-            self.collectionView?.setCollectionViewLayout(flowLayout, animated: true)
-        }
+        let flowLayout = SGSStaggeredFlowLayout()
+        flowLayout.layoutMode = SGSStaggeredFlowLayoutMode_Centered
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        flowLayout.itemSize = CGSize(width: MAX_CELL_SIZE, height: MAX_CELL_SIZE)
+        
+        self.collectionView?.setCollectionViewLayout(flowLayout, animated: true)
     }
     
     // MARK: UICollectionViewDataSource
@@ -148,12 +142,9 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
         
         let img1 = self.entries[indexPath.row]["content"] as! String
         let img2 = img1.components(separatedBy: "src=\"").last?.components(separatedBy: "\"")
-        var imageUrl:URL?
-        autoreleasepool { ()
-            var components = URLComponents(string: img2!.first!)
-            components?.scheme = "https"
-            imageUrl = components?.url
-        }
+        var components = URLComponents(string: img2!.first!)
+        components?.scheme = "https"
+        var imageUrl = components?.url
         
         
         cell.newsStoryImage?.setImageWith(URLRequest(url: imageUrl!), placeholderImage: nil, success: { (request, response, image) in
@@ -163,27 +154,23 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
         cell.newsStoryBlurTitle?.text = entries[indexPath.row]["title"] as? String
         cell.newsStoryTitle?.text = entries[indexPath.row]["title"] as? String
         
-        autoreleasepool { ()
-            let temp = entries[indexPath.row]["content"] as! String
-            do {
-                try cell.newsStoryBlurContent?.text = AttributedString(data: temp.data(using: String.Encoding.utf8)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil).string
-                try cell.newsStoryContent?.text = AttributedString(data: temp.data(using: String.Encoding.utf8)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil).string
-            } catch let error as NSError {
-                print(error.localizedDescription)
-            }
+        let temp = entries[indexPath.row]["content"] as! String
+        do {
+            try cell.newsStoryBlurContent?.text = AttributedString(data: temp.data(using: String.Encoding.utf8)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil).string
+            try cell.newsStoryContent?.text = AttributedString(data: temp.data(using: String.Encoding.utf8)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil).string
+        } catch let error as NSError {
+            print(error.localizedDescription)
         }
         
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        autoreleasepool { ()
-            let newsReader = SFSafariViewController(url: URL(string: self.entries[indexPath.row]["link"] as! String)!, entersReaderIfAvailable: false)
-            newsReader.delegate = self
-            self.present(newsReader, animated: true, completion: {
-                collectionView.deselectItem(at: indexPath, animated: true)
-            })
-        }
+        let newsReader = SFSafariViewController(url: URL(string: self.entries[indexPath.row]["link"] as! String)!, entersReaderIfAvailable: false)
+        newsReader.delegate = self
+        self.present(newsReader, animated: true, completion: {
+            collectionView.deselectItem(at: indexPath, animated: true)
+        })
     }
     
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
