@@ -25,7 +25,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     // Masteries
     var mas_currentPage = MasteryPageDto()
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
