@@ -16,7 +16,7 @@ class ChampionMasteryEndpoint: NSObject {
      
      - parameter playerId: Summoner ID associated with the player
      */
-    func getChampion(playerId: CLong, completion: (championScore: Int) -> Void, notFound: () -> Void, errorBlock: () -> Void) {
+    func getMasteryScoreBySummonerId(playerId: CLong, completion: (championScore: Int) -> Void, notFound: () -> Void, errorBlock: () -> Void) {
         Endpoints().championMastery_bySummonerId_score(playerId: String(playerId)) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 let json = responseObject as! Int
