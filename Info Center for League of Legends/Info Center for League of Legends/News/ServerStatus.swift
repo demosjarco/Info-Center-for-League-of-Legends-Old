@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ServerStatus: DarkTableViewController {
+class ServerStatus: UITableViewController, UIPopoverPresentationControllerDelegate {
     var services = [Service]()
     override func viewDidLoad() {
         super.viewDidLoad()

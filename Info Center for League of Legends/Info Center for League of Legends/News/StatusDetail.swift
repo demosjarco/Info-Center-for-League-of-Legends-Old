@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StatusDetail: DarkTableViewController {
+class StatusDetail: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
