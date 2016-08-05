@@ -9,5 +9,10 @@
 import UIKit
 
 class ShardStatus: NSObject {
-    
+    var hostname:String = ""
+    var locales = [String]()
+    var name:String = ""
+    var region_tag:String = ""
+    var services = [Service]()
+    var slug:String = ""
 }

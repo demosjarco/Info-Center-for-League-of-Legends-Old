@@ -9,5 +9,8 @@
 import UIKit
 
 class Incident: NSObject {
-    
+    var active:Bool = false
+    var created_at = Date()
+    var incidentId:CLong = 0
+    var updates = [Message]()
 }

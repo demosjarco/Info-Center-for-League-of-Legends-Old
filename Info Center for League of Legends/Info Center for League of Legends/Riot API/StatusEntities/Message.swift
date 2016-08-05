@@ -9,5 +9,11 @@
 import UIKit
 
 class Message: NSObject {
-    
+    var author:String = ""
+    var content:String = ""
+    var created_at = Date()
+    var messageId:String = ""
+    var severity:String = ""
+    var translations = [Translation]()
+    var updated_at = Date()
 }

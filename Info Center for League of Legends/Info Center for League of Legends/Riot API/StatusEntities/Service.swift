@@ -9,5 +9,8 @@
 import UIKit
 
 class Service: NSObject {
-    
+    var incidents = [Incident]()
+    var name:String = ""
+    var slug:String = ""
+    var status:String = ""
 }

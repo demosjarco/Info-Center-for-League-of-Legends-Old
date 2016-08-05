@@ -9,5 +9,7 @@
 import UIKit
 
 class Translation: NSObject {
-    
+    var content:String = ""
+    var locale:String = ""
+    var updated_at = Date()
 }
