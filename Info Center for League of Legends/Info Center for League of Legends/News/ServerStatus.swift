@@ -49,7 +49,7 @@ class ServerStatus: DarkTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "incidentCell", for: indexPath)
         // Configure the cell...
-
+        
         return cell
     }
 
