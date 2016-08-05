@@ -216,9 +216,11 @@ class Endpoints: NSObject {
         completion(composedUrl: urlString)
     }
     
-    func status_byShard(region:String, completion: (composedUrl: String) -> Void) {
-        let urlString = "http://status.leagueoflegends.com/shards/" + region
-        completion(composedUrl: urlString)
+    func status_byShard(completion: (composedUrl: String) -> Void) {
+        getRegion { (regionCode) in
+            let urlString = "http://status.leagueoflegends.com/shards/" + regionCode
+            completion(composedUrl: urlString)
+        }
     }
     
     // Stats
