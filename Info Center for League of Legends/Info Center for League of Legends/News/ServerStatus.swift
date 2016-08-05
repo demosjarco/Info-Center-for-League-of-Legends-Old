@@ -24,7 +24,10 @@ class ServerStatus: DarkTableViewController {
         self.refreshControl?.beginRefreshing()
         StatusEndpoint().getShardStatus(completion: { (shardStatus) in
             self.services = shardStatus.services
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
         }, errorBlock: {
+            self.refreshControl?.endRefreshing()
             // Error
         })
     }
