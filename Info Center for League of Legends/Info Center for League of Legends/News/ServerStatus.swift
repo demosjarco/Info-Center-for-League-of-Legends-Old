@@ -9,6 +9,7 @@
 import UIKit
 
 class ServerStatus: DarkTableViewController {
+    var services = [Service]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,23 +22,25 @@ class ServerStatus: DarkTableViewController {
     
     @IBAction func refresh() {
         self.refreshControl?.beginRefreshing()
-        //...
+        StatusEndpoint().getShardStatus(completion: { (shardStatus) in
+            self.services = shardStatus.services
+        }, errorBlock: {
+            // Error
+        })
     }
 
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "<#string#>"
+        return services[section].name + " - " + services[section].status
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return services.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return services[section].incidents.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
