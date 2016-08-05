@@ -16,6 +16,27 @@ class ServerStatus: UITableViewController, UIPopoverPresentationControllerDelega
         refresh()
     }
     
+    func imageWithColor(severity: String, index: IndexPath) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: 10, height: self.tableView.rectForRow(at: index).size.height)
+        UIGraphicsBeginImageContext(rect.size)
+        let context = UIGraphicsGetCurrentContext()
+        
+        var imageColor = UIColor.white
+        if severity == "info" {
+            imageColor = UIColor(red: 0, green: 0, blue: 0.5, alpha: 1)
+        } else if severity == "warn" {
+            imageColor = UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 1)
+        } else if severity == "error" {
+            imageColor = UIColor(red: 0.5, green: 0, blue: 0, alpha: 1)
+        }
+        context?.setFillColor(imageColor.cgColor)
+        context?.fill(rect)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image!
+    }
     @IBAction func closeView() {
         self.dismiss(animated: true, completion: nil)
     }
