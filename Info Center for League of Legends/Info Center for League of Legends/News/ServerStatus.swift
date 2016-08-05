@@ -16,6 +16,10 @@ class ServerStatus: UITableViewController, UIPopoverPresentationControllerDelega
         refresh()
     }
     
+    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
+        self.navigationItem.leftBarButtonItem = nil
+    }
+    
     func imageWithColor(severity: String, index: IndexPath) -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: 10, height: self.tableView.rectForRow(at: index).size.height)
         UIGraphicsBeginImageContext(rect.size)
