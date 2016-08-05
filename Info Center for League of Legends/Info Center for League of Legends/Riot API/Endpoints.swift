@@ -210,6 +210,17 @@ class Endpoints: NSObject {
         }
     }
     
+    // Status
+    func status_shards(completion: (composedUrl: String) -> Void) {
+        let urlString = "http://status.leagueoflegends.com/shards"
+        completion(composedUrl: urlString)
+    }
+    
+    func status_byShard(region:String, completion: (composedUrl: String) -> Void) {
+        let urlString = "http://status.leagueoflegends.com/shards/" + region
+        completion(composedUrl: urlString)
+    }
+    
     // Stats
     func stats_bySummoner_summary(summonerId: String, completion: (composedUrl: String) -> Void) {
         self.getBaseEndpoint { (baseEndpoint) in
