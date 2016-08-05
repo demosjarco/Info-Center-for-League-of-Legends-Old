@@ -10,6 +10,9 @@ import UIKit
 
 class ServerStatus: UITableViewController {
     var services = [Service]()
+    var lastRefreshTime = Date()
+    var refreshTimeText = UIBarButtonItem()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,6 +21,7 @@ class ServerStatus: UITableViewController {
             self.navigationItem.leftBarButtonItem = nil
             self.navigationController?.popoverPresentationController?.backgroundColor = self.tableView.backgroundColor
         }
+        refreshTimeText = self.toolbarItems![1]
         
         refresh()
     }
@@ -49,15 +53,33 @@ class ServerStatus: UITableViewController {
     }
     
     @IBAction func refresh() {
+        refreshTimeText.title = "Loading..."
         self.refreshControl?.beginRefreshing()
         StatusEndpoint().getShardStatus(completion: { (shardStatus) in
+            self.refreshTimeText.title = "Processing..."
             self.services = shardStatus.services
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
+            self.lastRefreshTime = Date()
+            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshWithTimer(timer:)), userInfo: nil, repeats: false)
         }, errorBlock: {
+            self.refreshTimeText.title = "Error...trying again in 60 seconds..."
             self.refreshControl?.endRefreshing()
+            self.lastRefreshTime = Date()
+            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshWithTimer(timer:)), userInfo: nil, repeats: false)
             // Error
         })
+    }
+    
+    func refreshWithTimer(timer: Timer?) {
+        timer?.invalidate()
+        refreshTimeText.title = "Refreshing in " + String(60 - Int(floor(lastRefreshTime.timeIntervalSinceNow) * -1)) + " seconds..."
+        if lastRefreshTime.timeIntervalSinceNow <= -60.0 {
+            refresh()
+        } else {
+            // #selector(self.refresh(sender:))
+            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshWithTimer(timer:)), userInfo: nil, repeats: false)
+        }
     }
 
     // MARK: - Table view data source
