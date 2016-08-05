@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JSBadgeView
 
 class ServerStatus: UITableViewController {
     var services = [Service]()
@@ -103,7 +104,11 @@ class ServerStatus: UITableViewController {
         // Configure the cell...
         let incident = services[indexPath.section].incidents[indexPath.row]
         
-        cell.contentView.addSubview(UIImageView(image: imageWithColor(severity: incident.updates.first!.severity, index: indexPath)))
+        let severityImage = UIImageView(image: imageWithColor(severity: incident.updates.first!.severity, index: indexPath))
+        cell.contentView.addSubview(severityImage)
+        let badgeView = JSBadgeView(parentView: severityImage, alignment: .center)
+        badgeView?.badgeBackgroundColor = UIColor.clear
+        badgeView?.badgeText = String(incident.updates.count)
         
         cell.detailTextLabel?.text = incident.updates.first?.content
         for translation in incident.updates.first!.translations {
