@@ -8,16 +8,18 @@
 
 import UIKit
 
-class ServerStatus: UITableViewController, UIPopoverPresentationControllerDelegate {
+class ServerStatus: UITableViewController {
     var services = [Service]()
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if self.navigationController?.popoverPresentationController != nil {
+            // Shown in popover
+            self.navigationItem.leftBarButtonItem = nil
+            self.navigationController?.popoverPresentationController?.backgroundColor = self.tableView.backgroundColor
+        }
+        
         refresh()
-    }
-    
-    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
-        self.navigationItem.leftBarButtonItem = nil
     }
     
     func imageWithColor(severity: String, index: IndexPath) -> UIImage {
