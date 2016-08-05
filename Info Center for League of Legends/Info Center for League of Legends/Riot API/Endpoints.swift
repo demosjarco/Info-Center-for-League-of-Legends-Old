@@ -84,7 +84,7 @@ class Endpoints: NSObject {
     // MARK: - Endpoint URLs
     
     // Champion Mastery
-    func championMastery_bySummonerId_score(playerId: String, completion: (composedUrl: String) -> Void) {
+    func championMastery_bySummonerId_champions(playerId: String, completion: (composedUrl: String) -> Void) {
         self.getRegion { (regionCode) in
             var region:String
             switch regionCode {
@@ -115,7 +115,7 @@ class Endpoints: NSObject {
             }
             
             self.getApiKey { (apiKey) in
-                let urlString = "https://" + regionCode + ".api.pvp.net/championmastery/location/" + region + "/player/" + playerId + "/score" + "?api_key=" + apiKey
+                let urlString = "https://" + regionCode + ".api.pvp.net/championmastery/location/" + region + "/player/" + playerId + "/champions" + "?api_key=" + apiKey
                 completion(composedUrl: urlString)
             }
         }

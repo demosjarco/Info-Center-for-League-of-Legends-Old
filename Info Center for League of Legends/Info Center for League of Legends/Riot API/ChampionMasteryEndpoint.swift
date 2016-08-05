@@ -16,19 +16,34 @@ class ChampionMasteryEndpoint: NSObject {
      
      - parameter playerId: Summoner ID associated with the player
      */
-    func getMasteryScoreBySummonerId(playerId: CLong, completion: (championScore: Int) -> Void, notFound: () -> Void, errorBlock: () -> Void) {
-        Endpoints().championMastery_bySummonerId_score(playerId: String(playerId)) { (composedUrl) in
+    func getAllChampsBySummonerId(playerId: CLong, completion: (champions: [ChampionMasteryDto]) -> Void, notFound: () -> Void, errorBlock: () -> Void) {
+        Endpoints().championMastery_bySummonerId_champions(playerId: String(playerId)) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
-                let json = responseObject as! Int
-                completion(championScore: json)
-            }, failure: { (task, error) in
-                let response = task!.response as! HTTPURLResponse
-                if response.statusCode == 404 {
-                    notFound()
-                } else {
-                    errorBlock()
-                    FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                let json = responseObject as! [[String: AnyObject]]
+                var championMasteryList = [ChampionMasteryDto]()
+                for championMastery in json {
+                    let newChampionMastery = ChampionMasteryDto()
+                    
+                    newChampionMastery.championId = championMastery["championId"] as! CLong
+                    newChampionMastery.championLevel = championMastery["championLevel"] as! Int
+                    newChampionMastery.championPoints = championMastery["championPoints"] as! Int
+                    newChampionMastery.championPointsSinceLastLevel = championMastery["championPointsSinceLastLevel"] as! CLong
+                    newChampionMastery.championPointsUntilNextLevel = championMastery["championPointsUntilNextLevel"] as! CLong
+                    newChampionMastery.chestGranted = championMastery["chestGranted"] as! Bool
+                    newChampionMastery.lastPlayTime = championMastery["lastPlayTime"] as! CLong
+                    newChampionMastery.playerId = championMastery["playerId"] as! CLong
+                    
+                    championMasteryList.append(newChampionMastery)
                 }
+                completion(champions: championMasteryList)
+                }, failure: { (task, error) in
+                    let response = task!.response as! HTTPURLResponse
+                    if response.statusCode == 404 {
+                        notFound()
+                    } else {
+                        errorBlock()
+                        FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                    }
             })
         }
     }
