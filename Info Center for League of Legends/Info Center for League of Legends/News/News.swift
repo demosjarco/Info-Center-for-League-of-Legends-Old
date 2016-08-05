@@ -84,16 +84,6 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
         })
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         let flowLayout = SGSStaggeredFlowLayout()
         flowLayout.layoutMode = SGSStaggeredFlowLayoutMode_Centered
