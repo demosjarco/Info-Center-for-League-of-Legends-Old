@@ -1529,13 +1529,13 @@ last -- games</string>
             <objects>
                 <tableViewController id="PGg-Pl-IjT" customClass="ServerStatus" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="53T-eJ-GJt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <color key="separatorColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="incidentCell" textLabel="enS-wR-PyU" detailTextLabel="lWL-Mn-tb5" style="IBUITableViewCellStyleSubtitle" id="7DO-KB-XJO">
-                                <frame key="frameInset" minY="92" width="375" height="44"/>
+                                <frame key="frameInset" minY="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7DO-KB-XJO" id="yTx-KS-gjy">
                                     <frame key="frameInset" width="342" height="43"/>
@@ -1594,13 +1594,13 @@ last -- games</string>
             <objects>
                 <tableViewController id="IW2-6d-vYn" customClass="StatusDetail" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="2" sectionHeaderHeight="18" sectionFooterHeight="18" id="ZGJ-MI-uUO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="severityCell" id="kqd-NW-ttT">
-                                <frame key="frameInset" minY="120" width="375" height="2"/>
+                                <frame key="frameInset" minY="56" width="375" height="2"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kqd-NW-ttT" id="4iZ-9z-XTs">
                                     <frame key="frameInset" width="375" height="2"/>
@@ -1623,13 +1623,15 @@ last -- games</string>
         <scene sceneID="87M-Pd-SMV">
             <objects>
                 <navigationController toolbarHidden="NO" id="sP2-vA-vXT" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="dXP-jR-Jnc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="dXP-jR-Jnc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" id="9bD-Cr-885">
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" id="9bD-Cr-885">
                         <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </toolbar>
                     <connections>
                         <segue destination="PGg-Pl-IjT" kind="relationship" relationship="rootViewController" id="lI4-zE-ibq"/>
