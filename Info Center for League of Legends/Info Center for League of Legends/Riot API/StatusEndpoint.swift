@@ -58,6 +58,7 @@ class StatusEndpoint: NSObject {
                         autoreleasepool(invoking: { ()
                             let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                            dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
                             newIncident.created_at = dateFormatter.date(from: oldIncident["created_at"] as! String)!
                         })
                         newIncident.incidentId = oldIncident["id"] as! CLong
@@ -70,6 +71,7 @@ class StatusEndpoint: NSObject {
                             autoreleasepool(invoking: { ()
                                 let dateFormatter = DateFormatter()
                                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                                dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
                                 newMessage.created_at = dateFormatter.date(from: oldMessage["created_at"] as! String)!
                             })
                             newMessage.messageId = oldMessage["id"] as! String
@@ -83,6 +85,7 @@ class StatusEndpoint: NSObject {
                                 /*autoreleasepool(invoking: { ()
                                     let dateFormatter = DateFormatter()
                                     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                                    dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
                                     newTranslation.updated_at = dateFormatter.date(from: oldTranslation["updated_at"] as! String)!
                                 })*/
                                 newTranslation.heading = oldTranslation["heading"] as! String
@@ -92,6 +95,7 @@ class StatusEndpoint: NSObject {
                             autoreleasepool(invoking: { ()
                                 let dateFormatter = DateFormatter()
                                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                                dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
                                 newMessage.updated_at = dateFormatter.date(from: oldMessage["updated_at"] as! String)!
                             })
                             
