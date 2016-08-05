@@ -24,6 +24,13 @@
 		1732F5F51D54FA7F009DA53B /* DarkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732F5F41D54FA7F009DA53B /* DarkTableViewController.swift */; };
 		1732F5F71D54FA9A009DA53B /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732F5F61D54FA9A009DA53B /* ServerStatus.swift */; };
 		1732F5F91D54FC5A009DA53B /* StatusDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732F5F81D54FC5A009DA53B /* StatusDetail.swift */; };
+		1732F5FB1D550057009DA53B /* StatusEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732F5FA1D550057009DA53B /* StatusEndpoint.swift */; };
+		1732F5FE1D5500CF009DA53B /* Shard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732F5FD1D5500CF009DA53B /* Shard.swift */; };
+		1732F6011D550166009DA53B /* ShardStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732F6001D550166009DA53B /* ShardStatus.swift */; };
+		1732F6031D550174009DA53B /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732F6021D550174009DA53B /* Service.swift */; };
+		1732F6051D550184009DA53B /* Incident.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732F6041D550184009DA53B /* Incident.swift */; };
+		1732F6071D550192009DA53B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732F6061D550192009DA53B /* Message.swift */; };
+		1732F6091D55019F009DA53B /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732F6081D55019F009DA53B /* Translation.swift */; };
 		17353B681D3AC7F100C56768 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17353B671D3AC7F100C56768 /* News.swift */; };
 		173705411D4D035C006E112E /* StretchyHeaderCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173705401D4D035C006E112E /* StretchyHeaderCollectionViewLayout.swift */; };
 		1739C48F1D1C281400B50BDC /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739C48E1D1C281400B50BDC /* PlistManager.swift */; };
@@ -118,6 +125,13 @@
 		1732F5F41D54FA7F009DA53B /* DarkTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DarkTableViewController.swift; path = Subclasses/DarkTableViewController.swift; sourceTree = "<group>"; };
 		1732F5F61D54FA9A009DA53B /* ServerStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServerStatus.swift; path = News/ServerStatus.swift; sourceTree = "<group>"; };
 		1732F5F81D54FC5A009DA53B /* StatusDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusDetail.swift; path = News/StatusDetail.swift; sourceTree = "<group>"; };
+		1732F5FA1D550057009DA53B /* StatusEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusEndpoint.swift; path = "Riot API/StatusEndpoint.swift"; sourceTree = "<group>"; };
+		1732F5FD1D5500CF009DA53B /* Shard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shard.swift; path = "Riot API/StatusEntities/Shard.swift"; sourceTree = "<group>"; };
+		1732F6001D550166009DA53B /* ShardStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShardStatus.swift; path = "Riot API/StatusEntities/ShardStatus.swift"; sourceTree = "<group>"; };
+		1732F6021D550174009DA53B /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Service.swift; path = "Riot API/StatusEntities/Service.swift"; sourceTree = "<group>"; };
+		1732F6041D550184009DA53B /* Incident.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Incident.swift; path = "Riot API/StatusEntities/Incident.swift"; sourceTree = "<group>"; };
+		1732F6061D550192009DA53B /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Message.swift; path = "Riot API/StatusEntities/Message.swift"; sourceTree = "<group>"; };
+		1732F6081D55019F009DA53B /* Translation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Translation.swift; path = "Riot API/StatusEntities/Translation.swift"; sourceTree = "<group>"; };
 		17353B671D3AC7F100C56768 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = News.swift; path = News/News.swift; sourceTree = "<group>"; };
 		173705401D4D035C006E112E /* StretchyHeaderCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StretchyHeaderCollectionViewLayout.swift; path = Subclasses/StretchyHeaderCollectionViewLayout.swift; sourceTree = "<group>"; };
 		1739C48E1D1C281400B50BDC /* PlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlistManager.swift; path = Subclasses/PlistManager.swift; sourceTree = "<group>"; };
@@ -247,6 +261,19 @@
 			name = "ProfileView Cells";
 			sourceTree = "<group>";
 		};
+		1732F5FC1D55007B009DA53B /* Status Entities */ = {
+			isa = PBXGroup;
+			children = (
+				1732F5FD1D5500CF009DA53B /* Shard.swift */,
+				1732F6001D550166009DA53B /* ShardStatus.swift */,
+				1732F6021D550174009DA53B /* Service.swift */,
+				1732F6041D550184009DA53B /* Incident.swift */,
+				1732F6061D550192009DA53B /* Message.swift */,
+				1732F6081D55019F009DA53B /* Translation.swift */,
+			);
+			name = "Status Entities";
+			sourceTree = "<group>";
+		};
 		17353B691D3AC7F400C56768 /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +298,8 @@
 				1771CBCF1D282B1900D0DB08 /* League Entities */,
 				17FDDF641D4D494600CC7277 /* StaticDataEndpoint.swift */,
 				17B9B3071D4D68A100D8A755 /* StaticData Entities */,
+				1732F5FA1D550057009DA53B /* StatusEndpoint.swift */,
+				1732F5FC1D55007B009DA53B /* Status Entities */,
 				17C583CA1D388441007AAC43 /* StatsEndpoint.swift */,
 				171A1C0D1D38970500BAB5B4 /* Stats Entities */,
 				1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */,
@@ -912,7 +941,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1732F5FB1D550057009DA53B /* StatusEndpoint.swift in Sources */,
 				171A1C131D38989D00BAB5B4 /* AggregatedStatsDto.swift in Sources */,
+				1732F6051D550184009DA53B /* Incident.swift in Sources */,
 				1739C4921D1C3A3800B50BDC /* SummonerEndpoint.swift in Sources */,
 				17B9B3101D4D746300D8A755 /* ChampionDto.swift in Sources */,
 				172101D31D1EDC880088DB1A /* MainCollectionViewController.swift in Sources */,
@@ -921,6 +952,7 @@
 				17FDDF651D4D494600CC7277 /* StaticDataEndpoint.swift in Sources */,
 				17B9B3231D4D75AF00D8A755 /* BlockDto.swift in Sources */,
 				17B9B31D1D4D757C00D8A755 /* StatsDto.swift in Sources */,
+				1732F6091D55019F009DA53B /* Translation.swift in Sources */,
 				1732F5F71D54FA9A009DA53B /* ServerStatus.swift in Sources */,
 				17B9B31F1D4D759100D8A755 /* LevelTipDto.swift in Sources */,
 				178B957E1D428A5A00CAD47A /* RawStatsDto.swift in Sources */,
@@ -928,11 +960,13 @@
 				17B9B30D1D4D73EB00D8A755 /* ChampionMasteryDto.swift in Sources */,
 				178B957A1D428A1C00CAD47A /* RecentGamesDto.swift in Sources */,
 				1771CBD41D282B9800D0DB08 /* LeagueEntryDto.swift in Sources */,
+				1732F6031D550174009DA53B /* Service.swift in Sources */,
 				1775F64F1D41C95800E58003 /* GameEndpoint.swift in Sources */,
 				172101CB1D1EDBDB0088DB1A /* ProfileView_RecentGames.swift in Sources */,
 				1791E6E51D41980400012595 /* ProfileView_SummaryTile.swift in Sources */,
 				17B9B3251D4D75C300D8A755 /* BlockItemDto.swift in Sources */,
 				17B9B3151D4D753D00D8A755 /* InfoDto.swift in Sources */,
+				1732F5FE1D5500CF009DA53B /* Shard.swift in Sources */,
 				176510911D231DBE00A076BA /* ProfileView_Header_StatsCell.swift in Sources */,
 				1771CBD11D282B6D00D0DB08 /* LeagueDto.swift in Sources */,
 				17B9B3111D4D746300D8A755 /* ChampionSpellDto.swift in Sources */,
@@ -942,6 +976,7 @@
 				171A1C111D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift in Sources */,
 				17B9B3131D4D74A900D8A755 /* ImageDto.swift in Sources */,
 				17421AB41D4BCD1100F22B52 /* MasteryPagesDto.swift in Sources */,
+				1732F6011D550166009DA53B /* ShardStatus.swift in Sources */,
 				17C583CB1D388441007AAC43 /* StatsEndpoint.swift in Sources */,
 				17421AB81D4BCDBC00F22B52 /* MasteryDto.swift in Sources */,
 				172C606C1D3BFE67003DC152 /* NewsCell.swift in Sources */,
@@ -958,6 +993,7 @@
 				176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */,
 				1732F5F91D54FC5A009DA53B /* StatusDetail.swift in Sources */,
 				178B957C1D428A4D00CAD47A /* PlayerDto.swift in Sources */,
+				1732F6071D550192009DA53B /* Message.swift in Sources */,
 				174C95181D106CCD00EBFB07 /* AppDelegate.swift in Sources */,
 				172101CA1D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift in Sources */,
 				17353B681D3AC7F100C56768 /* News.swift in Sources */,
