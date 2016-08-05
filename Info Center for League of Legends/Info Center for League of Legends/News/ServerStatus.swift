@@ -41,6 +41,7 @@ class ServerStatus: UITableViewController, UIPopoverPresentationControllerDelega
         
         return image!
     }
+    
     @IBAction func closeView() {
         self.dismiss(animated: true, completion: nil)
     }
