@@ -1513,7 +1513,7 @@ last -- games</string>
                     <navigationItem key="navigationItem" title="News" id="IC6-cq-c1y">
                         <barButtonItem key="rightBarButtonItem" title="!" id="2Cf-cl-NMU">
                             <connections>
-                                <segue destination="sP2-vA-vXT" kind="popoverPresentation" popoverAnchorBarButtonItem="2Cf-cl-NMU" id="Y7r-ZO-2sr">
+                                <segue destination="sP2-vA-vXT" kind="popoverPresentation" identifier="showServerStatus" popoverAnchorBarButtonItem="2Cf-cl-NMU" id="Y7r-ZO-2sr">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
@@ -1561,7 +1561,7 @@ last -- games</string>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                 <connections>
-                                    <segue destination="IW2-6d-vYn" kind="show" id="H5L-9G-bcZ"/>
+                                    <segue destination="IW2-6d-vYn" kind="show" identifier="showStatusUpdates" id="H5L-9G-bcZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1600,7 +1600,7 @@ last -- games</string>
                         <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="severityCell" id="kqd-NW-ttT">
-                                <frame key="frameInset" minY="119" width="375" height="2"/>
+                                <frame key="frameInset" minY="120" width="375" height="2"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kqd-NW-ttT" id="4iZ-9z-XTs">
                                     <frame key="frameInset" width="375" height="2"/>
