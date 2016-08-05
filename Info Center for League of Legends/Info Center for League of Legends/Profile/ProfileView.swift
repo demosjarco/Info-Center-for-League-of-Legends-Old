@@ -197,21 +197,27 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     }
     
     func loadChampionMastery() {
-        ChampionMasteryEndpoint().getTopChampsBySummonerId(playerId: self.summoner.summonerId, count: 3, completion: { (championMasteryList) in
-            self.cm_top3champs = championMasteryList
+        ChampionMasteryEndpoint().getAllChampsBySummonerId(playerId: self.summoner.summonerId, completion: { (champions) in
+            if champions.count > 0 {
+                self.cm_top3champs.append(champions[0])
+            }
+            if champions.count > 1 {
+                self.cm_top3champs.append(champions[1])
+            }
+            if champions.count > 2 {
+                self.cm_top3champs.append(champions[2])
+            }
             for tile in self.tileOrder {
                 if tile["tileType"] as! String == "champMastery" {
                     self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
                 }
             }
-        }, notFound: {
-            // ???
-        }) {
-            // Error
-        }
-        
-        ChampionMasteryEndpoint().getMasteryScoreBySummonerId(playerId: self.summoner.summonerId, completion: { (championScore) in
-            self.profileHeader.summonerChampMasteryScore?.text = String(championScore) + " Mastery Score"
+            
+            var championMasteryScore = 0
+            for champion in champions {
+                championMasteryScore += champion.championLevel
+            }
+            self.profileHeader.summonerChampMasteryScore?.text = String(championMasteryScore) + " Mastery Score"
         }, notFound: {
             // ???
         }) { 
@@ -290,10 +296,10 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 
                 champMasteryCell.setupCell()
                 
-                if self.cm_top3champs.count == 3 {
-                    let championMastery0 = self.cm_top3champs[0]
+                if self.cm_top3champs.count > 0 {
+                    let championMastery = self.cm_top3champs[0]
                     
-                    StaticDataEndpoint().getChampionInfoById(champId: championMastery0.championId, championData: .Image, completion: { (champion) in
+                    StaticDataEndpoint().getChampionInfoById(champId: championMastery.championId, championData: .Image, completion: { (champion) in
                         DDragon().getChampionLoadingArt(fullImageName: champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
                             champMasteryCell.champ1bg?.setImageWith(champLoadingArtUrl)
                         })
@@ -307,20 +313,22 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                             // Error
                     })
                     
-                    champMasteryCell.champ1progressBar?.value = CGFloat(championMastery0.championPointsSinceLastLevel)
-                    champMasteryCell.champ1progressBar?.maxValue = CGFloat(championMastery0.championPointsSinceLastLevel + championMastery0.championPointsUntilNextLevel)
+                    champMasteryCell.champ1progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
+                    champMasteryCell.champ1progressBar?.maxValue = CGFloat(championMastery.championPointsSinceLastLevel + championMastery.championPointsUntilNextLevel)
                     
-                    champMasteryCell.champ1masteryIcon?.image = UIImage(named: "rank" + String(championMastery0.championLevel))
+                    champMasteryCell.champ1masteryIcon?.image = UIImage(named: "rank" + String(championMastery.championLevel))
                     
-                    if championMastery0.championPointsUntilNextLevel > 0 {
-                        champMasteryCell.champ1masteryScore?.text = String(championMastery0.championPoints) + " / " + String(championMastery0.championPoints + championMastery0.championPointsUntilNextLevel)
+                    if championMastery.championPointsUntilNextLevel > 0 {
+                        champMasteryCell.champ1masteryScore?.text = String(championMastery.championPoints) + " / " + String(championMastery.championPoints + championMastery.championPointsUntilNextLevel)
                     } else {
-                        champMasteryCell.champ1masteryScore?.text = String(championMastery0.championPoints)
+                        champMasteryCell.champ1masteryScore?.text = String(championMastery.championPoints)
                     }
+                }
+                
+                if self.cm_top3champs.count > 1 {
+                    let championMastery = self.cm_top3champs[1]
                     
-                    let championMastery1 = self.cm_top3champs[1]
-                    
-                    StaticDataEndpoint().getChampionInfoById(champId: championMastery1.championId, championData: .Image, completion: { (champion) in
+                    StaticDataEndpoint().getChampionInfoById(champId: championMastery.championId, championData: .Image, completion: { (champion) in
                         DDragon().getChampionLoadingArt(fullImageName: champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
                             champMasteryCell.champ2bg?.setImageWith(champLoadingArtUrl)
                         })
@@ -334,20 +342,22 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                             // Error
                     })
                     
-                    champMasteryCell.champ2progressBar?.value = CGFloat(championMastery1.championPointsSinceLastLevel)
-                    champMasteryCell.champ2progressBar?.maxValue = CGFloat(championMastery1.championPointsSinceLastLevel + championMastery1.championPointsUntilNextLevel)
+                    champMasteryCell.champ2progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
+                    champMasteryCell.champ2progressBar?.maxValue = CGFloat(championMastery.championPointsSinceLastLevel + championMastery.championPointsUntilNextLevel)
                     
-                    champMasteryCell.champ2masteryIcon?.image = UIImage(named: "rank" + String(championMastery1.championLevel))
+                    champMasteryCell.champ2masteryIcon?.image = UIImage(named: "rank" + String(championMastery.championLevel))
                     
-                    if championMastery1.championPointsUntilNextLevel > 0 {
-                        champMasteryCell.champ2masteryScore?.text = String(championMastery1.championPoints) + " / " + String(championMastery1.championPoints + championMastery1.championPointsUntilNextLevel)
+                    if championMastery.championPointsUntilNextLevel > 0 {
+                        champMasteryCell.champ2masteryScore?.text = String(championMastery.championPoints) + " / " + String(championMastery.championPoints + championMastery.championPointsUntilNextLevel)
                     } else {
-                        champMasteryCell.champ2masteryScore?.text = String(championMastery1.championPoints)
+                        champMasteryCell.champ2masteryScore?.text = String(championMastery.championPoints)
                     }
+                }
+                
+                if self.cm_top3champs.count > 2 {
+                    let championMastery = self.cm_top3champs[2]
                     
-                    let championMastery2 = self.cm_top3champs[2]
-                    
-                    StaticDataEndpoint().getChampionInfoById(champId: championMastery2.championId, championData: .Image, completion: { (champion) in
+                    StaticDataEndpoint().getChampionInfoById(champId: championMastery.championId, championData: .Image, completion: { (champion) in
                         DDragon().getChampionLoadingArt(fullImageName: champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
                             champMasteryCell.champ3bg?.setImageWith(champLoadingArtUrl)
                         })
@@ -361,15 +371,15 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                             // Error
                     })
                     
-                    champMasteryCell.champ3progressBar?.value = CGFloat(championMastery2.championPointsSinceLastLevel)
-                    champMasteryCell.champ3progressBar?.maxValue = CGFloat(championMastery2.championPointsSinceLastLevel + championMastery2.championPointsUntilNextLevel)
+                    champMasteryCell.champ3progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
+                    champMasteryCell.champ3progressBar?.maxValue = CGFloat(championMastery.championPointsSinceLastLevel + championMastery.championPointsUntilNextLevel)
                     
-                    champMasteryCell.champ3masteryIcon?.image = UIImage(named: "rank" + String(championMastery2.championLevel))
+                    champMasteryCell.champ3masteryIcon?.image = UIImage(named: "rank" + String(championMastery.championLevel))
                     
-                    if championMastery2.championPointsUntilNextLevel > 0 {
-                        champMasteryCell.champ3masteryScore?.text = String(championMastery2.championPoints) + " / " + String(championMastery2.championPoints + championMastery2.championPointsUntilNextLevel)
+                    if championMastery.championPointsUntilNextLevel > 0 {
+                        champMasteryCell.champ3masteryScore?.text = String(championMastery.championPoints) + " / " + String(championMastery.championPoints + championMastery.championPointsUntilNextLevel)
                     } else {
-                        champMasteryCell.champ3masteryScore?.text = String(championMastery2.championPoints)
+                        champMasteryCell.champ3masteryScore?.text = String(championMastery.championPoints)
                     }
                 }
                 
