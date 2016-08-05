@@ -80,11 +80,12 @@ class StatusEndpoint: NSObject {
                                 
                                 newTranslation.content = oldTranslation["content"] as! String
                                 newTranslation.locale = oldTranslation["locale"] as! String
-                                autoreleasepool(invoking: { ()
+                                /*autoreleasepool(invoking: { ()
                                     let dateFormatter = DateFormatter()
                                     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
                                     newTranslation.updated_at = dateFormatter.date(from: oldTranslation["updated_at"] as! String)!
-                                })
+                                })*/
+                                newTranslation.heading = oldTranslation["heading"] as! String
                                 
                                 newMessage.translations.append(newTranslation)
                             }
