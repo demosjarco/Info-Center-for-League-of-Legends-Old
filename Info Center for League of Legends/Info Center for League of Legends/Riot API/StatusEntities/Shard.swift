@@ -9,9 +9,9 @@
 import UIKit
 
 class Shard: NSObject {
-    var hostname: String
+    var hostname: String = ""
     var locales = [String]()
-    var name:String
-    var region_tag:String
-    var slug:String
+    var name:String = ""
+    var region_tag:String = ""
+    var slug:String = ""
 }
