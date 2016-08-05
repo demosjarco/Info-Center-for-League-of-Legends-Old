@@ -77,6 +77,26 @@ class ServerStatus: UITableViewController, UIPopoverPresentationControllerDelega
         // Popover Size
         self.preferredContentSize = CGSize(width: 400, height: tableView.contentSize.height)
         // Configure the cell...
+        let incident = services[indexPath.section].incidents[indexPath.row]
+        
+        cell.contentView.addSubview(UIImageView(image: imageWithColor(severity: incident.updates.first!.severity, index: indexPath)))
+        
+        cell.detailTextLabel?.text = incident.updates.first?.content
+        for translation in incident.updates.first!.translations {
+            if translation.locale == Locale.autoupdatingCurrent.identifier {
+                cell.detailTextLabel?.text = translation.content
+            }
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        let dateString = dateFormatter.string(from: incident.updates.first!.updated_at)
+        if incident.updates.first?.author == "" {
+            cell.textLabel?.text = "Network Operations - " + dateString
+        } else {
+            cell.textLabel?.text = incident.updates.first!.author + " - " + dateString
+        }
         
         return cell
     }
