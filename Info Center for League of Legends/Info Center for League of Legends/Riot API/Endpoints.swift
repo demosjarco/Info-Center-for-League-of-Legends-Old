@@ -209,6 +209,38 @@ class Endpoints: NSObject {
         }
     }
     
+    func staticData_masteries(masteryListData: String, completion: (composedUrl: String) -> Void) {
+        self.getStaticDataBaseEndpoint { (baseEndpoint) in
+            self.getApiKey { (apiKey) in
+                self.optimalLocaleForRegion(completion: { (optimalLocale) in
+                    var urlString = baseEndpoint + "mastery"
+                    if optimalLocale {
+                        urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&masteryListData=" + masteryListData + "&api_key=" + apiKey
+                    } else {
+                        urlString += "?masteryListData=" + masteryListData + "&api_key=" + apiKey
+                    }
+                    completion(composedUrl: urlString)
+                })
+            }
+        }
+    }
+    
+    func staticData_masteries_id(masteryId: String, masteryListData: String, completion: (composedUrl: String) -> Void) {
+        self.getStaticDataBaseEndpoint { (baseEndpoint) in
+            self.getApiKey { (apiKey) in
+                self.optimalLocaleForRegion(completion: { (optimalLocale) in
+                    var urlString = baseEndpoint + "mastery/" + masteryId
+                    if optimalLocale {
+                        urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&masteryListData=" + masteryListData + "&api_key=" + apiKey
+                    } else {
+                        urlString += "?masteryListData=" + masteryListData + "&api_key=" + apiKey
+                    }
+                    completion(composedUrl: urlString)
+                })
+            }
+        }
+    }
+    
     // Status
     func status_shards(completion: (composedUrl: String) -> Void) {
         let urlString = "http://status.leagueoflegends.com/shards"
