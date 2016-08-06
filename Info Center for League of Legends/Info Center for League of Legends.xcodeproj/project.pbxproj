@@ -36,7 +36,6 @@
 		1739C4921D1C3A3800B50BDC /* SummonerEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */; };
 		17421AB41D4BCD1100F22B52 /* MasteryPagesDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17421AB31D4BCD1100F22B52 /* MasteryPagesDto.swift */; };
 		17421AB61D4BCD7A00F22B52 /* MasteryPageDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17421AB51D4BCD7A00F22B52 /* MasteryPageDto.swift */; };
-		17421AB81D4BCDBC00F22B52 /* MasteryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17421AB71D4BCDBC00F22B52 /* MasteryDto.swift */; };
 		174C95181D106CCD00EBFB07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C95171D106CCD00EBFB07 /* AppDelegate.swift */; };
 		174C951F1D106CCD00EBFB07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174C951D1D106CCD00EBFB07 /* Main.storyboard */; };
 		174C95241D106CCE00EBFB07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174C95221D106CCE00EBFB07 /* LaunchScreen.storyboard */; };
@@ -82,6 +81,12 @@
 		17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB321D10EFAC00C7B7C5 /* ProfileSearch.swift */; };
 		17EDBB361D10F12E00C7B7C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */; };
 		17EDBB381D10F68D00C7B7C5 /* ExistingAppChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */; };
+		17F97B861D56773100A8B4E7 /* MasteryListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F97B851D56773100A8B4E7 /* MasteryListDto.swift */; };
+		17F97B8B1D56788900A8B4E7 /* MasteryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F97B8A1D56788900A8B4E7 /* MasteryDto.swift */; };
+		17F97B8D1D5678A800A8B4E7 /* SC_MasteryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F97B8C1D5678A800A8B4E7 /* SC_MasteryDto.swift */; };
+		17F97B8F1D5678DF00A8B4E7 /* MasteryTreeDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F97B8E1D5678DF00A8B4E7 /* MasteryTreeDto.swift */; };
+		17F97B911D5678F200A8B4E7 /* MasteryTreeListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F97B901D5678F200A8B4E7 /* MasteryTreeListDto.swift */; };
+		17F97B931D56790200A8B4E7 /* MasteryTreeItemDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F97B921D56790200A8B4E7 /* MasteryTreeItemDto.swift */; };
 		17FDDF601D4D391200CC7277 /* ChampionMasteryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDDF5F1D4D391200CC7277 /* ChampionMasteryEndpoint.swift */; };
 		17FDDF651D4D494600CC7277 /* StaticDataEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDDF641D4D494600CC7277 /* StaticDataEndpoint.swift */; };
 		9BDD3013E0ED7A4DAF224558 /* Pods_Info_Center_for_League_of_Legends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */; };
@@ -136,7 +141,6 @@
 		1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummonerEndpoint.swift; path = "Riot API/SummonerEndpoint.swift"; sourceTree = "<group>"; };
 		17421AB31D4BCD1100F22B52 /* MasteryPagesDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryPagesDto.swift; path = "Riot API/SummonerEntities/MasteryPagesDto.swift"; sourceTree = "<group>"; };
 		17421AB51D4BCD7A00F22B52 /* MasteryPageDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryPageDto.swift; path = "Riot API/SummonerEntities/MasteryPageDto.swift"; sourceTree = "<group>"; };
-		17421AB71D4BCDBC00F22B52 /* MasteryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryDto.swift; path = "Riot API/SummonerEntities/MasteryDto.swift"; sourceTree = "<group>"; };
 		174C95141D106CCD00EBFB07 /* Info Center for League of Legends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Info Center for League of Legends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		174C95171D106CCD00EBFB07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		174C951E1D106CCD00EBFB07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -191,6 +195,12 @@
 		17EDBB321D10EFAC00C7B7C5 /* ProfileSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSearch.swift; path = Profile/ProfileSearch.swift; sourceTree = "<group>"; };
 		17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExistingAppChecker.swift; path = Subclasses/ExistingAppChecker.swift; sourceTree = "<group>"; };
+		17F97B851D56773100A8B4E7 /* MasteryListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryListDto.swift; path = "Riot API/StaticDataEntities/MasteryListDto.swift"; sourceTree = "<group>"; };
+		17F97B8A1D56788900A8B4E7 /* MasteryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryDto.swift; path = "Riot API/SummonerEntities/MasteryDto.swift"; sourceTree = "<group>"; };
+		17F97B8C1D5678A800A8B4E7 /* SC_MasteryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SC_MasteryDto.swift; path = "Riot API/StaticDataEntities/SC_MasteryDto.swift"; sourceTree = "<group>"; };
+		17F97B8E1D5678DF00A8B4E7 /* MasteryTreeDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryTreeDto.swift; path = "Riot API/StaticDataEntities/MasteryTreeDto.swift"; sourceTree = "<group>"; };
+		17F97B901D5678F200A8B4E7 /* MasteryTreeListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryTreeListDto.swift; path = "Riot API/StaticDataEntities/MasteryTreeListDto.swift"; sourceTree = "<group>"; };
+		17F97B921D56790200A8B4E7 /* MasteryTreeItemDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryTreeItemDto.swift; path = "Riot API/StaticDataEntities/MasteryTreeItemDto.swift"; sourceTree = "<group>"; };
 		17FDDF5F1D4D391200CC7277 /* ChampionMasteryEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChampionMasteryEndpoint.swift; path = "Riot API/ChampionMasteryEndpoint.swift"; sourceTree = "<group>"; };
 		17FDDF641D4D494600CC7277 /* StaticDataEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StaticDataEndpoint.swift; path = "Riot API/StaticDataEndpoint.swift"; sourceTree = "<group>"; };
 		2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Center_for_League_of_Legends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -387,7 +397,7 @@
 				176D5B971D1C478F000D9D85 /* SummonerDto.swift */,
 				17421AB31D4BCD1100F22B52 /* MasteryPagesDto.swift */,
 				17421AB51D4BCD7A00F22B52 /* MasteryPageDto.swift */,
-				17421AB71D4BCDBC00F22B52 /* MasteryDto.swift */,
+				17F97B8A1D56788900A8B4E7 /* MasteryDto.swift */,
 			);
 			name = SummonerEntities;
 			sourceTree = "<group>";
@@ -433,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				17F97B841D56771000A8B4E7 /* Champion */,
+				17F97B871D56773400A8B4E7 /* Masteries */,
 			);
 			name = "StaticData Entities";
 			sourceTree = "<group>";
@@ -476,6 +487,18 @@
 				17B9B3241D4D75C300D8A755 /* BlockItemDto.swift */,
 			);
 			name = Champion;
+			sourceTree = "<group>";
+		};
+		17F97B871D56773400A8B4E7 /* Masteries */ = {
+			isa = PBXGroup;
+			children = (
+				17F97B851D56773100A8B4E7 /* MasteryListDto.swift */,
+				17F97B8C1D5678A800A8B4E7 /* SC_MasteryDto.swift */,
+				17F97B8E1D5678DF00A8B4E7 /* MasteryTreeDto.swift */,
+				17F97B901D5678F200A8B4E7 /* MasteryTreeListDto.swift */,
+				17F97B921D56790200A8B4E7 /* MasteryTreeItemDto.swift */,
+			);
+			name = Masteries;
 			sourceTree = "<group>";
 		};
 		17FDDF611D4D391A00CC7277 /* ChampionMastery Entities */ = {
@@ -965,6 +988,7 @@
 				17B9B30D1D4D73EB00D8A755 /* ChampionMasteryDto.swift in Sources */,
 				178B957A1D428A1C00CAD47A /* RecentGamesDto.swift in Sources */,
 				1771CBD41D282B9800D0DB08 /* LeagueEntryDto.swift in Sources */,
+				17F97B911D5678F200A8B4E7 /* MasteryTreeListDto.swift in Sources */,
 				1732F6031D550174009DA53B /* Service.swift in Sources */,
 				1775F64F1D41C95800E58003 /* GameEndpoint.swift in Sources */,
 				172101CB1D1EDBDB0088DB1A /* ProfileView_RecentGames.swift in Sources */,
@@ -979,20 +1003,23 @@
 				17421AB61D4BCD7A00F22B52 /* MasteryPageDto.swift in Sources */,
 				172101D01D1EDC2C0088DB1A /* ProfileView_Runes.swift in Sources */,
 				171A1C111D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift in Sources */,
+				17F97B931D56790200A8B4E7 /* MasteryTreeItemDto.swift in Sources */,
 				17B9B3131D4D74A900D8A755 /* ImageDto.swift in Sources */,
 				17421AB41D4BCD1100F22B52 /* MasteryPagesDto.swift in Sources */,
 				1732F6011D550166009DA53B /* ShardStatus.swift in Sources */,
 				17C583CB1D388441007AAC43 /* StatsEndpoint.swift in Sources */,
-				17421AB81D4BCDBC00F22B52 /* MasteryDto.swift in Sources */,
 				172C606C1D3BFE67003DC152 /* NewsCell.swift in Sources */,
 				172101C71D1EDB9D0088DB1A /* ProfileView_Header.swift in Sources */,
 				172101D71D1F26A00088DB1A /* DDragon.swift in Sources */,
 				172101C41D1EDB310088DB1A /* ProfileView.swift in Sources */,
 				176D5B981D1C478F000D9D85 /* SummonerDto.swift in Sources */,
 				1739C48F1D1C281400B50BDC /* PlistManager.swift in Sources */,
+				17F97B861D56773100A8B4E7 /* MasteryListDto.swift in Sources */,
 				17EDBB301D10EEEF00C7B7C5 /* MainTableViewController.swift in Sources */,
 				1771CBD51D282B9800D0DB08 /* MiniSeriesDto.swift in Sources */,
 				17FDDF601D4D391200CC7277 /* ChampionMasteryEndpoint.swift in Sources */,
+				17F97B8D1D5678A800A8B4E7 /* SC_MasteryDto.swift in Sources */,
+				17F97B8F1D5678DF00A8B4E7 /* MasteryTreeDto.swift in Sources */,
 				172101D11D1EDC2C0088DB1A /* ProfileView_Teams.swift in Sources */,
 				176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */,
 				1732F5F91D54FC5A009DA53B /* StatusDetail.swift in Sources */,
@@ -1000,6 +1027,7 @@
 				1732F6071D550192009DA53B /* Message.swift in Sources */,
 				174C95181D106CCD00EBFB07 /* AppDelegate.swift in Sources */,
 				172101CA1D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift in Sources */,
+				17F97B8B1D56788900A8B4E7 /* MasteryDto.swift in Sources */,
 				17353B681D3AC7F100C56768 /* News.swift in Sources */,
 				17EDBB381D10F68D00C7B7C5 /* ExistingAppChecker.swift in Sources */,
 				17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */,
