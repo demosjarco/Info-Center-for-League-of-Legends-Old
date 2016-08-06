@@ -57,6 +57,7 @@ class ServerStatus: UITableViewController {
         refreshTimeText.title = "Loading..."
         self.refreshControl?.beginRefreshing()
         StatusEndpoint().getShardStatus(completion: { (shardStatus) in
+            self.title = shardStatus.name + " Status"
             self.services = shardStatus.services
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
