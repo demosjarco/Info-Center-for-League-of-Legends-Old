@@ -29,6 +29,16 @@ class StaticDataEndpoint: NSObject {
         case Tags = "tags"
     }
     
+    enum masteryListData:String {
+        case All = "all"
+        case Image = "image"
+        case MasteryTree = "masteryTree"
+        case Prerequisite = "prereq"
+        case Ranks = "ranks"
+        case SanitizedDescription = "sanitizedDescription"
+        case Tree = "tree"
+    }
+    
     func getChampionInfoById(champId: Int, championData: champData, completion: (ChampionDto) -> Void, notFound: () -> Void, error: () -> Void) {
         Endpoints().staticData_champion_id(championId: String(champId), champData: championData.rawValue) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
