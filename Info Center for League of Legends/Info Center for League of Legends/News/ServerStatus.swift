@@ -78,7 +78,6 @@ class ServerStatus: UITableViewController {
         if lastRefreshTime.timeIntervalSinceNow <= -60.0 {
             refresh()
         } else {
-            // #selector(self.refresh(sender:))
             Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshWithTimer(timer:)), userInfo: nil, repeats: false)
         }
     }
