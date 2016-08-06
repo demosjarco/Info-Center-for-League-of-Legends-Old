@@ -97,11 +97,11 @@ class StatusDetail: UITableViewController {
         // Configure the cell...
         switch updates[indexPath.section].severity {
         case "info":
-            cell.backgroundColor = UIColor(red: 0, green: 0, blue: 0.25, alpha: 1)
+            cell.backgroundColor = UIColor(red: 0, green: 0, blue: 1.0/3.0, alpha: 1)
         case "warn":
-            cell.backgroundColor = UIColor(red: 0.25, green: 0.25, blue: 0, alpha: 1)
+            cell.backgroundColor = UIColor(red: 1.0/3.0, green: 1.0/3.0, blue: 0, alpha: 1)
         case "error":
-            cell.backgroundColor = UIColor(red: 0.25, green: 0, blue: 0, alpha: 1)
+            cell.backgroundColor = UIColor(red: 1.0/3.0, green: 0, blue: 0, alpha: 1)
         default:
             cell.backgroundColor = UIColor.white
         }
