@@ -71,7 +71,11 @@ class StatusDetail: UITableViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
-        return dateFormatter.string(from: updates[section].updated_at)
+        if updates[section].author == "" {
+            return "Network Operations - " + dateFormatter.string(from: updates[section].updated_at)
+        } else {
+            return updates[section].author + " - " + dateFormatter.string(from: updates[section].updated_at)
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
