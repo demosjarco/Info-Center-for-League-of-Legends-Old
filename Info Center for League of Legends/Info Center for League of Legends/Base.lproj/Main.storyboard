@@ -1621,6 +1621,9 @@ last -- games</string>
                     </tableView>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="A86-qc-EHW">
                         <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refresh" destination="IW2-6d-vYn" eventType="valueChanged" id="xR7-56-PMP"/>
+                        </connections>
                     </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqt-vI-PrE" userLabel="First Responder" sceneMemberID="firstResponder"/>
