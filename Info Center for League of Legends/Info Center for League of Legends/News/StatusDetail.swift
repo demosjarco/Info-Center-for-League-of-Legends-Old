@@ -95,7 +95,16 @@ class StatusDetail: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "severityCell", for: indexPath)
         // Configure the cell...
-        cell.backgroundColor = UIColor.red
+        switch updates[indexPath.section].severity {
+        case "info":
+            cell.backgroundColor = UIColor(red: 0, green: 0, blue: 0.25, alpha: 1)
+        case "warn":
+            cell.backgroundColor = UIColor(red: 0.25, green: 0.25, blue: 0, alpha: 1)
+        case "error":
+            cell.backgroundColor = UIColor(red: 0.25, green: 0, blue: 0, alpha: 1)
+        default:
+            cell.backgroundColor = UIColor.white
+        }
 
         return cell
     }
