@@ -28,7 +28,7 @@ class ServerStatus: UITableViewController {
     }
     
     func imageWithColor(severity: String, index: IndexPath) -> UIImage {
-        let rect = CGRect(x: 0, y: 0, width: 10, height: self.tableView.rectForRow(at: index).size.height)
+        let rect = CGRect(x: 0, y: 0, width: 13, height: self.tableView.rectForRow(at: index).size.height)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
         
