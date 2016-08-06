@@ -307,10 +307,10 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                             champMasteryCell.champ1squareIcon?.setImageWith(champSquareArtUrl)
                         })
                         champMasteryCell.champ1name?.text = champion.name
-                        }, notFound: {
-                            // 404
-                        }, error: {
-                            // Error
+                    }, notFound: {
+                        // 404
+                    }, errorBlock: {
+                        // Error
                     })
                     
                     champMasteryCell.champ1progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
@@ -336,10 +336,10 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                             champMasteryCell.champ2squareIcon?.setImageWith(champSquareArtUrl)
                         })
                         champMasteryCell.champ2name?.text = champion.name
-                        }, notFound: {
-                            // 404
-                        }, error: {
-                            // Error
+                    }, notFound: {
+                        // 404
+                    }, errorBlock: {
+                        // Error
                     })
                     
                     champMasteryCell.champ2progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
@@ -367,7 +367,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                         champMasteryCell.champ3name?.text = champion.name
                         }, notFound: {
                             // 404
-                        }, error: {
+                        }, errorBlock: {
                             // Error
                     })
                     
@@ -415,10 +415,10 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                         DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
                             recentGamesCell.lastGameChamp?.setImageWith(champSquareArtUrl)
                         })
-                        }, notFound: {
-                            // 404
-                        }, error: {
-                            // Error
+                    }, notFound: {
+                        // 404
+                    }, errorBlock: {
+                        // Error
                     })
                 }
                 

@@ -39,7 +39,7 @@ class StaticDataEndpoint: NSObject {
         case Tree = "tree"
     }
     
-    func getChampionInfoById(champId: Int, championData: champData, completion: (ChampionDto) -> Void, notFound: () -> Void, error: () -> Void) {
+    func getChampionInfoById(champId: Int, championData: champData, completion: (ChampionDto) -> Void, notFound: () -> Void, errorBlock: () -> Void) {
         Endpoints().staticData_champion_id(championId: String(champId), champData: championData.rawValue) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 let newChampion = ChampionDto()
@@ -283,7 +283,12 @@ class StaticDataEndpoint: NSObject {
                 completion(newChampion)
             }, failure: { (task, error) in
                 let response = task!.response as! HTTPURLResponse
-                FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                if response.statusCode == 404 {
+                    notFound()
+                } else {
+                    errorBlock()
+                    FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                }
             })
         }
     }
