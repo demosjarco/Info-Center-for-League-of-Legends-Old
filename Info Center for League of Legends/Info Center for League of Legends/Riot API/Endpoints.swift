@@ -198,7 +198,6 @@ class Endpoints: NSObject {
                 })
             }
         }
-        
     }
     
     func staticData_languages(completion: (composedUrl: String) -> Void) {
