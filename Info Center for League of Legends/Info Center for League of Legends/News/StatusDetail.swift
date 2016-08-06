@@ -94,6 +94,8 @@ class StatusDetail: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "severityCell", for: indexPath)
+        // Popover Size
+        self.preferredContentSize = CGSize(width: 400, height: tableView.contentSize.height)
         // Configure the cell...
         switch updates[indexPath.section].severity {
         case "info":
