@@ -9,30 +9,83 @@
 import UIKit
 
 class StatusDetail: UITableViewController {
-
+    var serviceSlug:String = ""
+    var incidentId:CLong = 0
+    
+    var updates = [Message]()
+    var lastRefreshTime = Date()
+    var refreshTimeText = UIBarButtonItem()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        //refreshTimeText = self.toolbarItems![1]
+        
+        refresh()
+    }
+    
+    @IBAction func refresh() {
+        refreshTimeText.title = "Loading..."
+        self.refreshControl?.beginRefreshing()
+        StatusEndpoint().getShardStatus(completion: { (shardStatus) in
+            for service in shardStatus.services {
+                if service.slug == self.serviceSlug {
+                    for incident in service.incidents {
+                        if incident.incidentId == self.incidentId {
+                            self.updates = incident.updates
+                        }
+                    }
+                }
+            }
+            if self.updates.count == 0 {
+                // Incident gone
+                self.navigationController?.popViewController(animated: true)
+            }
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
+            self.lastRefreshTime = Date()
+            self.refreshTimeText.title = "Refreshing in " + String(60 - Int(floor(self.lastRefreshTime.timeIntervalSinceNow) * -1)) + " seconds..."
+            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshWithTimer(timer:)), userInfo: nil, repeats: false)
+            }, errorBlock: {
+                self.refreshTimeText.title = "Error...trying again in 60 seconds..."
+                self.refreshControl?.endRefreshing()
+                self.lastRefreshTime = Date()
+                Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshWithTimer(timer:)), userInfo: nil, repeats: false)
+                // Error
+        })
+    }
+    
+    func refreshWithTimer(timer: Timer?) {
+        timer?.invalidate()
+        refreshTimeText.title = "Refreshing in " + String(60 - Int(floor(lastRefreshTime.timeIntervalSinceNow) * -1)) + " seconds..."
+        if lastRefreshTime.timeIntervalSinceNow <= -60.0 {
+            refresh()
+        } else {
+            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshWithTimer(timer:)), userInfo: nil, repeats: false)
+        }
     }
 
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "<#string#>"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from: updates[section].updated_at)
     }
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return "<#string#>"
+        var content = updates[section].content
+        for translation in updates[section].translations {
+            if translation.locale == Locale.autoupdatingCurrent.identifier {
+                content = translation.content
+            }
+        }
+        return content
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return updates.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
