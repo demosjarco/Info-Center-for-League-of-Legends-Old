@@ -57,11 +57,11 @@ class ServerStatus: UITableViewController {
         refreshTimeText.title = "Loading..."
         self.refreshControl?.beginRefreshing()
         StatusEndpoint().getShardStatus(completion: { (shardStatus) in
-            self.refreshTimeText.title = "Processing..."
             self.services = shardStatus.services
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
             self.lastRefreshTime = Date()
+            self.refreshTimeText.title = "Refreshing in " + String(60 - Int(floor(self.lastRefreshTime.timeIntervalSinceNow) * -1)) + " seconds..."
             Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshWithTimer(timer:)), userInfo: nil, repeats: false)
         }, errorBlock: {
             self.refreshTimeText.title = "Error...trying again in 60 seconds..."
