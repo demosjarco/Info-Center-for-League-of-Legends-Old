@@ -135,5 +135,10 @@ class ServerStatus: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showStatusUpdates" {
+            let detail = segue.destination as! StatusDetail
+            detail.serviceSlug = services[self.tableView.indexPathForSelectedRow!.section].slug
+            detail.incidentId = services[self.tableView.indexPathForSelectedRow!.section].incidents[self.tableView.indexPathForSelectedRow!.row].incidentId
+        }
     }
 }
