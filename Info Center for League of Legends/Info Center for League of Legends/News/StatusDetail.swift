@@ -19,7 +19,7 @@ class StatusDetail: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //refreshTimeText = self.toolbarItems![1]
+        refreshTimeText = self.toolbarItems![1]
         
         refresh()
     }
