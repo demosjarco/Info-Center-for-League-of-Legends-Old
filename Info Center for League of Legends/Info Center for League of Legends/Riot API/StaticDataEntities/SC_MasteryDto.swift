@@ -17,5 +17,5 @@ class SC_MasteryDto: NSObject {
     var name:String = ""
     var prereq:String?
     var ranks:Int?
-    var sanitizedDescription:String?
+    var sanitizedDescription:[String]?
 }
