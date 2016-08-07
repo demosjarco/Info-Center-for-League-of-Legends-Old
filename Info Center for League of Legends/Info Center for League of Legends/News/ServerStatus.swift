@@ -9,7 +9,7 @@
 import UIKit
 import JSBadgeView
 
-class ServerStatus: UITableViewController {
+class ServerStatus: UITableViewController, UIPopoverPresentationControllerDelegate {
     var services = [Service]()
     var lastRefreshTime = Date()
     var refreshTimeText = UIBarButtonItem()
@@ -17,14 +17,16 @@ class ServerStatus: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.navigationController?.popoverPresentationController != nil {
-            // Shown in popover
-            self.navigationItem.leftBarButtonItem = nil
-            self.navigationController?.popoverPresentationController?.backgroundColor = self.tableView.backgroundColor
-        }
+        self.navigationController?.popoverPresentationController?.delegate = self
         refreshTimeText = self.toolbarItems![1]
         
         refresh()
+    }
+    
+    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
+        // Shown in popover
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationController?.popoverPresentationController?.backgroundColor = self.tableView.backgroundColor
     }
     
     func imageWithColor(severity: String, index: IndexPath) -> UIImage {
