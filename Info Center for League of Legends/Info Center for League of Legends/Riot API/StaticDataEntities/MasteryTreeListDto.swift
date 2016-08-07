@@ -9,5 +9,5 @@
 import UIKit
 
 class MasteryTreeListDto: NSObject {
-    
+    var masteryTreeItems = [MasteryTreeItemDto]()
 }

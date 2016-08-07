@@ -9,5 +9,7 @@
 import UIKit
 
 class MasteryTreeDto: NSObject {
-    
+    var cunning = [MasteryTreeListDto]()
+    var ferocity = [MasteryTreeListDto]()
+    var resolve = [MasteryTreeListDto]()
 }
