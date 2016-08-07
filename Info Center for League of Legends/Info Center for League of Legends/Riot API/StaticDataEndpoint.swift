@@ -309,7 +309,52 @@ class StaticDataEndpoint: NSObject {
         Endpoints().staticData_masteries(masteryListData: masteryListData.rawValue) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 let json = responseObject as! [String: AnyObject]
+                let newMasteryList = MasteryListDto()
                 
+                let data = json["data"] as! [String: AnyObject]
+                for masteryName in data.keys {
+                    let oldMastery = data[masteryName] as! [String: AnyObject]
+                    let newMastery = SC_MasteryDto()
+                    
+                    newMastery.masteryDescription = oldMastery["description"] as! [String]
+                    newMastery.masteryId = oldMastery["id"] as! Int
+                    if oldMastery["image"] != nil {
+                        let oldImage = oldMastery["image"] as! [String: AnyObject]
+                        let newImage = ImageDto()
+                        
+                        newImage.full = oldImage["full"] as! String
+                        newImage.group = oldImage["group"] as! String
+                        newImage.h = oldImage["h"] as! Int
+                        newImage.sprite = oldImage["sprite"] as! String
+                        newImage.w = oldImage["w"] as! Int
+                        newImage.x = oldImage["x"] as! Int
+                        newImage.y = oldImage["y"] as! Int
+                        
+                        newMastery.image = newImage
+                    }
+                    if oldMastery["masteryTree"] != nil {
+                        newMastery.masteryTree = oldMastery["masteryTree"] as? String
+                    }
+                    newMastery.name = oldMastery["name"] as! String
+                    if (oldMastery["prereq"] != nil) {
+                        newMastery.prereq = oldMastery["prereq"] as? String
+                    }
+                    if (oldMastery["ranks"] != nil) {
+                        newMastery.ranks = oldMastery["ranks"] as? Int
+                    }
+                    if (oldMastery["sanitizedDescription"] != nil) {
+                        newMastery.sanitizedDescription = oldMastery["sanitizedDescription"] as? [String]
+                    }
+                    
+                    newMasteryList.data[masteryName] = newMastery
+                }
+                if json["tree"] != nil {
+                    
+                }
+                newMasteryList.type = json["type"] as! String
+                newMasteryList.version = json["version"] as! String
+                
+                completion(masteryList: newMasteryList)
             }, failure: { (task, error) in
                 errorBlock()
                 let response = task!.response as! HTTPURLResponse
