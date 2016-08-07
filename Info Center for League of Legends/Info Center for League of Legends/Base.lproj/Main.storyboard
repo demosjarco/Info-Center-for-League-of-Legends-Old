@@ -28,7 +28,7 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="recentProfileCell" textLabel="YR4-YT-zyw" detailTextLabel="ATh-2c-KFw" imageView="2py-Nr-sTA" style="IBUITableViewCellStyleSubtitle" id="ewZ-ok-VMR">
-                                <frame key="frameInset" minY="163.5" width="375" height="64"/>
+                                <frame key="frameInset" minY="164" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ewZ-ok-VMR" id="TmW-28-PWT">
                                     <frame key="frameInset" width="342" height="63"/>
@@ -558,7 +558,7 @@
                                     <outlet property="champ3name" destination="hAB-8L-JGV" id="Y0G-iX-8VW"/>
                                     <outlet property="champ3progressBar" destination="b7k-MG-XXr" id="Atb-9w-zMk"/>
                                     <outlet property="champ3squareIcon" destination="tXL-hb-0J3" id="EG4-di-Anv"/>
-                                    <segue destination="Kvc-fI-XdU" kind="presentation" id="KSs-DC-TaL"/>
+                                    <segue destination="Kvc-fI-XdU" kind="presentation" modalPresentationStyle="pageSheet" id="KSs-DC-TaL"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_recent_games" id="Ijk-9N-9Qd" customClass="ProfileView_RecentGames" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
@@ -709,7 +709,7 @@ last -- games</string>
                                     <outlet property="lastGameScore" destination="zHR-Un-N6X" id="y2I-DY-JND"/>
                                     <outlet property="totalGamesCounted" destination="PjP-VB-3HC" id="3pC-dn-piK"/>
                                     <outlet property="winratePercentage" destination="xQV-CK-U2i" id="zio-1d-18L"/>
-                                    <segue destination="0yv-uN-KZX" kind="presentation" id="DEC-1a-N3O"/>
+                                    <segue destination="0yv-uN-KZX" kind="presentation" modalPresentationStyle="pageSheet" id="DEC-1a-N3O"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_masteries" id="RbO-XF-k3e" customClass="ProfileView_Masteries" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
@@ -965,7 +965,7 @@ last -- games</string>
                                     <outlet property="rightColumnKeystone" destination="RFf-Xp-Hk9" id="Mbp-ol-0RX"/>
                                     <outlet property="rightColumnName" destination="I93-PU-7yt" id="zC8-Vl-Msy"/>
                                     <outlet property="rightColumnValue" destination="iH2-Mf-q77" id="szQ-dD-VZB"/>
-                                    <segue destination="EGW-ic-98k" kind="presentation" id="1ng-8D-LaB"/>
+                                    <segue destination="EGW-ic-98k" kind="presentation" modalPresentationStyle="formSheet" id="1ng-8D-LaB"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_runes" id="5Du-qX-Luu" customClass="ProfileView_Runes" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
@@ -977,7 +977,7 @@ last -- games</string>
                                 </view>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="iao-al-HHe" kind="presentation" id="6Gz-bb-eFu"/>
+                                    <segue destination="iao-al-HHe" kind="presentation" modalPresentationStyle="formSheet" id="6Gz-bb-eFu"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_teams" id="yjA-Fb-F9h" customClass="ProfileView_Teams" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
@@ -989,7 +989,7 @@ last -- games</string>
                                 </view>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="dtd-uW-mEJ" kind="presentation" id="x70-KG-aHc"/>
+                                    <segue destination="dtd-uW-mEJ" kind="presentation" modalPresentationStyle="pageSheet" id="x70-KG-aHc"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
