@@ -9,5 +9,6 @@
 import UIKit
 
 class MasteryTreeListDto: NSObject {
+    /// If id is 0 = null (space) mastery
     var masteryTreeItems = [MasteryTreeItemDto]()
 }
