@@ -558,6 +558,7 @@
                                     <outlet property="champ3name" destination="hAB-8L-JGV" id="Y0G-iX-8VW"/>
                                     <outlet property="champ3progressBar" destination="b7k-MG-XXr" id="Atb-9w-zMk"/>
                                     <outlet property="champ3squareIcon" destination="tXL-hb-0J3" id="EG4-di-Anv"/>
+                                    <segue destination="Kvc-fI-XdU" kind="presentation" id="KSs-DC-TaL"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_recent_games" id="Ijk-9N-9Qd" customClass="ProfileView_RecentGames" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
@@ -708,6 +709,7 @@ last -- games</string>
                                     <outlet property="lastGameScore" destination="zHR-Un-N6X" id="y2I-DY-JND"/>
                                     <outlet property="totalGamesCounted" destination="PjP-VB-3HC" id="3pC-dn-piK"/>
                                     <outlet property="winratePercentage" destination="xQV-CK-U2i" id="zio-1d-18L"/>
+                                    <segue destination="0yv-uN-KZX" kind="presentation" id="DEC-1a-N3O"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_masteries" id="RbO-XF-k3e" customClass="ProfileView_Masteries" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
@@ -963,6 +965,7 @@ last -- games</string>
                                     <outlet property="rightColumnKeystone" destination="RFf-Xp-Hk9" id="Mbp-ol-0RX"/>
                                     <outlet property="rightColumnName" destination="I93-PU-7yt" id="zC8-Vl-Msy"/>
                                     <outlet property="rightColumnValue" destination="iH2-Mf-q77" id="szQ-dD-VZB"/>
+                                    <segue destination="EGW-ic-98k" kind="presentation" id="1ng-8D-LaB"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_runes" id="5Du-qX-Luu" customClass="ProfileView_Runes" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
@@ -973,6 +976,9 @@ last -- games</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="iao-al-HHe" kind="presentation" id="6Gz-bb-eFu"/>
+                                </connections>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_teams" id="yjA-Fb-F9h" customClass="ProfileView_Teams" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
                                 <frame key="frameInset" minX="28" minY="1106" width="320" height="200"/>
@@ -982,6 +988,9 @@ last -- games</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="dtd-uW-mEJ" kind="presentation" id="x70-KG-aHc"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_header" id="jfk-L5-GNx" customClass="ProfileView_Header" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
@@ -1507,7 +1516,19 @@ last -- games</string>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <cells/>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="d9P-R5-7t8">
+                                <frame key="frameInset" minY="64" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                                <connections>
+                                    <segue destination="0xe-mK-RgP" kind="show" id="WJa-sC-WXg"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
                         <connections>
                             <outlet property="dataSource" destination="4Oi-gZ-hHP" id="hm9-eG-Ag7"/>
                             <outlet property="delegate" destination="4Oi-gZ-hHP" id="Zau-0b-neC"/>
@@ -1534,7 +1555,7 @@ last -- games</string>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bD6-uZ-FYi">
-                                <frame key="frameInset" width="50" height="50"/>
+                                <frame key="frameInset" minY="64" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
