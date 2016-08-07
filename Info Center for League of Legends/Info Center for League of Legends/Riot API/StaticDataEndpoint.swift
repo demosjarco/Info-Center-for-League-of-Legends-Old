@@ -304,4 +304,33 @@ class StaticDataEndpoint: NSObject {
             })
         }
     }
+    
+    func getMasteryInfo(masteryListData: masteryListData, completion: (masteryList: MasteryListDto) -> Void, errorBlock: () -> Void) {
+        Endpoints().staticData_masteries(masteryListData: masteryListData.rawValue) { (composedUrl) in
+            AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
+                let json = responseObject as! [String: AnyObject]
+                
+            }, failure: { (task, error) in
+                errorBlock()
+                let response = task!.response as! HTTPURLResponse
+                FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+            })
+        }
+    }
+    
+    func getMasteryInfoById(masteryId: Int, masteryListData: masteryListData, completion: () -> Void, notFound: () -> Void, errorBlock: () -> Void) {
+        Endpoints().staticData_masteries_id(masteryId: String(masteryId), masteryListData: masteryListData.rawValue) { (composedUrl) in
+            AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
+                //
+            }, failure: { (task, error) in
+                let response = task!.response as! HTTPURLResponse
+                if response.statusCode == 404 {
+                    notFound()
+                } else {
+                    errorBlock()
+                    FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                }
+            })
+        }
+    }
 }
