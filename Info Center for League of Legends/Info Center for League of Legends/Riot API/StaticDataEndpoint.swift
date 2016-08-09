@@ -349,7 +349,32 @@ class StaticDataEndpoint: NSObject {
                     newMasteryList.data[masteryName] = newMastery
                 }
                 if json["tree"] != nil {
+                    let oldTree = json["tree"] as! [String: AnyObject]
+                    let newTree = MasteryTreeDto()
                     
+                    let oldCunning = oldTree["Cunning"] as! [[AnyObject]]
+                    for oldColumn in oldCunning {
+                        var newColumn = [MasteryTreeListDto]()
+                        
+                        for oldMastery in oldColumn {
+                            let newMastery = MasteryTreeItemDto()
+                            switch oldMastery {
+                            case is NSNull:
+                                newMastery.masteryId = 0
+                                break
+                            default:
+                                newMastery.masteryId = oldMastery["masteryId"] as! Int
+                                newMastery.prereq = oldMastery["prereq"] as! String
+                                break
+                            }
+                            
+                            newColumn.append(newMastery)
+                        }
+                        
+                        newTree.cunning.append(newColumn)
+                    }
+                    let oldFerocity = oldTree["Ferocity"] as! [[AnyObject]]
+                    let oldResolve = oldTree["Resolve"] as! [[AnyObject]]
                 }
                 newMasteryList.type = json["type"] as! String
                 newMasteryList.version = json["version"] as! String
