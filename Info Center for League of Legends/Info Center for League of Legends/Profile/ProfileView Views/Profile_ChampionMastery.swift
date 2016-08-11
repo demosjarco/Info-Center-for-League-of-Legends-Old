@@ -70,8 +70,36 @@ class Profile_ChampionMastery: MainCollectionViewController {
         // Performance
         cell.layer.shouldRasterize = true
         cell.layer.rasterizationScale = UIScreen.main.scale
+        // Clear
+        cell.championIcon?.image = nil
+        cell.championIconDark?.isHidden = true
+        cell.championName?.text = "--"
         // Configure the cell
-    
+        StaticDataEndpoint().getChampionInfoById(champId: championMasteries[indexPath.item].championId, championData: .Image, completion: { (champion) in
+            DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
+                cell.championIcon?.setImageWith(URLRequest(url: champSquareArtUrl), placeholderImage: nil, success: { (request, response, image) in
+                    cell.championIcon?.image = image
+                    cell.championIconDark?.isHidden = false
+                }, failure: nil)
+            })
+            cell.championName?.text = champion.name
+            }, notFound: {
+                // 404
+            }, errorBlock: {
+                // Error
+        })
+        
+        cell.progressBar?.value = CGFloat(championMasteries[indexPath.item].championPointsSinceLastLevel)
+        cell.progressBar?.maxValue = CGFloat(championMasteries[indexPath.item].championPointsSinceLastLevel + championMasteries[indexPath.item].championPointsUntilNextLevel)
+        
+        cell.rankIcon?.image = UIImage(named: "rank" + String(championMasteries[indexPath.item].championLevel))
+        
+        if championMasteries[indexPath.item].championPointsUntilNextLevel > 0 {
+            cell.progressText?.text = String(championMasteries[indexPath.item].championPoints) + " / " + String(championMasteries[indexPath.item].championPoints + championMasteries[indexPath.item].championPointsUntilNextLevel)
+        } else {
+            cell.progressText?.text = String(championMasteries[indexPath.item].championPoints)
+        }
+        
         return cell
     }
 }
