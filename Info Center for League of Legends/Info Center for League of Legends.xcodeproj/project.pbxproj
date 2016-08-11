@@ -76,6 +76,7 @@
 		17D14E161D10D3A8007F6938 /* Winter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E131D10D3A8007F6938 /* Winter.xcassets */; };
 		17D14E181D10D928007F6938 /* Ranked.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E171D10D928007F6938 /* Ranked.xcassets */; };
 		17D14E1A1D10D947007F6938 /* FunRefresher.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E191D10D947007F6938 /* FunRefresher.xcassets */; };
+		17D70BCF1D5D030B0097207E /* Profile_ChampionMastery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D70BCE1D5D030B0097207E /* Profile_ChampionMastery.swift */; };
 		17DB5F4E1D4E575C00C01960 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17DB5F4D1D4E575C00C01960 /* CloudKit.framework */; };
 		17EDBB301D10EEEF00C7B7C5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */; };
 		17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB321D10EFAC00C7B7C5 /* ProfileSearch.swift */; };
@@ -189,6 +190,7 @@
 		17D14E131D10D3A8007F6938 /* Winter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Winter.xcassets; sourceTree = "<group>"; };
 		17D14E171D10D928007F6938 /* Ranked.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Ranked.xcassets; sourceTree = "<group>"; };
 		17D14E191D10D947007F6938 /* FunRefresher.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FunRefresher.xcassets; sourceTree = "<group>"; };
+		17D70BCE1D5D030B0097207E /* Profile_ChampionMastery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile_ChampionMastery.swift; path = "Profile/ProfileView Views/Profile_ChampionMastery.swift"; sourceTree = "<group>"; };
 		17DB5F4D1D4E575C00C01960 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		17E5B9611D11A74100F213E6 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTableViewController.swift; path = Subclasses/MainTableViewController.swift; sourceTree = "<group>"; };
@@ -448,6 +450,14 @@
 			name = "StaticData Entities";
 			sourceTree = "<group>";
 		};
+		17D70BCD1D5D01F90097207E /* ProfileView Views */ = {
+			isa = PBXGroup;
+			children = (
+				17D70BCE1D5D030B0097207E /* Profile_ChampionMastery.swift */,
+			);
+			name = "ProfileView Views";
+			sourceTree = "<group>";
+		};
 		17EDBB311D10EEF200C7B7C5 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -466,6 +476,7 @@
 				17EDBB321D10EFAC00C7B7C5 /* ProfileSearch.swift */,
 				172101C31D1EDB310088DB1A /* ProfileView.swift */,
 				172101C51D1EDB340088DB1A /* ProfileView Cells */,
+				17D70BCD1D5D01F90097207E /* ProfileView Views */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -1009,6 +1020,7 @@
 				1732F6011D550166009DA53B /* ShardStatus.swift in Sources */,
 				17C583CB1D388441007AAC43 /* StatsEndpoint.swift in Sources */,
 				172C606C1D3BFE67003DC152 /* NewsCell.swift in Sources */,
+				17D70BCF1D5D030B0097207E /* Profile_ChampionMastery.swift in Sources */,
 				172101C71D1EDB9D0088DB1A /* ProfileView_Header.swift in Sources */,
 				172101D71D1F26A00088DB1A /* DDragon.swift in Sources */,
 				172101C41D1EDB310088DB1A /* ProfileView.swift in Sources */,
