@@ -257,7 +257,7 @@
                                                         </imageView>
                                                         <visualEffectView opaque="NO" alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKu-2v-xa0">
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ap9-pB-eHV">
-                                                                <frame key="frameInset" maxX="-1.4210854715202004e-14"/>
+                                                                <frame key="frameInset"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             </view>
                                                             <blurEffect style="dark"/>
@@ -396,7 +396,7 @@
                                                         </imageView>
                                                         <visualEffectView opaque="NO" alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0E-kb-LKI">
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KUs-vw-1TA">
-                                                                <frame key="frameInset" maxX="-2.8421709430404007e-14"/>
+                                                                <frame key="frameInset"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             </view>
                                                             <blurEffect style="dark"/>
@@ -558,7 +558,7 @@
                                     <outlet property="champ3name" destination="hAB-8L-JGV" id="Y0G-iX-8VW"/>
                                     <outlet property="champ3progressBar" destination="b7k-MG-XXr" id="Atb-9w-zMk"/>
                                     <outlet property="champ3squareIcon" destination="tXL-hb-0J3" id="EG4-di-Anv"/>
-                                    <segue destination="Kvc-fI-XdU" kind="presentation" modalPresentationStyle="pageSheet" id="KSs-DC-TaL"/>
+                                    <segue destination="Kvc-fI-XdU" kind="presentation" identifier="showChampionMasteriesDetail" modalPresentationStyle="pageSheet" id="KSs-DC-TaL"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_recent_games" id="Ijk-9N-9Qd" customClass="ProfileView_RecentGames" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
@@ -1338,7 +1338,7 @@ last -- games</string>
         <scene sceneID="n7F-Qd-Qub">
             <objects>
                 <navigationController id="Kvc-fI-XdU" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kqw-mt-xwt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Kqw-mt-xwt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1365,7 +1365,7 @@ last -- games</string>
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="championMasteryCell" id="Ivm-ML-475">
+                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="championMasteryCell" id="Ivm-ML-475" customClass="Profile_ChampionMastery_Cell" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
                                 <rect key="frame" x="10" y="10" width="96" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1378,17 +1378,12 @@ last -- games</string>
                                                 <constraint firstAttribute="width" secondItem="MGh-AI-3hC" secondAttribute="height" multiplier="1:1" id="bwn-hq-nRD"/>
                                             </constraints>
                                         </imageView>
-                                        <visualEffectView opaque="NO" alpha="0.66666666666666663" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7s-j2-G61">
-                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="mCz-7g-bEK">
-                                                <frame key="frameInset"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </view>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a7h-yI-ZcZ">
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="f7s-j2-G61" secondAttribute="height" multiplier="1:1" id="HiK-Hb-tfN"/>
+                                                <constraint firstAttribute="width" secondItem="a7h-yI-ZcZ" secondAttribute="height" multiplier="1:1" id="IYE-tG-dWy"/>
                                             </constraints>
-                                            <blurEffect style="dark"/>
-                                        </visualEffectView>
+                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnd-sH-Cwi" customClass="MBCircularProgressBarView">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -1458,6 +1453,7 @@ last -- games</string>
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="a7h-yI-ZcZ" firstAttribute="leading" secondItem="Ivm-ML-475" secondAttribute="leading" id="7KB-wU-AoX"/>
                                     <constraint firstAttribute="trailing" secondItem="qnd-sH-Cwi" secondAttribute="trailing" id="9P4-QA-Ipz"/>
                                     <constraint firstItem="MGh-AI-3hC" firstAttribute="centerX" secondItem="Ivm-ML-475" secondAttribute="centerX" id="Bwp-8H-tya"/>
                                     <constraint firstItem="lRL-yQ-Edc" firstAttribute="width" secondItem="Ivm-ML-475" secondAttribute="width" multiplier="0.666667" id="Dsy-q3-DJd"/>
@@ -1467,12 +1463,11 @@ last -- games</string>
                                     <constraint firstItem="qnd-sH-Cwi" firstAttribute="leading" secondItem="Ivm-ML-475" secondAttribute="leading" id="ae9-sK-PO2"/>
                                     <constraint firstAttribute="bottom" secondItem="tWc-Gf-Gl1" secondAttribute="bottom" id="fz4-Dv-8Mp"/>
                                     <constraint firstItem="MGh-AI-3hC" firstAttribute="top" secondItem="Ivm-ML-475" secondAttribute="top" id="h2T-WW-oXv"/>
+                                    <constraint firstItem="a7h-yI-ZcZ" firstAttribute="top" secondItem="Ivm-ML-475" secondAttribute="top" id="hOn-56-RFQ"/>
                                     <constraint firstAttribute="trailing" secondItem="tWc-Gf-Gl1" secondAttribute="trailing" constant="2" id="hoS-ce-5ka"/>
-                                    <constraint firstItem="f7s-j2-G61" firstAttribute="top" secondItem="Ivm-ML-475" secondAttribute="top" id="lsE-uw-Mbi"/>
                                     <constraint firstItem="lRL-yQ-Edc" firstAttribute="centerX" secondItem="Ivm-ML-475" secondAttribute="centerX" id="nWR-j4-l1V"/>
                                     <constraint firstAttribute="trailing" secondItem="MGh-AI-3hC" secondAttribute="trailing" id="oQM-Xe-9mJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="f7s-j2-G61" secondAttribute="trailing" id="u1d-0N-3Da"/>
-                                    <constraint firstItem="f7s-j2-G61" firstAttribute="leading" secondItem="Ivm-ML-475" secondAttribute="leading" id="ubk-P8-gFu"/>
+                                    <constraint firstAttribute="trailing" secondItem="a7h-yI-ZcZ" secondAttribute="trailing" id="uh2-RF-Vww"/>
                                     <constraint firstItem="MGh-AI-3hC" firstAttribute="leading" secondItem="Ivm-ML-475" secondAttribute="leading" id="ypc-Kd-fXl"/>
                                     <constraint firstItem="lRL-yQ-Edc" firstAttribute="centerY" secondItem="MGh-AI-3hC" secondAttribute="centerY" id="zxo-Mw-a1S"/>
                                 </constraints>
@@ -1778,14 +1773,14 @@ last -- games</string>
                                         <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j5I-Um-2Rh">
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMU-du-UQx">
-                                                    <frame key="frameInset" width="240" height="219"/>
+                                                    <frame key="frameInset" width="240" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Content" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uX-g3-7bg">
-                                                    <frame key="frameInset" minY="219" width="240" height="21"/>
+                                                    <frame key="frameInset" minY="21" width="240" height="219"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
