@@ -13,13 +13,13 @@
             <objects>
                 <tableViewController id="Rgb-Gr-bsT" customClass="ProfileSearch" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" keyboardDismissMode="interactive" dataMode="prototypes" style="grouped" rowHeight="64" sectionHeaderHeight="18" sectionFooterHeight="18" id="L9g-PT-LxF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="1" alpha="0.60000002379999995" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" barStyle="black" searchBarStyle="minimal" id="N3Y-Ge-b5s">
-                            <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="64" width="453" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" keyboardAppearance="alert" returnKeyType="search" enablesReturnKeyAutomatically="YES"/>
                             <connections>
@@ -28,10 +28,10 @@
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="recentProfileCell" textLabel="YR4-YT-zyw" detailTextLabel="ATh-2c-KFw" imageView="2py-Nr-sTA" style="IBUITableViewCellStyleSubtitle" id="ewZ-ok-VMR">
-                                <rect key="frame" x="0.0" y="164" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="164" width="414" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ewZ-ok-VMR" id="TmW-28-PWT">
-                                    <frame key="frameInset" width="342" height="63"/>
+                                    <frame key="frameInset" width="381" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label multipleTouchEnabled="YES" contentMode="left" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" id="YR4-YT-zyw">
@@ -87,7 +87,7 @@
             <objects>
                 <collectionViewController id="aWa-Ow-Xf5" customClass="ProfileView" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="c2U-N4-PZD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8nH-cn-dMX">
@@ -98,7 +98,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_champ_mastery" id="MEa-LU-t13" customClass="ProfileView_ChampMastery" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <rect key="frame" x="27.5" y="266" width="320" height="200"/>
+                                <rect key="frame" x="47" y="266" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -257,7 +257,7 @@
                                                         </imageView>
                                                         <visualEffectView opaque="NO" alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKu-2v-xa0">
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ap9-pB-eHV">
-                                                                <frame key="frameInset"/>
+                                                                <frame key="frameInset" maxX="-1.4210854715202004e-14"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             </view>
                                                             <blurEffect style="dark"/>
@@ -396,7 +396,7 @@
                                                         </imageView>
                                                         <visualEffectView opaque="NO" alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0E-kb-LKI">
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KUs-vw-1TA">
-                                                                <frame key="frameInset"/>
+                                                                <frame key="frameInset" maxX="-2.8421709430404007e-14"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             </view>
                                                             <blurEffect style="dark"/>
@@ -562,7 +562,7 @@
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_recent_games" id="Ijk-9N-9Qd" customClass="ProfileView_RecentGames" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <rect key="frame" x="27.5" y="476" width="320" height="200"/>
+                                <rect key="frame" x="47" y="476" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -713,7 +713,7 @@ last -- games</string>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_masteries" id="RbO-XF-k3e" customClass="ProfileView_Masteries" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <rect key="frame" x="27.5" y="686" width="320" height="200"/>
+                                <rect key="frame" x="47" y="686" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -969,7 +969,7 @@ last -- games</string>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_runes" id="5Du-qX-Luu" customClass="ProfileView_Runes" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <rect key="frame" x="27.5" y="896" width="320" height="200"/>
+                                <rect key="frame" x="47" y="896" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -981,7 +981,7 @@ last -- games</string>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_teams" id="yjA-Fb-F9h" customClass="ProfileView_Teams" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <rect key="frame" x="27.5" y="1106" width="320" height="200"/>
+                                <rect key="frame" x="47" y="1106" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -994,7 +994,7 @@ last -- games</string>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_header" id="jfk-L5-GNx" customClass="ProfileView_Header" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="256"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kbV-rc-E4V">
@@ -1249,15 +1249,15 @@ last -- games</string>
             <objects>
                 <tableViewController id="j4X-eI-5Rl" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Lj5-nf-zTH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7d1-aM-eqW">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7d1-aM-eqW" id="beZ-de-CWJ">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1294,15 +1294,15 @@ last -- games</string>
             <objects>
                 <tableViewController id="y5g-hC-PiL" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SuL-qn-fLx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="D83-Jd-Q1o">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D83-Jd-Q1o" id="jf0-wo-srD">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1350,36 +1350,131 @@ last -- games</string>
             </objects>
             <point key="canvasLocation" x="3606" y="-2943"/>
         </scene>
-        <!--Profile Champion Mastery-->
+        <!--Champion Mastery-->
         <scene sceneID="Eue-v2-PZv">
             <objects>
                 <collectionViewController id="9Qe-IQ-yzr" customClass="Profile_ChampionMastery" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="d7r-0S-9tZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZZF-Hb-P03">
-                            <size key="itemSize" width="96" height="96"/>
+                            <size key="itemSize" width="96" height="136"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="championMasteryCell" id="Ivm-ML-475">
-                                <rect key="frame" x="10" y="10" width="96" height="96"/>
+                            <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="championMasteryCell" id="Ivm-ML-475">
+                                <rect key="frame" x="10" y="10" width="96" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="96" height="96"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="96" height="136"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MGh-AI-3hC"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poroIcon" translatesAutoresizingMaskIntoConstraints="NO" id="MGh-AI-3hC">
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="MGh-AI-3hC" secondAttribute="height" multiplier="1:1" id="bwn-hq-nRD"/>
+                                            </constraints>
+                                        </imageView>
+                                        <visualEffectView opaque="NO" alpha="0.66666666666666663" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f7s-j2-G61">
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="mCz-7g-bEK">
+                                                <frame key="frameInset"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="f7s-j2-G61" secondAttribute="height" multiplier="1:1" id="HiK-Hb-tfN"/>
+                                            </constraints>
+                                            <blurEffect style="dark"/>
+                                        </visualEffectView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qnd-sH-Cwi" customClass="MBCircularProgressBarView">
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="qnd-sH-Cwi" secondAttribute="height" multiplier="1:1" id="e47-Nf-e8n"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                                    <real key="value" value="6743"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="maxValue">
+                                                    <real key="value" value="9000"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="progressColor">
+                                                    <color key="value" red="0.4549019608" green="0.81710410119999999" blue="0.95870524639999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="progressStrokeColor">
+                                                    <color key="value" red="0.4549019608" green="0.81710410119999999" blue="0.95870524639999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="emptyLineColor">
+                                                    <color key="value" red="0.94454222919999997" green="0.75134330989999998" blue="0.27420103550000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="progressRotationAngle">
+                                                    <real key="value" value="50"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="progressAngle">
+                                                    <real key="value" value="100"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="point" keyPath="textOffset">
+                                                    <point key="value" x="0.0" y="16"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="showUnitString" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="showValueString" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="progressLineWidth">
+                                                    <real key="value" value="3"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rank7" translatesAutoresizingMaskIntoConstraints="NO" id="lRL-yQ-Edc">
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="lRL-yQ-Edc" secondAttribute="height" multiplier="105:103" id="hND-GC-VU1"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tWc-Gf-Gl1">
+                                            <subviews>
+                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="19343 / 21600" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
+                                                    <frame key="frameInset" width="92" height="20"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Champ Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
+                                                    <frame key="frameInset" minY="20" width="92" height="20"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </stackView>
                                     </subviews>
                                 </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="MGh-AI-3hC" secondAttribute="bottom" id="bFJ-6u-vsz"/>
+                                    <constraint firstAttribute="trailing" secondItem="qnd-sH-Cwi" secondAttribute="trailing" id="9P4-QA-Ipz"/>
+                                    <constraint firstItem="MGh-AI-3hC" firstAttribute="centerX" secondItem="Ivm-ML-475" secondAttribute="centerX" id="Bwp-8H-tya"/>
+                                    <constraint firstItem="lRL-yQ-Edc" firstAttribute="width" secondItem="Ivm-ML-475" secondAttribute="width" multiplier="0.666667" id="Dsy-q3-DJd"/>
+                                    <constraint firstItem="tWc-Gf-Gl1" firstAttribute="leading" secondItem="Ivm-ML-475" secondAttribute="leading" constant="2" id="NxG-5x-PKd"/>
+                                    <constraint firstItem="qnd-sH-Cwi" firstAttribute="top" secondItem="Ivm-ML-475" secondAttribute="top" id="Qey-Fa-Fkn"/>
+                                    <constraint firstItem="tWc-Gf-Gl1" firstAttribute="top" secondItem="qnd-sH-Cwi" secondAttribute="bottom" id="Xuz-PJ-S2X"/>
+                                    <constraint firstItem="qnd-sH-Cwi" firstAttribute="leading" secondItem="Ivm-ML-475" secondAttribute="leading" id="ae9-sK-PO2"/>
+                                    <constraint firstAttribute="bottom" secondItem="tWc-Gf-Gl1" secondAttribute="bottom" id="fz4-Dv-8Mp"/>
                                     <constraint firstItem="MGh-AI-3hC" firstAttribute="top" secondItem="Ivm-ML-475" secondAttribute="top" id="h2T-WW-oXv"/>
+                                    <constraint firstAttribute="trailing" secondItem="tWc-Gf-Gl1" secondAttribute="trailing" constant="2" id="hoS-ce-5ka"/>
+                                    <constraint firstItem="f7s-j2-G61" firstAttribute="top" secondItem="Ivm-ML-475" secondAttribute="top" id="lsE-uw-Mbi"/>
+                                    <constraint firstItem="lRL-yQ-Edc" firstAttribute="centerX" secondItem="Ivm-ML-475" secondAttribute="centerX" id="nWR-j4-l1V"/>
                                     <constraint firstAttribute="trailing" secondItem="MGh-AI-3hC" secondAttribute="trailing" id="oQM-Xe-9mJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="f7s-j2-G61" secondAttribute="trailing" id="u1d-0N-3Da"/>
+                                    <constraint firstItem="f7s-j2-G61" firstAttribute="leading" secondItem="Ivm-ML-475" secondAttribute="leading" id="ubk-P8-gFu"/>
                                     <constraint firstItem="MGh-AI-3hC" firstAttribute="leading" secondItem="Ivm-ML-475" secondAttribute="leading" id="ypc-Kd-fXl"/>
+                                    <constraint firstItem="lRL-yQ-Edc" firstAttribute="centerY" secondItem="MGh-AI-3hC" secondAttribute="centerY" id="zxo-Mw-a1S"/>
                                 </constraints>
                             </collectionViewCell>
                         </cells>
@@ -1388,7 +1483,13 @@ last -- games</string>
                             <outlet property="delegate" destination="9Qe-IQ-yzr" id="ctW-bM-tiw"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="DmA-nV-wpJ"/>
+                    <navigationItem key="navigationItem" title="Champion Mastery" id="DmA-nV-wpJ">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="Mdp-Wk-hh2">
+                            <connections>
+                                <action selector="closeView" destination="9Qe-IQ-yzr" id="l41-73-IhC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Wg-Xc-mVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1399,15 +1500,15 @@ last -- games</string>
             <objects>
                 <tableViewController id="kTS-E7-qcb" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7D2-0Z-hqs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Z4f-7v-KiI">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z4f-7v-KiI" id="cYf-Lb-poS">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1444,15 +1545,15 @@ last -- games</string>
             <objects>
                 <tableViewController id="hcf-U0-RHP" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="aGq-qh-Fqp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="kB3-L6-0T7">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kB3-L6-0T7" id="1i9-fb-RgA">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1523,7 +1624,7 @@ last -- games</string>
             <objects>
                 <collectionViewController id="4Oi-gZ-hHP" customClass="MainCollectionViewController" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="GZK-Ec-vSR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oxh-On-R7W">
                             <size key="itemSize" width="50" height="50"/>
@@ -1560,7 +1661,7 @@ last -- games</string>
             <objects>
                 <collectionViewController id="0xe-mK-RgP" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="c4a-Ri-Rff">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DIT-Gf-ClK">
                             <size key="itemSize" width="50" height="50"/>
@@ -1611,15 +1712,15 @@ last -- games</string>
             <objects>
                 <tableViewController id="eh5-wn-GEP" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tmt-lK-kU4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="CmG-3P-uNI">
-                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CmG-3P-uNI" id="M4t-q3-BHB">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1657,7 +1758,7 @@ last -- games</string>
             <objects>
                 <collectionViewController id="8l4-pg-XDJ" customClass="News" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="bsj-QO-pkW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fKY-rf-d0P">
@@ -1668,7 +1769,7 @@ last -- games</string>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="newsCell" id="SEf-ZJ-xUB" customClass="NewsCell" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <rect key="frame" x="59" y="0.0" width="256" height="256"/>
+                                <rect key="frame" x="79" y="0.0" width="256" height="256"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
@@ -1677,14 +1778,14 @@ last -- games</string>
                                         <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j5I-Um-2Rh">
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMU-du-UQx">
-                                                    <frame key="frameInset" width="240" height="220"/>
+                                                    <frame key="frameInset" width="240" height="219"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Content" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uX-g3-7bg">
-                                                    <frame key="frameInset" minY="220" width="240" height="21"/>
+                                                    <frame key="frameInset" minY="219" width="240" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -1721,7 +1822,7 @@ last -- games</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Content" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aI-3h-M8C">
-                                                                                    <frame key="frameInset" minY="21" width="240" height="57"/>
+                                                                                    <frame key="frameInset" minY="21" width="240" height="56"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                                     <nil key="textColor"/>
@@ -1823,16 +1924,16 @@ last -- games</string>
             <objects>
                 <tableViewController id="PGg-Pl-IjT" customClass="ServerStatus" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="53T-eJ-GJt">
-                        <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="628"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <color key="separatorColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="incidentCell" textLabel="enS-wR-PyU" detailTextLabel="lWL-Mn-tb5" style="IBUITableViewCellStyleSubtitle" id="7DO-KB-XJO">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7DO-KB-XJO" id="yTx-KS-gjy">
-                                    <frame key="frameInset" width="342" height="43"/>
+                                    <frame key="frameInset" width="381" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="enS-wR-PyU">
@@ -1893,16 +1994,16 @@ last -- games</string>
             <objects>
                 <tableViewController id="IW2-6d-vYn" customClass="StatusDetail" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="2" sectionHeaderHeight="18" sectionFooterHeight="18" id="ZGJ-MI-uUO">
-                        <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="628"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <color key="separatorColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="severityCell" id="kqd-NW-ttT">
-                                <rect key="frame" x="0.0" y="56" width="375" height="2"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="2"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kqd-NW-ttT" id="4iZ-9z-XTs">
-                                    <frame key="frameInset" width="375" height="2"/>
+                                    <frame key="frameInset" width="414" height="2"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
@@ -1940,7 +2041,7 @@ last -- games</string>
                         <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" id="9bD-Cr-885">
-                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </toolbar>
@@ -1981,5 +2082,6 @@ last -- games</string>
         <image name="lcs" width="36" height="24"/>
         <image name="masteries-background" width="828" height="479"/>
         <image name="poroIcon" width="128" height="128"/>
+        <image name="rank7" width="105" height="103"/>
     </resources>
 </document>
