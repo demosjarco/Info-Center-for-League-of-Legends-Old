@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBCircularProgressBar
 
 class Profile_ChampionMastery_Cell: UICollectionViewCell {
     
