@@ -12,7 +12,7 @@ import AFNetworking
 
 class ChampionMasteryEndpoint: NSObject {
     /**
-     Get a player's total champion mastery score, which is sum of individual champion mastery levels
+     Get all champion mastery entries sorted by champion level (first) then number of champion points descending
      
      - parameter playerId: Summoner ID associated with the player
      */
@@ -35,7 +35,9 @@ class ChampionMasteryEndpoint: NSObject {
                     
                     championMasteryList.append(newChampionMastery)
                 }
-                completion(champions: championMasteryList)
+                completion(champions: championMasteryList.sorted(by: { (o1, o2) -> Bool in
+                    return o1.championLevel == o2.championLevel ? (o1.championPoints > o2.championPoints) : (o1.championLevel > o2.championLevel)
+                }))
                 }, failure: { (task, error) in
                     let response = task!.response as! HTTPURLResponse
                     if response.statusCode == 404 {
@@ -67,7 +69,9 @@ class ChampionMasteryEndpoint: NSObject {
                     
                     championMasteryList.append(newChampionMastery)
                 }
-                completion(championMasteryList: championMasteryList)
+                completion(championMasteryList: championMasteryList.sorted(by: { (o1, o2) -> Bool in
+                    return o1.championLevel == o2.championLevel ? (o1.championPoints > o2.championPoints) : (o1.championLevel > o2.championLevel)
+                }))
             }, failure: { (task, error) in
                 let response = task!.response as! HTTPURLResponse
                 if response.statusCode == 404 {
