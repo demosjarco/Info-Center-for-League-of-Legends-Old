@@ -9,19 +9,39 @@
 import UIKit
 
 class Profile_ChampionMastery: MainCollectionViewController {
+    var summoner = SummonerDto()
+    var championMasteries = [ChampionMasteryDto]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*ChampionMasteryEndpoint().getAllChampsBySummonerId(playerId: <#T##CLong#>, completion: { (champions) in
-            // Stuff
-        }, notFound: {
-            // ???
-        }, errorBlock: {
-            // Error
-        })*/
+        
+        let refresher = UIRefreshControl(frame: self.collectionView!.frame)
+        refresher.tintColor = UIColor.lightText
+        refresher.addTarget(self, action: #selector(self.refresh(sender:)), for: .valueChanged)
+        self.collectionView?.insertSubview(refresher, at: self.collectionView!.subviews.count - 1)
+        
+        self.refresh(sender: refresher)
     }
     
     @IBAction func closeView() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func refresh(sender: UIRefreshControl) {
+        sender.beginRefreshing()
+        
+        ChampionMasteryEndpoint().getAllChampsBySummonerId(playerId: self.summoner.summonerId, completion: { (champions) in
+            // Stuff
+            self.championMasteries = champions
+            self.collectionView?.reloadSections(IndexSet(integer: 0))
+            sender.endRefreshing()
+        }, notFound: {
+            // ???
+            sender.endRefreshing()
+        }, errorBlock: {
+            // Error
+            sender.endRefreshing()
+        })
     }
 
     /*
@@ -42,13 +62,14 @@ class Profile_ChampionMastery: MainCollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 132
+        return championMasteries.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "championMasteryCell", for: indexPath)
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "championMasteryCell", for: indexPath) as! Profile_ChampionMastery_Cell
+        // Performance
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.main.scale
         // Configure the cell
     
         return cell

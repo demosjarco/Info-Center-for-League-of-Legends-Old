@@ -82,6 +82,7 @@
 		17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB321D10EFAC00C7B7C5 /* ProfileSearch.swift */; };
 		17EDBB361D10F12E00C7B7C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */; };
 		17EDBB381D10F68D00C7B7C5 /* ExistingAppChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */; };
+		17EE83931D5D2049009948AC /* Profile_ChampionMastery_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE83921D5D2049009948AC /* Profile_ChampionMastery_Cell.swift */; };
 		17F97B861D56773100A8B4E7 /* MasteryListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F97B851D56773100A8B4E7 /* MasteryListDto.swift */; };
 		17F97B8B1D56788900A8B4E7 /* MasteryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F97B8A1D56788900A8B4E7 /* MasteryDto.swift */; };
 		17F97B8D1D5678A800A8B4E7 /* SC_MasteryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F97B8C1D5678A800A8B4E7 /* SC_MasteryDto.swift */; };
@@ -197,6 +198,7 @@
 		17EDBB321D10EFAC00C7B7C5 /* ProfileSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileSearch.swift; path = Profile/ProfileSearch.swift; sourceTree = "<group>"; };
 		17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExistingAppChecker.swift; path = Subclasses/ExistingAppChecker.swift; sourceTree = "<group>"; };
+		17EE83921D5D2049009948AC /* Profile_ChampionMastery_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile_ChampionMastery_Cell.swift; path = "Profile/ProfileView Views/Profile_ChampionMastery_Cell.swift"; sourceTree = "<group>"; };
 		17F97B851D56773100A8B4E7 /* MasteryListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryListDto.swift; path = "Riot API/StaticDataEntities/MasteryListDto.swift"; sourceTree = "<group>"; };
 		17F97B8A1D56788900A8B4E7 /* MasteryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryDto.swift; path = "Riot API/SummonerEntities/MasteryDto.swift"; sourceTree = "<group>"; };
 		17F97B8C1D5678A800A8B4E7 /* SC_MasteryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SC_MasteryDto.swift; path = "Riot API/StaticDataEntities/SC_MasteryDto.swift"; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				17D70BCE1D5D030B0097207E /* Profile_ChampionMastery.swift */,
+				17EE83921D5D2049009948AC /* Profile_ChampionMastery_Cell.swift */,
 			);
 			name = "ProfileView Views";
 			sourceTree = "<group>";
@@ -1017,6 +1020,7 @@
 				17F97B931D56790200A8B4E7 /* MasteryTreeItemDto.swift in Sources */,
 				17B9B3131D4D74A900D8A755 /* ImageDto.swift in Sources */,
 				17421AB41D4BCD1100F22B52 /* MasteryPagesDto.swift in Sources */,
+				17EE83931D5D2049009948AC /* Profile_ChampionMastery_Cell.swift in Sources */,
 				1732F6011D550166009DA53B /* ShardStatus.swift in Sources */,
 				17C583CB1D388441007AAC43 /* StatsEndpoint.swift in Sources */,
 				172C606C1D3BFE67003DC152 /* NewsCell.swift in Sources */,
