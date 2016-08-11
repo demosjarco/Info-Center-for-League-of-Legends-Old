@@ -1971,7 +1971,7 @@ last -- games</string>
                         <barButtonItem enabled="NO" style="plain" systemItem="flexibleSpace" id="YEk-DH-z9t"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Status" id="Zpv-h1-aRH">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="bx1-3E-Vbs">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="bx1-3E-Vbs">
                             <connections>
                                 <action selector="closeView" destination="PGg-Pl-IjT" id="tBr-0B-y1M"/>
                             </connections>
