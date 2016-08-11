@@ -277,7 +277,15 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         PlistManager().addToRecentSummoners(newSummoner: self.summoner)
     }
     
-    // MARK: - Recent Games delegate
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showChampionMasteriesDetail" {
+            let destination = segue.destination as! Profile_ChampionMastery
+            destination.summoner = self.summoner
+        }
+    }
     
     // MARK: - Collection view data source
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
