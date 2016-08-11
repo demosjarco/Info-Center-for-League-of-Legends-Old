@@ -1268,7 +1268,9 @@ last -- games</string>
                             <outlet property="delegate" destination="j4X-eI-5Rl" id="dJ2-r0-C1K"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="m8G-SH-IHN"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="m8G-SH-IHN">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="iAg-YQ-EX9"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfx-yf-LWN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1313,7 +1315,9 @@ last -- games</string>
                             <outlet property="delegate" destination="y5g-hC-PiL" id="MAU-Os-873"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="T02-bD-EDr"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="T02-bD-EDr">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="Fxp-5r-gLA"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sjx-gL-fv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1449,14 +1453,14 @@ last -- games</string>
                                         <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tWc-Gf-Gl1">
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
-                                                    <frame key="frameInset" width="112" height="14"/>
+                                                    <frame key="frameInset" width="112" height="16"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
-                                                    <frame key="frameInset" minY="14" width="112" height="21"/>
+                                                    <frame key="frameInset" minY="16" width="112" height="18"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1536,7 +1540,9 @@ last -- games</string>
                             <outlet property="delegate" destination="kTS-E7-qcb" id="KEE-cl-1GA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="3g2-Dl-cuL"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="3g2-Dl-cuL">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="bQm-0f-KDv"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3oz-QX-waq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1581,7 +1587,9 @@ last -- games</string>
                             <outlet property="delegate" destination="hcf-U0-RHP" id="y7U-dn-C4Q"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="cGH-tx-oJy"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="cGH-tx-oJy">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="j9i-XI-e3K"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bg9-fA-ybz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
