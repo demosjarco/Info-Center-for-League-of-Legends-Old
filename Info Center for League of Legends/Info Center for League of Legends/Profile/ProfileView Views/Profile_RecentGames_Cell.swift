@@ -24,7 +24,8 @@ class Profile_RecentGames_Cell: UITableViewCell {
     @IBOutlet var item7:UIImageView?
     @IBOutlet var kda:UILabel?
     @IBOutlet var creepScore:UILabel?
+    @IBOutlet var creepScoreIcon:UIImageView?
     @IBOutlet var gold:UILabel?
-//    @IBOutlet var <#name#>:<#type#>?
+    @IBOutlet var goldIcon:UIImageView?
     
 }
