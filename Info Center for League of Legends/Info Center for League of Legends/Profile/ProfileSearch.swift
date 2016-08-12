@@ -115,6 +115,10 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.lightText
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Recent Summoners"
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recentProfileCell", for: indexPath)
