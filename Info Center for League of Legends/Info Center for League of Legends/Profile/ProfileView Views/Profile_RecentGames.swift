@@ -104,7 +104,25 @@ class Profile_RecentGames: MainTableViewController {
         default:
             break
         }
-//        recentGameList[indexPath.row].spell1
+        
+        StaticDataEndpoint().getSpellInfoById(spellId: recentGameList[indexPath.row].spell1, spellData: .image, completion: { (spellInfo) in
+            DDragon().getSummonerSpellIcon(fullImageName: spellInfo.image!.full, completion: { (spellIconUrl) in
+                cell.summonerSpell1?.setImageWith(spellIconUrl)
+            })
+        }, notFound: {
+            // ???
+        }) {
+            // Error
+        }
+        StaticDataEndpoint().getSpellInfoById(spellId: recentGameList[indexPath.row].spell2, spellData: .image, completion: { (spellInfo) in
+            DDragon().getSummonerSpellIcon(fullImageName: spellInfo.image!.full, completion: { (spellIconUrl) in
+                cell.summonerSpell2?.setImageWith(spellIconUrl)
+            })
+        }, notFound: {
+            // ???
+        }) {
+            // Error
+        }
         
         return cell
     }
