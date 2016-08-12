@@ -25,11 +25,8 @@ class ServerStatus: UITableViewController, UIPopoverPresentationControllerDelega
     
     func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
         // Shown in popover
+        self.navigationItem.leftBarButtonItem = nil
         self.navigationController?.popoverPresentationController?.backgroundColor = self.tableView.backgroundColor
-    }
-    
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
     }
     
     func imageWithColor(severity: String, index: IndexPath) -> UIImage {
