@@ -124,6 +124,19 @@ class Profile_RecentGames: MainTableViewController {
             // Error
         }
         
+        var kills = 0
+        if recentGameList[indexPath.row].stats.championsKilled != nil {
+            kills = recentGameList[indexPath.row].stats.championsKilled!
+        }
+        var deaths = 0
+        if recentGameList[indexPath.row].stats.numDeaths != nil {
+            deaths = recentGameList[indexPath.row].stats.numDeaths!
+        }
+        var assists = 0
+        if recentGameList[indexPath.row].stats.assists != nil {
+            assists = recentGameList[indexPath.row].stats.assists!
+        }
+        cell.kda?.text = String(kills) + " /" + String(deaths) + " /" + String(assists)
         return cell
     }
 
