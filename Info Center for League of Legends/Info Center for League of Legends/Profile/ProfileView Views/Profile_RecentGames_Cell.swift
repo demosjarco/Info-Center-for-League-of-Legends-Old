@@ -10,7 +10,7 @@ import UIKit
 
 class Profile_RecentGames_Cell: UITableViewCell {
     @IBOutlet var champIcon:UIImageView?
-    @IBOutlet var champIconCutout:UIView?
+    @IBOutlet var badgeHolder:UIView?
     @IBOutlet var gameOutcome:UILabel?
     @IBOutlet var gameType:UILabel?
     @IBOutlet var summonerSpell1:UIImageView?
