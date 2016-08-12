@@ -241,6 +241,22 @@ class Endpoints: NSObject {
         }
     }
     
+    func staticData_summonerSpell_id(spellId: String, spellData: String, completion: (composedUrl: String) -> Void) {
+        getStaticDataBaseEndpoint { (baseEndpoint) in
+            self.getApiKey(completion: { (apiKey) in
+                self.optimalLocaleForRegion(completion: { (optimalLocale) in
+                    var urlString = baseEndpoint + "summoner-spell/" + spellId
+                    if optimalLocale {
+                        urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&spellData=" + spellData + "&api_key=" + apiKey
+                    } else {
+                        urlString += "?spellData=" + spellData + "&api_key=" + apiKey
+                    }
+                    completion(composedUrl: urlString)
+                })
+            })
+        }
+    }
+    
     // Status
     func status_shards(completion: (composedUrl: String) -> Void) {
         let urlString = "http://status.leagueoflegends.com/shards"
