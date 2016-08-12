@@ -44,6 +44,11 @@ class Profile_RecentGames: MainTableViewController {
         return recentGameList.count
     }
     
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = UIColor.lightText
+    }
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "RECENT GAMES (LAST " + String(recentGameList.count) + " PLAYED)"
     }
