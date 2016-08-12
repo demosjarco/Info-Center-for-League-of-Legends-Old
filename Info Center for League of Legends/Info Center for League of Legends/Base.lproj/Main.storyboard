@@ -1280,7 +1280,7 @@ last -- games</string>
         <scene sceneID="2Fo-zh-LGm">
             <objects>
                 <navigationController id="dtd-uW-mEJ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uw3-7e-Ab6">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="uw3-7e-Ab6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1339,7 +1339,7 @@ last -- games</string>
         <scene sceneID="R2O-cB-rhs">
             <objects>
                 <navigationController id="0yv-uN-KZX" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mbn-eh-Lhl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="mbn-eh-Lhl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1564,7 +1564,7 @@ last -- games</string>
         <scene sceneID="0dM-HD-0Dn">
             <objects>
                 <navigationController id="EGW-ic-98k" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Nrs-ah-SaY">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="Nrs-ah-SaY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1611,7 +1611,7 @@ last -- games</string>
         <scene sceneID="QbA-TR-WY7">
             <objects>
                 <navigationController id="iao-al-HHe" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zdZ-FL-qAq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="zdZ-FL-qAq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
