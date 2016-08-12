@@ -468,4 +468,135 @@ class StaticDataEndpoint: NSObject {
             })
         }
     }
+    
+    func getSpellInfoById(spellId: Int, spellData: spellData, completion: (spellInfo: SummonerSpellDto) -> Void, notFound: () -> Void, errorBlock: () -> Void) {
+        Endpoints().staticData_summonerSpell_id(spellId: String(spellId), spellData: spellData.rawValue) { (composedUrl) in
+            AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
+                let json = responseObject as! [String: AnyObject]
+                let info = SummonerSpellDto()
+                
+                if json["cooldown"] != nil {
+                    info.cooldown = json["cooldown"] as? [Double]
+                }
+                if json["cooldownBurn"] != nil {
+                    info.cooldownBurn = json["cooldownBurn"] as? String
+                }
+                if json["cost"] != nil {
+                    info.cost = json["cost"] as? [Int]
+                }
+                if json["costBurn"] != nil {
+                    info.costBurn = json["costBurn"] as? String
+                }
+                if json["costType"] != nil {
+                    info.costType = json["costType"] as? String
+                }
+                info.spellDescription = json["description"] as! String
+                if json["effect"] != nil {
+                    let oldEffects = json["effect"] as! [AnyObject]
+                    var newEffects = [[Double]]()
+                    for oldEffect in oldEffects {
+                        switch oldEffect {
+                        case is NSNull:
+                            newEffects.append([Double]())
+                            break
+                        default:
+                            newEffects.append(oldEffect as! [Double])
+                            break
+                        }
+                        info.effect = newEffects
+                    }
+                }
+                if json["effectBurn"] != nil {
+                    info.effectBurn = json["effectBurn"] as? [String]
+                }
+                info.spellId = json["id"] as! Int
+                if json["image"] != nil {
+                    let oldImage = json["image"] as! [String: AnyObject]
+                    let newImage = ImageDto()
+                    
+                    newImage.full = oldImage["full"] as! String
+                    newImage.group = oldImage["group"] as! String
+                    newImage.h = oldImage["h"] as! Int
+                    newImage.sprite = oldImage["sprite"] as! String
+                    newImage.w = oldImage["w"] as! Int
+                    newImage.x = oldImage["x"] as! Int
+                    newImage.y = oldImage["y"] as! Int
+                    
+                    info.image = newImage
+                }
+                info.key = json["key"] as! String
+                if json["leveltip"] != nil {
+                    let oldLevelTip = json["leveltip"] as! [String: AnyObject]
+                    let newLevelTip = LevelTipDto()
+                    
+                    newLevelTip.effect = oldLevelTip["effect"] as! [String]
+                    newLevelTip.label = oldLevelTip["label"] as! [String]
+                    info.leveltip = newLevelTip
+                }
+                if json["maxrank"] != nil {
+                    info.maxrank = json["maxrank"] as? Int
+                }
+                if json["modes"] != nil {
+                    info.modes = json["modes"] as? [String]
+                }
+                info.name = json["name"] as! String
+                if json["range"] != nil {
+                    let oldRange = json["range"] as! [AnyObject]
+                    var newRange = [Int]()
+                    for range in oldRange {
+                        if String(range) == "self" {
+                            // Self ability - set as 0
+                            newRange.append(0)
+                        } else {
+                            // Int
+                            newRange.append(range as! Int)
+                        }
+                    }
+                    info.range = newRange
+                }
+                if json["rangeBurn"] != nil {
+                    info.rangeBurn = json["rangeBurn"] as? String
+                }
+                if json["resource"] != nil {
+                    info.resource = json["resource"] as? String
+                }
+                if json["sanitizedDescription"] != nil {
+                    info.sanitizedDescription = json["sanitizedDescription"] as? String
+                }
+                if json["sanitizedTooltip"] != nil {
+                    info.sanitizedTooltip = json["sanitizedTooltip"] as? String
+                }
+                info.summonerLevel = json["summonerLevel"] as! Int
+                if json["tooltip"] != nil {
+                    info.tooltip = json["tooltip"] as? String
+                }
+                if json["vars"] != nil {
+                    let oldVars = json["vars"] as! [[String: AnyObject]]
+                    var newVars = [SpellVarsDto]()
+                    for oldVar in oldVars {
+                        let newVar = SpellVarsDto()
+                        
+                        newVar.coeff = oldVar["coeff"] as! [Double]
+                        newVar.dyn = oldVar["dyn"] as! String
+                        newVar.key = oldVar["key"] as! String
+                        newVar.link = oldVar["link"] as! String
+                        newVar.ranksWith = oldVar["ranksWith"] as! String
+                        
+                        newVars.append(newVar)
+                    }
+                    info.vars = newVars
+                }
+                
+                completion(spellInfo: info)
+            }, failure: { (task, error) in
+                let response = task!.response as! HTTPURLResponse
+                if response.statusCode == 404 {
+                    notFound()
+                } else {
+                    errorBlock()
+                    FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                }
+            })
+        }
+    }
 }
