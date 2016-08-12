@@ -62,7 +62,7 @@ class GameEndpoint: NSObject {
                     
                     
                     
-                    
+                    newStats.level = oldStats["level"] as? Int
                     
                     
                     
