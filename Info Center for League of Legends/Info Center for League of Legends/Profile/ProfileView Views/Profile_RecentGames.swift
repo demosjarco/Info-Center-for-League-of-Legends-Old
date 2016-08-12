@@ -91,6 +91,21 @@ class Profile_RecentGames: MainTableViewController {
             cell.gameOutcome?.textColor = UIColor(red: CGFloat(248.0/255.0), green: CGFloat(34.0/255.0), blue: CGFloat(70.0/255.0), alpha: 1)
         }
         
+        switch recentGameList[indexPath.row].gameType {
+        case "CUSTOM_GAME":
+            cell.gameType?.text = "Custom"
+            break
+        case "MATCHED_GAME":
+            cell.gameType?.text = recentGameList[indexPath.row].subType
+            break
+        case "TUTORIAL_GAME":
+            cell.gameType?.text = "Tutorial"
+            break
+        default:
+            break
+        }
+//        recentGameList[indexPath.row].spell1
+        
         return cell
     }
 
