@@ -74,6 +74,14 @@ class DDragon: NSObject {
         }
     }
     
+    func getSummonerSpellIcon(fullImageName: String, completion: (spellIconUrl: URL) -> Void) {
+        getCDNurl { (cdnUrl) in
+            self.getLatestDDragonVersion(dataType: "summoner", completion: { (version) in
+                completion(spellIconUrl: URL(string: cdnUrl + "/" + version + "/img/spell/" + fullImageName)!)
+            })
+        }
+    }
+    
     func getUserInterfaceIcons(type: uiinterfaceIconType, completion: (uiIconUrl: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
             completion(uiIconUrl: URL(string: cdnUrl + "/5.5.1/img/ui/" + type.rawValue + ".png")!)
