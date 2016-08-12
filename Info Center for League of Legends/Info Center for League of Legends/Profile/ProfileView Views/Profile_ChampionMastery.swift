@@ -72,14 +72,12 @@ class Profile_ChampionMastery: MainCollectionViewController {
         cell.layer.rasterizationScale = UIScreen.main.scale
         // Clear
         cell.championIcon?.image = nil
-        cell.championIconDark?.isHidden = true
         cell.championName?.text = "--"
         // Configure the cell
         StaticDataEndpoint().getChampionInfoById(champId: championMasteries[indexPath.item].championId, championData: .Image, completion: { (champion) in
             DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
                 cell.championIcon?.setImageWith(URLRequest(url: champSquareArtUrl), placeholderImage: nil, success: { (request, response, image) in
                     cell.championIcon?.image = image
-                    cell.championIconDark?.isHidden = false
                 }, failure: nil)
             })
             cell.championName?.text = champion.name
