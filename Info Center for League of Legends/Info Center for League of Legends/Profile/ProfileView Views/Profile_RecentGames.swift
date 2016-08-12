@@ -14,10 +14,19 @@ class Profile_RecentGames: MainTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        refresh()
+    }
+    
+    @IBAction func refresh() {
+        self.refreshControl?.beginRefreshing()
+        
         GameEndpoint().getRecentGamesBySummonerId(summonerId: summoner.summonerId, completion: { (recentGamesMap) in
-            //
+            self.recentGameList = recentGamesMap.games
+            self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+            self.refreshControl?.endRefreshing()
         }) {
-            // ???
+            // Error
+            self.refreshControl?.endRefreshing()
         }
     }
 
