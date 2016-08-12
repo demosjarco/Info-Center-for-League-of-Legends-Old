@@ -64,6 +64,18 @@ class Profile_RecentGames: MainTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recentGamesListCell", for: indexPath) as! Profile_RecentGames_Cell
+        // Clear the cell
+        cell.champIcon?.image = nil
+        cell.summonerSpell1?.image = nil
+        cell.summonerSpell2?.image = nil
+        cell.item1?.image = nil
+        cell.item2?.image = nil
+        cell.item3?.image = nil
+        cell.item4?.image = nil
+        cell.item5?.image = nil
+        cell.item6?.image = nil
+        cell.item7?.image = nil
+        
         // Configure the cell...
         StaticDataEndpoint().getChampionInfoById(champId: recentGameList[indexPath.row].championId, championData: .Image, completion: { (champion) in
             DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
