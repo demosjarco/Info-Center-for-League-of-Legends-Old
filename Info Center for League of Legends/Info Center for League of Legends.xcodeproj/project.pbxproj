@@ -12,6 +12,7 @@
 		171A1C131D38989D00BAB5B4 /* AggregatedStatsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C121D38989D00BAB5B4 /* AggregatedStatsDto.swift */; };
 		171A5C861D5E4EEE002A8F57 /* Profile_RecentGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A5C851D5E4EEE002A8F57 /* Profile_RecentGames.swift */; };
 		171A5C881D5E4F03002A8F57 /* Profile_RecentGames_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A5C871D5E4F03002A8F57 /* Profile_RecentGames_Cell.swift */; };
+		171A5C8B1D5E754D002A8F57 /* SummonerSpellDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A5C8A1D5E754D002A8F57 /* SummonerSpellDto.swift */; };
 		172101C41D1EDB310088DB1A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C31D1EDB310088DB1A /* ProfileView.swift */; };
 		172101C71D1EDB9D0088DB1A /* ProfileView_Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C61D1EDB9D0088DB1A /* ProfileView_Header.swift */; };
 		172101CA1D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C81D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift */; };
@@ -121,6 +122,7 @@
 		171A1C121D38989D00BAB5B4 /* AggregatedStatsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AggregatedStatsDto.swift; path = "Riot API/StatsEntities/AggregatedStatsDto.swift"; sourceTree = "<group>"; };
 		171A5C851D5E4EEE002A8F57 /* Profile_RecentGames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile_RecentGames.swift; path = "Profile/ProfileView Views/Profile_RecentGames.swift"; sourceTree = "<group>"; };
 		171A5C871D5E4F03002A8F57 /* Profile_RecentGames_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile_RecentGames_Cell.swift; path = "Profile/ProfileView Views/Profile_RecentGames_Cell.swift"; sourceTree = "<group>"; };
+		171A5C8A1D5E754D002A8F57 /* SummonerSpellDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummonerSpellDto.swift; path = "Riot API/StaticDataEntities/SummonerSpellDto.swift"; sourceTree = "<group>"; };
 		172101C31D1EDB310088DB1A /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView.swift; path = Profile/ProfileView.swift; sourceTree = "<group>"; };
 		172101C61D1EDB9D0088DB1A /* ProfileView_Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Header.swift; path = "Profile/ProfileView Cells/ProfileView_Header.swift"; sourceTree = "<group>"; };
 		172101C81D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_ChampMastery.swift; path = "Profile/ProfileView Cells/ProfileView_ChampMastery.swift"; sourceTree = "<group>"; };
@@ -260,6 +262,14 @@
 				171A1C121D38989D00BAB5B4 /* AggregatedStatsDto.swift */,
 			);
 			name = "Stats Entities";
+			sourceTree = "<group>";
+		};
+		171A5C891D5E7525002A8F57 /* Summoner Spell */ = {
+			isa = PBXGroup;
+			children = (
+				171A5C8A1D5E754D002A8F57 /* SummonerSpellDto.swift */,
+			);
+			name = "Summoner Spell";
 			sourceTree = "<group>";
 		};
 		172101C51D1EDB340088DB1A /* ProfileView Cells */ = {
@@ -452,6 +462,7 @@
 			children = (
 				17F97B841D56771000A8B4E7 /* Champion */,
 				17F97B871D56773400A8B4E7 /* Masteries */,
+				171A5C891D5E7525002A8F57 /* Summoner Spell */,
 			);
 			name = "StaticData Entities";
 			sourceTree = "<group>";
@@ -995,6 +1006,7 @@
 				1739C4921D1C3A3800B50BDC /* SummonerEndpoint.swift in Sources */,
 				17B9B3101D4D746300D8A755 /* ChampionDto.swift in Sources */,
 				172101D31D1EDC880088DB1A /* MainCollectionViewController.swift in Sources */,
+				171A5C8B1D5E754D002A8F57 /* SummonerSpellDto.swift in Sources */,
 				17B9B31B1D4D756E00D8A755 /* SkinDto.swift in Sources */,
 				178B95791D428A1C00CAD47A /* GameDto.swift in Sources */,
 				17FDDF651D4D494600CC7277 /* StaticDataEndpoint.swift in Sources */,
