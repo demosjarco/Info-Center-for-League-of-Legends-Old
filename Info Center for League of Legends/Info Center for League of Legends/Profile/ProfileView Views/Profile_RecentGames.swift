@@ -83,6 +83,14 @@ class Profile_RecentGames: MainTableViewController {
         champLevelBadge?.badgeStrokeColor = UIColor(red: CGFloat(200.0/255.0), green: CGFloat(156.0/255.0), blue: CGFloat(59.0/255.0), alpha: 1)
         champLevelBadge?.badgeTextColor = UIColor(red: CGFloat(161.0/255.0), green: CGFloat(155.0/255.0), blue: CGFloat(140.0/255.0), alpha: 1)
         
+        if recentGameList[indexPath.row].stats.win {
+            cell.gameOutcome?.text = "VICTORY"
+            cell.gameOutcome?.textColor = UIColor(red: CGFloat(55.0/255.0), green: CGFloat(203.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1)
+        } else {
+            cell.gameOutcome?.text = "DEFEAT"
+            cell.gameOutcome?.textColor = UIColor(red: CGFloat(248.0/255.0), green: CGFloat(34.0/255.0), blue: CGFloat(70.0/255.0), alpha: 1)
+        }
+        
         return cell
     }
 
