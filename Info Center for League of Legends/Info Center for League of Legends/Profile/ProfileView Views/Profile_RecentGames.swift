@@ -17,6 +17,10 @@ class Profile_RecentGames: MainTableViewController {
         refresh()
     }
     
+    @IBAction func closeView() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func refresh() {
         self.refreshControl?.beginRefreshing()
         
