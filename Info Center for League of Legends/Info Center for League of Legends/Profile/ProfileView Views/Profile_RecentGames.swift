@@ -137,6 +137,13 @@ class Profile_RecentGames: MainTableViewController {
             assists = recentGameList[indexPath.row].stats.assists!
         }
         cell.kda?.text = String(kills) + " /" + String(deaths) + " /" + String(assists)
+        DDragon().getUserInterfaceIcons(type: .minion) { (uiIconUrl) in
+            cell.creepScoreIcon?.setImageWith(uiIconUrl)
+        }
+        DDragon().getUserInterfaceIcons(type: .gold) { (uiIconUrl) in
+            cell.goldIcon?.setImageWith(uiIconUrl)
+        }
+        
         return cell
     }
 
