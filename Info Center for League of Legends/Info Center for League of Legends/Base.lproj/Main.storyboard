@@ -1387,7 +1387,7 @@ last -- games</string>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="mFQ-II-SGe" firstAttribute="centerY" secondItem="x7z-fW-qB2" secondAttribute="centerY" id="9BD-GH-Qag"/>
                                                 <constraint firstAttribute="width" secondItem="x7z-fW-qB2" secondAttribute="height" multiplier="1:1" id="H4c-gp-wi4"/>
@@ -1399,7 +1399,7 @@ last -- games</string>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a7h-yI-ZcZ">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a7h-yI-ZcZ">
                                             <color key="backgroundColor" white="0.0" alpha="0.66000000000000003" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="a7h-yI-ZcZ" secondAttribute="height" multiplier="1:1" id="iKz-1N-xVL"/>
@@ -1996,13 +1996,7 @@ last -- games</string>
                         <barButtonItem enabled="NO" title="Loading..." id="1s1-6m-2yT"/>
                         <barButtonItem enabled="NO" style="plain" systemItem="flexibleSpace" id="YEk-DH-z9t"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Status" id="Zpv-h1-aRH">
-                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="bx1-3E-Vbs">
-                            <connections>
-                                <action selector="closeView" destination="PGg-Pl-IjT" id="tBr-0B-y1M"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Status" id="Zpv-h1-aRH"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="GaX-uv-d6h">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
