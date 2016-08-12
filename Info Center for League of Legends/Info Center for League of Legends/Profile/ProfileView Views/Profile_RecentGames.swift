@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JSBadgeView
 
 class Profile_RecentGames: MainTableViewController {
     var summoner = SummonerDto()
@@ -64,7 +65,22 @@ class Profile_RecentGames: MainTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recentGamesListCell", for: indexPath) as! Profile_RecentGames_Cell
         // Configure the cell...
-
+        StaticDataEndpoint().getChampionInfoById(champId: recentGameList[indexPath.row].championId, championData: .Image, completion: { (champion) in
+            DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
+                cell.champIcon?.setImageWith(champSquareArtUrl)
+            })
+        }, notFound: {
+            // ???
+        }) {
+            // Error
+        }
+        
+        let champLevelBadge = JSBadgeView(parentView: cell.badgeHolder, alignment: .bottomRight)
+        champLevelBadge?.badgeText = String(recentGameList[indexPath.row].level)
+        champLevelBadge?.badgeBackgroundColor = UIColor(red: CGFloat(1.0/255.0), green: CGFloat(10.0/255.0), blue: CGFloat(19.0/255.0), alpha: 1)
+        champLevelBadge?.badgeStrokeColor = UIColor(red: CGFloat(200.0/255.0), green: CGFloat(156.0/255.0), blue: CGFloat(59.0/255.0), alpha: 1)
+        champLevelBadge?.badgeTextColor = UIColor(red: CGFloat(161.0/255.0), green: CGFloat(155.0/255.0), blue: CGFloat(140.0/255.0), alpha: 1)
+        
         return cell
     }
 
