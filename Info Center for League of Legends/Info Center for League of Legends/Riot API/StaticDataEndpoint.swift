@@ -39,6 +39,29 @@ class StaticDataEndpoint: NSObject {
         case Tree = "tree"
     }
     
+    enum spellData:String {
+        case all = "all"
+        case cooldown = "cooldown"
+        case cooldownBurn = "cooldownBurn"
+        case cost = "cost"
+        case costBurn = "costBurn"
+        case costType = "costType"
+        case effect = "effect"
+        case effectBurn = "effectBurn"
+        case image = "image"
+        case key = "key"
+        case levelTip = "leveltip"
+        case maxRank = "maxrank"
+        case modes = "modes"
+        case range = "range"
+        case rangeBurn = "rangeBurn"
+        case resource = "resource"
+        case sanitizedDescription = "sanitizedDescription"
+        case sanitizedTooltip = "sanitizedTooltip"
+        case tooltip = "tooltip"
+        case vars = "vars"
+    }
+    
     func getChampionInfoById(champId: Int, championData: champData, completion: (ChampionDto) -> Void, notFound: () -> Void, errorBlock: () -> Void) {
         Endpoints().staticData_champion_id(championId: String(champId), champData: championData.rawValue) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
