@@ -1292,7 +1292,7 @@ last -- games</string>
             </objects>
             <point key="canvasLocation" x="3606" y="-322"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Recent Games-->
         <scene sceneID="Tzd-CV-GBi">
             <objects>
                 <tableViewController id="y5g-hC-PiL" customClass="Profile_RecentGames" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
@@ -1317,7 +1317,7 @@ last -- games</string>
                             <outlet property="delegate" destination="y5g-hC-PiL" id="MAU-Os-873"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="T02-bD-EDr">
+                    <navigationItem key="navigationItem" title="Recent Games" id="T02-bD-EDr">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="Fxp-5r-gLA">
                             <connections>
                                 <action selector="closeView" destination="y5g-hC-PiL" id="WCP-IX-RyP"/>
@@ -1465,14 +1465,14 @@ last -- games</string>
                                         <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tWc-Gf-Gl1">
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
-                                                    <frame key="frameInset" width="112" height="16"/>
+                                                    <frame key="frameInset" width="112" height="14"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
-                                                    <frame key="frameInset" minY="16" width="112" height="18"/>
+                                                    <frame key="frameInset" minY="14" width="112" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
