@@ -9,6 +9,15 @@
 import AFNetworking
 
 class DDragon: NSObject {
+    enum uiinterfaceIconType:String {
+        case champion = "champion"
+        case gold = "gold"
+        case items = "items"
+        case minion = "minion"
+        case score = "score"
+        case spells = "spells"
+    }
+    
     func getCDNurl(completion: (cdnUrl: String) -> Void) {
         Endpoints().getRegion { (regionCode) in
             AFHTTPSessionManager().get("http://ddragon.leagueoflegends.com/realms/" + regionCode + ".json", parameters: nil, progress: nil, success: { (task, responseObject) in
@@ -62,6 +71,12 @@ class DDragon: NSObject {
                 }
                 completion(masteryIconUrl: URL(string: cdnUrl + "/" + version + "/img/mastery/" + grayText + String(masteryId) + ".png")!)
             })
+        }
+    }
+    
+    func getUserInterfaceIcons(type: uiinterfaceIconType, completion: (uiIconUrl: URL) -> Void) {
+        self.getCDNurl { (cdnUrl) in
+            completion(uiIconUrl: URL(string: cdnUrl + "/5.5.1/img/ui/" + type.rawValue + ".png")!)
         }
     }
 }
