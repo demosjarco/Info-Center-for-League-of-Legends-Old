@@ -10,6 +10,8 @@
 		171A1C0F1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */; };
 		171A1C111D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */; };
 		171A1C131D38989D00BAB5B4 /* AggregatedStatsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C121D38989D00BAB5B4 /* AggregatedStatsDto.swift */; };
+		171A5C861D5E4EEE002A8F57 /* Profile_RecentGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A5C851D5E4EEE002A8F57 /* Profile_RecentGames.swift */; };
+		171A5C881D5E4F03002A8F57 /* Profile_RecentGames_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A5C871D5E4F03002A8F57 /* Profile_RecentGames_Cell.swift */; };
 		172101C41D1EDB310088DB1A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C31D1EDB310088DB1A /* ProfileView.swift */; };
 		172101C71D1EDB9D0088DB1A /* ProfileView_Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C61D1EDB9D0088DB1A /* ProfileView_Header.swift */; };
 		172101CA1D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C81D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift */; };
@@ -117,6 +119,8 @@
 		171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryListDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryListDto.swift"; sourceTree = "<group>"; };
 		171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryDto.swift"; sourceTree = "<group>"; };
 		171A1C121D38989D00BAB5B4 /* AggregatedStatsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AggregatedStatsDto.swift; path = "Riot API/StatsEntities/AggregatedStatsDto.swift"; sourceTree = "<group>"; };
+		171A5C851D5E4EEE002A8F57 /* Profile_RecentGames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile_RecentGames.swift; path = "Profile/ProfileView Views/Profile_RecentGames.swift"; sourceTree = "<group>"; };
+		171A5C871D5E4F03002A8F57 /* Profile_RecentGames_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile_RecentGames_Cell.swift; path = "Profile/ProfileView Views/Profile_RecentGames_Cell.swift"; sourceTree = "<group>"; };
 		172101C31D1EDB310088DB1A /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView.swift; path = Profile/ProfileView.swift; sourceTree = "<group>"; };
 		172101C61D1EDB9D0088DB1A /* ProfileView_Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Header.swift; path = "Profile/ProfileView Cells/ProfileView_Header.swift"; sourceTree = "<group>"; };
 		172101C81D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_ChampMastery.swift; path = "Profile/ProfileView Cells/ProfileView_ChampMastery.swift"; sourceTree = "<group>"; };
@@ -457,6 +461,8 @@
 			children = (
 				17D70BCE1D5D030B0097207E /* Profile_ChampionMastery.swift */,
 				17EE83921D5D2049009948AC /* Profile_ChampionMastery_Cell.swift */,
+				171A5C851D5E4EEE002A8F57 /* Profile_RecentGames.swift */,
+				171A5C871D5E4F03002A8F57 /* Profile_RecentGames_Cell.swift */,
 			);
 			name = "ProfileView Views";
 			sourceTree = "<group>";
@@ -997,6 +1003,7 @@
 				1732F6091D55019F009DA53B /* Translation.swift in Sources */,
 				1732F5F71D54FA9A009DA53B /* ServerStatus.swift in Sources */,
 				17B9B31F1D4D759100D8A755 /* LevelTipDto.swift in Sources */,
+				171A5C861D5E4EEE002A8F57 /* Profile_RecentGames.swift in Sources */,
 				178B957E1D428A5A00CAD47A /* RawStatsDto.swift in Sources */,
 				17B9B3191D4D756000D8A755 /* RecommendedDto.swift in Sources */,
 				17B9B30D1D4D73EB00D8A755 /* ChampionMasteryDto.swift in Sources */,
@@ -1004,6 +1011,7 @@
 				1771CBD41D282B9800D0DB08 /* LeagueEntryDto.swift in Sources */,
 				17F97B911D5678F200A8B4E7 /* MasteryTreeListDto.swift in Sources */,
 				1732F6031D550174009DA53B /* Service.swift in Sources */,
+				171A5C881D5E4F03002A8F57 /* Profile_RecentGames_Cell.swift in Sources */,
 				1775F64F1D41C95800E58003 /* GameEndpoint.swift in Sources */,
 				172101CB1D1EDBDB0088DB1A /* ProfileView_RecentGames.swift in Sources */,
 				1791E6E51D41980400012595 /* ProfileView_SummaryTile.swift in Sources */,

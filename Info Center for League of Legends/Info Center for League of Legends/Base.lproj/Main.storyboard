@@ -709,7 +709,7 @@ last -- games</string>
                                     <outlet property="lastGameScore" destination="zHR-Un-N6X" id="y2I-DY-JND"/>
                                     <outlet property="totalGamesCounted" destination="PjP-VB-3HC" id="3pC-dn-piK"/>
                                     <outlet property="winratePercentage" destination="xQV-CK-U2i" id="zio-1d-18L"/>
-                                    <segue destination="0yv-uN-KZX" kind="presentation" modalPresentationStyle="pageSheet" id="DEC-1a-N3O"/>
+                                    <segue destination="0yv-uN-KZX" kind="presentation" identifier="showRecentGamesDetail" modalPresentationStyle="pageSheet" id="DEC-1a-N3O"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_masteries" id="RbO-XF-k3e" customClass="ProfileView_Masteries" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
@@ -1295,13 +1295,13 @@ last -- games</string>
         <!--Root View Controller-->
         <scene sceneID="Tzd-CV-GBi">
             <objects>
-                <tableViewController id="y5g-hC-PiL" sceneMemberID="viewController">
+                <tableViewController id="y5g-hC-PiL" customClass="Profile_RecentGames" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SuL-qn-fLx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="D83-Jd-Q1o">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recentGamesListCell" id="D83-Jd-Q1o" customClass="Profile_RecentGames_Cell" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D83-Jd-Q1o" id="jf0-wo-srD">
