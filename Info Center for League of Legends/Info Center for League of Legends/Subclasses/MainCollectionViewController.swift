@@ -11,6 +11,7 @@ import Firebase
 import GoogleMobileAds
 
 class MainCollectionViewController: UICollectionViewController, GADBannerViewDelegate, GADAdSizeDelegate {
+    weak var adBanner = GADBannerView()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,32 +57,25 @@ class MainCollectionViewController: UICollectionViewController, GADBannerViewDel
         blur.autoresizingMask = tableBG.autoresizingMask
         
         self.collectionView?.backgroundView = tableBG
+        
+        // Needs to be per view
+        /*adBanner?.adUnitID = "ca-app-pub-0612280347500538/2937038010"
+        adBanner?.isAutoloadEnabled = true*/
     }
     
     func adViewDidReceiveAd(_ bannerView: GADBannerView!) {
-        self.collectionView?.contentInset = UIEdgeInsets(top: self.collectionView!.contentInset.top, left: self.collectionView!.contentInset.left, bottom: bannerView.adSize.size.height, right: self.collectionView!.contentInset.right)
         
-        /*let adFrame = self.tableView.tableFooterView?.frame
-        let newOriginY = self.tableView.contentOffset.y + self.tableView.frame.size.height - self.tabBarController!.tabBar.frame.size.height - bannerView.adSize.size.height
-        let newAdFrame = CGRect(x: adFrame!.origin.x, y: newOriginY, width: adFrame!.size.width, height: bannerView.adSize.size.height)
-        self.tableView.tableFooterView?.frame = newAdFrame*/
+    }
+    
+    func adView(_ bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
+        
     }
     
     func adView(_ bannerView: GADBannerView, willChangeAdSizeTo size: GADAdSize) {
-        self.collectionView?.contentInset = UIEdgeInsets(top: self.collectionView!.contentInset.top, left: self.collectionView!.contentInset.left, bottom: size.size.height, right: self.collectionView!.contentInset.right)
         
-        /*let adFrame = self.tableView.tableFooterView?.frame
-        let newOriginY = self.tableView.contentOffset.y + self.tableView.frame.size.height - self.tabBarController!.tabBar.frame.size.height - size.size.height
-        let newAdFrame = CGRect(x: adFrame!.origin.x, y: newOriginY, width: adFrame!.size.width, height: bannerView.adSize.size.height)
-        self.tableView.tableFooterView?.frame = newAdFrame*/
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        /*if self.tableView.tableFooterView != nil {
-            let adFrame = self.tableView.tableFooterView?.frame
-            let newOriginY = self.tableView.contentOffset.y + self.tableView.frame.size.height - self.tabBarController!.tabBar.frame.size.height - adFrame!.size.height
-            let newAdFrame = CGRect(x: adFrame!.origin.x, y: newOriginY, width: adFrame!.size.width, height: adFrame!.size.height)
-            self.tableView.tableFooterView?.frame = newAdFrame
-        }*/
+        
     }
 }
