@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import GoogleMobileAds
 
-class MainTableViewController: UITableViewController {
+class MainTableViewController: UITableViewController, GADBannerViewDelegate, GADAdSizeDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,5 +56,32 @@ class MainTableViewController: UITableViewController {
         blur.autoresizingMask = tableBG.autoresizingMask
         
         self.tableView.backgroundView = tableBG
+    }
+    
+    func adViewDidReceiveAd(_ bannerView: GADBannerView!) {
+        self.tableView.contentInset = UIEdgeInsets(top: self.tableView.contentInset.top, left: self.tableView.contentInset.left, bottom: bannerView.adSize.size.height, right: self.tableView.contentInset.right)
+        
+        let adFrame = self.tableView.tableFooterView?.frame
+        let newOriginY = self.tableView.contentOffset.y + self.tableView.frame.size.height - self.tabBarController!.tabBar.frame.size.height - bannerView.adSize.size.height
+        let newAdFrame = CGRect(x: adFrame!.origin.x, y: newOriginY, width: adFrame!.size.width, height: bannerView.adSize.size.height)
+        self.tableView.tableFooterView?.frame = newAdFrame
+    }
+    
+    func adView(_ bannerView: GADBannerView, willChangeAdSizeTo size: GADAdSize) {
+        self.tableView.contentInset = UIEdgeInsets(top: self.tableView.contentInset.top, left: self.tableView.contentInset.left, bottom: size.size.height, right: self.tableView.contentInset.right)
+        
+        let adFrame = self.tableView.tableFooterView?.frame
+        let newOriginY = self.tableView.contentOffset.y + self.tableView.frame.size.height - self.tabBarController!.tabBar.frame.size.height - size.size.height
+        let newAdFrame = CGRect(x: adFrame!.origin.x, y: newOriginY, width: adFrame!.size.width, height: bannerView.adSize.size.height)
+        self.tableView.tableFooterView?.frame = newAdFrame
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.tableView.tableFooterView != nil {
+            let adFrame = self.tableView.tableFooterView?.frame
+            let newOriginY = self.tableView.contentOffset.y + self.tableView.frame.size.height - self.tabBarController!.tabBar.frame.size.height - adFrame!.size.height
+            let newAdFrame = CGRect(x: adFrame!.origin.x, y: newOriginY, width: adFrame!.size.width, height: adFrame!.size.height)
+            self.tableView.tableFooterView?.frame = newAdFrame
+        }
     }
 }
