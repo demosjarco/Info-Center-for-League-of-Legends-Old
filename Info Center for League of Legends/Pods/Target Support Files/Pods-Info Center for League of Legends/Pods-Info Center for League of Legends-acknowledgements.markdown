@@ -77,6 +77,10 @@ Copyright 2016 Google
 
 Copyright 2016 Google
 
+## Google-Mobile-Ads-SDK
+
+Copyright 2011 Google Inc. All Rights Reserved.
+
 ## GoogleIPhoneUtilities
 
 Copyright 2015 Google Inc.
