@@ -152,9 +152,22 @@ class Profile_RecentGames: MainTableViewController {
         DDragon().getUserInterfaceIcons(type: .minion) { (uiIconUrl) in
             cell.creepScoreIcon?.setImageWith(uiIconUrl)
         }
+        var cs = 0
+        if recentGameList[indexPath.row].stats.minionsKilled != nil {
+            cs += recentGameList[indexPath.row].stats.minionsKilled!
+        }
+        if recentGameList[indexPath.row].stats.neutralMinionsKilled != nil {
+            cs += recentGameList[indexPath.row].stats.neutralMinionsKilled!
+        }
+        cell.creepScore?.text = String(cs)
+        var gold = 0
+        if recentGameList[indexPath.row].stats.goldEarned != nil {
+            gold = recentGameList[indexPath.row].stats.goldEarned!
+        }
         DDragon().getUserInterfaceIcons(type: .gold) { (uiIconUrl) in
             cell.goldIcon?.setImageWith(uiIconUrl)
         }
+        cell.gold?.text = String(gold)
         
         return cell
     }
