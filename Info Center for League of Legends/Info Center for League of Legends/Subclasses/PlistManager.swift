@@ -7,353 +7,50 @@
 //
 
 import Foundation
-import CloudKit
 
 class PlistManager: NSObject {
-    // iCloud
-    func checkIfUserEnabledIcloud(icloudReady: () -> Void, icloudUnavailable: () -> Void) {
-        if (UserDefaults.standard.object(forKey: "league_useIcloud") == nil) {
-            UserDefaults.standard.set(true, forKey: "league_useIcloud")
-        }
-        
-        if UserDefaults.standard.bool(forKey: "league_useIcloud") {
-            CKContainer.default().accountStatus { (accountStatus, error) in
-                if accountStatus == CKAccountStatus.available {
-                    icloudReady()
-                } else {
-                    icloudUnavailable()
-                }
-            }
+    func loadRecentSummoners() -> NSArray {
+        if let recentSummoners = NSArray(contentsOfFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(recentSummonersFileName(regionCode: Endpoints().getRegion()))) {
+            return recentSummoners
         } else {
-            icloudUnavailable()
+            return NSArray()
         }
-    }
-    
-    func loadRecentSummoners(completion: (recentSummoners: NSArray) -> Void) {
-        checkIfUserEnabledIcloud(icloudReady: {
-            // iCloud good - keep in sync
-            CKContainer.default().privateCloudDatabase.fetch(withRecordID: CKRecordID(recordName: "savedSummoners"), completionHandler: { (record, error) in
-                if (error != nil) {
-                    // Not saved in iCloud
-                    
-                    // Check if local and upload
-                    let summonerRecord = CKRecord(recordType: "recentSummoners", recordID: CKRecordID(recordName: "savedSummoners"))
-                    // Add summoners
-                    self.loadLocalRecentSummoners(regionCode: "na", completion: { (recentSummoners) in
-                        summonerRecord["na"] = recentSummoners as! [Int]
-                        
-                        self.loadLocalRecentSummoners(regionCode: "euw", completion: { (recentSummoners) in
-                            summonerRecord["euw"] = recentSummoners as! [Int]
-                            
-                            self.loadLocalRecentSummoners(regionCode: "eune", completion: { (recentSummoners) in
-                                summonerRecord["eune"] = recentSummoners as! [Int]
-                                
-                                self.loadLocalRecentSummoners(regionCode: "lan", completion: { (recentSummoners) in
-                                    summonerRecord["lan"] = recentSummoners as! [Int]
-                                    
-                                    self.loadLocalRecentSummoners(regionCode: "las", completion: { (recentSummoners) in
-                                        summonerRecord["las"] = recentSummoners as! [Int]
-                                        
-                                        self.loadLocalRecentSummoners(regionCode: "br", completion: { (recentSummoners) in
-                                            summonerRecord["br"] = recentSummoners as! [Int]
-                                            
-                                            self.loadLocalRecentSummoners(regionCode: "jp", completion: { (recentSummoners) in
-                                                summonerRecord["jp"] = recentSummoners as! [Int]
-                                                
-                                                self.loadLocalRecentSummoners(regionCode: "ru", completion: { (recentSummoners) in
-                                                    summonerRecord["ru"] = recentSummoners as! [Int]
-                                                    
-                                                    self.loadLocalRecentSummoners(regionCode: "tr", completion: { (recentSummoners) in
-                                                        summonerRecord["tr"] = recentSummoners as! [Int]
-                                                        
-                                                        self.loadLocalRecentSummoners(regionCode: "oce", completion: { (recentSummoners) in
-                                                            summonerRecord["oce"] = recentSummoners as! [Int]
-                                                            
-                                                            CKContainer.default().privateCloudDatabase.save(summonerRecord, completionHandler: { (savedRecord, saveError) in
-                                                                if (saveError != nil) {
-                                                                    // Didn't save
-                                                                    print(String(saveError))
-                                                                }
-                                                            })
-                                                            // Return back to view
-                                                            Endpoints().getRegion { (regionCode) in
-                                                                self.loadLocalRecentSummoners(regionCode: regionCode, completion: { (recentSummoners) in
-                                                                    completion(recentSummoners: recentSummoners)
-                                                                })
-                                                            }
-                                                            /*self.loadLocalRecentSummoners(regionCode: "kr", completion: { (recentSummoners) in
-                                                                summonerRecord["kr"] = recentSummoners as! [Int]
-                                                            })*/
-                                                        })
-                                                    })
-                                                })
-                                            })
-                                        })
-                                    })
-                                })
-                            })
-                        })
-                    })
-                } else {
-                    // Saved in iCloud
-                    
-                    // Check if any differences and merge non duplicates
-                    var na = [Int]()
-                    if (record!["na"] != nil) {
-                        na = record!["na"] as! [Int]
-                    }
-                    var euw = [Int]()
-                    if (record!["euw"] != nil) {
-                        euw = record!["euw"] as! [Int]
-                    }
-                    var eune = [Int]()
-                    if (record!["eune"] != nil) {
-                        eune = record!["eune"] as! [Int]
-                    }
-                    var lan = [Int]()
-                    if (record!["lan"] != nil) {
-                        lan = record!["lan"] as! [Int]
-                    }
-                    var las = [Int]()
-                    if (record!["las"] != nil) {
-                        las = record!["las"] as! [Int]
-                    }
-                    var br = [Int]()
-                    if (record!["br"] != nil) {
-                        br = record!["br"] as! [Int]
-                    }
-                    var jp = [Int]()
-                    if (record!["jp"] != nil) {
-                        jp = record!["jp"] as! [Int]
-                    }
-                    var ru = [Int]()
-                    if (record!["ru"] != nil) {
-                        ru = record!["ru"] as! [Int]
-                    }
-                    var tr = [Int]()
-                    if (record!["tr"] != nil) {
-                        tr = record!["tr"] as! [Int]
-                    }
-                    var oce = [Int]()
-                    if (record!["oce"] != nil) {
-                        oce = record!["oce"] as! [Int]
-                    }
-                    /*let kr = [Int]()
-                    if (record!["kr"] != nil) {
-                        kr = record!["kr"] as! [Int]
-                    }*/
-                    
-                    // Save iCloud
-                    let summonerRecord = CKRecord(recordType: "recentSummoners", recordID: CKRecordID(recordName: "savedSummoners"))
-                    summonerRecord["na"] = nil
-                    summonerRecord["euw"] = nil
-                    summonerRecord["eune"] = nil
-                    summonerRecord["lan"] = nil
-                    summonerRecord["las"] = nil
-                    summonerRecord["br"] = nil
-                    summonerRecord["jp"] = nil
-                    summonerRecord["ru"] = nil
-                    summonerRecord["tr"] = nil
-                    summonerRecord["oce"] = nil
-                    summonerRecord["kr"] = nil
-                    let operation = CKModifyRecordsOperation(recordsToSave: [summonerRecord], recordIDsToDelete: nil)
-                    operation.savePolicy = CKRecordSavePolicy.allKeys
-                    operation.modifyRecordsCompletionBlock = { (savedRecords, deletedRecordIDs, operationError) in
-                        self.loadLocalRecentSummoners(regionCode: "na", completion: { (recentSummoners) in
-                            record!["na"] = self.mergeSummonerArrays(cloudArray: na, localArray: recentSummoners as! [Int])
-                            // Save local
-                            NSArray(array: self.mergeSummonerArrays(cloudArray: na, localArray: recentSummoners as! [Int])).write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: "na")), atomically: true)
-                            
-                            self.loadLocalRecentSummoners(regionCode: "euw", completion: { (recentSummoners) in
-                                record!["euw"] = self.mergeSummonerArrays(cloudArray: euw, localArray: recentSummoners as! [Int])
-                                // Save local
-                                NSArray(array: self.mergeSummonerArrays(cloudArray: euw, localArray: recentSummoners as! [Int])).write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: "euw")), atomically: true)
-                                
-                                self.loadLocalRecentSummoners(regionCode: "eune", completion: { (recentSummoners) in
-                                    record!["eune"] = self.mergeSummonerArrays(cloudArray: eune, localArray: recentSummoners as! [Int])
-                                    // Save local
-                                    NSArray(array: self.mergeSummonerArrays(cloudArray: eune, localArray: recentSummoners as! [Int])).write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: "eune")), atomically: true)
-                                    
-                                    self.loadLocalRecentSummoners(regionCode: "lan", completion: { (recentSummoners) in
-                                        record!["lan"] = self.mergeSummonerArrays(cloudArray: lan, localArray: recentSummoners as! [Int])
-                                        // Save local
-                                        NSArray(array: self.mergeSummonerArrays(cloudArray: lan, localArray: recentSummoners as! [Int])).write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: "lan")), atomically: true)
-                                        
-                                        self.loadLocalRecentSummoners(regionCode: "las", completion: { (recentSummoners) in
-                                            record!["las"] = self.mergeSummonerArrays(cloudArray: las, localArray: recentSummoners as! [Int])
-                                            // Save local
-                                            NSArray(array: self.mergeSummonerArrays(cloudArray: las, localArray: recentSummoners as! [Int])).write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: "las")), atomically: true)
-                                            
-                                            self.loadLocalRecentSummoners(regionCode: "br", completion: { (recentSummoners) in
-                                                record!["br"] = self.mergeSummonerArrays(cloudArray: br, localArray: recentSummoners as! [Int])
-                                                // Save local
-                                                NSArray(array: self.mergeSummonerArrays(cloudArray: br, localArray: recentSummoners as! [Int])).write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: "br")), atomically: true)
-                                                
-                                                self.loadLocalRecentSummoners(regionCode: "jp", completion: { (recentSummoners) in
-                                                    record!["jp"] = self.mergeSummonerArrays(cloudArray: jp, localArray: recentSummoners as! [Int])
-                                                    // Save local
-                                                    NSArray(array: self.mergeSummonerArrays(cloudArray: jp, localArray: recentSummoners as! [Int])).write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: "jp")), atomically: true)
-                                                    
-                                                    self.loadLocalRecentSummoners(regionCode: "ru", completion: { (recentSummoners) in
-                                                        record!["ru"] = self.mergeSummonerArrays(cloudArray: ru, localArray: recentSummoners as! [Int])
-                                                        // Save local
-                                                        NSArray(array: self.mergeSummonerArrays(cloudArray: ru, localArray: recentSummoners as! [Int])).write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: "ru")), atomically: true)
-                                                        
-                                                        self.loadLocalRecentSummoners(regionCode: "tr", completion: { (recentSummoners) in
-                                                            record!["tr"] = self.mergeSummonerArrays(cloudArray: tr, localArray: recentSummoners as! [Int])
-                                                            // Save local
-                                                            NSArray(array: self.mergeSummonerArrays(cloudArray: tr, localArray: recentSummoners as! [Int])).write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: "tr")), atomically: true)
-                                                            
-                                                            self.loadLocalRecentSummoners(regionCode: "oce", completion: { (recentSummoners) in
-                                                                record!["oce"] = self.mergeSummonerArrays(cloudArray: oce, localArray: recentSummoners as! [Int])
-                                                                // Save local
-                                                                NSArray(array: self.mergeSummonerArrays(cloudArray: oce, localArray: recentSummoners as! [Int])).write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: "oce")), atomically: true)
-                                                                
-                                                                let operation2 = CKModifyRecordsOperation(recordsToSave: [record!], recordIDsToDelete: nil)
-                                                                operation2.savePolicy = CKRecordSavePolicy.allKeys
-                                                                CKContainer.default().privateCloudDatabase.add(operation2)
-                                                                // Return back to view
-                                                                Endpoints().getRegion { (regionCode) in
-                                                                    self.loadLocalRecentSummoners(regionCode: regionCode, completion: { (recentSummoners) in
-                                                                        completion(recentSummoners: recentSummoners)
-                                                                    })
-                                                                }
-                                                                /*self.loadLocalRecentSummoners(regionCode: "kr", completion: { (recentSummoners) in
-                                                                 record!["kr"] = self.mergeSummonerArrays(cloudArray: kr, localArray: recentSummoners as! [Int])
-                                                                 // Save local
-                                                                 NSArray(array: self.mergeSummonerArrays(cloudArray: kr, localArray: recentSummoners as! [Int])).write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: "kr")), atomically: true)
-                                                                 })*/
-                                                            })
-                                                        })
-                                                    })
-                                                })
-                                            })
-                                        })
-                                    })
-                                })
-                            })
-                        })
-                    }
-                    CKContainer.default().privateCloudDatabase.add(operation)
-                }
-            })
-        }) {
-            // iCloud unavailable - use local only
-            Endpoints().getRegion { (regionCode) in
-                self.loadLocalRecentSummoners(regionCode: regionCode, completion: { (recentSummoners) in
-                    completion(recentSummoners: recentSummoners)
-                })
-            }
-        }
-    }
-    
-    func mergeSummonerArrays(cloudArray: [Int], localArray: [Int]) -> [Int] {
-        var newArray = [Int]()
-        
-        for summoner in cloudArray {
-            if !newArray.contains(summoner) {
-                newArray.append(summoner)
-            }
-        }
-        for summoner in localArray {
-            if !newArray.contains(summoner) {
-                newArray.append(summoner)
-            }
-        }
-        
-        return newArray
     }
     
     func addToRecentSummoners(newSummoner: SummonerDto) {
-        loadRecentSummoners { (recentSummonersLoaded) in
-            let recentSummoners = NSMutableArray(array: recentSummonersLoaded)
+        let recentSummoners = NSMutableArray(array: loadRecentSummoners())
+        
+        if !recentSummoners.contains(newSummoner.summonerId) {
+            recentSummoners.insert(newSummoner.summonerId, at: 0)
             
-            if !recentSummoners.contains(newSummoner.summonerId) {
-                recentSummoners.insert(newSummoner.summonerId, at: 0)
-                
-                if !FileManager.default.fileExists(atPath: self.getDocumentDirectory().appending(self.baseDatabaseDirectory)) {
-                    do {
-                        try FileManager.default.createDirectory(atPath: self.getDocumentDirectory().appending(self.baseDatabaseDirectory), withIntermediateDirectories: true, attributes: nil)
-                    } catch let error as NSError {
-                        print(error.localizedDescription);
-                    }
+            if !FileManager.default.fileExists(atPath: self.getDocumentDirectory().appending(self.baseDatabaseDirectory)) {
+                do {
+                    try FileManager.default.createDirectory(atPath: self.getDocumentDirectory().appending(self.baseDatabaseDirectory), withIntermediateDirectories: true, attributes: nil)
+                } catch let error as NSError {
+                    print(error.localizedDescription);
                 }
-                Endpoints().getRegion(completion: { (regionCode) in
-                    // Save iCloud
-                    let summonerRecord = CKRecord(recordType: "recentSummoners", recordID: CKRecordID(recordName: "savedSummoners"))
-                    summonerRecord[regionCode] = nil
-                    let operation = CKModifyRecordsOperation(recordsToSave: [summonerRecord], recordIDsToDelete: nil)
-                    operation.savePolicy = CKRecordSavePolicy.allKeys
-                    operation.modifyRecordsCompletionBlock = { (savedRecords, deletedRecordIDs, operationError) in
-                        let summonerRecord2 = CKRecord(recordType: "recentSummoners", recordID: CKRecordID(recordName: "savedSummoners"))
-                        summonerRecord2[regionCode] = NSArray(array: recentSummoners) as! [Int]
-                        let operation2 = CKModifyRecordsOperation(recordsToSave: [summonerRecord2], recordIDsToDelete: nil)
-                        operation2.savePolicy = CKRecordSavePolicy.allKeys
-                        CKContainer.default().privateCloudDatabase.add(operation2)
-                    }
-                    CKContainer.default().privateCloudDatabase.add(operation)
-                    
-                    // Save local
-                    recentSummoners.write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: regionCode)), atomically: true)
-                })
             }
+            
+            recentSummoners.write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: Endpoints().getRegion())), atomically: true)
         }
     }
     
     func moveItemInRecentSummoners(oldIndex: Int, newIndex: Int) {
-        loadRecentSummoners { (recentSummonersLoaded) in
-            let recentSummoners = NSMutableArray(array: recentSummonersLoaded)
-            
-            let item = recentSummoners.object(at: oldIndex)
-            recentSummoners.removeObject(at: oldIndex)
-            recentSummoners.insert(item, at: newIndex)
-            
-            Endpoints().getRegion(completion: { (regionCode) in
-                // Save iCloud
-                let summonerRecord = CKRecord(recordType: "recentSummoners", recordID: CKRecordID(recordName: "savedSummoners"))
-                summonerRecord[regionCode] = nil
-                let operation = CKModifyRecordsOperation(recordsToSave: [summonerRecord], recordIDsToDelete: nil)
-                operation.savePolicy = CKRecordSavePolicy.allKeys
-                operation.modifyRecordsCompletionBlock = { (savedRecords, deletedRecordIDs, operationError) in
-                    let summonerRecord2 = CKRecord(recordType: "recentSummoners", recordID: CKRecordID(recordName: "savedSummoners"))
-                    summonerRecord2[regionCode] = NSArray(array: recentSummoners) as! [Int]
-                    let operation2 = CKModifyRecordsOperation(recordsToSave: [summonerRecord2], recordIDsToDelete: nil)
-                    operation2.savePolicy = CKRecordSavePolicy.allKeys
-                    CKContainer.default().privateCloudDatabase.add(operation2)
-                }
-                CKContainer.default().privateCloudDatabase.add(operation)
-                
-                // Save local
-                recentSummoners.write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: regionCode)), atomically: true)
-            })
-        }
+        let recentSummoners = NSMutableArray(array: loadRecentSummoners())
+        
+        let item = recentSummoners.object(at: oldIndex)
+        recentSummoners.removeObject(at: oldIndex)
+        recentSummoners.insert(item, at: newIndex)
+        
+        recentSummoners.write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: Endpoints().getRegion())), atomically: true)
     }
     
     func removeItemInRecentSummoners(oldIndex: Int) {
-        loadRecentSummoners { (recentSummonersLoaded) in
-            let recentSummoners = NSMutableArray(array: recentSummonersLoaded)
-            
-            recentSummoners.removeObject(at: oldIndex)
-            
-            Endpoints().getRegion(completion: { (regionCode) in
-                // Save iCloud
-                let summonerRecord = CKRecord(recordType: "recentSummoners", recordID: CKRecordID(recordName: "savedSummoners"))
-                summonerRecord[regionCode] = nil
-                let operation = CKModifyRecordsOperation(recordsToSave: [summonerRecord], recordIDsToDelete: nil)
-                operation.savePolicy = CKRecordSavePolicy.allKeys
-                operation.modifyRecordsCompletionBlock = { (savedRecords, deletedRecordIDs, operationError) in
-                    let summonerRecord2 = CKRecord(recordType: "recentSummoners", recordID: CKRecordID(recordName: "savedSummoners"))
-                    summonerRecord2[regionCode] = NSArray(array: recentSummoners) as! [Int]
-                    let operation2 = CKModifyRecordsOperation(recordsToSave: [summonerRecord2], recordIDsToDelete: nil)
-                    operation2.savePolicy = CKRecordSavePolicy.allKeys
-                    CKContainer.default().privateCloudDatabase.add(operation2)
-                }
-                CKContainer.default().privateCloudDatabase.add(operation)
-                
-                // Save local
-                recentSummoners.write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: regionCode)), atomically: true)
-            })
-        }
+        let recentSummoners = NSMutableArray(array: loadRecentSummoners())
+        
+        recentSummoners.removeObject(at: oldIndex)
+        
+        recentSummoners.write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: Endpoints().getRegion())), atomically: true)
     }
     
     // Local
@@ -369,14 +66,6 @@ class PlistManager: NSObject {
     func getDocumentDirectory() -> String {
         // print("DATABASE DIRECTORY: " + NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!)
         return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-    }
-    
-    func loadLocalRecentSummoners(regionCode: String, completion: (recentSummoners: NSArray) -> Void) {
-        if let recentSummoners = NSArray(contentsOfFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(recentSummonersFileName(regionCode: regionCode))) {
-            completion(recentSummoners: recentSummoners)
-        } else {
-            completion(recentSummoners: NSArray())
-        }
     }
     
     func loadProfileViewTileOrder() -> NSArray {
