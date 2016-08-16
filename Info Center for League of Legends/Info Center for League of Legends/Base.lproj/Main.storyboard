@@ -42,14 +42,14 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="recentProfileCell" textLabel="YR4-YT-zyw" detailTextLabel="ATh-2c-KFw" imageView="2py-Nr-sTA" style="IBUITableViewCellStyleSubtitle" id="ewZ-ok-VMR">
-                                <rect key="frame" x="0.0" y="163.5" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="164" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ewZ-ok-VMR" id="TmW-28-PWT">
-                                    <frame key="frameInset" width="342" height="63.5"/>
+                                    <frame key="frameInset" width="342" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label multipleTouchEnabled="YES" contentMode="left" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" id="YR4-YT-zyw">
-                                            <frame key="frameInset" minX="94" minY="14" width="15.5" height="20.5"/>
+                                            <frame key="frameInset" minX="93" minY="13" width="16" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -57,7 +57,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label multipleTouchEnabled="YES" contentMode="left" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" id="ATh-2c-KFw">
-                                            <frame key="frameInset" minX="94" minY="34.5" width="12.5" height="16"/>
+                                            <frame key="frameInset" minX="93" minY="34" width="13" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -65,7 +65,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="poroIcon" id="2py-Nr-sTA">
-                                            <frame key="frameInset" minX="15" width="64" height="63.5"/>
+                                            <frame key="frameInset" minX="15" width="63" height="63"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </imageView>
@@ -93,7 +93,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ZA-oU-md8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1704.8" y="-322.48875562218893"/>
+            <point key="canvasLocation" x="987" y="-360"/>
         </scene>
         <!--Profile View-->
         <scene sceneID="lzP-2j-WoV">
@@ -571,7 +571,7 @@
                                     <outlet property="champ3name" destination="hAB-8L-JGV" id="Y0G-iX-8VW"/>
                                     <outlet property="champ3progressBar" destination="b7k-MG-XXr" id="Atb-9w-zMk"/>
                                     <outlet property="champ3squareIcon" destination="tXL-hb-0J3" id="EG4-di-Anv"/>
-                                    <segue destination="Kvc-fI-XdU" kind="presentation" identifier="showChampionMasteriesDetail" modalPresentationStyle="pageSheet" id="KSs-DC-TaL"/>
+                                    <segue destination="Kvc-fI-XdU" kind="presentation" identifier="showChampionMasteriesDetail" modalPresentationStyle="pageSheet" id="cL0-BR-IwB"/>
                                 </connections>
                             </collectionViewCell>
                             <collectionViewCell multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profile_view_recent_games" id="Ijk-9N-9Qd" customClass="ProfileView_RecentGames" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
@@ -1256,7 +1256,7 @@ last -- games</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kri-VN-CS6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2652" y="-322"/>
+            <point key="canvasLocation" x="1583" y="-360"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="Ahw-kI-fa3">
@@ -1287,7 +1287,7 @@ last -- games</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfx-yf-LWN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4561" y="-322"/>
+            <point key="canvasLocation" x="2775" y="-360"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Fo-zh-LGm">
@@ -1303,7 +1303,7 @@ last -- games</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RKD-uI-Ja4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3606" y="-322"/>
+            <point key="canvasLocation" x="2179" y="-360"/>
         </scene>
         <!--Recent Games-->
         <scene sceneID="Tzd-CV-GBi">
@@ -1656,7 +1656,7 @@ last -- games</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sjx-gL-fv9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4561" y="-2287"/>
+            <point key="canvasLocation" x="2775" y="-2551"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R2O-cB-rhs">
@@ -1672,7 +1672,7 @@ last -- games</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVb-dI-Hht" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3609" y="-2287"/>
+            <point key="canvasLocation" x="2179" y="-2550"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="n7F-Qd-Qub">
@@ -1688,7 +1688,7 @@ last -- games</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLP-ZS-jFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3606" y="-2943"/>
+            <point key="canvasLocation" x="2179" y="-3282"/>
         </scene>
         <!--Champion Mastery-->
         <scene sceneID="Eue-v2-PZv">
@@ -1788,14 +1788,14 @@ last -- games</string>
                                         <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tWc-Gf-Gl1">
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
-                                                    <frame key="frameInset" width="112" height="16"/>
+                                                    <frame key="frameInset" width="112" height="14"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
-                                                    <frame key="frameInset" minY="16" width="112" height="18"/>
+                                                    <frame key="frameInset" minY="14" width="112" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1850,7 +1850,7 @@ last -- games</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Wg-Xc-mVi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4561" y="-2944"/>
+            <point key="canvasLocation" x="2775" y="-3283"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="iuD-Ye-eRw">
@@ -1890,7 +1890,7 @@ last -- games</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3oz-QX-waq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4561" y="-1632"/>
+            <point key="canvasLocation" x="2775" y="-1820"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0dM-HD-0Dn">
@@ -1906,7 +1906,7 @@ last -- games</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BOy-tN-ibh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3606" y="-1632"/>
+            <point key="canvasLocation" x="2179" y="-1819"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="5W0-Gp-tuN">
@@ -1946,7 +1946,7 @@ last -- games</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bg9-fA-ybz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4561" y="-977"/>
+            <point key="canvasLocation" x="2775" y="-1090"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QbA-TR-WY7">
@@ -1962,7 +1962,7 @@ last -- games</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Faw-L0-VoY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3606" y="-977"/>
+            <point key="canvasLocation" x="2179" y="-1089"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Hsz-W1-fHm">
@@ -1979,7 +1979,7 @@ last -- games</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="APd-vW-ECO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-322"/>
+            <point key="canvasLocation" x="393" y="-359"/>
         </scene>
         <!--Champions-->
         <scene sceneID="ebH-tX-CTM">
@@ -1996,7 +1996,7 @@ last -- games</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQ1-yI-TGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="335"/>
+            <point key="canvasLocation" x="391" y="371"/>
         </scene>
         <!--Champions-->
         <scene sceneID="J7K-qu-2Iq">
@@ -2033,7 +2033,7 @@ last -- games</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bLJ-ZM-wQi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1705" y="334"/>
+            <point key="canvasLocation" x="987" y="371"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="utU-7F-V18">
@@ -2066,7 +2066,7 @@ last -- games</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07y-aJ-3yJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2652" y="334"/>
+            <point key="canvasLocation" x="1583" y="371"/>
         </scene>
         <!--News-->
         <scene sceneID="vyH-Sh-gHb">
@@ -2084,7 +2084,7 @@ last -- games</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZj-ul-1RD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="1645"/>
+            <point key="canvasLocation" x="393" y="1829"/>
         </scene>
         <!--LCS-->
         <scene sceneID="ZYr-y3-Wcc">
@@ -2113,7 +2113,7 @@ last -- games</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNU-By-IF9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700" y="990"/>
+            <point key="canvasLocation" x="987" y="1100"/>
         </scene>
         <!--LCS-->
         <scene sceneID="0jH-Yg-Bfg">
@@ -2130,7 +2130,7 @@ last -- games</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BvB-Jb-Cuh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="748" y="990"/>
+            <point key="canvasLocation" x="393" y="1100"/>
         </scene>
         <!--News-->
         <scene sceneID="5xz-wH-v0g">
@@ -2148,7 +2148,7 @@ last -- games</string>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="newsCell" id="SEf-ZJ-xUB" customClass="NewsCell" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <rect key="frame" x="60" y="0.0" width="256" height="256"/>
+                                <rect key="frame" x="59" y="0.0" width="256" height="256"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
@@ -2157,14 +2157,14 @@ last -- games</string>
                                         <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j5I-Um-2Rh">
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMU-du-UQx">
-                                                    <frame key="frameInset" width="240" height="220"/>
+                                                    <frame key="frameInset" width="240" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Content" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uX-g3-7bg">
-                                                    <frame key="frameInset" minY="220" width="240" height="21"/>
+                                                    <frame key="frameInset" minY="21" width="240" height="219"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -2201,7 +2201,7 @@ last -- games</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Content" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aI-3h-M8C">
-                                                                                    <frame key="frameInset" minY="21" width="240" height="57"/>
+                                                                                    <frame key="frameInset" minY="21" width="240" height="56"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                                     <nil key="textColor"/>
@@ -2296,7 +2296,7 @@ last -- games</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qal-yk-T45" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700" y="1644"/>
+            <point key="canvasLocation" x="987" y="1829"/>
         </scene>
         <!--Status-->
         <scene sceneID="drQ-OG-hCZ">
@@ -2321,11 +2321,11 @@ last -- games</string>
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7DO-KB-XJO" id="yTx-KS-gjy">
-                                    <frame key="frameInset" width="342" height="43.5"/>
+                                    <frame key="frameInset" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="enS-wR-PyU">
-                                            <frame key="frameInset" minX="15" minY="4" width="33.5" height="20.5"/>
+                                            <frame key="frameInset" minX="15" minY="3" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -2333,7 +2333,7 @@ last -- games</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lWL-Mn-tb5">
-                                            <frame key="frameInset" minX="15" minY="24.5" width="47" height="16"/>
+                                            <frame key="frameInset" minX="15" minY="24" width="47" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -2375,7 +2375,7 @@ last -- games</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JXq-2z-GNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2652" y="2336"/>
+            <point key="canvasLocation" x="1583" y="2558"/>
         </scene>
         <!--Status Detail-->
         <scene sceneID="NeK-mf-1du">
@@ -2426,7 +2426,7 @@ last -- games</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqt-vI-PrE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3606" y="2336"/>
+            <point key="canvasLocation" x="2179" y="2558"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="87M-Pd-SMV">
@@ -2448,7 +2448,7 @@ last -- games</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFg-Pr-YDN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1700" y="2336"/>
+            <point key="canvasLocation" x="987" y="2558"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
