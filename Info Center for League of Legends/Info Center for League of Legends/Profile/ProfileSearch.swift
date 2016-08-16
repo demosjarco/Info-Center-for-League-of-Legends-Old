@@ -189,7 +189,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                         UIGraphicsEndImageContext()
                         
                         let attString = NSMutableAttributedString(string: " " + highestTierSpelledOut.capitalized)
-                        attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
+                        attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: .footnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
                         attString.replaceCharacters(in: NSMakeRange(0, 1), with: NSAttributedString(attachment: tierIcon))
                         cell.detailTextLabel?.attributedText = attString
                         cell.detailTextLabel?.setNeedsLayout()
@@ -206,7 +206,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                         UIGraphicsEndImageContext()
                         
                         let attString = NSMutableAttributedString(string: " " + highestTierSpelledOut.capitalized + " " + highestDivisionRoman.uppercased())
-                        attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
+                        attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: .footnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
                         attString.replaceCharacters(in: NSMakeRange(0, 1), with: NSAttributedString(attachment: tierIcon))
                         cell.detailTextLabel?.attributedText = attString
                         cell.detailTextLabel?.setNeedsLayout()
@@ -224,7 +224,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                 UIGraphicsEndImageContext()
                 
                 let attString = NSMutableAttributedString(string: " Level " + String(temp.summonerLevel))
-                attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
+                attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: .footnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
                 attString.replaceCharacters(in: NSMakeRange(0, 1), with: NSAttributedString(attachment: tierIcon))
                 cell.detailTextLabel?.attributedText = attString
                 cell.detailTextLabel?.setNeedsLayout()
@@ -240,7 +240,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                 UIGraphicsEndImageContext()
                 
                 let attString = NSMutableAttributedString(string: " Level " + String(temp.summonerLevel))
-                attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: UIFontTextStyleFootnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
+                attString.addAttribute(NSBaselineOffsetAttributeName, value: tableView.rectForRow(at: indexPath).size.height / 4 - UIFont.preferredFont(forTextStyle: .footnote).capHeight / 2, range: NSMakeRange(1, attString.length - 1))
                 attString.replaceCharacters(in: NSMakeRange(0, 1), with: NSAttributedString(attachment: tierIcon))
                 cell.detailTextLabel?.attributedText = attString
                 cell.detailTextLabel?.setNeedsLayout()
