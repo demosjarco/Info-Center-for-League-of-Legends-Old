@@ -13,7 +13,7 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         window?.tintColor = UIColor(colorLiteralRed: 207/255.0, green: 186/255.0, blue: 107/255.0, alpha: 1.0)
         UITextField().keyboardAppearance = UIKeyboardAppearance.dark
