@@ -240,7 +240,7 @@ class StaticDataEndpoint: NSObject {
                         newSpell.name = oldSpell["name"] as! String
                         let oldRange = oldSpell["range"] as! [AnyObject]
                         for range in oldRange {
-                            if String(range) == "self" {
+                            if String(describing: range) == "self" {
                                 // Self ability - set as 0
                                 newSpell.range.append(0)
                             } else {
