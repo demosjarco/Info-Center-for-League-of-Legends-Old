@@ -18,7 +18,7 @@ class DDragon: NSObject {
         case spells = "spells"
     }
     
-    func getCDNurl(completion: (cdnUrl: String) -> Void) {
+    func getCDNurl(completion: @escaping (cdnUrl: String) -> Void) {
         Endpoints().getRegion { (regionCode) in
             AFHTTPSessionManager().get("http://ddragon.leagueoflegends.com/realms/" + regionCode + ".json", parameters: nil, progress: nil, success: { (task, responseObject) in
                 let dict = responseObject as! NSDictionary
@@ -27,7 +27,7 @@ class DDragon: NSObject {
         }
     }
     
-    func getLatestDDragonVersion(dataType: String, completion: (version: String) -> Void) {
+    func getLatestDDragonVersion(dataType: String, completion: @escaping (version: String) -> Void) {
         Endpoints().getRegion { (regionCode) in
             AFHTTPSessionManager().get("http://ddragon.leagueoflegends.com/realms/" + regionCode + ".json", parameters: nil, progress: nil, success: { (task, responseObject) in
                 let dict = responseObject as! NSDictionary
@@ -36,7 +36,7 @@ class DDragon: NSObject {
         }
     }
     
-    func getProfileIcon(profileIconId: Int, completion: (profileIconURL: URL) -> Void) {
+    func getProfileIcon(profileIconId: Int, completion: @escaping (profileIconURL: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
             self.getLatestDDragonVersion(dataType: "profileicon", completion: { (version) in
                 completion(profileIconURL: URL(string: cdnUrl + "/" + version + "/img/profileicon/" + String(profileIconId) + ".png")!)
@@ -44,17 +44,17 @@ class DDragon: NSObject {
         }
     }
     
-    func getChampionSplashArt(fullImageName: String, skinNumber: Int, completion: (champSplashArtUrl: URL) -> Void) {
+    func getChampionSplashArt(fullImageName: String, skinNumber: Int, completion: @escaping (champSplashArtUrl: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
             completion(champSplashArtUrl: URL(string: cdnUrl + "/img/champion/splash/" + fullImageName.replacingOccurrences(of: ".png", with: "_" + String(skinNumber) + ".jpg"))!)
         }
     }
-    func getChampionLoadingArt(fullImageName: String, skinNumber: Int, completion: (champLoadingArtUrl: URL) -> Void) {
+    func getChampionLoadingArt(fullImageName: String, skinNumber: Int, completion: @escaping (champLoadingArtUrl: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
             completion(champLoadingArtUrl: URL(string: cdnUrl + "/img/champion/loading/" + fullImageName.replacingOccurrences(of: ".png", with: "_" + String(skinNumber) + ".jpg"))!)
         }
     }
-    func getChampionSquareArt(fullImageName: String, completion: (champSquareArtUrl: URL) -> Void) {
+    func getChampionSquareArt(fullImageName: String, completion: @escaping (champSquareArtUrl: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
             self.getLatestDDragonVersion(dataType: "champion", completion: { (version) in
                 completion(champSquareArtUrl: URL(string: cdnUrl + "/" + version + "/img/champion/" + fullImageName)!)
@@ -62,7 +62,7 @@ class DDragon: NSObject {
         }
     }
     
-    func getMasteryIcon(masteryId: Int, gray: Bool, completion: (masteryIconUrl: URL) -> Void) {
+    func getMasteryIcon(masteryId: Int, gray: Bool, completion: @escaping (masteryIconUrl: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
             self.getLatestDDragonVersion(dataType: "mastery", completion: { (version) in
                 var grayText = ""
@@ -74,7 +74,7 @@ class DDragon: NSObject {
         }
     }
     
-    func getSummonerSpellIcon(fullImageName: String, completion: (spellIconUrl: URL) -> Void) {
+    func getSummonerSpellIcon(fullImageName: String, completion: @escaping (spellIconUrl: URL) -> Void) {
         getCDNurl { (cdnUrl) in
             self.getLatestDDragonVersion(dataType: "summoner", completion: { (version) in
                 completion(spellIconUrl: URL(string: cdnUrl + "/" + version + "/img/spell/" + fullImageName)!)
@@ -82,7 +82,7 @@ class DDragon: NSObject {
         }
     }
     
-    func getUserInterfaceIcons(type: uiinterfaceIconType, completion: (uiIconUrl: URL) -> Void) {
+    func getUserInterfaceIcons(type: uiinterfaceIconType, completion: @escaping (uiIconUrl: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
             completion(uiIconUrl: URL(string: cdnUrl + "/5.5.1/img/ui/" + type.rawValue + ".png")!)
         }

@@ -62,7 +62,7 @@ class StaticDataEndpoint: NSObject {
         case vars = "vars"
     }
     
-    func getChampionInfoById(champId: Int, championData: champData, completion: (ChampionDto) -> Void, notFound: () -> Void, errorBlock: () -> Void) {
+    func getChampionInfoById(champId: Int, championData: champData, completion: @escaping (ChampionDto) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
         Endpoints().staticData_champion_id(championId: String(champId), champData: championData.rawValue) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 let newChampion = ChampionDto()
@@ -316,11 +316,11 @@ class StaticDataEndpoint: NSObject {
         }
     }
     
-    func getRegionValidLocales(completion: (languages: [String]) -> Void) {
+    func getRegionValidLocales(completion: @escaping (languages: [String]) -> Void) {
         Endpoints().staticData_languages { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 let json = responseObject as! [String]
-                completion(languages: json)
+                completion(json)
             }, failure: { (task, error) in
                 let response = task!.response as! HTTPURLResponse
                 FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
@@ -328,7 +328,7 @@ class StaticDataEndpoint: NSObject {
         }
     }
     
-    func getMasteryInfo(masteryListData: masteryListData, completion: (masteryList: MasteryListDto) -> Void, errorBlock: () -> Void) {
+    func getMasteryInfo(masteryListData: masteryListData, completion: @escaping (masteryList: MasteryListDto) -> Void, errorBlock: @escaping () -> Void) {
         Endpoints().staticData_masteries(masteryListData: masteryListData.rawValue) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 let json = responseObject as! [String: AnyObject]
@@ -453,7 +453,7 @@ class StaticDataEndpoint: NSObject {
         }
     }
     
-    func getMasteryInfoById(masteryId: Int, masteryListData: masteryListData, completion: () -> Void, notFound: () -> Void, errorBlock: () -> Void) {
+    func getMasteryInfoById(masteryId: Int, masteryListData: masteryListData, completion: () -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
         Endpoints().staticData_masteries_id(masteryId: String(masteryId), masteryListData: masteryListData.rawValue) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 //
@@ -469,7 +469,7 @@ class StaticDataEndpoint: NSObject {
         }
     }
     
-    func getSpellInfoById(spellId: Int, spellData: spellData, completion: (spellInfo: SummonerSpellDto) -> Void, notFound: () -> Void, errorBlock: () -> Void) {
+    func getSpellInfoById(spellId: Int, spellData: spellData, completion: @escaping (spellInfo: SummonerSpellDto) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
         Endpoints().staticData_summonerSpell_id(spellId: String(spellId), spellData: spellData.rawValue) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 let json = responseObject as! [String: AnyObject]

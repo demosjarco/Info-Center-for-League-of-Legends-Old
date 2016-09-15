@@ -45,7 +45,7 @@ class LeagueEndpoint: NSObject {
         }
     }
     
-    func getLeagueEntryBySummonerIds(summonerIds: [CLong], completion: (summonerMap: [String: [LeagueDto]]) -> Void, notFound: () -> Void, errorBlock: () -> Void) {
+    func getLeagueEntryBySummonerIds(summonerIds: [CLong], completion: @escaping (summonerMap: [String: [LeagueDto]]) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
         Endpoints().league_bySummoner_entry(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 var newDict = [String: [LeagueDto]]()
