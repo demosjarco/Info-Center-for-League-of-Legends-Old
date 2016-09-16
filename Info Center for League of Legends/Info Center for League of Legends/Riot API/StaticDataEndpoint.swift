@@ -444,7 +444,7 @@ class StaticDataEndpoint: NSObject {
                 newMasteryList.type = json["type"] as! String
                 newMasteryList.version = json["version"] as! String
                 
-                completion(masteryList: newMasteryList)
+                completion(newMasteryList)
             }, failure: { (task, error) in
                 errorBlock()
                 let response = task!.response as! HTTPURLResponse
@@ -587,7 +587,7 @@ class StaticDataEndpoint: NSObject {
                     info.vars = newVars
                 }
                 
-                completion(spellInfo: info)
+                completion(info)
             }, failure: { (task, error) in
                 let response = task!.response as! HTTPURLResponse
                 if response.statusCode == 404 {

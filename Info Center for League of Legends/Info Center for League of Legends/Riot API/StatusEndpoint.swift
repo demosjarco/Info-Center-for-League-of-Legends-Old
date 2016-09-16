@@ -27,7 +27,7 @@ class StatusEndpoint: NSObject {
                     
                     shardArray.append(newShard)
                 }
-                completion(shards: shardArray)
+                completion(shardArray)
             }, failure: { (task, error) in
                 let response = task!.response as! HTTPURLResponse
                 errorBlock()
@@ -112,7 +112,7 @@ class StatusEndpoint: NSObject {
                 }
                 shardStatus.slug = json["slug"] as! String
                 
-                completion(shardStatus: shardStatus)
+                completion(shardStatus)
             }, failure: { (task, error) in
                 let response = task!.response as! HTTPURLResponse
                 errorBlock()

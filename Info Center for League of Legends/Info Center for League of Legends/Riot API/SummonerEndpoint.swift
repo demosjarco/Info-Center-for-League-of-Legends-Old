@@ -35,7 +35,7 @@ class SummonerEndpoint: NSObject {
                     
                     newDict[dict.allKeys[i] as! String] = newSummoner
                 }
-                completion(summonerMap: newDict)
+                completion(newDict)
             }, failure: { (task, error) in
                 let response = task!.response as! HTTPURLResponse
                 if response.statusCode == 404 {
@@ -66,7 +66,7 @@ class SummonerEndpoint: NSObject {
                     
                     newDict[dict.allKeys[i] as! String] = newSummoner
                 }
-                completion(summonerMap: newDict)
+                completion(newDict)
             }, failure: { (task, error) in
                 let response = task!.response as! HTTPURLResponse
                 errorBlock()
@@ -111,7 +111,7 @@ class SummonerEndpoint: NSObject {
                     
                     newResponse[json.allKeys[i] as! String] = newMasteryPages
                 }
-                completion(summonerMap: newResponse)
+                completion(newResponse)
             }, failure: { (task, error) in
                 let response = task!.response as! HTTPURLResponse
                 errorBlock()

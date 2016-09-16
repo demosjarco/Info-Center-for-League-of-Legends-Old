@@ -39,25 +39,25 @@ class DDragon: NSObject {
     func getProfileIcon(profileIconId: Int, completion: @escaping (profileIconURL: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
             self.getLatestDDragonVersion(dataType: "profileicon", completion: { (version) in
-                completion(profileIconURL: URL(string: cdnUrl + "/" + version + "/img/profileicon/" + String(profileIconId) + ".png")!)
+                completion(URL(string: cdnUrl + "/" + version + "/img/profileicon/" + String(profileIconId) + ".png")!)
             })
         }
     }
     
     func getChampionSplashArt(fullImageName: String, skinNumber: Int, completion: @escaping (champSplashArtUrl: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
-            completion(champSplashArtUrl: URL(string: cdnUrl + "/img/champion/splash/" + fullImageName.replacingOccurrences(of: ".png", with: "_" + String(skinNumber) + ".jpg"))!)
+            completion(URL(string: cdnUrl + "/img/champion/splash/" + fullImageName.replacingOccurrences(of: ".png", with: "_" + String(skinNumber) + ".jpg"))!)
         }
     }
     func getChampionLoadingArt(fullImageName: String, skinNumber: Int, completion: @escaping (champLoadingArtUrl: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
-            completion(champLoadingArtUrl: URL(string: cdnUrl + "/img/champion/loading/" + fullImageName.replacingOccurrences(of: ".png", with: "_" + String(skinNumber) + ".jpg"))!)
+            completion(URL(string: cdnUrl + "/img/champion/loading/" + fullImageName.replacingOccurrences(of: ".png", with: "_" + String(skinNumber) + ".jpg"))!)
         }
     }
     func getChampionSquareArt(fullImageName: String, completion: @escaping (champSquareArtUrl: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
             self.getLatestDDragonVersion(dataType: "champion", completion: { (version) in
-                completion(champSquareArtUrl: URL(string: cdnUrl + "/" + version + "/img/champion/" + fullImageName)!)
+                completion(URL(string: cdnUrl + "/" + version + "/img/champion/" + fullImageName)!)
             })
         }
     }
@@ -69,7 +69,7 @@ class DDragon: NSObject {
                 if gray {
                     grayText = "gray_"
                 }
-                completion(masteryIconUrl: URL(string: cdnUrl + "/" + version + "/img/mastery/" + grayText + String(masteryId) + ".png")!)
+                completion(URL(string: cdnUrl + "/" + version + "/img/mastery/" + grayText + String(masteryId) + ".png")!)
             })
         }
     }
@@ -77,14 +77,14 @@ class DDragon: NSObject {
     func getSummonerSpellIcon(fullImageName: String, completion: @escaping (spellIconUrl: URL) -> Void) {
         getCDNurl { (cdnUrl) in
             self.getLatestDDragonVersion(dataType: "summoner", completion: { (version) in
-                completion(spellIconUrl: URL(string: cdnUrl + "/" + version + "/img/spell/" + fullImageName)!)
+                completion(URL(string: cdnUrl + "/" + version + "/img/spell/" + fullImageName)!)
             })
         }
     }
     
     func getUserInterfaceIcons(type: uiinterfaceIconType, completion: @escaping (uiIconUrl: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
-            completion(uiIconUrl: URL(string: cdnUrl + "/5.5.1/img/ui/" + type.rawValue + ".png")!)
+            completion(URL(string: cdnUrl + "/5.5.1/img/ui/" + type.rawValue + ".png")!)
         }
     }
 }

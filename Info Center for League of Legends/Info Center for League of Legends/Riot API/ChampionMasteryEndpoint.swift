@@ -35,7 +35,7 @@ class ChampionMasteryEndpoint: NSObject {
                     
                     championMasteryList.append(newChampionMastery)
                 }
-                completion(champions: championMasteryList.sorted(by: { (o1, o2) -> Bool in
+                completion(championMasteryList.sorted(by: { (o1, o2) -> Bool in
                     return o1.championLevel == o2.championLevel ? (o1.championPoints > o2.championPoints) : (o1.championLevel > o2.championLevel)
                 }))
                 }, failure: { (task, error) in
@@ -69,7 +69,7 @@ class ChampionMasteryEndpoint: NSObject {
                     
                     championMasteryList.append(newChampionMastery)
                 }
-                completion(championMasteryList: championMasteryList.sorted(by: { (o1, o2) -> Bool in
+                completion(championMasteryList.sorted(by: { (o1, o2) -> Bool in
                     return o1.championLevel == o2.championLevel ? (o1.championPoints > o2.championPoints) : (o1.championLevel > o2.championLevel)
                 }))
             }, failure: { (task, error) in

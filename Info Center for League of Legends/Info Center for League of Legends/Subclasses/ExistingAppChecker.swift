@@ -26,37 +26,37 @@ class ExistingAppChecker: NSObject {
         let alert = UIAlertController(title: "Region Selector", message: "Select the League of Legends region for this app to use", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "North America", style: .default, handler: { (action) in
-            userChose(region: "na")
+            userChose("na")
         }))
         alert.addAction(UIAlertAction(title: "EU West", style: .default, handler: { (action) in
-            userChose(region: "euw")
+            userChose("euw")
         }))
         alert.addAction(UIAlertAction(title: "EU Nordic & East", style: .default, handler: { (action) in
-            userChose(region: "eune")
+            userChose("eune")
         }))
         alert.addAction(UIAlertAction(title: "Latin America North", style: .default, handler: { (action) in
-            userChose(region: "lan")
+            userChose("lan")
         }))
         alert.addAction(UIAlertAction(title: "Latin America South", style: .default, handler: { (action) in
-            userChose(region: "las")
+            userChose("las")
         }))
         alert.addAction(UIAlertAction(title: "Brazil", style: .default, handler: { (action) in
-            userChose(region: "br")
+            userChose("br")
         }))
         alert.addAction(UIAlertAction(title: "Japan", style: .default, handler: { (action) in
-            userChose(region: "jp")
+            userChose("jp")
         }))
         alert.addAction(UIAlertAction(title: "Russia", style: .default, handler: { (action) in
-            userChose(region: "ru")
+            userChose("ru")
         }))
         alert.addAction(UIAlertAction(title: "Turkey", style: .default, handler: { (action) in
-            userChose(region: "tr")
+            userChose("tr")
         }))
         alert.addAction(UIAlertAction(title: "Oceania", style: .default, handler: { (action) in
-            userChose(region: "oce")
+            userChose("oce")
         }))
         /*alert.addAction(UIAlertAction(title: "Republic of Korea", style: .default, handler: { (action) in
-         userChose(region: "kr")
+         userChose("kr")
          }))*/
         
         viewController.present(alert, animated: true, completion: nil)

@@ -88,7 +88,7 @@ class GameEndpoint: NSObject {
                 }
                 recentGames.summonerId = json["summonerId"] as! CLong
                 
-                completion(recentGamesMap: recentGames)
+                completion(recentGames)
             }, failure: { (task, error) in
                 let response = task!.response as! HTTPURLResponse
                 errorBlock()

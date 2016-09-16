@@ -62,7 +62,7 @@ class Endpoints: NSObject {
             if status == .success {
                 remoteConfig.activateFetched()
                 
-                completion(apiKey: remoteConfig["apiKey"].stringValue!)
+                completion(remoteConfig["apiKey"].stringValue!)
             }
         })
     }
@@ -70,9 +70,9 @@ class Endpoints: NSObject {
     func optimalLocaleForRegion(completion: @escaping (optimalLocale: Bool) -> Void) {
         StaticDataEndpoint().getRegionValidLocales { (languages) in
             if languages.contains(Locale.autoupdatingCurrent.identifier)  {
-                completion(optimalLocale: true)
+                completion(true)
             } else {
-                completion(optimalLocale: false)
+                completion(false)
             }
         }
     }
@@ -164,7 +164,7 @@ class Endpoints: NSObject {
         self.getBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 let urlString = baseEndpoint + "/v1.3/game/by-summoner/" + summonerId + "/recent?api_key=" + apiKey
-                completion(composedUrl: urlString)
+                completion(urlString)
             }
         }
     }
@@ -174,7 +174,7 @@ class Endpoints: NSObject {
         self.getBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 let urlString = baseEndpoint + "/v2.5/league/by-summoner/" + summonerIds + "/entry?api_key=" + apiKey
-                completion(composedUrl: urlString)
+                completion(urlString)
             }
         }
     }
@@ -190,7 +190,7 @@ class Endpoints: NSObject {
                     } else {
                         urlString += "?champData=" + champData + "&api_key=" + apiKey
                     }
-                    completion(composedUrl: urlString)
+                    completion(urlString)
                 })
             }
         }
@@ -200,7 +200,7 @@ class Endpoints: NSObject {
         self.getStaticDataBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 let urlString = baseEndpoint + "languages?api_key=" + apiKey
-                completion(composedUrl: urlString)
+                completion(urlString)
             }
         }
     }
@@ -215,7 +215,7 @@ class Endpoints: NSObject {
                     } else {
                         urlString += "?masteryListData=" + masteryListData + "&api_key=" + apiKey
                     }
-                    completion(composedUrl: urlString)
+                    completion(urlString)
                 })
             }
         }
@@ -231,7 +231,7 @@ class Endpoints: NSObject {
                     } else {
                         urlString += "?masteryListData=" + masteryListData + "&api_key=" + apiKey
                     }
-                    completion(composedUrl: urlString)
+                    completion(urlString)
                 })
             }
         }
@@ -247,7 +247,7 @@ class Endpoints: NSObject {
                     } else {
                         urlString += "?spellData=" + spellData + "&api_key=" + apiKey
                     }
-                    completion(composedUrl: urlString)
+                    completion(urlString)
                 })
             })
         }
@@ -256,7 +256,7 @@ class Endpoints: NSObject {
     // Status
     func status_shards(completion: (composedUrl: String) -> Void) {
         let urlString = "http://status.leagueoflegends.com/shards"
-        completion(composedUrl: urlString)
+        completion(urlString)
     }
     
     func status_byShard(completion: @escaping (composedUrl: String) -> Void) {
@@ -271,7 +271,7 @@ class Endpoints: NSObject {
         self.getBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 let urlString = baseEndpoint + "/v1.3/stats/by-summoner/" + summonerId + "/summary?api_key=" + apiKey
-                completion(composedUrl: urlString)
+                completion(urlString)
             }
         }
     }
@@ -281,7 +281,7 @@ class Endpoints: NSObject {
         self.getBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 let urlString = baseEndpoint + "/v1.4/summoner/by-name/" + summonerNames + "?api_key=" + apiKey
-                completion(composedUrl: urlString)
+                completion(urlString)
             }
         }
     }
@@ -289,7 +289,7 @@ class Endpoints: NSObject {
         self.getBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 let urlString = baseEndpoint + "/v1.4/summoner/" + summonerIds + "?api_key=" + apiKey
-                completion(composedUrl: urlString)
+                completion(urlString)
             }
         }
     }
@@ -297,7 +297,7 @@ class Endpoints: NSObject {
         self.getBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 let urlString = baseEndpoint + "/v1.4/summoner/" + summonerIds + "/masteries?api_key=" + apiKey
-                completion(composedUrl: urlString)
+                completion(urlString)
             }
         }
     }

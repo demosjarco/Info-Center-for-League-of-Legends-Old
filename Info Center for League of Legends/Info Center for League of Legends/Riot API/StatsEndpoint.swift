@@ -47,7 +47,7 @@ class StatsEndpoint: NSObject {
                 statSummary.playerStatSummaries = newPlayerStatSummaries
                 statSummary.summonerId = json["summonerId"] as! CLong
                 
-                completion(summaryList: statSummary)
+                completion(statSummary)
             }, failure: { (task, error) in
                 let response = task!.response as! HTTPURLResponse
                 errorBlock()
