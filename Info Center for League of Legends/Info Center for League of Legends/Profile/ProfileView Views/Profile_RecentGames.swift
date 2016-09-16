@@ -89,7 +89,7 @@ class Profile_RecentGames: MainTableViewController {
         
         let champLevelBadge = JSBadgeView(parentView: cell.badgeHolder, alignment: .bottomRight)
         champLevelBadge?.badgeText = String(recentGameList[indexPath.row].stats.level!)
-        champLevelBadge?.badgeTextFont = UIFont.preferredFont(forTextStyle: UIFontTextStyleCallout)
+        champLevelBadge?.badgeTextFont = UIFont.preferredFont(forTextStyle: .callout)
         champLevelBadge?.badgeBackgroundColor = UIColor(red: CGFloat(1.0/255.0), green: CGFloat(10.0/255.0), blue: CGFloat(19.0/255.0), alpha: 1)
         champLevelBadge?.badgeStrokeWidth = CGFloat(1.0)
         champLevelBadge?.badgeStrokeColor = UIColor(red: CGFloat(200.0/255.0), green: CGFloat(156.0/255.0), blue: CGFloat(59.0/255.0), alpha: 1)
