@@ -280,7 +280,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showChampionMasteriesDetail" {
             let destinationNav = segue.destination as! UINavigationController
             let destination = destinationNav.topViewController as! Profile_ChampionMastery
