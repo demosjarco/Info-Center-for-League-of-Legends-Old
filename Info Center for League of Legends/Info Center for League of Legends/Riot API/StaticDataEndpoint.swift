@@ -544,7 +544,7 @@ class StaticDataEndpoint: NSObject {
                     let oldRange = json["range"] as! [AnyObject]
                     var newRange = [Int]()
                     for range in oldRange {
-                        if String(range) == "self" {
+                        if String(describing: range) == "self" {
                             // Self ability - set as 0
                             newRange.append(0)
                         } else {
