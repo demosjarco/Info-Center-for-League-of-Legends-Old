@@ -239,7 +239,7 @@ class Endpoints: NSObject {
     
     func status_byShard(completion: @escaping (_ composedUrl: String) -> Void) {
         let urlString = "http://status.leagueoflegends.com/shards/" + self.getRegion()
-        completion(composedUrl: urlString)
+        completion(urlString)
     }
     
     // Stats
