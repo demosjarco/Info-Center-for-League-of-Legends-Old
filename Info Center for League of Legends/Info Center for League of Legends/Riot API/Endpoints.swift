@@ -147,7 +147,7 @@ class Endpoints: NSObject {
             } else {
                 urlString = urlString + "?count=" + String(count) + "&api_key=" + apiKey
             }
-            completion(composedUrl: urlString)
+            completion(urlString)
         }
     }
     
