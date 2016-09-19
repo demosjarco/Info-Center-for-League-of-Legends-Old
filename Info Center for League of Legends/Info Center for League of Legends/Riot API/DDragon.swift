@@ -21,14 +21,14 @@ class DDragon: NSObject {
     func getCDNurl(completion: @escaping (_ cdnUrl: String) -> Void) {
         AFHTTPSessionManager().get("http://ddragon.leagueoflegends.com/realms/" + Endpoints().getRegion() + ".json", parameters: nil, progress: nil, success: { (task, responseObject) in
             let dict = responseObject as! NSDictionary
-            completion(cdnUrl: dict["cdn"] as! String)
+            completion(dict["cdn"] as! String)
         }, failure: nil)
     }
     
     func getLatestDDragonVersion(dataType: String, completion: @escaping (_ version: String) -> Void) {
         AFHTTPSessionManager().get("http://ddragon.leagueoflegends.com/realms/" + Endpoints().getRegion() + ".json", parameters: nil, progress: nil, success: { (task, responseObject) in
             let dict = responseObject as! NSDictionary
-            completion(version: dict["n"]![dataType] as! String)
+            completion(dict["n"]![dataType] as! String)
         }, failure: nil)
     }
     
