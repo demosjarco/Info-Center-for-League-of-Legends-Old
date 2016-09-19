@@ -40,16 +40,12 @@ class Endpoints: NSObject {
         return identifier
     }
     
-    func getBaseEndpoint(completion: @escaping (_ baseEndpoint: String) -> Void) {
-        self.getRegion { (regionCode) in
-            completion(baseEndpoint: "https://" + regionCode + ".api.pvp.net/api/lol/" + regionCode)
-        }
+    func getBaseEndpoint() -> String {
+        return "https://" + getRegion() + ".api.pvp.net/api/lol/" + getRegion()
     }
     
-    func getStaticDataBaseEndpoint(completion: @escaping (_ baseEndpoint: String) -> Void) {
-        self.getRegion { (regionCode) in
-            completion(baseEndpoint: "https://global.api.pvp.net/api/lol/static-data/" + regionCode + "/v1.2/")
-        }
+    func getStaticDataBaseEndpoint() -> String {
+        "https://global.api.pvp.net/api/lol/static-data/" + getRegion() + "/v1.2/"
     }
     
     func getRegion() -> String {
@@ -81,9 +77,8 @@ class Endpoints: NSObject {
     
     // Champion Mastery
     func championMastery_bySummonerId_champions(playerId: String, completion: @escaping (_ composedUrl: String) -> Void) {
-        self.getRegion { (regionCode) in
-            var region:String
-            switch regionCode {
+        var region:String
+        switch self.getRegion() {
             case "br":
                 region = platformId.br.rawValue
             case "eune":
@@ -108,12 +103,11 @@ class Endpoints: NSObject {
                 region = platformId.br.rawValue
             default:
                 region = ""
-            }
-            
-            self.getApiKey { (apiKey) in
-                let urlString = "https://" + regionCode + ".api.pvp.net/championmastery/location/" + region + "/player/" + playerId + "/champions" + "?api_key=" + apiKey
-                completion(composedUrl: urlString)
-            }
+        }
+        
+        self.getApiKey { (apiKey) in
+            let urlString = "https://" + regionCode + ".api.pvp.net/championmastery/location/" + region + "/player/" + playerId + "/champions" + "?api_key=" + apiKey
+            completion(composedUrl: urlString)
         }
     }
     
