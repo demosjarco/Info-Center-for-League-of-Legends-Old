@@ -16,7 +16,7 @@ class ChampionMasteryEndpoint: NSObject {
      
      - parameter playerId: Summoner ID associated with the player
      */
-    func getAllChampsBySummonerId(playerId: CLong, completion: @escaping (champions: [ChampionMasteryDto]) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
+    func getAllChampsBySummonerId(playerId: CLong, completion: @escaping (_ champions: [ChampionMasteryDto]) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
         Endpoints().championMastery_bySummonerId_champions(playerId: String(playerId)) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 let json = responseObject as! [[String: AnyObject]]
@@ -50,7 +50,7 @@ class ChampionMasteryEndpoint: NSObject {
         }
     }
     
-    func getTopChampsBySummonerId(playerId: CLong, count: Int, completion: @escaping (championMasteryList: [ChampionMasteryDto]) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
+    func getTopChampsBySummonerId(playerId: CLong, count: Int, completion: @escaping (_ championMasteryList: [ChampionMasteryDto]) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
         Endpoints().championMastery_bySummonerId_topChampions(playerId: String(playerId), count: count) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 var championMasteryList = [ChampionMasteryDto]()

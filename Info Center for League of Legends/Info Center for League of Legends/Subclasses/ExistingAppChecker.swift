@@ -22,7 +22,7 @@ class ExistingAppChecker: NSObject {
         }
     }
     
-    func promptUserForRegion(viewController: UIViewController, userChose: @escaping (region: String) -> Void) {
+    func promptUserForRegion(viewController: UIViewController, userChose: @escaping (_ region: String) -> Void) {
         let alert = UIAlertController(title: "Region Selector", message: "Select the League of Legends region for this app to use", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "North America", style: .default, handler: { (action) in

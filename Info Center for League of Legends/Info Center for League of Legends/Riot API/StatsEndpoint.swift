@@ -11,7 +11,7 @@ import Firebase
 import AFNetworking
 
 class StatsEndpoint: NSObject {
-    func getStatsSummaryBySummonerId(summonerId: CLong, completion: @escaping (summaryList: PlayerStatsSummaryListDto) -> Void, errorBlock: @escaping () -> Void) {
+    func getStatsSummaryBySummonerId(summonerId: CLong, completion: @escaping (_ summaryList: PlayerStatsSummaryListDto) -> Void, errorBlock: @escaping () -> Void) {
         Endpoints().stats_bySummoner_summary(summonerId: String(summonerId)) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 let statSummary = PlayerStatsSummaryListDto()

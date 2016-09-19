@@ -40,13 +40,13 @@ class Endpoints: NSObject {
         return identifier
     }
     
-    func getBaseEndpoint(completion: @escaping (baseEndpoint: String) -> Void) {
+    func getBaseEndpoint(completion: @escaping (_ baseEndpoint: String) -> Void) {
         self.getRegion { (regionCode) in
             completion(baseEndpoint: "https://" + regionCode + ".api.pvp.net/api/lol/" + regionCode)
         }
     }
     
-    func getStaticDataBaseEndpoint(completion: @escaping (baseEndpoint: String) -> Void) {
+    func getStaticDataBaseEndpoint(completion: @escaping (_ baseEndpoint: String) -> Void) {
         self.getRegion { (regionCode) in
             completion(baseEndpoint: "https://global.api.pvp.net/api/lol/static-data/" + regionCode + "/v1.2/")
         }
@@ -56,7 +56,7 @@ class Endpoints: NSObject {
         return UserDefaults.standard.string(forKey: "league_region")
     }
     
-    func getApiKey(completion: @escaping (apiKey:String) -> Void) {
+    func getApiKey(completion: @escaping (_ apiKey:String) -> Void) {
         let remoteConfig = FIRRemoteConfig.remoteConfig()
         remoteConfig.fetch(completionHandler: { (status, error) in
             if status == .success {
@@ -67,7 +67,7 @@ class Endpoints: NSObject {
         })
     }
     
-    func optimalLocaleForRegion(completion: @escaping (optimalLocale: Bool) -> Void) {
+    func optimalLocaleForRegion(completion: @escaping (_ optimalLocale: Bool) -> Void) {
         StaticDataEndpoint().getRegionValidLocales { (languages) in
             if languages.contains(Locale.autoupdatingCurrent.identifier)  {
                 completion(true)
@@ -80,7 +80,7 @@ class Endpoints: NSObject {
     // MARK: - Endpoint URLs
     
     // Champion Mastery
-    func championMastery_bySummonerId_champions(playerId: String, completion: @escaping (composedUrl: String) -> Void) {
+    func championMastery_bySummonerId_champions(playerId: String, completion: @escaping (_ composedUrl: String) -> Void) {
         self.getRegion { (regionCode) in
             var region:String
             switch regionCode {
@@ -117,7 +117,7 @@ class Endpoints: NSObject {
         }
     }
     
-    func championMastery_bySummonerId_topChampions(playerId: String, count: Int, completion: @escaping (composedUrl: String) -> Void) {
+    func championMastery_bySummonerId_topChampions(playerId: String, count: Int, completion: @escaping (_ composedUrl: String) -> Void) {
         self.getRegion { (regionCode) in
             var region:String
             switch regionCode {
@@ -160,7 +160,7 @@ class Endpoints: NSObject {
     }
     
     // Game
-    func game_BySummoner(summonerId: String, completion: @escaping (composedUrl: String) -> Void) {
+    func game_BySummoner(summonerId: String, completion: @escaping (_ composedUrl: String) -> Void) {
         self.getBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 let urlString = baseEndpoint + "/v1.3/game/by-summoner/" + summonerId + "/recent?api_key=" + apiKey
@@ -170,7 +170,7 @@ class Endpoints: NSObject {
     }
     
     // League
-    func league_bySummoner_entry(summonerIds: String, completion: @escaping (composedUrl: String) -> Void) {
+    func league_bySummoner_entry(summonerIds: String, completion: @escaping (_ composedUrl: String) -> Void) {
         self.getBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 let urlString = baseEndpoint + "/v2.5/league/by-summoner/" + summonerIds + "/entry?api_key=" + apiKey
@@ -180,7 +180,7 @@ class Endpoints: NSObject {
     }
     
     // Static Data
-    func staticData_champion_id(championId: String, champData: String, completion: @escaping (composedUrl: String) -> Void) {
+    func staticData_champion_id(championId: String, champData: String, completion: @escaping (_ composedUrl: String) -> Void) {
         self.getStaticDataBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 self.optimalLocaleForRegion(completion: { (optimalLocale) in
@@ -196,7 +196,7 @@ class Endpoints: NSObject {
         }
     }
     
-    func staticData_languages(completion: @escaping (composedUrl: String) -> Void) {
+    func staticData_languages(completion: @escaping (_ composedUrl: String) -> Void) {
         self.getStaticDataBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 let urlString = baseEndpoint + "languages?api_key=" + apiKey
@@ -205,7 +205,7 @@ class Endpoints: NSObject {
         }
     }
     
-    func staticData_masteries(masteryListData: String, completion: @escaping (composedUrl: String) -> Void) {
+    func staticData_masteries(masteryListData: String, completion: @escaping (_ composedUrl: String) -> Void) {
         self.getStaticDataBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 self.optimalLocaleForRegion(completion: { (optimalLocale) in
@@ -221,7 +221,7 @@ class Endpoints: NSObject {
         }
     }
     
-    func staticData_masteries_id(masteryId: String, masteryListData: String, completion: @escaping (composedUrl: String) -> Void) {
+    func staticData_masteries_id(masteryId: String, masteryListData: String, completion: @escaping (_ composedUrl: String) -> Void) {
         self.getStaticDataBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 self.optimalLocaleForRegion(completion: { (optimalLocale) in
@@ -237,7 +237,7 @@ class Endpoints: NSObject {
         }
     }
     
-    func staticData_summonerSpell_id(spellId: String, spellData: String, completion: @escaping (composedUrl: String) -> Void) {
+    func staticData_summonerSpell_id(spellId: String, spellData: String, completion: @escaping (_ composedUrl: String) -> Void) {
         getStaticDataBaseEndpoint { (baseEndpoint) in
             self.getApiKey(completion: { (apiKey) in
                 self.optimalLocaleForRegion(completion: { (optimalLocale) in
@@ -254,12 +254,12 @@ class Endpoints: NSObject {
     }
     
     // Status
-    func status_shards(completion: (composedUrl: String) -> Void) {
+    func status_shards(completion: (_ composedUrl: String) -> Void) {
         let urlString = "http://status.leagueoflegends.com/shards"
         completion(urlString)
     }
     
-    func status_byShard(completion: @escaping (composedUrl: String) -> Void) {
+    func status_byShard(completion: @escaping (_ composedUrl: String) -> Void) {
         getRegion { (regionCode) in
             let urlString = "http://status.leagueoflegends.com/shards/" + regionCode
             completion(composedUrl: urlString)
@@ -267,7 +267,7 @@ class Endpoints: NSObject {
     }
     
     // Stats
-    func stats_bySummoner_summary(summonerId: String, completion: @escaping (composedUrl: String) -> Void) {
+    func stats_bySummoner_summary(summonerId: String, completion: @escaping (_ composedUrl: String) -> Void) {
         self.getBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 let urlString = baseEndpoint + "/v1.3/stats/by-summoner/" + summonerId + "/summary?api_key=" + apiKey
@@ -277,7 +277,7 @@ class Endpoints: NSObject {
     }
     
     // Summoner
-    func summoner_byName(summonerNames: String, completion: @escaping (composedUrl: String) -> Void) {
+    func summoner_byName(summonerNames: String, completion: @escaping (_ composedUrl: String) -> Void) {
         self.getBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 let urlString = baseEndpoint + "/v1.4/summoner/by-name/" + summonerNames + "?api_key=" + apiKey
@@ -285,7 +285,7 @@ class Endpoints: NSObject {
             }
         }
     }
-    func summoner_byId(summonerIds: String, completion: @escaping (composedUrl: String) -> Void) {
+    func summoner_byId(summonerIds: String, completion: @escaping (_ composedUrl: String) -> Void) {
         self.getBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 let urlString = baseEndpoint + "/v1.4/summoner/" + summonerIds + "?api_key=" + apiKey
@@ -293,7 +293,7 @@ class Endpoints: NSObject {
             }
         }
     }
-    func summoner_masteriesById(summonerIds: String, completion: @escaping (composedUrl: String) -> Void) {
+    func summoner_masteriesById(summonerIds: String, completion: @escaping (_ composedUrl: String) -> Void) {
         self.getBaseEndpoint { (baseEndpoint) in
             self.getApiKey { (apiKey) in
                 let urlString = baseEndpoint + "/v1.4/summoner/" + summonerIds + "/masteries?api_key=" + apiKey

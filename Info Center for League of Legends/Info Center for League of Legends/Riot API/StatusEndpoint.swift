@@ -11,7 +11,7 @@ import Firebase
 import AFNetworking
 
 class StatusEndpoint: NSObject {
-    func getAllShards(completion: @escaping (shards: [Shard]) -> Void, errorBlock: @escaping () -> Void) {
+    func getAllShards(completion: @escaping (_ shards: [Shard]) -> Void, errorBlock: @escaping () -> Void) {
         Endpoints().status_shards { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 let json = responseObject as! [[String: AnyObject]]
@@ -36,7 +36,7 @@ class StatusEndpoint: NSObject {
         }
     }
     
-    func getShardStatus(completion: @escaping (shardStatus: ShardStatus) -> Void, errorBlock: @escaping () -> Void) {
+    func getShardStatus(completion: @escaping (_ shardStatus: ShardStatus) -> Void, errorBlock: @escaping () -> Void) {
         Endpoints().status_byShard { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 let json = responseObject as! [String: AnyObject]

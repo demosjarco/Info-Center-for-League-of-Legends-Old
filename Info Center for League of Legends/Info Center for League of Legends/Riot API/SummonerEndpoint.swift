@@ -11,7 +11,7 @@ import Firebase
 import AFNetworking
 
 class SummonerEndpoint: NSObject {
-    func getSummonersForSummonerNames(summonerNames: [String], completion: @escaping (summonerMap: [String: SummonerDto]) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
+    func getSummonersForSummonerNames(summonerNames: [String], completion: @escaping (_ summonerMap: [String: SummonerDto]) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
         // Standardize names
         let standardizedSummonerNames = NSMutableArray()
         for summonerName:String in summonerNames {
@@ -48,7 +48,7 @@ class SummonerEndpoint: NSObject {
         }
     }
     
-    func getSummonersForIds(summonerIds: [CLong], completion: @escaping (summonerMap: [String: SummonerDto]) -> Void, errorBlock: @escaping () -> Void) {
+    func getSummonersForIds(summonerIds: [CLong], completion: @escaping (_ summonerMap: [String: SummonerDto]) -> Void, errorBlock: @escaping () -> Void) {
         Endpoints().summoner_byId(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 var newDict = [String: SummonerDto]()
@@ -75,7 +75,7 @@ class SummonerEndpoint: NSObject {
         }
     }
     
-    func getMasteriesForSummonerIds(summonerIds: [CLong], completion: @escaping (summonerMap: [String: MasteryPagesDto]) -> Void, errorBlock: @escaping () -> Void) {
+    func getMasteriesForSummonerIds(summonerIds: [CLong], completion: @escaping (_ summonerMap: [String: MasteryPagesDto]) -> Void, errorBlock: @escaping () -> Void) {
         Endpoints().summoner_masteriesById(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 var newResponse = [String: MasteryPagesDto]()
