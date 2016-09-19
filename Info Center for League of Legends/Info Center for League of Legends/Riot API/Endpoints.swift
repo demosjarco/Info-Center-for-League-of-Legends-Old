@@ -112,139 +112,123 @@ class Endpoints: NSObject {
     }
     
     func championMastery_bySummonerId_topChampions(playerId: String, count: Int, completion: @escaping (_ composedUrl: String) -> Void) {
-        self.getRegion { (regionCode) in
-            var region:String
-            switch regionCode {
-            case "br":
-                region = platformId.br.rawValue
-            case "eune":
-                region = platformId.eune.rawValue
-            case "euw":
-                region = platformId.euw.rawValue
-            case "jp":
-                region = platformId.jp.rawValue
-            case "kr":
-                region = platformId.kr.rawValue
-            case "lan":
-                region = platformId.lan.rawValue
-            case "las":
-                region = platformId.las.rawValue
-            case "na":
-                region = platformId.na.rawValue
-            case "oce":
-                region = platformId.oce.rawValue
-            case "ru":
-                region = platformId.ru.rawValue
-            case "tr":
-                region = platformId.br.rawValue
-            default:
-                region = ""
+        var region:String
+        switch self.getRegion() {
+        case "br":
+            region = platformId.br.rawValue
+        case "eune":
+            region = platformId.eune.rawValue
+        case "euw":
+            region = platformId.euw.rawValue
+        case "jp":
+            region = platformId.jp.rawValue
+        case "kr":
+            region = platformId.kr.rawValue
+        case "lan":
+            region = platformId.lan.rawValue
+        case "las":
+            region = platformId.las.rawValue
+        case "na":
+            region = platformId.na.rawValue
+        case "oce":
+            region = platformId.oce.rawValue
+        case "ru":
+            region = platformId.ru.rawValue
+        case "tr":
+            region = platformId.br.rawValue
+        default:
+            region = ""
+        }
+        
+        self.getApiKey { (apiKey) in
+            var urlString = "https://" + self.getRegion() + ".api.pvp.net/championmastery/location/" + region + "/player/" + playerId + "/topchampions"
+            if count == 0 {
+                urlString = urlString + "?api_key=" + apiKey
+            } else {
+                urlString = urlString + "?count=" + String(count) + "&api_key=" + apiKey
             }
-            
-            self.getApiKey { (apiKey) in
-                var urlString = "https://" + regionCode + ".api.pvp.net/championmastery/location/" + region + "/player/" + playerId + "/topchampions"
-                if count == 0 {
-                    urlString = urlString + "?api_key=" + apiKey
-                } else {
-                    urlString = urlString + "?count=" + String(count) + "&api_key=" + apiKey
-                }
-                completion(composedUrl: urlString)
-            }
+            completion(composedUrl: urlString)
         }
     }
     
     // Game
     func game_BySummoner(summonerId: String, completion: @escaping (_ composedUrl: String) -> Void) {
-        self.getBaseEndpoint { (baseEndpoint) in
-            self.getApiKey { (apiKey) in
-                let urlString = baseEndpoint + "/v1.3/game/by-summoner/" + summonerId + "/recent?api_key=" + apiKey
-                completion(urlString)
-            }
+        self.getApiKey { (apiKey) in
+            let urlString = self.getBaseEndpoint() + "/v1.3/game/by-summoner/" + summonerId + "/recent?api_key=" + apiKey
+            completion(urlString)
         }
     }
     
     // League
     func league_bySummoner_entry(summonerIds: String, completion: @escaping (_ composedUrl: String) -> Void) {
-        self.getBaseEndpoint { (baseEndpoint) in
-            self.getApiKey { (apiKey) in
-                let urlString = baseEndpoint + "/v2.5/league/by-summoner/" + summonerIds + "/entry?api_key=" + apiKey
-                completion(urlString)
-            }
+        self.getApiKey { (apiKey) in
+            let urlString = self.getBaseEndpoint() + "/v2.5/league/by-summoner/" + summonerIds + "/entry?api_key=" + apiKey
+            completion(urlString)
         }
     }
     
     // Static Data
     func staticData_champion_id(championId: String, champData: String, completion: @escaping (_ composedUrl: String) -> Void) {
-        self.getStaticDataBaseEndpoint { (baseEndpoint) in
-            self.getApiKey { (apiKey) in
-                self.optimalLocaleForRegion(completion: { (optimalLocale) in
-                    var urlString = baseEndpoint + "champion/" + championId
-                    if optimalLocale {
-                        urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&champData=" + champData + "&api_key=" + apiKey
-                    } else {
-                        urlString += "?champData=" + champData + "&api_key=" + apiKey
-                    }
-                    completion(urlString)
-                })
-            }
+        self.getApiKey { (apiKey) in
+            self.optimalLocaleForRegion(completion: { (optimalLocale) in
+                var urlString = self.getStaticDataBaseEndpoint() + "champion/" + championId
+                if optimalLocale {
+                    urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&champData=" + champData + "&api_key=" + apiKey
+                } else {
+                    urlString += "?champData=" + champData + "&api_key=" + apiKey
+                }
+                completion(urlString)
+            })
         }
     }
     
     func staticData_languages(completion: @escaping (_ composedUrl: String) -> Void) {
-        self.getStaticDataBaseEndpoint { (baseEndpoint) in
-            self.getApiKey { (apiKey) in
-                let urlString = baseEndpoint + "languages?api_key=" + apiKey
-                completion(urlString)
-            }
+        self.getApiKey { (apiKey) in
+            let urlString = self.getStaticDataBaseEndpoint() + "languages?api_key=" + apiKey
+            completion(urlString)
         }
     }
     
     func staticData_masteries(masteryListData: String, completion: @escaping (_ composedUrl: String) -> Void) {
-        self.getStaticDataBaseEndpoint { (baseEndpoint) in
-            self.getApiKey { (apiKey) in
-                self.optimalLocaleForRegion(completion: { (optimalLocale) in
-                    var urlString = baseEndpoint + "mastery"
-                    if optimalLocale {
-                        urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&masteryListData=" + masteryListData + "&api_key=" + apiKey
-                    } else {
-                        urlString += "?masteryListData=" + masteryListData + "&api_key=" + apiKey
-                    }
-                    completion(urlString)
-                })
-            }
+        self.getApiKey { (apiKey) in
+            self.optimalLocaleForRegion(completion: { (optimalLocale) in
+                var urlString = self.getStaticDataBaseEndpoint() + "mastery"
+                if optimalLocale {
+                    urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&masteryListData=" + masteryListData + "&api_key=" + apiKey
+                } else {
+                    urlString += "?masteryListData=" + masteryListData + "&api_key=" + apiKey
+                }
+                completion(urlString)
+            })
         }
     }
     
     func staticData_masteries_id(masteryId: String, masteryListData: String, completion: @escaping (_ composedUrl: String) -> Void) {
-        self.getStaticDataBaseEndpoint { (baseEndpoint) in
-            self.getApiKey { (apiKey) in
-                self.optimalLocaleForRegion(completion: { (optimalLocale) in
-                    var urlString = baseEndpoint + "mastery/" + masteryId
-                    if optimalLocale {
-                        urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&masteryListData=" + masteryListData + "&api_key=" + apiKey
-                    } else {
-                        urlString += "?masteryListData=" + masteryListData + "&api_key=" + apiKey
-                    }
-                    completion(urlString)
-                })
-            }
+        self.getApiKey { (apiKey) in
+            self.optimalLocaleForRegion(completion: { (optimalLocale) in
+                var urlString = self.getStaticDataBaseEndpoint() + "mastery/" + masteryId
+                if optimalLocale {
+                    urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&masteryListData=" + masteryListData + "&api_key=" + apiKey
+                } else {
+                    urlString += "?masteryListData=" + masteryListData + "&api_key=" + apiKey
+                }
+                completion(urlString)
+            })
         }
     }
     
     func staticData_summonerSpell_id(spellId: String, spellData: String, completion: @escaping (_ composedUrl: String) -> Void) {
-        getStaticDataBaseEndpoint { (baseEndpoint) in
-            self.getApiKey(completion: { (apiKey) in
-                self.optimalLocaleForRegion(completion: { (optimalLocale) in
-                    var urlString = baseEndpoint + "summoner-spell/" + spellId
-                    if optimalLocale {
-                        urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&spellData=" + spellData + "&api_key=" + apiKey
-                    } else {
-                        urlString += "?spellData=" + spellData + "&api_key=" + apiKey
-                    }
-                    completion(urlString)
-                })
+        self.getApiKey(completion: { (apiKey) in
+            self.optimalLocaleForRegion(completion: { (optimalLocale) in
+                var urlString = self.getStaticDataBaseEndpoint() + "summoner-spell/" + spellId
+                if optimalLocale {
+                    urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&spellData=" + spellData + "&api_key=" + apiKey
+                } else {
+                    urlString += "?spellData=" + spellData + "&api_key=" + apiKey
+                }
+                completion(urlString)
             })
-        }
+        })
     }
     
     // Status
@@ -254,45 +238,35 @@ class Endpoints: NSObject {
     }
     
     func status_byShard(completion: @escaping (_ composedUrl: String) -> Void) {
-        getRegion { (regionCode) in
-            let urlString = "http://status.leagueoflegends.com/shards/" + regionCode
-            completion(composedUrl: urlString)
-        }
+        let urlString = "http://status.leagueoflegends.com/shards/" + self.getRegion()
+        completion(composedUrl: urlString)
     }
     
     // Stats
     func stats_bySummoner_summary(summonerId: String, completion: @escaping (_ composedUrl: String) -> Void) {
-        self.getBaseEndpoint { (baseEndpoint) in
-            self.getApiKey { (apiKey) in
-                let urlString = baseEndpoint + "/v1.3/stats/by-summoner/" + summonerId + "/summary?api_key=" + apiKey
-                completion(urlString)
-            }
+        self.getApiKey { (apiKey) in
+            let urlString = self.getBaseEndpoint() + "/v1.3/stats/by-summoner/" + summonerId + "/summary?api_key=" + apiKey
+            completion(urlString)
         }
     }
     
     // Summoner
     func summoner_byName(summonerNames: String, completion: @escaping (_ composedUrl: String) -> Void) {
-        self.getBaseEndpoint { (baseEndpoint) in
-            self.getApiKey { (apiKey) in
-                let urlString = baseEndpoint + "/v1.4/summoner/by-name/" + summonerNames + "?api_key=" + apiKey
-                completion(urlString)
-            }
+        self.getApiKey { (apiKey) in
+            let urlString = self.getBaseEndpoint() + "/v1.4/summoner/by-name/" + summonerNames + "?api_key=" + apiKey
+            completion(urlString)
         }
     }
     func summoner_byId(summonerIds: String, completion: @escaping (_ composedUrl: String) -> Void) {
-        self.getBaseEndpoint { (baseEndpoint) in
-            self.getApiKey { (apiKey) in
-                let urlString = baseEndpoint + "/v1.4/summoner/" + summonerIds + "?api_key=" + apiKey
-                completion(urlString)
-            }
+        self.getApiKey { (apiKey) in
+            let urlString = self.getBaseEndpoint() + "/v1.4/summoner/" + summonerIds + "?api_key=" + apiKey
+            completion(urlString)
         }
     }
     func summoner_masteriesById(summonerIds: String, completion: @escaping (_ composedUrl: String) -> Void) {
-        self.getBaseEndpoint { (baseEndpoint) in
-            self.getApiKey { (apiKey) in
-                let urlString = baseEndpoint + "/v1.4/summoner/" + summonerIds + "/masteries?api_key=" + apiKey
-                completion(urlString)
-            }
+        self.getApiKey { (apiKey) in
+            let urlString = self.getBaseEndpoint() + "/v1.4/summoner/" + summonerIds + "/masteries?api_key=" + apiKey
+            completion(urlString)
         }
     }
 }
