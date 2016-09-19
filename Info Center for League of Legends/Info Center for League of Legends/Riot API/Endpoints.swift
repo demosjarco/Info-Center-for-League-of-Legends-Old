@@ -106,8 +106,8 @@ class Endpoints: NSObject {
         }
         
         self.getApiKey { (apiKey) in
-            let urlString = "https://" + regionCode + ".api.pvp.net/championmastery/location/" + region + "/player/" + playerId + "/champions" + "?api_key=" + apiKey
-            completion(composedUrl: urlString)
+            let urlString = "https://" + self.getRegion() + ".api.pvp.net/championmastery/location/" + region + "/player/" + playerId + "/champions" + "?api_key=" + apiKey
+            completion(urlString)
         }
     }
     
