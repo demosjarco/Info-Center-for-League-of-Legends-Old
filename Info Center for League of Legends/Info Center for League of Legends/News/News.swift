@@ -145,7 +145,7 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
         let temp = entries[indexPath.row]["content"] as! String
         do {
             try cell.newsStoryBlurContent?.text = NSAttributedString(data: temp.data(using: String.Encoding.utf8)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil).string
-            try cell.newsStoryContent?.text = NSAttributedString(data: temp.data(using: String.Encoding.utf8)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil).string
+            try cell.newsStoryContent?.text = cell.newsStoryBlurContent?.text
         } catch let error as NSError {
             print(error.localizedDescription)
         }
