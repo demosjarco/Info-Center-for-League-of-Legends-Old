@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class ChampionList: UICollectionViewController {
+class ChampionList: MainCollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
