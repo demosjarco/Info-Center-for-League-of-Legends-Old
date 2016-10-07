@@ -13,7 +13,7 @@ class TournamentList: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.refresh()
+        refresh()
     }
     
     @IBAction func refresh() {
