@@ -58,6 +58,7 @@
 		178B957C1D428A4D00CAD47A /* PlayerDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178B957B1D428A4D00CAD47A /* PlayerDto.swift */; };
 		178B957E1D428A5A00CAD47A /* RawStatsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178B957D1D428A5A00CAD47A /* RawStatsDto.swift */; };
 		178E3C061DA7FF600088BE69 /* TournamentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E3C051DA7FF600088BE69 /* TournamentList.swift */; };
+		178E3C0B1DA7FF9B0088BE69 /* ChampionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E3C0A1DA7FF9B0088BE69 /* ChampionList.swift */; };
 		1791E6E31D416DF400012595 /* champMastery.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1791E6E21D416DF400012595 /* champMastery.xcassets */; };
 		1791E6E51D41980400012595 /* ProfileView_SummaryTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791E6E41D41980400012595 /* ProfileView_SummaryTile.swift */; };
 		17B9B30D1D4D73EB00D8A755 /* ChampionMasteryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B30C1D4D73EB00D8A755 /* ChampionMasteryDto.swift */; };
@@ -175,6 +176,7 @@
 		178B957B1D428A4D00CAD47A /* PlayerDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDto.swift; sourceTree = "<group>"; };
 		178B957D1D428A5A00CAD47A /* RawStatsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawStatsDto.swift; sourceTree = "<group>"; };
 		178E3C051DA7FF600088BE69 /* TournamentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TournamentList.swift; sourceTree = "<group>"; };
+		178E3C0A1DA7FF9B0088BE69 /* ChampionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionList.swift; sourceTree = "<group>"; };
 		1791E6E21D416DF400012595 /* champMastery.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = champMastery.xcassets; sourceTree = "<group>"; };
 		1791E6E41D41980400012595 /* ProfileView_SummaryTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_SummaryTile.swift; path = "Profile/ProfileView Cells/ProfileView_SummaryTile.swift"; sourceTree = "<group>"; };
 		17B9B30C1D4D73EB00D8A755 /* ChampionMasteryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChampionMasteryDto.swift; path = "Riot API/ChampionMasteryEntities/ChampionMasteryDto.swift"; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				17EDBB311D10EEF200C7B7C5 /* Subclasses */,
 				174C95171D106CCD00EBFB07 /* AppDelegate.swift */,
 				17EDBB341D10EFAF00C7B7C5 /* Profile */,
+				178E3C091DA7FF9B0088BE69 /* Champions */,
 				178E3C041DA7FF600088BE69 /* Tournaments */,
 				177666A61D52756600C846BA /* Lcs */,
 				17353B691D3AC7F400C56768 /* News */,
@@ -471,6 +474,14 @@
 				178E3C051DA7FF600088BE69 /* TournamentList.swift */,
 			);
 			path = Tournaments;
+			sourceTree = "<group>";
+		};
+		178E3C091DA7FF9B0088BE69 /* Champions */ = {
+			isa = PBXGroup;
+			children = (
+				178E3C0A1DA7FF9B0088BE69 /* ChampionList.swift */,
+			);
+			path = Champions;
 			sourceTree = "<group>";
 		};
 		17B9B3071D4D68A100D8A755 /* StaticData Entities */ = {
@@ -1070,6 +1081,7 @@
 				1739C48F1D1C281400B50BDC /* PlistManager.swift in Sources */,
 				17F97B861D56773100A8B4E7 /* MasteryListDto.swift in Sources */,
 				17EDBB301D10EEEF00C7B7C5 /* MainTableViewController.swift in Sources */,
+				178E3C0B1DA7FF9B0088BE69 /* ChampionList.swift in Sources */,
 				1771CBD51D282B9800D0DB08 /* MiniSeriesDto.swift in Sources */,
 				17FDDF601D4D391200CC7277 /* ChampionMasteryEndpoint.swift in Sources */,
 				17F97B8D1D5678A800A8B4E7 /* SC_MasteryDto.swift in Sources */,
