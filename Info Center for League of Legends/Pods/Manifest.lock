@@ -15,7 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - BEMSimpleLineGraph (4.1)
-  - Device.swift (0.3.1)
+  - Device.swift (0.3.2)
   - Firebase/AdMob (3.7.1):
     - Firebase/Core
     - Google-Mobile-Ads-SDK (= 7.12.1)
@@ -80,7 +80,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - BEMSimpleLineGraph
-  - Device.swift
+  - Device.swift (from `https://github.com/schickling/Device.swift.git`, branch `master`)
   - Firebase/AdMob
   - Firebase/Auth
   - Firebase/Core
@@ -91,10 +91,20 @@ DEPENDENCIES:
   - MBCircularProgressBar
   - SGSStaggeredFlowLayout
 
+EXTERNAL SOURCES:
+  Device.swift:
+    :branch: master
+    :git: https://github.com/schickling/Device.swift.git
+
+CHECKOUT OPTIONS:
+  Device.swift:
+    :commit: 134147a550ca2149ace2b3cdec1c2740d167e76e
+    :git: https://github.com/schickling/Device.swift.git
+
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BEMSimpleLineGraph: 44fd451f27f8e9cf96f2da5bea27603093576dd1
-  Device.swift: d396648eebcfc424944acfdb7391817e4bdec4e9
+  Device.swift: 0da761f215e1d90e1171d822b4e8f2f34d1a8db1
   Firebase: be473484f0d515e72ffd04acf22f981773c23e58
   FirebaseAnalytics: 0533a00b681e08fd0b2cd0444b7ddf0ef9fd7a1a
   FirebaseAuth: 75a062bbf2d3c97d1e6e55bbc110e13a6853e25d
@@ -113,6 +123,6 @@ SPEC CHECKSUMS:
   MBCircularProgressBar: ff3b8e2f441214d9ee122a24ba0d4d00cc7de881
   SGSStaggeredFlowLayout: 7b20a3b7ac88a0db063ce9c4ac71c5fc95e165c2
 
-PODFILE CHECKSUM: 96872fcf7ad2220fd0c6f34d5b907a96511259e6
+PODFILE CHECKSUM: 7d1e12776a88daf673ddf97432ad29baddfca154
 
 COCOAPODS: 1.1.0.rc.2

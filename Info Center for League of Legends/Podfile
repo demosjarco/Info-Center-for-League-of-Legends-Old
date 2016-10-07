@@ -7,7 +7,7 @@ target 'Info Center for League of Legends' do
 	workspace 'project'
 
 	# Pods for Info Center for League of Legends
-    pod 'Device.swift'
+    pod 'Device.swift', :git => 'https://github.com/schickling/Device.swift.git', :branch => 'master'
     pod 'Firebase/Core'
     pod 'Firebase/AdMob'
 	pod 'Firebase/Database'

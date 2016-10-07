@@ -1,5 +1,5 @@
 # Device.swift [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-Super-lightweight library to detect used device 
+Super-lightweight library to detect used device
 
 ## Usage
 
@@ -76,5 +76,5 @@ CocoaPods 0.36 adds supports for Swift and embedded frameworks. To integrate `De
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'Device'
+pod 'Device.swift'
 ```
