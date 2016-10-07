@@ -10,8 +10,12 @@ import Foundation
 
 class PlistManager: NSObject {
     func loadRecentSummoners() -> NSArray {
-        if let recentSummoners = NSArray(contentsOfFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(recentSummonersFileName(regionCode: Endpoints().getRegion()))) {
-            return recentSummoners
+        if let region = UserDefaults.standard.string(forKey: "league_region") {
+            if let recentSummoners = NSArray(contentsOfFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(recentSummonersFileName(regionCode: region))) {
+                return recentSummoners
+            } else {
+                return NSArray()
+            }
         } else {
             return NSArray()
         }
