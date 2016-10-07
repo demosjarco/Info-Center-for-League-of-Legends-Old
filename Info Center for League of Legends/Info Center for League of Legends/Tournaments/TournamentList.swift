@@ -46,6 +46,18 @@ class TournamentList: UITableViewController {
     /*
     // Custom edit buttons
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        /*let editAction = UITableViewRowAction(style: .Normal, title: "Edit") { (rowAction:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
+         //TODO: edit the row at indexPath here
+         }
+         editAction.backgroundColor = UIColor.blueColor()
+         
+         
+         let deleteAction = UITableViewRowAction(style: .Normal, title: "Delete") { (rowAction:UITableViewRowAction, indexPath:NSIndexPath) -> Void in
+         //TODO: Delete the row at indexPath here
+         }
+         deleteAction.backgroundColor = UIColor.redColor()
+         
+         return [editAction,deleteAction]*/
         <#code#>
     }*/
 
