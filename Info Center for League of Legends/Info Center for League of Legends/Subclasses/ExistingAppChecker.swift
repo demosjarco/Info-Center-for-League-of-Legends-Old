@@ -59,6 +59,8 @@ class ExistingAppChecker: NSObject {
          userChose("kr")
          }))*/
         
-        viewController.present(alert, animated: true, completion: nil)
+        viewController.present(alert, animated: true) { 
+            alert.view.tintColor = UIView().tintColor
+        }
     }
 }
