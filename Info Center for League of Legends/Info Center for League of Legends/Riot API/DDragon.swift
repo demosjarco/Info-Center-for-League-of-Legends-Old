@@ -27,7 +27,7 @@ class DDragon: NSObject {
     
     func getLatestDDragonVersion(dataType: String, completion: @escaping (_ version: String) -> Void) {
         AFHTTPSessionManager().get("http://ddragon.leagueoflegends.com/realms/" + Endpoints().getRegion() + ".json", parameters: nil, progress: nil, success: { (task, responseObject) in
-            let dict = responseObject as! NSDictionary
+            let dict = responseObject as! [String: AnyObject]
             completion(dict["n"]![dataType] as! String)
         }, failure: nil)
     }
