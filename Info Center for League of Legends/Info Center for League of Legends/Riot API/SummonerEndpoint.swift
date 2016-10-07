@@ -13,12 +13,12 @@ import AFNetworking
 class SummonerEndpoint: NSObject {
     func getSummonersForSummonerNames(summonerNames: [String], completion: @escaping (_ summonerMap: [String: SummonerDto]) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
         // Standardize names
-        let standardizedSummonerNames = NSMutableArray()
+        var standardizedSummonerNames = [String]()
         for summonerName:String in summonerNames {
-            standardizedSummonerNames.add(summonerName.replacingOccurrences(of: " ", with: "").lowercased())
+            standardizedSummonerNames.append(summonerName.replacingOccurrences(of: " ", with: "").lowercased())
         }
         
-        Endpoints().summoner_byName(summonerNames: standardizedSummonerNames.value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
+        Endpoints().summoner_byName(summonerNames: standardizedSummonerNames.joined(separator: ",")) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 var newDict = [String: SummonerDto]()
                 let dict = responseObject as! NSDictionary
@@ -49,7 +49,12 @@ class SummonerEndpoint: NSObject {
     }
     
     func getSummonersForIds(summonerIds: [CLong], completion: @escaping (_ summonerMap: [String: SummonerDto]) -> Void, errorBlock: @escaping () -> Void) {
-        Endpoints().summoner_byId(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
+        var stringSummonerIds = [String]()
+        for summonerId in summonerIds {
+            stringSummonerIds.append(String(summonerId))
+        }
+        
+        Endpoints().summoner_byId(summonerIds: stringSummonerIds.joined(separator: ",")) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 var newDict = [String: SummonerDto]()
                 let dict = responseObject as! NSDictionary
@@ -76,7 +81,12 @@ class SummonerEndpoint: NSObject {
     }
     
     func getMasteriesForSummonerIds(summonerIds: [CLong], completion: @escaping (_ summonerMap: [String: MasteryPagesDto]) -> Void, errorBlock: @escaping () -> Void) {
-        Endpoints().summoner_masteriesById(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
+        var stringSummonerIds = [String]()
+        for summonerId in summonerIds {
+            stringSummonerIds.append(String(summonerId))
+        }
+        
+        Endpoints().summoner_masteriesById(summonerIds: stringSummonerIds.joined(separator: ",")) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 var newResponse = [String: MasteryPagesDto]()
                 let json = responseObject as! NSDictionary

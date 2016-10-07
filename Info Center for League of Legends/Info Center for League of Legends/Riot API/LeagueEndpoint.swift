@@ -46,7 +46,12 @@ class LeagueEndpoint: NSObject {
     }
     
     func getLeagueEntryBySummonerIds(summonerIds: [CLong], completion: @escaping (_ summonerMap: [String: [LeagueDto]]) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
-        Endpoints().league_bySummoner_entry(summonerIds: NSArray(array: summonerIds).value(forKey: "description").componentsJoined(by: ",")) { (composedUrl) in
+        var stringSummonerIds = [String]()
+        for summonerId in summonerIds {
+            stringSummonerIds.append(String(summonerId))
+        }
+        
+        Endpoints().league_bySummoner_entry(summonerIds: stringSummonerIds.joined(separator: ",")) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 var newDict = [String: [LeagueDto]]()
                 let json = responseObject as! NSDictionary
