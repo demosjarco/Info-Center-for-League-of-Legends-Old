@@ -104,7 +104,7 @@ class LeagueEndpoint: NSObject {
                     }
                     newDict[json.allKeys[h] as! String] = leagueArray
                 }
-                completion(summonerMap: newDict)
+                completion(newDict)
             }, failure: { (task, error) in
                 let response = task!.response as! HTTPURLResponse
                 if response.statusCode == 404 {
