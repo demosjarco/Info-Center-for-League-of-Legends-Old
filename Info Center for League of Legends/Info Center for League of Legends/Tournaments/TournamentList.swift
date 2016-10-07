@@ -15,6 +15,14 @@ class TournamentList: UITableViewController {
     }
 
     // MARK: - Table view data source
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "My Tournaments"
+        } else {
+            return "Public Tournaments"
+        }
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
