@@ -61,6 +61,7 @@
 		178E3C0B1DA7FF9B0088BE69 /* ChampionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178E3C0A1DA7FF9B0088BE69 /* ChampionList.swift */; };
 		1791E6E31D416DF400012595 /* champMastery.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1791E6E21D416DF400012595 /* champMastery.xcassets */; };
 		1791E6E51D41980400012595 /* ProfileView_SummaryTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791E6E41D41980400012595 /* ProfileView_SummaryTile.swift */; };
+		17A098801DA83517004C79F4 /* TournamentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A0987F1DA83517004C79F4 /* TournamentListCell.swift */; };
 		17B9B30D1D4D73EB00D8A755 /* ChampionMasteryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B30C1D4D73EB00D8A755 /* ChampionMasteryDto.swift */; };
 		17B9B3101D4D746300D8A755 /* ChampionDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B30E1D4D746300D8A755 /* ChampionDto.swift */; };
 		17B9B3111D4D746300D8A755 /* ChampionSpellDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B30F1D4D746300D8A755 /* ChampionSpellDto.swift */; };
@@ -179,6 +180,7 @@
 		178E3C0A1DA7FF9B0088BE69 /* ChampionList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionList.swift; sourceTree = "<group>"; };
 		1791E6E21D416DF400012595 /* champMastery.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = champMastery.xcassets; sourceTree = "<group>"; };
 		1791E6E41D41980400012595 /* ProfileView_SummaryTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_SummaryTile.swift; path = "Profile/ProfileView Cells/ProfileView_SummaryTile.swift"; sourceTree = "<group>"; };
+		17A0987F1DA83517004C79F4 /* TournamentListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TournamentListCell.swift; sourceTree = "<group>"; };
 		17B9B30C1D4D73EB00D8A755 /* ChampionMasteryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChampionMasteryDto.swift; path = "Riot API/ChampionMasteryEntities/ChampionMasteryDto.swift"; sourceTree = "<group>"; };
 		17B9B30E1D4D746300D8A755 /* ChampionDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChampionDto.swift; path = "Riot API/StaticDataEntities/ChampionDto.swift"; sourceTree = "<group>"; };
 		17B9B30F1D4D746300D8A755 /* ChampionSpellDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChampionSpellDto.swift; path = "Riot API/StaticDataEntities/ChampionSpellDto.swift"; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 			isa = PBXGroup;
 			children = (
 				178E3C051DA7FF600088BE69 /* TournamentList.swift */,
+				17A0987F1DA83517004C79F4 /* TournamentListCell.swift */,
 			);
 			path = Tournaments;
 			sourceTree = "<group>";
@@ -1042,6 +1045,7 @@
 				17B9B3231D4D75AF00D8A755 /* BlockDto.swift in Sources */,
 				17B9B31D1D4D757C00D8A755 /* StatsDto.swift in Sources */,
 				1732F6091D55019F009DA53B /* Translation.swift in Sources */,
+				17A098801DA83517004C79F4 /* TournamentListCell.swift in Sources */,
 				1732F5F71D54FA9A009DA53B /* ServerStatus.swift in Sources */,
 				17B9B31F1D4D759100D8A755 /* LevelTipDto.swift in Sources */,
 				171A5C861D5E4EEE002A8F57 /* Profile_RecentGames.swift in Sources */,
