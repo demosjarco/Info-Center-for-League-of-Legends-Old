@@ -133,8 +133,9 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
             cell.rightBorder?.isHidden = false
         }
         
-        cell.statTitle?.text = self.summonerStats[indexPath.row]["statTitle"] as? String
-        cell.statValue?.text = self.summonerStats[indexPath.row]["statValue"] as? String
+        let summonerStats = self.summonerStats[indexPath.row] as! [String: String]
+        cell.statTitle?.text = summonerStats["statTitle"]
+        cell.statValue?.text = summonerStats["statValue"]
         
         return cell
     }
