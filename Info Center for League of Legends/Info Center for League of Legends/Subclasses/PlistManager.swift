@@ -73,11 +73,11 @@ class PlistManager: NSObject {
             return tileOrder
         } else {
             let tempTileOrder = NSMutableArray()
-            tempTileOrder.insert(NSDictionary(object: "champMastery", forKey: "tileType"), at: 0)
-            tempTileOrder.insert(NSDictionary(object: "recentGames", forKey: "tileType"), at: 1)
-            tempTileOrder.insert(NSDictionary(object: "masteries", forKey: "tileType"), at: 2)
-            tempTileOrder.insert(NSDictionary(object: "runes", forKey: "tileType"), at: 3)
-            tempTileOrder.insert(NSDictionary(object: "teams", forKey: "tileType"), at: 4)
+            tempTileOrder.insert(NSDictionary(object: "champMastery", forKey: "tileType" as NSCopying), at: 0)
+            tempTileOrder.insert(NSDictionary(object: "recentGames", forKey: "tileType" as NSCopying), at: 1)
+            tempTileOrder.insert(NSDictionary(object: "masteries", forKey: "tileType" as NSCopying), at: 2)
+            tempTileOrder.insert(NSDictionary(object: "runes", forKey: "tileType" as NSCopying), at: 3)
+            tempTileOrder.insert(NSDictionary(object: "teams", forKey: "tileType" as NSCopying), at: 4)
             
             return NSArray(array: tempTileOrder)
         }

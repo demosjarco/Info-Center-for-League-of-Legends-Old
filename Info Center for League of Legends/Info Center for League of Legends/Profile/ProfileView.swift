@@ -103,7 +103,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                     }
                     
                     let lp = self.profileHeader.summonerStats[2] as! NSMutableDictionary
-                    lp.setObject(String(entry!.leaguePoints), forKey: "statValue")
+                    lp.setObject(String(entry!.leaguePoints), forKey: "statValue" as NSCopying)
                     self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 2, section: 0)])
                 }
                 
@@ -156,38 +156,38 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
             for summary in summaryList.playerStatSummaries {
                 if summary.playerStatSummaryType == "RankedSolo5x5" {
                     let rWins = self.profileHeader.summonerStats[0] as! NSMutableDictionary
-                    rWins.setObject(String(summary.wins), forKey: "statValue")
+                    rWins.setObject(String(summary.wins), forKey: "statValue" as NSCopying)
                     self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 0, section: 0)])
                     let rLosses = self.profileHeader.summonerStats[1] as! NSMutableDictionary
-                    rLosses.setObject(String(summary.losses), forKey: "statValue")
+                    rLosses.setObject(String(summary.losses), forKey: "statValue" as NSCopying)
                     self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 1, section: 0)])
                 } else if summary.playerStatSummaryType == "Unranked" {
                     if summary.aggregatedStats.totalChampionKills != nil {
                         let nKills = self.profileHeader.summonerStats[3] as! NSMutableDictionary
-                        nKills.setObject(String(summary.aggregatedStats.totalChampionKills!), forKey: "statValue")
+                        nKills.setObject(String(summary.aggregatedStats.totalChampionKills!), forKey: "statValue" as NSCopying)
                         self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 3, section: 0)])
                     }
                     if summary.aggregatedStats.totalMinionKills != nil && summary.aggregatedStats.totalNeutralMinionsKilled != nil {
                         let nCS = self.profileHeader.summonerStats[4] as! NSMutableDictionary
-                        nCS.setObject(String(summary.aggregatedStats.totalMinionKills! + summary.aggregatedStats.totalNeutralMinionsKilled!), forKey: "statValue")
+                        nCS.setObject(String(summary.aggregatedStats.totalMinionKills! + summary.aggregatedStats.totalNeutralMinionsKilled!), forKey: "statValue" as NSCopying)
                         self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 4, section: 0)])
                     }
                     let nWins = self.profileHeader.summonerStats[5] as! NSMutableDictionary
-                    nWins.setObject(String(summary.wins), forKey: "statValue")
+                    nWins.setObject(String(summary.wins), forKey: "statValue" as NSCopying)
                     self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 5, section: 0)])
                 } else if summary.playerStatSummaryType == "AramUnranked5x5" {
                     if summary.aggregatedStats.totalChampionKills != nil {
                         let aKills = self.profileHeader.summonerStats[6] as! NSMutableDictionary
-                        aKills.setObject(String(summary.aggregatedStats.totalChampionKills!), forKey: "statValue")
+                        aKills.setObject(String(summary.aggregatedStats.totalChampionKills!), forKey: "statValue" as NSCopying)
                         self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 6, section: 0)])
                     }
                     if summary.aggregatedStats.totalTurretsKilled != nil {
                         let aTurrets = self.profileHeader.summonerStats[7] as! NSMutableDictionary
-                        aTurrets.setObject(String(summary.aggregatedStats.totalTurretsKilled!), forKey: "statValue")
+                        aTurrets.setObject(String(summary.aggregatedStats.totalTurretsKilled!), forKey: "statValue" as NSCopying)
                         self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 7, section: 0)])
                     }
                     let aWins = self.profileHeader.summonerStats[8] as! NSMutableDictionary
-                    aWins.setObject(String(summary.wins), forKey: "statValue")
+                    aWins.setObject(String(summary.wins), forKey: "statValue" as NSCopying)
                     self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 8, section: 0)])
                 }
             }
