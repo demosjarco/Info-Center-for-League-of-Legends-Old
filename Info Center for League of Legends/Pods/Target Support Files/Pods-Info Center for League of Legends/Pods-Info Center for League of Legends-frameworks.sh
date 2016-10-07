@@ -86,6 +86,7 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
   install_framework "$BUILT_PRODUCTS_DIR/BEMSimpleLineGraph/BEMSimpleLineGraph.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Device.swift/Device_swift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/JSBadgeView/JSBadgeView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MBCircularProgressBar/MBCircularProgressBar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SGSStaggeredFlowLayout/SGSStaggeredFlowLayout.framework"
@@ -93,6 +94,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
   install_framework "$BUILT_PRODUCTS_DIR/BEMSimpleLineGraph/BEMSimpleLineGraph.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Device.swift/Device_swift.framework"
   install_framework "$BUILT_PRODUCTS_DIR/JSBadgeView/JSBadgeView.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MBCircularProgressBar/MBCircularProgressBar.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SGSStaggeredFlowLayout/SGSStaggeredFlowLayout.framework"
