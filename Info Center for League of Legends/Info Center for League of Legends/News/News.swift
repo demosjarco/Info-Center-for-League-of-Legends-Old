@@ -54,7 +54,7 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
             } else {
                 rssUrl = NSString(format: baseUrl, Endpoints().getRegion(), languagesForRegion[0])
             }
-            rssUrl = rssUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!.replacingOccurrences(of: ":", with: "%3A")
+            rssUrl = rssUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!.replacingOccurrences(of: ":", with: "%3A") as NSString
             
             let convertUrl = languages["rssToJsonUrl"] as! NSString
             let url = NSString(format: convertUrl, rssUrl) as String
