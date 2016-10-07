@@ -207,8 +207,8 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
             if champions.count > 2 {
                 self.cm_top3champs.append(champions[2])
             }
-            for tile in self.tileOrder {
-                if tile["tileType"] as! String == "champMastery" {
+            for tile in self.tileOrder as! [[String: String]] {
+                if tile["tileType"]! as String == "champMastery" {
                     self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
                 }
             }
@@ -238,8 +238,8 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                     }
                 }
             }
-            for tile in self.tileOrder {
-                if tile["tileType"] as! String == "recentGames" {
+            for tile in self.tileOrder as! [[String: String]] {
+                if tile["tileType"]! as String == "recentGames" {
                     self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
                 }
             }
@@ -258,8 +258,8 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                     break
                 }
             }
-            for tile in self.tileOrder {
-                if tile["tileType"] as! String == "masteries" {
+            for tile in self.tileOrder as! [[String: String]] {
+                if tile["tileType"]! as String == "masteries" {
                     self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
                 }
             }
@@ -302,7 +302,8 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch tileOrder[indexPath.row]["tileType"] {
+        let niceTileOrder = tileOrder as! [[String: String]]
+        switch niceTileOrder[indexPath.row]["tileType"] {
             case "champMastery" as NSString:
                 // Champion Mastery
                 let champMasteryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_champ_mastery", for: indexPath) as! ProfileView_ChampMastery
