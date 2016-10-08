@@ -70,6 +70,47 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
         self.navigationController?.popoverPresentationController?.backgroundColor = self.tableView.backgroundColor
     }
     
+    @IBAction func linkNewSummonerButton() {
+        let randomCode = randomAlphaNumericString(length: 5)
+        
+        let alert = UIAlertController(title: "Link Summoner", message: "Type in summoner name to begin the link process. Afterwards change the name of one of your mastery pages to \"" + randomCode + "\" and tap on the name below to verify.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let searchAction = UIAlertAction(title: "Search", style: UIAlertActionStyle.default, handler: { (action) in
+            let summonerTextField = alert.textFields!.first! as UITextField
+            SummonerEndpoint().getSummonersForSummonerNames(summonerNames: [summonerTextField.text!], completion: { (summonerMap) in
+                let summoner = summonerMap.values.first!
+                FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").updateChildValues([String(summoner.summonerId): ["summonerId": summoner.summonerId, "verified": false, "verifyCode": NSNumber(value: Int(randomCode)!)]])
+            }, notFound: {
+                let alert2 = UIAlertController(title: "Not found", message: "Please check your spelling and/or region", preferredStyle: UIAlertControllerStyle.alert)
+                alert2.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
+                self.present(alert2, animated: true) {
+                    alert2.view.tintColor = UIView().tintColor
+                }
+            }, errorBlock: {
+                let alert3 = UIAlertController(title: "Summoner lookup failed", message: "Please check your connection and/or try again later. This problem has been submitted for review.", preferredStyle: UIAlertControllerStyle.alert)
+                alert3.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: nil))
+                self.present(alert3, animated: true) {
+                    alert3.view.tintColor = UIView().tintColor
+                }
+            })
+        })
+        searchAction.isEnabled = false
+        alert.addAction(searchAction)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        alert.addTextField { (textField) in
+            textField.placeholder = "Summoner Name"
+            
+            NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { (notification) in
+                searchAction.isEnabled = textField.text != ""
+            }
+        }
+        
+        self.present(alert, animated: true) { 
+            alert.view.tintColor = UIView().tintColor
+        }
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
