@@ -20,7 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         
         FIRAuth.auth()?.signInAnonymously(completion: { (user, error) in
-            print("User id: " + String(user!.uid))
+            print("User id: " + user!.uid)
+            FIRDatabase.database().reference().child("users").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                if !snapshot.hasChild("profileName") {
+                    snapshot.ref.updateChildValues(["profileName": "Anonymous"])
+                }
+            })
         })
         
         return true
