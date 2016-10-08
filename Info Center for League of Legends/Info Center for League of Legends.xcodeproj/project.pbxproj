@@ -62,6 +62,8 @@
 		1791E6E31D416DF400012595 /* champMastery.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1791E6E21D416DF400012595 /* champMastery.xcassets */; };
 		1791E6E51D41980400012595 /* ProfileView_SummaryTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1791E6E41D41980400012595 /* ProfileView_SummaryTile.swift */; };
 		17A098801DA83517004C79F4 /* TournamentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A0987F1DA83517004C79F4 /* TournamentListCell.swift */; };
+		17A098851DA84F03004C79F4 /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A098841DA84F03004C79F4 /* AccountSettings.swift */; };
+		17A098871DA84F65004C79F4 /* AccountNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A098861DA84F65004C79F4 /* AccountNameCell.swift */; };
 		17B9B30D1D4D73EB00D8A755 /* ChampionMasteryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B30C1D4D73EB00D8A755 /* ChampionMasteryDto.swift */; };
 		17B9B3101D4D746300D8A755 /* ChampionDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B30E1D4D746300D8A755 /* ChampionDto.swift */; };
 		17B9B3111D4D746300D8A755 /* ChampionSpellDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B30F1D4D746300D8A755 /* ChampionSpellDto.swift */; };
@@ -181,6 +183,8 @@
 		1791E6E21D416DF400012595 /* champMastery.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = champMastery.xcassets; sourceTree = "<group>"; };
 		1791E6E41D41980400012595 /* ProfileView_SummaryTile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_SummaryTile.swift; path = "Profile/ProfileView Cells/ProfileView_SummaryTile.swift"; sourceTree = "<group>"; };
 		17A0987F1DA83517004C79F4 /* TournamentListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TournamentListCell.swift; sourceTree = "<group>"; };
+		17A098841DA84F03004C79F4 /* AccountSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
+		17A098861DA84F65004C79F4 /* AccountNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountNameCell.swift; sourceTree = "<group>"; };
 		17B9B30C1D4D73EB00D8A755 /* ChampionMasteryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChampionMasteryDto.swift; path = "Riot API/ChampionMasteryEntities/ChampionMasteryDto.swift"; sourceTree = "<group>"; };
 		17B9B30E1D4D746300D8A755 /* ChampionDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChampionDto.swift; path = "Riot API/StaticDataEntities/ChampionDto.swift"; sourceTree = "<group>"; };
 		17B9B30F1D4D746300D8A755 /* ChampionSpellDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChampionSpellDto.swift; path = "Riot API/StaticDataEntities/ChampionSpellDto.swift"; sourceTree = "<group>"; };
@@ -475,6 +479,7 @@
 			children = (
 				178E3C051DA7FF600088BE69 /* TournamentList.swift */,
 				17A0987F1DA83517004C79F4 /* TournamentListCell.swift */,
+				17A098831DA84F03004C79F4 /* AccountSettings */,
 			);
 			path = Tournaments;
 			sourceTree = "<group>";
@@ -485,6 +490,15 @@
 				178E3C0A1DA7FF9B0088BE69 /* ChampionList.swift */,
 			);
 			path = Champions;
+			sourceTree = "<group>";
+		};
+		17A098831DA84F03004C79F4 /* AccountSettings */ = {
+			isa = PBXGroup;
+			children = (
+				17A098841DA84F03004C79F4 /* AccountSettings.swift */,
+				17A098861DA84F65004C79F4 /* AccountNameCell.swift */,
+			);
+			path = AccountSettings;
 			sourceTree = "<group>";
 		};
 		17B9B3071D4D68A100D8A755 /* StaticData Entities */ = {
@@ -1041,6 +1055,7 @@
 				171A5C8B1D5E754D002A8F57 /* SummonerSpellDto.swift in Sources */,
 				17B9B31B1D4D756E00D8A755 /* SkinDto.swift in Sources */,
 				178B95791D428A1C00CAD47A /* GameDto.swift in Sources */,
+				17A098871DA84F65004C79F4 /* AccountNameCell.swift in Sources */,
 				17FDDF651D4D494600CC7277 /* StaticDataEndpoint.swift in Sources */,
 				17B9B3231D4D75AF00D8A755 /* BlockDto.swift in Sources */,
 				17B9B31D1D4D757C00D8A755 /* StatsDto.swift in Sources */,
@@ -1082,6 +1097,7 @@
 				172101D71D1F26A00088DB1A /* DDragon.swift in Sources */,
 				172101C41D1EDB310088DB1A /* ProfileView.swift in Sources */,
 				176D5B981D1C478F000D9D85 /* SummonerDto.swift in Sources */,
+				17A098851DA84F03004C79F4 /* AccountSettings.swift in Sources */,
 				1739C48F1D1C281400B50BDC /* PlistManager.swift in Sources */,
 				17F97B861D56773100A8B4E7 /* MasteryListDto.swift in Sources */,
 				17EDBB301D10EEEF00C7B7C5 /* MainTableViewController.swift in Sources */,
@@ -1265,7 +1281,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = "";
-				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "Info Center for League of Legends/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Tech-Genius.League-of-Legends-Center";
@@ -1273,7 +1289,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Info Center for League of Legends/Objective-C/Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
