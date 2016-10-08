@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class AccountSettings: UITableViewController, UITextFieldDelegate {
+class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
     var currentUserProfileName = ""
     var linkedSummoners = [[String: AnyObject]]()
     
@@ -34,6 +34,8 @@ class AccountSettings: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         print("RANDOM STRING: " + randomAlphaNumericString(length: 5))
+        
+        self.navigationController?.popoverPresentationController?.delegate = self
         
         FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("profileName").observeSingleEvent(of: .value, with: { (snapshot) in
             self.currentUserProfileName = snapshot.value as! String
@@ -62,6 +64,12 @@ class AccountSettings: UITableViewController, UITextFieldDelegate {
             self.linkedSummoners.remove(at: tempArray.index(of: snapshot.value as! [String: AnyObject]))
             self.tableView.deleteRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: AnyObject]), section: 1)], with: .automatic)
         })
+    }
+    
+    func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
+        // Shown in popover
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationController?.popoverPresentationController?.backgroundColor = self.tableView.backgroundColor
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
