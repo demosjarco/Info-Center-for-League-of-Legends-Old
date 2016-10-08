@@ -33,8 +33,6 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("RANDOM STRING: " + randomAlphaNumericString(length: 5))
-        
         self.navigationController?.popoverPresentationController?.delegate = self
         
         FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("profileName").observeSingleEvent(of: .value, with: { (snapshot) in
