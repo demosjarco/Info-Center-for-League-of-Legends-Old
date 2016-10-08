@@ -178,16 +178,38 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        SummonerEndpoint().getMasteriesForSummonerIds(summonerIds: [linkedSummoners[indexPath.row]["summonerId"] as! CLong], completion: { (summonerMap) in
-            for masteryPage in summonerMap.values.first!.pages {
-                if masteryPage.name == String(self.linkedSummoners[indexPath.row]["verifyCode"] as! Int) {
-                    FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").child(String(summonerMap.values.first!.summonerId)).updateChildValues(["verified": true])
-                    FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").child(String(summonerMap.values.first!.summonerId)).child("verifyCode").removeValue()
+        if linkedSummoners[indexPath.row]["verified"] as! Bool {
+            tableView.deselectRow(at: indexPath, animated: true)
+        } else {
+            SummonerEndpoint().getMasteriesForSummonerIds(summonerIds: [self.linkedSummoners[indexPath.row]["summonerId"] as! CLong], completion: { (summonerMap) in
+                for masteryPage in summonerMap.values.first!.pages {
+                    if masteryPage.name == String(self.linkedSummoners[indexPath.row]["verifyCode"] as! Int) {
+                        FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").child(String(summonerMap.values.first!.summonerId)).updateChildValues(["verified": true])
+                        FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").child(String(summonerMap.values.first!.summonerId)).child("verifyCode").removeValue()
+                    }
                 }
-            }
-            tableView.deselectRow(at: indexPath, animated: true)
-        }, errorBlock: {
-            tableView.deselectRow(at: indexPath, animated: true)
-        })
+                tableView.deselectRow(at: indexPath, animated: true)
+            }, errorBlock: {
+                tableView.deselectRow(at: indexPath, animated: true)
+            })
+        }
+    }
+    
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let unlinkAction = UITableViewRowAction(style: .destructive, title: "Unlink") { (action, actionIndexPath) in
+            FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").child(String(self.linkedSummoners[actionIndexPath.row]["summonerId"] as! CLong)).removeValue(completionBlock: { (error, reference) in
+                /*if error == nil {
+                    self.linkedSummoners.remove(at: actionIndexPath.row)
+                    tableView.deleteRows(at: [actionIndexPath], with: .automatic)
+                }*/
+            })
+        }
+        return [unlinkAction]
     }
 }
