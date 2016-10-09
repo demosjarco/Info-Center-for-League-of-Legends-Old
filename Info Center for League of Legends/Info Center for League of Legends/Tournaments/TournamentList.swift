@@ -10,7 +10,9 @@ import UIKit
 import Firebase
 
 class TournamentList: UITableViewController {
-
+    var myTournaments = [[String: AnyObject]]()
+    var publicTournaments = [[String: AnyObject]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
