@@ -178,12 +178,15 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
                 // Configure the cell...
                 cell.accountNameLabel?.text = "Profile Name"
                 cell.accountNameField?.text = self.currentUserProfileName
+                cell.selectionStyle = .none
                 
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "profileTypeCell", for: indexPath)
                 // Configure the cell...
                 cell.textLabel?.text = "Account type"
+                cell.detailTextLabel?.text = FIRAuth.auth()!.currentUser!.isAnonymous ? "Anonymous" : "Registered"
+                cell.selectionStyle = .gray
                 
                 return cell
             }
