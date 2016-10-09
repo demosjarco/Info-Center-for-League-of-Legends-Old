@@ -210,20 +210,28 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if linkedSummoners[indexPath.row]["verified"] as! Bool {
-            tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 0 {
+            if indexPath.row == 0 {
+                tableView.deselectRow(at: indexPath, animated: true)
+            } else {
+                //...
+            }
         } else {
-            SummonerEndpoint().getMasteriesForSummonerIds(summonerIds: [self.linkedSummoners[indexPath.row]["summonerId"] as! CLong], completion: { (summonerMap) in
-                for masteryPage in summonerMap.values.first!.pages {
-                    if masteryPage.name == String(self.linkedSummoners[indexPath.row]["verifyCode"] as! Int) {
-                        FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").child(String(summonerMap.values.first!.summonerId)).updateChildValues(["verified": true])
-                        FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").child(String(summonerMap.values.first!.summonerId)).child("verifyCode").removeValue()
+            if linkedSummoners[indexPath.row]["verified"] as! Bool {
+                tableView.deselectRow(at: indexPath, animated: true)
+            } else {
+                SummonerEndpoint().getMasteriesForSummonerIds(summonerIds: [self.linkedSummoners[indexPath.row]["summonerId"] as! CLong], completion: { (summonerMap) in
+                    for masteryPage in summonerMap.values.first!.pages {
+                        if masteryPage.name == String(self.linkedSummoners[indexPath.row]["verifyCode"] as! Int) {
+                            FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").child(String(summonerMap.values.first!.summonerId)).updateChildValues(["verified": true])
+                            FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").child(String(summonerMap.values.first!.summonerId)).child("verifyCode").removeValue()
+                        }
                     }
-                }
-                tableView.deselectRow(at: indexPath, animated: true)
-            }, errorBlock: {
-                tableView.deselectRow(at: indexPath, animated: true)
-            })
+                    tableView.deselectRow(at: indexPath, animated: true)
+                    }, errorBlock: {
+                        tableView.deselectRow(at: indexPath, animated: true)
+                })
+            }
         }
     }
     
