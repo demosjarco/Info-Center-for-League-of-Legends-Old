@@ -2154,7 +2154,7 @@ last -- games</string>
                                     <constraints>
                                         <constraint firstItem="D4H-qC-zvn" firstAttribute="centerY" secondItem="vof-pM-xNq" secondAttribute="centerY" id="3g7-tN-9sO"/>
                                         <constraint firstItem="Flk-gZ-LOm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="D4H-qC-zvn" secondAttribute="trailing" id="9aJ-8Y-hSX"/>
-                                        <constraint firstItem="Flk-gZ-LOm" firstAttribute="trailing" secondItem="vof-pM-xNq" secondAttribute="trailingMargin" id="MF9-ye-H1y"/>
+                                        <constraint firstItem="Flk-gZ-LOm" firstAttribute="trailing" secondItem="vof-pM-xNq" secondAttribute="trailingMargin" constant="-8" id="MF9-ye-H1y"/>
                                         <constraint firstItem="Flk-gZ-LOm" firstAttribute="centerY" secondItem="vof-pM-xNq" secondAttribute="centerY" id="dQX-oI-Lh9"/>
                                         <constraint firstItem="D4H-qC-zvn" firstAttribute="leading" secondItem="vof-pM-xNq" secondAttribute="leadingMargin" constant="8" id="dVa-xR-5Gf"/>
                                     </constraints>
@@ -2165,11 +2165,39 @@ last -- games</string>
                                     <outlet property="accountNameLabel" destination="D4H-qC-zvn" id="LJL-s1-JQ4"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="summonerIdLinkCell" textLabel="UAc-zU-hXU" detailTextLabel="agg-XZ-6VV" style="IBUITableViewCellStyleSubtitle" id="LgU-Rp-FbX">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="profileTypeCell" textLabel="z8z-mO-KGu" detailTextLabel="myX-jb-uIS" style="IBUITableViewCellStyleValue1" id="bVf-05-ggs">
                                 <rect key="frame" x="0.0" y="164" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LgU-Rp-FbX" id="L3s-15-Rrr">
+                                <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bVf-05-ggs" id="E0h-Ud-7Dh">
                                     <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z8z-mO-KGu">
+                                            <frame key="frameInset" minX="15" minY="11" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Loading..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.05000000074505806" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="myX-jb-uIS">
+                                            <frame key="frameInset" minX="289" minY="12" width="71" height="20"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                            <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="summonerIdLinkCell" textLabel="UAc-zU-hXU" detailTextLabel="agg-XZ-6VV" style="IBUITableViewCellStyleSubtitle" id="LgU-Rp-FbX">
+                                <rect key="frame" x="0.0" y="208" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LgU-Rp-FbX" id="L3s-15-Rrr">
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UAc-zU-hXU">
