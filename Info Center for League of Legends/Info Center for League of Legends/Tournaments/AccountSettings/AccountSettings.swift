@@ -243,12 +243,7 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let unlinkAction = UITableViewRowAction(style: .destructive, title: "Unlink") { (action, actionIndexPath) in
-            FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").child(String(self.linkedSummoners[actionIndexPath.row]["summonerId"] as! CLong)).removeValue(completionBlock: { (error, reference) in
-                /*if error == nil {
-                    self.linkedSummoners.remove(at: actionIndexPath.row)
-                    tableView.deleteRows(at: [actionIndexPath], with: .automatic)
-                }*/
-            })
+            FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").child(String(self.linkedSummoners[actionIndexPath.row]["summonerId"] as! CLong)).removeValue()
         }
         return [unlinkAction]
     }
