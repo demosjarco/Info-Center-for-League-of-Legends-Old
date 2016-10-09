@@ -135,6 +135,9 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        // Popover Size
+        self.preferredContentSize = CGSize(width: self.preferredContentSize.width, height: tableView.contentSize.height)
+        
         if section == 0 {
             return nil
         } else {
@@ -143,6 +146,9 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
     }
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        // Popover Size
+        self.preferredContentSize = CGSize(width: self.preferredContentSize.width, height: tableView.contentSize.height)
+        
         if section == 0 {
             return "Tap on account type row to upgrade to registered account. Anonymous accounts are lost on app deletion. In order to create a tournament you must have a registered account."
         } else {
@@ -163,6 +169,9 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Popover Size
+        self.preferredContentSize = CGSize(width: self.preferredContentSize.width, height: tableView.contentSize.height)
+        
         if indexPath.section == 0 {
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "profileNameCell", for: indexPath) as! AccountNameCell
