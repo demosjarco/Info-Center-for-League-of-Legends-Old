@@ -70,6 +70,10 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
         self.navigationController?.popoverPresentationController?.backgroundColor = self.tableView.backgroundColor
     }
     
+    @IBAction func closeView() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func linkNewSummonerButton() {
         let randomCode = randomAlphaNumericString(length: 5)
         
@@ -164,7 +168,7 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
             SummonerEndpoint().getSummonersForIds(summonerIds: [linkedSummoners[indexPath.row]["summonerId"] as! CLong], completion: { (summonerMap) in
                 cell.textLabel?.text = summonerMap.values.first?.name
                 if self.linkedSummoners[indexPath.row]["verified"] as! Bool {
-                    cell.detailTextLabel?.text = "Verified"
+                    cell.detailTextLabel?.text = nil
                     cell.selectionStyle = .none
                 } else {
                     cell.detailTextLabel?.text = "Please rename a mastery page to \"" + String(self.linkedSummoners[indexPath.row]["verifyCode"] as! Int) + "\" and tap here."
