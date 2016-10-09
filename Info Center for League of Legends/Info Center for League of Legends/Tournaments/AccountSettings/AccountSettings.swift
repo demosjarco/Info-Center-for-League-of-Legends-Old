@@ -228,8 +228,8 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
                         }
                     }
                     tableView.deselectRow(at: indexPath, animated: true)
-                    }, errorBlock: {
-                        tableView.deselectRow(at: indexPath, animated: true)
+                }, errorBlock: {
+                    tableView.deselectRow(at: indexPath, animated: true)
                 })
             }
         }
