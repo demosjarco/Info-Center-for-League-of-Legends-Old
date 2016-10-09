@@ -133,6 +133,141 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
             FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).updateChildValues(["profileName": userProfileName.trimmingCharacters(in: .whitespacesAndNewlines)])
         }
     }
+    
+    func authUI(_ authUI: FIRAuthUI, didSignInWith user: FIRUser?, error: Error?) {
+        if error == nil && user != nil {
+            // Reload account type
+            self.tableView.reloadRows(at: [IndexPath(row: 1, section: 0 )], with: .automatic)
+            
+            // Remove old observers
+            summonerAddedRef.removeAllObservers()
+            summonerChangedRef.removeAllObservers()
+            summonerRemovedRef.removeAllObservers()
+            
+            // Clear old table
+            linkedSummoners = [[String: AnyObject]]()
+            self.tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
+            
+            // Re-observe from new account
+            observeSummonersForChanges()
+            
+            FIRDatabase.database().reference().child("users").observeSingleEvent(of: .value, with: { (snapshot) in
+                // Check if old user was anonymous account
+                if self.oldUser!.isAnonymous {
+                    // Old user was anonymous
+                    // proceed to copy data to new user and delete old
+                    let oldUserUid = self.oldUser!.uid
+                    
+                    // Check if user exists in database and old user was anonymous account
+                    if !snapshot.hasChild(user!.uid) {
+                        // Update all tournament uids to new one
+                        FIRDatabase.database().reference().child("tournaments").observeSingleEvent(of: .value, with: { (snapshot2) in
+                            let tournaments = snapshot2.value as! [String: [String: AnyObject]]
+                            for tournamentId in tournaments.keys {
+                                let tournamentSnapshot = snapshot2.childSnapshot(forPath: tournamentId)
+                                let tournament = tournamentSnapshot.value as! [String: AnyObject]
+                                
+                                if tournamentSnapshot.hasChild("chat") {
+                                    let chat = tournament["chat"] as! [String: [String: AnyObject]]
+                                    for messageId in chat.keys {
+                                        let messageSnapshot = tournamentSnapshot.childSnapshot(forPath: "chat").childSnapshot(forPath: messageId)
+                                        let message = messageSnapshot.value as! [String: AnyObject]
+                                        
+                                        if message["userId"] as! String == oldUserUid {
+                                            messageSnapshot.ref.updateChildValues(["userId" : user!.uid])
+                                        }
+                                    }
+                                }
+                                
+                                let participants = tournament["participants"]! as! [String: [String: [String: AnyObject]]]
+                                if tournamentSnapshot.childSnapshot(forPath: "participants").hasChild("pending") {
+                                    let pending = participants["pending"]!
+                                    for playerId in pending.keys {
+                                        let playerSnapshot = tournamentSnapshot.childSnapshot(forPath: "participants").childSnapshot(forPath: "pending").childSnapshot(forPath: playerId)
+                                        let player = playerSnapshot.value as! [String: AnyObject]
+                                        if player["userId"] as! String == oldUserUid {
+                                            playerSnapshot.ref.updateChildValues(["userId" : user!.uid])
+                                        }
+                                    }
+                                }
+                                
+                                let teams = participants["teams"]!
+                                for teamId in teams.keys {
+                                    let playersSnapshot = tournamentSnapshot.childSnapshot(forPath: "participants").childSnapshot(forPath: "teams").childSnapshot(forPath: teamId).childSnapshot(forPath: "players")
+                                    let players = playersSnapshot.value as! [String: [String: AnyObject]]
+                                    for playerId in players.keys {
+                                        let playerSnapshot = playersSnapshot.childSnapshot(forPath: playerId)
+                                        let player = playerSnapshot.value as! [String: AnyObject]
+                                        if playerSnapshot.hasChild("userId") {
+                                            if player["userId"] as! String == oldUserUid {
+                                                playerSnapshot.ref.updateChildValues(["userId" : user!.uid])
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            // Transfer old user data
+                            let oldUserSnapshot = snapshot.childSnapshot(forPath: self.oldUser!.uid)
+                            FIRDatabase.database().reference().child("users").child(user!.uid).updateChildValues(oldUserSnapshot.value as! [String : AnyObject], withCompletionBlock: { (error, ref) in
+                                // Update name
+                                FIRDatabase.database().reference().child("users").child(user!.uid).updateChildValues(["profileName" : user!.displayName!], withCompletionBlock: { (error2, ref2) in
+                                    if error2 == nil {
+                                        FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("profileName").observeSingleEvent(of: .value, with: { (snapshot) in
+                                            self.currentUserProfileName = snapshot.value as! String
+                                            self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                                        })
+                                    }
+                                })
+                                
+                                // Delete old user
+                                self.oldUser?.delete(completion: { (error3) in
+                                    if error3 == nil {
+                                        FIRDatabase.database().reference().child("users").child(oldUserUid).removeValue()
+                                    }
+                                })
+                            })
+                        })
+                    } else {
+                        // new user data exists
+                        
+                        // Refresh name
+                        FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("profileName").observeSingleEvent(of: .value, with: { (snapshot) in
+                            self.currentUserProfileName = snapshot.value as! String
+                            self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                        })
+                        
+                        // Delete old anonymous user
+                        self.oldUser?.delete(completion: { (error3) in
+                            if error3 == nil {
+                                FIRDatabase.database().reference().child("users").child(oldUserUid).removeValue()
+                            }
+                        })
+                    }
+                } else {
+                    // Old user wasn't anonymous
+                    // Don't delete old user
+                    
+                    // Check if new user exists in database
+                    if !snapshot.hasChild(user!.uid) {
+                        // Create new user
+                        FIRDatabase.database().reference().child("users").child(user!.uid).updateChildValues(["profileName": user!.displayName!])
+                        self.currentUserProfileName = user!.displayName!
+                        self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                    } else {
+                        // New user has data in database
+                        // Leave alone
+                        
+                        // Refresh name
+                        FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("profileName").observeSingleEvent(of: .value, with: { (snapshot) in
+                            self.currentUserProfileName = snapshot.value as! String
+                            self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+                        })
+                    }
+                }
+            })
+        }
+    }
 
     // MARK: - Table view data source
     
