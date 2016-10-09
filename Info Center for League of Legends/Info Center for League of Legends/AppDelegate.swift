@@ -19,14 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITextField().keyboardAppearance = UIKeyboardAppearance.dark
         FIRApp.configure()
         
-        FIRAuth.auth()?.signInAnonymously(completion: { (user, error) in
-            print("User id: " + user!.uid)
-            FIRDatabase.database().reference().child("users").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                if !snapshot.hasChild("profileName") {
-                    snapshot.ref.updateChildValues(["profileName": "Anonymous"])
-                }
+        // Check if user is signed in
+        if FIRAuth.auth()?.currentUser == nil {
+            // Login in anonymously
+            FIRAuth.auth()?.signInAnonymously(completion: { (user, error) in
+                print("User id: " + user!.uid)
+                FIRDatabase.database().reference().child("users").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                    if !snapshot.hasChild("profileName") {
+                        snapshot.ref.updateChildValues(["profileName": "Anonymous"])
+                    }
+                })
             })
-        })
+        }
         
         return true
     }
