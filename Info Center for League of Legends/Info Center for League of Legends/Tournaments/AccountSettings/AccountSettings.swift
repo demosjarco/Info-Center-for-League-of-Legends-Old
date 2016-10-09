@@ -135,10 +135,18 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 1 {
-            return "Linked Summoners"
-        } else {
+        if section == 0 {
             return nil
+        } else {
+            return "Linked Summoners"
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 0 {
+            return "Tap on account type row to upgrade to registered account. Anonymous accounts are lost on app deletion. In order to create a tournament you must have a registered account."
+        } else {
+            return "Click on the + above to link a League of Legends account to your account in order to create or join tournaments. There is a verification process by temporarily renaming a mastery page in order to verify that really is your account."
         }
     }
 
@@ -148,7 +156,7 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return 1
+            return 2
         } else {
             return linkedSummoners.count
         }
@@ -156,12 +164,20 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "profileNameCell", for: indexPath) as! AccountNameCell
-            // Configure the cell...
-            cell.accountNameLabel?.text = "Profile Name"
-            cell.accountNameField?.text = self.currentUserProfileName
-            
-            return cell
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "profileNameCell", for: indexPath) as! AccountNameCell
+                // Configure the cell...
+                cell.accountNameLabel?.text = "Profile Name"
+                cell.accountNameField?.text = self.currentUserProfileName
+                
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "profileTypeCell", for: indexPath)
+                // Configure the cell...
+                cell.textLabel?.text = "Account type"
+                
+                return cell
+            }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "summonerIdLinkCell", for: indexPath)
             // Configure the cell...
