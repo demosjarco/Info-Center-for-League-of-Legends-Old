@@ -150,7 +150,7 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
         self.preferredContentSize = CGSize(width: self.preferredContentSize.width, height: tableView.contentSize.height)
         
         if section == 0 {
-            return "Tap on account type row to upgrade to registered account. Anonymous accounts are lost on app deletion. In order to create a tournament you must have a registered account."
+            return "Tap on account type row to login or upgrade to a registered account. Anonymous accounts are lost on app deletion. In order to create a tournament you must have a registered account."
         } else {
             return "Click on the + above to link a League of Legends account to your account in order to create or join tournaments. There is a verification process by temporarily renaming a mastery page in order to verify that really is your account."
         }
