@@ -221,7 +221,9 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
                 authUI?.delegate = self
                 let authViewController = authUI?.authViewController()
                 authViewController?.modalPresentationStyle = UIModalPresentationStyle.formSheet
-                self.present(authViewController!, animated: true, completion: nil)
+                self.present(authViewController!, animated: true, completion: {
+                    tableView.deselectRow(at: indexPath, animated: true)
+                })
             }
         } else {
             if linkedSummoners[indexPath.row]["verified"] as! Bool {
