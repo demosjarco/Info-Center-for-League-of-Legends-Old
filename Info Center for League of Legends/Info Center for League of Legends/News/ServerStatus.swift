@@ -88,6 +88,9 @@ class ServerStatus: UITableViewController, UIPopoverPresentationControllerDelega
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        // Popover Size
+        self.preferredContentSize = CGSize(width: self.preferredContentSize.width, height: tableView.contentSize.height)
+        
         return services[section].name + " - " + services[section].status
     }
 
