@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
+import FirebaseAuthUI
 
-class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
+class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate, FIRAuthUIDelegate {
     var oldUserUid = ""
     var currentUserProfileName = ""
     var linkedSummoners = [[String: AnyObject]]()
