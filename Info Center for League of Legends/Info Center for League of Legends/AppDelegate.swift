@@ -20,7 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         
         // Check if user is signed in
-        if FIRAuth.auth()?.currentUser == nil {
+        if let user = FIRAuth.auth()?.currentUser {
+            // User is signed in.
+        } else {
+            // No user is signed in.
             // Login in anonymously
             FIRAuth.auth()?.signInAnonymously(completion: { (user, error) in
                 print("User id: " + user!.uid)
