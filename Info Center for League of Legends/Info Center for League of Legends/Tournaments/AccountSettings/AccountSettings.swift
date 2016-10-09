@@ -16,7 +16,6 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
     var linkedSummoners = [[String: AnyObject]]()
     
     func randomAlphaNumericString(length: Int) -> String {
-        
 //        let allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         let allowedChars = "0123456789"
         let allowedCharsCount = UInt32(allowedChars.characters.count)
