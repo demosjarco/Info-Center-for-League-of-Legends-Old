@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuthUI
 
 class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate, FIRAuthUIDelegate {
-    var oldUserUid = ""
+    var oldUser:FIRUser
     var currentUserProfileName = ""
     var linkedSummoners = [[String: AnyObject]]()
     
@@ -216,7 +216,7 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
             if indexPath.row == 0 {
                 tableView.deselectRow(at: indexPath, animated: true)
             } else {
-                oldUserUid = FIRAuth.auth()!.currentUser!.uid
+                oldUser = FIRAuth.auth()!.currentUser!
                 let authUI = FIRAuthUI.default()
                 authUI?.delegate = self
                 let authViewController = authUI?.authViewController()
