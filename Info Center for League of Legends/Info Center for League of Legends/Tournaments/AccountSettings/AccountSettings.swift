@@ -14,6 +14,9 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
     var oldUser:FIRUser
     var currentUserProfileName = ""
     var linkedSummoners = [[String: AnyObject]]()
+    var summonerAddedRef = FIRDatabase.database().reference()
+    var summonerChangedRef = FIRDatabase.database().reference()
+    var summonerRemovedRef = FIRDatabase.database().reference()
     
     func randomAlphaNumericString(length: Int) -> String {
 //        let allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -40,12 +43,19 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
             self.currentUserProfileName = snapshot.value as! String
             self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         })
-        FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").observe(.childAdded, with: { (snapshot) in
+        
+        observeSummonersForChanges()
+    }
+    
+    func observeSummonersForChanges() {
+        summonerAddedRef = FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds")
+        summonerAddedRef.observe(.childAdded, with: { (snapshot) in
             self.linkedSummoners.append(snapshot.value as! [String: AnyObject])
             let tempArray = self.linkedSummoners as NSArray
             self.tableView.insertRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: AnyObject]), section: 1)], with: .automatic)
         })
-        FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").observe(.childChanged, with: { (snapshot) in
+        summonerChangedRef = FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds")
+        summonerChangedRef.observe(.childChanged, with: { (snapshot) in
             let tempSummoner = snapshot.value as! [String: AnyObject]
             var index = 0
             for summoner in self.linkedSummoners {
@@ -58,7 +68,8 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
             self.linkedSummoners[index] = snapshot.value as! [String: AnyObject]
             self.tableView.reloadRows(at: [IndexPath(row: index, section: 1)], with: .automatic)
         })
-        FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").observe(.childRemoved, with: { (snapshot) in
+        summonerRemovedRef = FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds")
+        summonerRemovedRef.observe(.childRemoved, with: { (snapshot) in
             let tempArray = self.linkedSummoners as NSArray
             self.linkedSummoners.remove(at: tempArray.index(of: snapshot.value as! [String: AnyObject]))
             self.tableView.deleteRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: AnyObject]), section: 1)], with: .automatic)
