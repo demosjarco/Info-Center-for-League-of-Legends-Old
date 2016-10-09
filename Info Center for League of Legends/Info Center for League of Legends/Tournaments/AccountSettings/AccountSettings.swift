@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 
 class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
+    var oldUserUid = ""
     var currentUserProfileName = ""
     var linkedSummoners = [[String: AnyObject]]()
     
@@ -214,7 +215,12 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
             if indexPath.row == 0 {
                 tableView.deselectRow(at: indexPath, animated: true)
             } else {
-                //...
+                oldUserUid = FIRAuth.auth()!.currentUser!.uid
+                let authUI = FIRAuthUI.default()
+                authUI?.delegate = self
+                let authViewController = authUI?.authViewController()
+                authViewController?.modalPresentationStyle = UIModalPresentationStyle.formSheet
+                self.present(authViewController!, animated: true, completion: nil)
             }
         } else {
             if linkedSummoners[indexPath.row]["verified"] as! Bool {
