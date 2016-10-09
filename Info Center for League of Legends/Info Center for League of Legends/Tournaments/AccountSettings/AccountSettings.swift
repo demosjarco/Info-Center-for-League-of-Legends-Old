@@ -38,7 +38,7 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
         
         FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("profileName").observeSingleEvent(of: .value, with: { (snapshot) in
             self.currentUserProfileName = snapshot.value as! String
-            self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+            self.tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         })
         FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").observe(.childAdded, with: { (snapshot) in
             self.linkedSummoners.append(snapshot.value as! [String: AnyObject])
