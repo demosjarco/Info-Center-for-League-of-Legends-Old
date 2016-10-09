@@ -68,6 +68,9 @@ class StatusDetail: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        // Popover Size
+        self.preferredContentSize = CGSize(width: self.preferredContentSize.width, height: tableView.contentSize.height)
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .short
@@ -79,6 +82,9 @@ class StatusDetail: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        // Popover Size
+        self.preferredContentSize = CGSize(width: self.preferredContentSize.width, height: tableView.contentSize.height)
+        
         var content = updates[section].content
         for translation in updates[section].translations {
             if translation.locale == Locale.autoupdatingCurrent.identifier {
