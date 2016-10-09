@@ -13,6 +13,7 @@ target 'Info Center for League of Legends' do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Messaging'
 	pod 'Firebase/RemoteConfig'
+    pod 'FirebaseUI/Auth'
     pod 'AFNetworking'
     pod 'BEMSimpleLineGraph'
     pod 'MBCircularProgressBar'
