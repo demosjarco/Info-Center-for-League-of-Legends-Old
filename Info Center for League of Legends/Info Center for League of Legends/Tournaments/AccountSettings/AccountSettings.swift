@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuthUI
 
 class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate, FIRAuthUIDelegate {
-    var oldUser:FIRUser
+    var oldUser = FIRAuth.auth()!.currentUser
     var currentUserProfileName = ""
     var linkedSummoners = [[String: AnyObject]]()
     var summonerAddedRef = FIRDatabase.database().reference()
