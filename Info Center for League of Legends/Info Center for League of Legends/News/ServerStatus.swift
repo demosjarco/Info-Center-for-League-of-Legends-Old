@@ -102,7 +102,7 @@ class ServerStatus: UITableViewController, UIPopoverPresentationControllerDelega
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "incidentCell", for: indexPath)
         // Popover Size
-        self.preferredContentSize = CGSize(width: 400, height: tableView.contentSize.height)
+        self.preferredContentSize = CGSize(width: self.preferredContentSize.width, height: tableView.contentSize.height)
         // Configure the cell...
         let incident = services[indexPath.section].incidents[indexPath.row]
         
