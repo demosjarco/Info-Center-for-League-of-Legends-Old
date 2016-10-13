@@ -1,4 +1,6 @@
+#ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#endif
 
 
 FOUNDATION_EXPORT double Pods_Info_Center_for_League_of_LegendsUITestsVersionNumber;
