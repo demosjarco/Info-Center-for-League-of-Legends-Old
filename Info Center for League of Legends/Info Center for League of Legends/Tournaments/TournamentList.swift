@@ -20,12 +20,6 @@ class TournamentList: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refresh()
-    }
-    
-    @IBAction func refresh() {
-        self.refreshControl?.beginRefreshing()
-        //FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
     }
 
     // MARK: - Table view data source
