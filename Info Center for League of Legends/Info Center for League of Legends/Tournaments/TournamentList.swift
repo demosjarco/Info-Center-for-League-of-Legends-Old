@@ -13,6 +13,10 @@ class TournamentList: UITableViewController {
     var myTournaments = [[String: AnyObject]]()
     var publicTournaments = [[String: AnyObject]]()
     
+    var tournamentAddedRef = FIRDatabase.database().reference()
+    var tournamentChangedRef = FIRDatabase.database().reference()
+    var tournamentRemovedRef = FIRDatabase.database().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
