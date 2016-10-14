@@ -141,6 +141,9 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
                 userProfileName = "Anonymous"
             }
             FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).updateChildValues(["profileName": userProfileName.trimmingCharacters(in: .whitespacesAndNewlines)])
+            let changeRequest = FIRAuth.auth()?.currentUser?.profileChangeRequest()
+            changeRequest?.displayName = userProfileName.trimmingCharacters(in: .whitespacesAndNewlines)
+            changeRequest?.commitChanges(completion: nil)
         }
     }
     
