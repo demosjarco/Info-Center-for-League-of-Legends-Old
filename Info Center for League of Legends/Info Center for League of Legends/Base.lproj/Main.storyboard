@@ -42,14 +42,14 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="recentProfileCell" textLabel="YR4-YT-zyw" detailTextLabel="ATh-2c-KFw" imageView="2py-Nr-sTA" style="IBUITableViewCellStyleSubtitle" id="ewZ-ok-VMR">
-                                <rect key="frame" x="0.0" y="164" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="163.5" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ewZ-ok-VMR" id="TmW-28-PWT">
-                                    <frame key="frameInset" width="342" height="63"/>
+                                    <frame key="frameInset" width="342" height="63.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label multipleTouchEnabled="YES" contentMode="left" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" id="YR4-YT-zyw">
-                                            <frame key="frameInset" minX="93" minY="13" width="16" height="21"/>
+                                            <frame key="frameInset" minX="94" minY="14" width="15.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -57,7 +57,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label multipleTouchEnabled="YES" contentMode="left" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" id="ATh-2c-KFw">
-                                            <frame key="frameInset" minX="93" minY="34" width="13" height="16"/>
+                                            <frame key="frameInset" minX="94" minY="34.5" width="12.5" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -65,7 +65,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="poroIcon" id="2py-Nr-sTA">
-                                            <frame key="frameInset" minX="15" width="63" height="63"/>
+                                            <frame key="frameInset" minX="15" width="64" height="63.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </imageView>
@@ -1789,14 +1789,14 @@ last -- games</string>
                                         <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tWc-Gf-Gl1">
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
-                                                    <frame key="frameInset" width="112" height="16"/>
+                                                    <frame key="frameInset" width="112" height="14"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
-                                                    <frame key="frameInset" minY="16" width="112" height="18"/>
+                                                    <frame key="frameInset" minY="14" width="112" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2169,11 +2169,11 @@ last -- games</string>
                                 <rect key="frame" x="0.0" y="164" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bVf-05-ggs" id="E0h-Ud-7Dh">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z8z-mO-KGu">
-                                            <frame key="frameInset" minX="15" minY="11" width="34" height="21"/>
+                                            <frame key="frameInset" minX="15" minY="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -2181,7 +2181,7 @@ last -- games</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Loading..." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.05000000074505806" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="myX-jb-uIS">
-                                            <frame key="frameInset" minX="289" minY="12" width="71" height="20"/>
+                                            <frame key="frameInset" minX="289" minY="13" width="71" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
@@ -2197,11 +2197,11 @@ last -- games</string>
                                 <rect key="frame" x="0.0" y="208" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LgU-Rp-FbX" id="L3s-15-Rrr">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UAc-zU-hXU">
-                                            <frame key="frameInset" minX="15" minY="3" width="75" height="21"/>
+                                            <frame key="frameInset" minX="15" minY="4" width="75" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -2209,7 +2209,7 @@ last -- games</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" id="agg-XZ-6VV">
-                                            <frame key="frameInset" minX="15" minY="24" width="60" height="16"/>
+                                            <frame key="frameInset" minX="15" minY="24.5" width="59.5" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -2293,7 +2293,11 @@ last -- games</string>
                                 </segue>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hRW-y7-ch0"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hRW-y7-ch0">
+                            <connections>
+                                <action selector="createTournament" destination="PzE-4G-siH" id="rG0-iT-fjO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nik-XA-BV8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2338,7 +2342,7 @@ last -- games</string>
         <scene sceneID="5xz-wH-v0g">
             <objects>
                 <collectionViewController id="8l4-pg-XDJ" customClass="News" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="bsj-QO-pkW">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" id="bsj-QO-pkW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2350,7 +2354,7 @@ last -- games</string>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="newsCell" id="SEf-ZJ-xUB" customClass="NewsCell" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <rect key="frame" x="59" y="0.0" width="256" height="256"/>
+                                <rect key="frame" x="60" y="0.0" width="256" height="256"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
@@ -2359,14 +2363,14 @@ last -- games</string>
                                         <stackView contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="j5I-Um-2Rh">
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMU-du-UQx">
-                                                    <frame key="frameInset" width="240" height="219"/>
+                                                    <frame key="frameInset" width="240" height="220"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Content" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uX-g3-7bg">
-                                                    <frame key="frameInset" minY="219" width="240" height="21"/>
+                                                    <frame key="frameInset" minY="220" width="240" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -2403,7 +2407,7 @@ last -- games</string>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Content" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aI-3h-M8C">
-                                                                                    <frame key="frameInset" minY="21" width="240" height="56"/>
+                                                                                    <frame key="frameInset" minY="21" width="240" height="57"/>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                                     <nil key="textColor"/>
@@ -2523,11 +2527,11 @@ last -- games</string>
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7DO-KB-XJO" id="yTx-KS-gjy">
-                                    <frame key="frameInset" width="342" height="43"/>
+                                    <frame key="frameInset" width="342" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="enS-wR-PyU">
-                                            <frame key="frameInset" minX="15" minY="3" width="34" height="21"/>
+                                            <frame key="frameInset" minX="15" minY="4" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -2535,7 +2539,7 @@ last -- games</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lWL-Mn-tb5">
-                                            <frame key="frameInset" minX="15" minY="24" width="47" height="16"/>
+                                            <frame key="frameInset" minX="15" minY="24.5" width="47" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
