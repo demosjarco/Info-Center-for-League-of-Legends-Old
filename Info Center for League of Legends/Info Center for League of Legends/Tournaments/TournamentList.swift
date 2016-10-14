@@ -20,6 +20,99 @@ class TournamentList: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+            self.tournamentAddedRef.removeAllObservers()
+            self.tournamentChangedRef.removeAllObservers()
+            self.tournamentRemovedRef.removeAllObservers()
+            
+            if user != nil {
+                self.tournamentAddedRef = FIRDatabase.database().reference().child("tournaments")
+                self.tournamentAddedRef.observe(FIRDataEventType.childAdded, with: { (snapshot) in
+                    if self.checkIfMyTournament(snapshot: snapshot) {
+                        self.myTournaments.append(snapshot.value as! [String: AnyObject])
+                        let tempArray = self.myTournaments as NSArray
+                        self.tableView.insertRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: AnyObject]), section: 0)], with: .automatic)
+                    } else {
+                        self.publicTournaments.append(snapshot.value as! [String: AnyObject])
+                        let tempArray = self.publicTournaments as NSArray
+                        self.tableView.insertRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: AnyObject]), section: 1)], with: .automatic)
+                    }
+                })
+                
+                self.tournamentChangedRef = FIRDatabase.database().reference().child("tournaments")
+                self.tournamentAddedRef.observe(FIRDataEventType.childChanged, with: { (snapshot) in
+                    let tempTournament = snapshot.value as! [String: AnyObject]
+                    var index = 0
+                    if self.checkIfMyTournament(snapshot: snapshot) {
+                        for tournament in self.myTournaments {
+                            if tournament["tournamentId"] as! String == tempTournament["tournamentId"] as! String {
+                                break
+                            } else {
+                                index += 1
+                            }
+                        }
+                        self.myTournaments[index] = snapshot.value as! [String: AnyObject]
+                        self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+                    } else {
+                        for tournament in self.publicTournaments {
+                            if tournament["tournamentId"] as! String == tempTournament["tournamentId"] as! String {
+                                break
+                            } else {
+                                index += 1
+                            }
+                        }
+                        self.publicTournaments[index] = snapshot.value as! [String: AnyObject]
+                        self.tableView.reloadRows(at: [IndexPath(row: index, section: 1)], with: .automatic)
+                    }
+                })
+                
+                self.tournamentRemovedRef = FIRDatabase.database().reference().child("tournaments")
+                self.tournamentAddedRef.observe(FIRDataEventType.childRemoved, with: { (snapshot) in
+                    if self.checkIfMyTournament(snapshot: snapshot) {
+                        let tempArray = self.myTournaments as NSArray
+                        self.myTournaments.remove(at: tempArray.index(of: snapshot.value as! [String: AnyObject]))
+                        self.tableView.deleteRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: AnyObject]), section: 0)], with: .automatic)
+                    } else {
+                        let tempArray = self.publicTournaments as NSArray
+                        self.publicTournaments.remove(at: tempArray.index(of: snapshot.value as! [String: AnyObject]))
+                        self.tableView.deleteRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: AnyObject]), section: 1)], with: .automatic)
+                    }
+                })
+            }
+        })
+    }
+    
+    func checkIfMyTournament(snapshot: FIRDataSnapshot) -> Bool {
+        var myTournament = false
+        let admin = snapshot.childSnapshot(forPath: "createdBy").value as! String
+        if admin == FIRAuth.auth()?.currentUser?.uid {
+            myTournament = true
+        }
+        
+        let participants = snapshot.childSnapshot(forPath: "participants")
+        if participants.hasChild("pending") {
+            let pending = participants.childSnapshot(forPath: "pending").value as! [String: [String: AnyObject]]
+            for player in pending.values {
+                let userId = player["userId"] as! String
+                if userId == FIRAuth.auth()?.currentUser?.uid {
+                    myTournament = true
+                }
+            }
+        }
+        
+        let teams = participants.childSnapshot(forPath: "teams").value as! [String: [String: AnyObject]]
+        for team in teams.values {
+            let players = team["players"] as! [String: [String: AnyObject]]
+            for player in players.values {
+                if player["userId"] != nil {
+                    if player["userId"] as! String == FIRAuth.auth()?.currentUser?.uid {
+                        myTournament = true
+                    }
+                }
+            }
+        }
+        
+        return myTournament
     }
 
     // MARK: - Table view data source
