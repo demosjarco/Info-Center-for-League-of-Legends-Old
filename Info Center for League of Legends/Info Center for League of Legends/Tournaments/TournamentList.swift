@@ -114,6 +114,42 @@ class TournamentList: UITableViewController {
         
         return myTournament
     }
+    
+    @IBAction func createTournament() {
+        if FIRAuth.auth()!.currentUser!.isAnonymous {
+            let alert = UIAlertController(title: "Error", message: "You can't create a tournament as an anonymous user. Please go to account in the top left and tap on the account type row to upgrade your account. Don't worry, its free.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+            self.present(alert, animated: true, completion: {
+                alert.view.tintColor = UIView().tintColor
+            })
+        } else {
+            let alert = UIAlertController(title: "Create tournament", message: "Type in a tournament name and choose tournament type. You can change this later at any time.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+            let publicCreate = UIAlertAction(title: "Public", style: UIAlertActionStyle.default, handler: { (action) in
+                self.registerTournament(private: false, tournamentName: alert.textFields!.first!.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+            })
+            publicCreate.isEnabled = false
+            alert.addAction(publicCreate)
+            let privateCreate = UIAlertAction(title: "Private", style: UIAlertActionStyle.default, handler: { (action) in
+                self.registerTournament(private: true, tournamentName: alert.textFields!.first!.text!.trimmingCharacters(in: .whitespacesAndNewlines))
+            })
+            privateCreate.isEnabled = false
+            alert.addAction(privateCreate)
+            
+            alert.addTextField { (textField) in
+                textField.placeholder = "Tournament name"
+                
+                NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { (notification) in
+                    publicCreate.isEnabled = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) != ""
+                    privateCreate.isEnabled = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) != ""
+                }
+            }
+            
+            self.present(alert, animated: true, completion: {
+                alert.view.tintColor = UIView().tintColor
+            })
+        }
+    }
 
     // MARK: - Table view data source
     
