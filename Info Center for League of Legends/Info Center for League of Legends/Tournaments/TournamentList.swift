@@ -150,6 +150,10 @@ class TournamentList: UITableViewController {
             })
         }
     }
+    
+    func registerTournament(private: Bool, tournamentName: String) {
+        //...
+    }
 
     // MARK: - Table view data source
     
