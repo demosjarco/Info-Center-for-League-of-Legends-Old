@@ -118,7 +118,7 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
             textField.placeholder = "Summoner Name"
             
             NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: textField, queue: OperationQueue.main) { (notification) in
-                searchAction.isEnabled = textField.text != ""
+                searchAction.isEnabled = textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) != ""
             }
         }
         
