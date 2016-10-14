@@ -158,7 +158,9 @@ class StaticDataEndpoint: NSObject {
                         newRecommended.champion = oldRecommended["champion"] as! String
                         newRecommended.map = oldRecommended["map"] as! String
                         newRecommended.mode = oldRecommended["mode"] as! String
-                        newRecommended.priority = oldRecommended["priority"] as! Bool
+                        if oldRecommended["priority"] != nil {
+                            newRecommended.priority = oldRecommended["priority"] as! Bool
+                        }
                         newRecommended.title = oldRecommended["title"] as! String
                         newRecommended.type = oldRecommended["type"] as! String
                         
@@ -190,19 +192,21 @@ class StaticDataEndpoint: NSObject {
                     for oldSpell in oldSpells {
                         let newSpell = ChampionSpellDto()
                         
-                        let oldAltImages = oldSpell["altimages"] as! [[String: AnyObject]]
-                        for oldAltImage in oldAltImages {
-                            let newAltImage = ImageDto()
-                            
-                            newAltImage.full = oldAltImage["full"] as! String
-                            newAltImage.group = oldAltImage["group"] as! String
-                            newAltImage.h = oldAltImage["h"] as! Int
-                            newAltImage.sprite = oldAltImage["sprite"] as! String
-                            newAltImage.w = oldAltImage["w"] as! Int
-                            newAltImage.x = oldAltImage["x"] as! Int
-                            newAltImage.y = oldAltImage["y"] as! Int
-                            
-                            newSpell.altimages.append(newAltImage)
+                        if oldSpell["altimages"] != nil {
+                            let oldAltImages = oldSpell["altimages"] as! [[String: AnyObject]]
+                            for oldAltImage in oldAltImages {
+                                let newAltImage = ImageDto()
+                                
+                                newAltImage.full = oldAltImage["full"] as! String
+                                newAltImage.group = oldAltImage["group"] as! String
+                                newAltImage.h = oldAltImage["h"] as! Int
+                                newAltImage.sprite = oldAltImage["sprite"] as! String
+                                newAltImage.w = oldAltImage["w"] as! Int
+                                newAltImage.x = oldAltImage["x"] as! Int
+                                newAltImage.y = oldAltImage["y"] as! Int
+                                
+                                newSpell.altimages.append(newAltImage)
+                            }
                         }
                         newSpell.cooldown = oldSpell["cooldown"] as! [Double]
                         newSpell.cooldownBurn = oldSpell["cooldownBurn"] as! String
@@ -253,17 +257,19 @@ class StaticDataEndpoint: NSObject {
                         newSpell.sanitizedDescription = oldSpell["sanitizedDescription"] as! String
                         newSpell.sanitizedTooltip = oldSpell["sanitizedTooltip"] as! String
                         newSpell.tooltip = oldSpell["tooltip"] as! String
-                        let oldVars = oldSpell["vars"] as! [[String: AnyObject]]
-                        for oldVar in oldVars {
-                            let newVar = SpellVarsDto()
-                            
-                            newVar.coeff = oldVar["coeff"] as! [Double]
-                            newVar.dyn = oldVar["dyn"] as! String
-                            newVar.key = oldVar["key"] as! String
-                            newVar.link = oldVar["link"] as! String
-                            newVar.ranksWith = oldVar["ranksWith"] as! String
-                            
-                            newSpell.vars.append(newVar)
+                        if oldSpell["vars"] != nil {
+                            let oldVars = oldSpell["vars"] as! [[String: AnyObject]]
+                            for oldVar in oldVars {
+                                let newVar = SpellVarsDto()
+                                
+                                newVar.coeff = oldVar["coeff"] as! [Double]
+                                newVar.dyn = oldVar["dyn"] as! String
+                                newVar.key = oldVar["key"] as! String
+                                newVar.link = oldVar["link"] as! String
+                                newVar.ranksWith = oldVar["ranksWith"] as! String
+                                
+                                newSpell.vars.append(newVar)
+                            }
                         }
                         
                         newSpells.append(newSpell)
