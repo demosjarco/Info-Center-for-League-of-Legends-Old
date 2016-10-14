@@ -91,6 +91,7 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
         
         let alert = UIAlertController(title: "Link Summoner", message: "Type in summoner name to begin the link process. Afterwards change the name of one of your mastery pages to \"" + randomCode + "\" and tap on the name below to verify.", preferredStyle: UIAlertControllerStyle.alert)
         
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         let searchAction = UIAlertAction(title: "Search", style: UIAlertActionStyle.default, handler: { (action) in
             let summonerTextField = alert.textFields!.first! as UITextField
             SummonerEndpoint().getSummonersForSummonerNames(summonerNames: [summonerTextField.text!], completion: { (summonerMap) in
@@ -112,7 +113,6 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
         })
         searchAction.isEnabled = false
         alert.addAction(searchAction)
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         
         alert.addTextField { (textField) in
             textField.placeholder = "Summoner Name"
