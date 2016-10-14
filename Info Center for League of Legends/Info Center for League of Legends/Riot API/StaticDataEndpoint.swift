@@ -263,10 +263,14 @@ class StaticDataEndpoint: NSObject {
                                 let newVar = SpellVarsDto()
                                 
                                 newVar.coeff = oldVar["coeff"] as! [Double]
-                                newVar.dyn = oldVar["dyn"] as! String
+                                if oldVar["dyn"] != nil {
+                                    newVar.dyn = oldVar["dyn"] as! String
+                                }
                                 newVar.key = oldVar["key"] as! String
                                 newVar.link = oldVar["link"] as! String
-                                newVar.ranksWith = oldVar["ranksWith"] as! String
+                                if oldVar["ranksWith"] != nil {
+                                    newVar.ranksWith = oldVar["ranksWith"] as! String
+                                }
                                 
                                 newSpell.vars.append(newVar)
                             }
