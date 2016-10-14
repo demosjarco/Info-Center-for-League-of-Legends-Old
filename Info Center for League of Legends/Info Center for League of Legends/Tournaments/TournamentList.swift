@@ -105,7 +105,7 @@ class TournamentList: UITableViewController {
             let players = team["players"] as! [String: [String: AnyObject]]
             for player in players.values {
                 if player["userId"] != nil {
-                    if player["userId"] as! String == FIRAuth.auth()?.currentUser?.uid {
+                    if player["userId"] as? String == FIRAuth.auth()?.currentUser?.uid {
                         myTournament = true
                     }
                 }
