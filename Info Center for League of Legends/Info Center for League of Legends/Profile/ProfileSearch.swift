@@ -74,7 +74,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
             loading.view.tintColor = UIView().tintColor
         }
         
-        SummonerEndpoint().getSummonersForSummonerNames(summonerNames: [searchBar.text!], completion: { (summonerMap) in
+        SummonerEndpoint().getSummonersForSummonerNames(summonerNames: [searchBar.text!.trimmingCharacters(in: .whitespacesAndNewlines)], completion: { (summonerMap) in
             self.summonerInfoForSegue = summonerMap.values.first!
             
             PlistManager().addToRecentSummoners(newSummoner: summonerMap.values.first!)
