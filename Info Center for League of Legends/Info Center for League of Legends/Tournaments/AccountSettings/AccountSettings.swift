@@ -93,7 +93,7 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
         
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         let searchAction = UIAlertAction(title: "Search", style: UIAlertActionStyle.default, handler: { (action) in
-            let summonerTextField = alert.textFields!.first! as UITextField
+            let summonerTextField = alert.textFields!.first!
             SummonerEndpoint().getSummonersForSummonerNames(summonerNames: [summonerTextField.text!], completion: { (summonerMap) in
                 let summoner = summonerMap.values.first!
                 FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").updateChildValues([String(summoner.summonerId): ["summonerId": summoner.summonerId, "verified": false, "verifyCode": NSNumber(value: Int(randomCode)!)]])
