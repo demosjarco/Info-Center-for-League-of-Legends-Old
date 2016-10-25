@@ -20,7 +20,7 @@ class TournamentList: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+        /*FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
             self.tournamentAddedRef.removeAllObservers()
             self.tournamentChangedRef.removeAllObservers()
             self.tournamentRemovedRef.removeAllObservers()
@@ -79,7 +79,7 @@ class TournamentList: UITableViewController {
                     }
                 })
             }
-        })
+        })*/
     }
     
     func checkIfMyTournament(snapshot: FIRDataSnapshot) -> Bool {
