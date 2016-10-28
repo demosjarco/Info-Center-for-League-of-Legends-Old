@@ -179,7 +179,21 @@ class TournamentList: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tournamentCell", for: indexPath) as! TournamentListCell
+        // Reset cell
+        cell.adminIcon?.isHidden = true
+        cell.tournamentName?.text = "--"
+        cell.tournamentPeopleCount?.text = "-- people"
+        cell.tournamentType?.text = "-- tournament"
+        cell.tournamentStatus?.text = "Status: --"
+        cell.tournamentDate?.text = "--"
+        
         // Configure the cell...
+        var tournament = [String: AnyObject]()
+        if indexPath.section == 0  {
+            tournament = myTournaments[indexPath.row]
+        } else {
+            tournament = publicTournaments[indexPath.row]
+        }
 
         return cell
     }
