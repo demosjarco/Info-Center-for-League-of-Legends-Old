@@ -194,6 +194,13 @@ class TournamentList: UITableViewController {
         } else {
             tournament = publicTournaments[indexPath.row]
         }
+        
+        cell.tournamentName?.text = tournament["tournamentName"] as? String
+        if tournament["publicEnter"] as! Bool {
+            cell.tournamentType?.text = "Public tournament"
+        } else {
+            cell.tournamentType?.text = "Private tournament"
+        }
 
         return cell
     }
