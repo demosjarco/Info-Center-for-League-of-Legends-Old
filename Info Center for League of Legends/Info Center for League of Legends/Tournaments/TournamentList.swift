@@ -196,6 +196,18 @@ class TournamentList: UITableViewController {
         }
         
         cell.tournamentName?.text = tournament["tournamentName"] as? String
+        
+        var peopleCount = 0
+        print(String(describing: tournament["participants"]!["teams"]!))
+        let teams = tournament["participants"]!["teams"] as! [String: AnyObject]
+        for team in teams.values {
+            let players = team["players"] as! [String: AnyObject]
+            for _ in players.values {
+                peopleCount += 1
+            }
+        }
+        cell.tournamentPeopleCount?.text = String(peopleCount) + " people"
+        
         if tournament["publicEnter"] as! Bool {
             cell.tournamentType?.text = "Public tournament"
         } else {
