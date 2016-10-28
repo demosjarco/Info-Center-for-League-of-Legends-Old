@@ -9,5 +9,10 @@
 import UIKit
 
 class TournamentListCell: UITableViewCell {
-    
+    @IBOutlet var adminIcon: UIImageView?
+    @IBOutlet var tournamentName: UILabel?
+    @IBOutlet var tournamentPeopleCount: UILabel?
+    @IBOutlet var tournamentType: UILabel?
+    @IBOutlet var tournamentStatus: UILabel?
+    @IBOutlet var tournamentDate: UILabel?
 }
