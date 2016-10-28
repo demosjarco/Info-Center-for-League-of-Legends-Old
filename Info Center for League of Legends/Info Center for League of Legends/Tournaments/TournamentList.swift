@@ -20,13 +20,13 @@ class TournamentList: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
+        FIRAuth.auth()?.addStateDidChangeListener({ (auth, user) in
             self.tournamentAddedRef.removeAllObservers()
             self.tournamentChangedRef.removeAllObservers()
             self.tournamentRemovedRef.removeAllObservers()
             
             if user != nil {
-                self.tournamentAddedRef = FIRDatabase.database().reference().child("tournaments")
+                self.tournamentAddedRef = FIRDatabase.database().reference().child("tournaments").child(Endpoints().getRegion()).child("tournamentList")
                 self.tournamentAddedRef.observe(FIRDataEventType.childAdded, with: { (snapshot) in
                     if self.checkIfMyTournament(snapshot: snapshot) {
                         self.myTournaments.append(snapshot.value as! [String: AnyObject])
@@ -39,7 +39,7 @@ class TournamentList: UITableViewController {
                     }
                 })
                 
-                self.tournamentChangedRef = FIRDatabase.database().reference().child("tournaments")
+                self.tournamentChangedRef = FIRDatabase.database().reference().child("tournaments").child(Endpoints().getRegion()).child("tournamentList")
                 self.tournamentAddedRef.observe(FIRDataEventType.childChanged, with: { (snapshot) in
                     let tempTournament = snapshot.value as! [String: AnyObject]
                     var index = 0
@@ -66,7 +66,7 @@ class TournamentList: UITableViewController {
                     }
                 })
                 
-                self.tournamentRemovedRef = FIRDatabase.database().reference().child("tournaments")
+                self.tournamentRemovedRef = FIRDatabase.database().reference().child("tournaments").child(Endpoints().getRegion()).child("tournamentList")
                 self.tournamentAddedRef.observe(FIRDataEventType.childRemoved, with: { (snapshot) in
                     if self.checkIfMyTournament(snapshot: snapshot) {
                         let tempArray = self.myTournaments as NSArray
@@ -79,7 +79,7 @@ class TournamentList: UITableViewController {
                     }
                 })
             }
-        })*/
+        })
     }
     
     func checkIfMyTournament(snapshot: FIRDataSnapshot) -> Bool {
