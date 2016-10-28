@@ -10,8 +10,8 @@ import UIKit
 import Firebase
 
 class TournamentList: UITableViewController {
-    var myTournaments = [[String: AnyObject]]()
-    var publicTournaments = [[String: AnyObject]]()
+    var myTournaments = [[String: Any]]()
+    var publicTournaments = [[String: Any]]()
     
     var tournamentAddedRef = FIRDatabaseReference()
     var tournamentChangedRef = FIRDatabaseReference()
@@ -29,19 +29,19 @@ class TournamentList: UITableViewController {
                 self.tournamentAddedRef = FIRDatabase.database().reference().child("tournaments").child(Endpoints().getRegion()).child("tournamentList")
                 self.tournamentAddedRef.observe(FIRDataEventType.childAdded, with: { (snapshot) in
                     if self.checkIfMyTournament(snapshot: snapshot) {
-                        self.myTournaments.append(snapshot.value as! [String: AnyObject])
+                        self.myTournaments.append(snapshot.value as! [String: Any])
                         let tempArray = self.myTournaments as NSArray
-                        self.tableView.insertRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: AnyObject]), section: 0)], with: .automatic)
+                        self.tableView.insertRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: Any]), section: 0)], with: .automatic)
                     } else {
-                        self.publicTournaments.append(snapshot.value as! [String: AnyObject])
+                        self.publicTournaments.append(snapshot.value as! [String: Any])
                         let tempArray = self.publicTournaments as NSArray
-                        self.tableView.insertRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: AnyObject]), section: 1)], with: .automatic)
+                        self.tableView.insertRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: Any]), section: 1)], with: .automatic)
                     }
                 })
                 
                 self.tournamentChangedRef = FIRDatabase.database().reference().child("tournaments").child(Endpoints().getRegion()).child("tournamentList")
                 self.tournamentAddedRef.observe(FIRDataEventType.childChanged, with: { (snapshot) in
-                    let tempTournament = snapshot.value as! [String: AnyObject]
+                    let tempTournament = snapshot.value as! [String: Any]
                     var index = 0
                     if self.checkIfMyTournament(snapshot: snapshot) {
                         for tournament in self.myTournaments {
@@ -51,7 +51,7 @@ class TournamentList: UITableViewController {
                                 index += 1
                             }
                         }
-                        self.myTournaments[index] = snapshot.value as! [String: AnyObject]
+                        self.myTournaments[index] = snapshot.value as! [String: Any]
                         self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
                     } else {
                         for tournament in self.publicTournaments {
@@ -61,7 +61,7 @@ class TournamentList: UITableViewController {
                                 index += 1
                             }
                         }
-                        self.publicTournaments[index] = snapshot.value as! [String: AnyObject]
+                        self.publicTournaments[index] = snapshot.value as! [String: Any]
                         self.tableView.reloadRows(at: [IndexPath(row: index, section: 1)], with: .automatic)
                     }
                 })
@@ -70,12 +70,12 @@ class TournamentList: UITableViewController {
                 self.tournamentAddedRef.observe(FIRDataEventType.childRemoved, with: { (snapshot) in
                     if self.checkIfMyTournament(snapshot: snapshot) {
                         let tempArray = self.myTournaments as NSArray
-                        self.myTournaments.remove(at: tempArray.index(of: snapshot.value as! [String: AnyObject]))
-                        self.tableView.deleteRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: AnyObject]), section: 0)], with: .automatic)
+                        self.myTournaments.remove(at: tempArray.index(of: snapshot.value as! [String: Any]))
+                        self.tableView.deleteRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: Any]), section: 0)], with: .automatic)
                     } else {
                         let tempArray = self.publicTournaments as NSArray
-                        self.publicTournaments.remove(at: tempArray.index(of: snapshot.value as! [String: AnyObject]))
-                        self.tableView.deleteRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: AnyObject]), section: 1)], with: .automatic)
+                        self.publicTournaments.remove(at: tempArray.index(of: snapshot.value as! [String: Any]))
+                        self.tableView.deleteRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: Any]), section: 1)], with: .automatic)
                     }
                 })
             }
@@ -91,7 +91,7 @@ class TournamentList: UITableViewController {
         
         let participants = snapshot.childSnapshot(forPath: "participants")
         if participants.hasChild("pending") {
-            let pending = participants.childSnapshot(forPath: "pending").value as! [String: [String: AnyObject]]
+            let pending = participants.childSnapshot(forPath: "pending").value as! [String: [String: Any]]
             for player in pending.values {
                 let userId = player["userId"] as! String
                 if userId == FIRAuth.auth()?.currentUser?.uid {
@@ -100,9 +100,9 @@ class TournamentList: UITableViewController {
             }
         }
         
-        let teams = participants.childSnapshot(forPath: "teams").value as! [String: [String: AnyObject]]
+        let teams = participants.childSnapshot(forPath: "teams").value as! [String: [String: Any]]
         for team in teams.values {
-            let players = team["players"] as! [String: [String: AnyObject]]
+            let players = team["players"] as! [String: [String: Any]]
             for player in players.values {
                 if player["userId"] != nil {
                     if player["userId"] as? String == FIRAuth.auth()?.currentUser?.uid {
@@ -187,7 +187,7 @@ class TournamentList: UITableViewController {
         cell.tournamentDate?.text = "--"
         
         // Configure the cell...
-        var tournament = [String: AnyObject]()
+        var tournament = [String: Any]()
         if indexPath.section == 0  {
             tournament = myTournaments[indexPath.row]
         } else {
