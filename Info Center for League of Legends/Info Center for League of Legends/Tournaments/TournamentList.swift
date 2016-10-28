@@ -201,7 +201,11 @@ class TournamentList: UITableViewController {
         } else {
             cell.tournamentType?.text = "Private tournament"
         }
-
+        
+        if tournament["createdBy"] as? String == FIRAuth.auth()?.currentUser?.uid {
+            cell.adminIcon?.isHidden = false
+        }
+        
         return cell
     }
 
