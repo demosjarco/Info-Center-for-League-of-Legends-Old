@@ -182,7 +182,6 @@ class TournamentList: UITableViewController {
         // Reset cell
         cell.adminIcon?.isHidden = true
         cell.tournamentName?.text = "--"
-        cell.tournamentPeopleCount?.text = "-- people"
         cell.tournamentType?.text = "-- tournament"
         cell.tournamentStatus?.text = "Status: --"
         cell.tournamentDate?.text = "--"
