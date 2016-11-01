@@ -61,7 +61,7 @@ PODS:
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseUI/Auth (0.6.2):
+  - FirebaseUI/Auth (0.7.0):
     - Firebase/Auth
   - Google-Mobile-Ads-SDK (7.13.0)
   - GoogleInterchangeUtilities (1.2.2):
@@ -109,7 +109,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FirebaseMessaging: acf66347e43c5637c697060c3001d25c809a4131
   FirebaseRemoteConfig: 383a9afe0a9291ada949e3f615257928a823b594
-  FirebaseUI: c6579dbd268ff63e07e308626ff818708d7c6160
+  FirebaseUI: 6b22f02b8992fd921116b59e8dcda688c4072517
   Google-Mobile-Ads-SDK: b0cac2909229e8f13fb30e03537cdefbd7be28fa
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
@@ -121,4 +121,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 771054b8c53fb1bec6fbca10ef92135f4452562a
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0.beta.1

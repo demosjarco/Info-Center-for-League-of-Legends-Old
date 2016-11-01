@@ -18,6 +18,9 @@ case "${TARGETED_DEVICE_FAMILY}" in
   2)
     TARGET_DEVICE_ARGS="--target-device ipad"
     ;;
+  3)
+    TARGET_DEVICE_ARGS="--target-device tv"
+    ;;
   *)
     TARGET_DEVICE_ARGS="--target-device mac"
     ;;
@@ -81,7 +84,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks/FirebaseAuthUI.framework/FIRPasswordSignInViewController.nib"
   install_resource "FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks/FirebaseAuthUI.framework/FIRPasswordSignUpViewController.nib"
   install_resource "FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks/FirebaseAuthUI.framework/FIRPasswordVerificationViewController.nib"
-  install_resource "FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks/FirebaseAuthUI.framework/GTMOAuth2ViewTouch.nib"
   install_resource "FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks/FirebaseAuthUI.framework/ic_email.png"
   install_resource "FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks/FirebaseAuthUI.framework/ic_email@2x.png"
   install_resource "FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks/FirebaseAuthUI.framework/ic_email@3x.png"
@@ -101,7 +103,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks/FirebaseAuthUI.framework/FIRPasswordSignInViewController.nib"
   install_resource "FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks/FirebaseAuthUI.framework/FIRPasswordSignUpViewController.nib"
   install_resource "FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks/FirebaseAuthUI.framework/FIRPasswordVerificationViewController.nib"
-  install_resource "FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks/FirebaseAuthUI.framework/GTMOAuth2ViewTouch.nib"
   install_resource "FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks/FirebaseAuthUI.framework/ic_email.png"
   install_resource "FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks/FirebaseAuthUI.framework/ic_email@2x.png"
   install_resource "FirebaseUI/FirebaseUIFrameworks/FirebaseAuthUI/Frameworks/FirebaseAuthUI.framework/ic_email@3x.png"
