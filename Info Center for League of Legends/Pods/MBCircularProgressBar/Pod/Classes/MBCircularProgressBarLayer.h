@@ -40,11 +40,6 @@
 @property (nonatomic,assign) NSTimeInterval  animationDuration;
 
 /**
- * Defines if the progress should animate on value change
- */
-@property (nonatomic,assign) BOOL  animated;
-
-/**
  * The font size of the value text	[0,∞)
  */
 @property (nonatomic,assign) CGFloat  valueFontSize;
@@ -98,6 +93,10 @@
  * The color of the background bar
  */
 @property (nonatomic,strong) UIColor    *emptyLineColor;
+/**
+ * The color of the background bar stroke line
+ */
+@property (nonatomic,strong) UIColor    *emptyLineStrokeColor;
 
 /*
  * Number of decimal places of the value [0,∞)
@@ -133,5 +132,12 @@
  * Should show value string
  */
 @property (nonatomic,assign)  BOOL      showValueString;
+
+
+/**
+ * Show label value as countdown
+ * Default is NO
+ */
+@property (nonatomic,assign)  BOOL      countdown;
 
 @end

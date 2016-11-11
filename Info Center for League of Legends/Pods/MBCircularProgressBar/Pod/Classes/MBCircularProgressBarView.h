@@ -21,7 +21,7 @@ IB_DESIGNABLE
 @property (nonatomic,assign) IBInspectable BOOL      showValueString;
 
 /**
- * The value of the progress bar  
+ * The value of the progress bar (Animatable property using [UIView animateWithDuration:]) 
  */
 @property (nonatomic,assign) IBInspectable CGFloat   value;
 
@@ -116,6 +116,11 @@ IB_DESIGNABLE
 @property (nonatomic,strong) IBInspectable UIColor   *emptyLineColor;
 
 /**
+ * The color of the background bar stroke color
+ */
+@property (nonatomic,strong) IBInspectable UIColor   *emptyLineStrokeColor;
+
+/**
  * The shape of the background bar cap	{kCGLineCapButt=0, kCGLineCapRound=1, kCGLineCapSquare=2} 
  */
 @property (nonatomic,assign) IBInspectable NSInteger emptyCapType;
@@ -125,11 +130,10 @@ IB_DESIGNABLE
  */
 @property (nonatomic,assign) IBInspectable CGPoint textOffset;
 
-/** 
- * Set the value of the progress bar with animation
- * @param value the new value
- * @param duration animation duration in seconds
+
+/**
+ * The bool value to apply to if its counddown or not
  */
--(void)setValue:(CGFloat)value animateWithDuration:(NSTimeInterval)duration;
+@property (nonatomic,assign) IBInspectable BOOL      countdown;
 
 @end

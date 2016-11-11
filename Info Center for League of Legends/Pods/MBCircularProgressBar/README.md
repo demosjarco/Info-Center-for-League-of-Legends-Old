@@ -35,6 +35,26 @@ use_frameworks!
 pod "MBCircularProgressBar"
 ```
 
+### Installation with Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate MBCircularProgressBar into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "MatiBot/MBCircularProgressBar"
+```
+
+Run `carthage update` to build the framework and drag the built `MBCircularProgressBar.framework` into your Xcode project.
+
+
 ### Directly
 
 You can also download the MBCircularProgressBar{View,Layer}.{m,h} files into your project directly
@@ -68,10 +88,12 @@ textOffset | CGPoint | The offset to apply to the unit / value text | (0,0) = ce
 
 ## Animation
 
-In order to animate a change in the progress bar you should use the `setValue:animateWithDuration:` method
+In order to animate a change in the progress bar you should nest the value property manipulation in a `[UIView animateWithDuration:]` method
 
 ```objc
-[self.progressBar setValue:55.f animateWithDuration:1];
+    [UIView animateWithDuration:1.f animations:^{
+        self.progressBar.value = 55.f;
+    }];
 ```
 ![](https://raw.github.com/matibot/MBCircularProgressBar/master/Readme/animation.gif)
 
@@ -82,6 +104,10 @@ In order to animate a change in the progress bar you should use the `setValue:an
 ## Author
 
 Mati Bot, matibot@gmail.com, [@b0tnik](https://twitter.com/b0tnik)
+
+## Apps that use it:
+
+[20 Hours](https://itunes.apple.com/us/app/id1141979499)
 
 ## License
 

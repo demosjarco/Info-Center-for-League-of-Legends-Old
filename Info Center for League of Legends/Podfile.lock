@@ -15,22 +15,22 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - BEMSimpleLineGraph (4.1)
-  - Firebase/AdMob (3.8.0):
+  - Firebase/AdMob (3.9.0):
     - Firebase/Core
-    - Google-Mobile-Ads-SDK (= 7.13.0)
-  - Firebase/Auth (3.8.0):
+    - Google-Mobile-Ads-SDK (= 7.14.0)
+  - Firebase/Auth (3.9.0):
     - Firebase/Core
     - FirebaseAuth (= 3.0.6)
-  - Firebase/Core (3.8.0):
+  - Firebase/Core (3.9.0):
     - FirebaseAnalytics (= 3.5.1)
     - FirebaseCore (= 3.4.4)
-  - Firebase/Database (3.8.0):
+  - Firebase/Database (3.9.0):
     - Firebase/Core
     - FirebaseDatabase (= 3.1.0)
-  - Firebase/Messaging (3.8.0):
+  - Firebase/Messaging (3.9.0):
     - Firebase/Core
     - FirebaseMessaging (= 1.2.1)
-  - Firebase/RemoteConfig (3.8.0):
+  - Firebase/RemoteConfig (3.9.0):
     - Firebase/Core
     - FirebaseRemoteConfig (= 1.3.1)
   - FirebaseAnalytics (3.5.1):
@@ -61,9 +61,9 @@ PODS:
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseUI/Auth (0.7.0):
+  - FirebaseUI/Auth (1.0.0):
     - Firebase/Auth
-  - Google-Mobile-Ads-SDK (7.13.0)
+  - Google-Mobile-Ads-SDK (7.14.0)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
   - GoogleSymbolUtilities (1.1.2)
@@ -81,7 +81,7 @@ PODS:
   - GoogleToolboxForMac/NSString+URLArguments (2.1.0)
   - GTMSessionFetcher/Core (1.1.7)
   - JSBadgeView (1.4.1)
-  - MBCircularProgressBar (0.3.4)
+  - MBCircularProgressBar (0.3.5)
   - SGSStaggeredFlowLayout (0.0.1)
 
 DEPENDENCIES:
@@ -101,7 +101,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BEMSimpleLineGraph: 44fd451f27f8e9cf96f2da5bea27603093576dd1
-  Firebase: fdbecadb7b5cbef2774852d4fa659b9daf11f2af
+  Firebase: ff77ffb77b317c3720fef57a60e9335cebf962e6
   FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
   FirebaseAuth: 96e9674ff31d6e1f826d53e26aa003a57cab0295
   FirebaseCore: d0ed25f27b6f9158eccc439f1be6f92e81207e28
@@ -109,16 +109,16 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FirebaseMessaging: acf66347e43c5637c697060c3001d25c809a4131
   FirebaseRemoteConfig: 383a9afe0a9291ada949e3f615257928a823b594
-  FirebaseUI: 6b22f02b8992fd921116b59e8dcda688c4072517
-  Google-Mobile-Ads-SDK: b0cac2909229e8f13fb30e03537cdefbd7be28fa
+  FirebaseUI: 82bd64fc3fc5a9451c37a720aee813990e727cf1
+  Google-Mobile-Ads-SDK: dbb0211c52ca02f72331b831ce4ccd218cf08748
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   JSBadgeView: 3861ddee41094284d9468e6d0af5107f703aaac5
-  MBCircularProgressBar: ff3b8e2f441214d9ee122a24ba0d4d00cc7de881
+  MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   SGSStaggeredFlowLayout: 7b20a3b7ac88a0db063ce9c4ac71c5fc95e165c2
 
-PODFILE CHECKSUM: 39df21791e6f01bc6c2f5511c114c2870c8c1463
+PODFILE CHECKSUM: 771054b8c53fb1bec6fbca10ef92135f4452562a
 
 COCOAPODS: 1.1.1
