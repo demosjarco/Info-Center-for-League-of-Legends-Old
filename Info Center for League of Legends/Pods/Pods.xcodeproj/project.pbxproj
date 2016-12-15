@@ -311,7 +311,6 @@
 		9B2A04AF67AF9554DDEE38AB88B78DA4 /* Pods-Info Center for League of Legends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Info Center for League of Legends.release.xcconfig"; sourceTree = "<group>"; };
 		9C6FFE839B78F31B24CB25BF9F171464 /* ic_visibility.png */ = {isa = PBXFileReference; includeInIndex = 1; name = ic_visibility.png; path = FirebaseUIFrameworks/FirebaseAuthUI/Frameworks/FirebaseAuthUI.framework/ic_visibility.png; sourceTree = "<group>"; };
 		9DBFE5B1782C7F819D29DCC7936A824B /* ic_visibility_off@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; name = "ic_visibility_off@2x.png"; path = "FirebaseUIFrameworks/FirebaseAuthUI/Frameworks/FirebaseAuthUI.framework/ic_visibility_off@2x.png"; sourceTree = "<group>"; };
-		9E8361EF4BA325F7E75278F1435D35ED /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Frameworks/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		A0F7AC53844844F870BE4C230F8806E5 /* BEMLine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMLine.h; path = Classes/BEMLine.h; sourceTree = "<group>"; };
 		A23C73F7451B2928B56317F45D8A8FE8 /* Pods-Info Center for League of Legends-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Info Center for League of Legends-frameworks.sh"; sourceTree = "<group>"; };
 		A2A4652C4B73C5CD1E491A8AD858ADA3 /* BEMSimpleLineGraphView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BEMSimpleLineGraphView.h; path = Classes/BEMSimpleLineGraphView.h; sourceTree = "<group>"; };
@@ -334,6 +333,7 @@
 		B813481E27FCA89A51ABE39DBA857553 /* Pods-Info Center for League of LegendsUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Info Center for League of LegendsUITests.modulemap"; sourceTree = "<group>"; };
 		B8437A3465E173D82DE4C8DC5F4CFAE4 /* Pods-Info Center for League of LegendsTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Info Center for League of LegendsTests.modulemap"; sourceTree = "<group>"; };
 		B8793832703727BAAB20E139B52ACE74 /* GTMSessionFetcher-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GTMSessionFetcher-prefix.pch"; sourceTree = "<group>"; };
+		B970E3B8EF91B8DA7E1C48303D061087 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = Frameworks/frameworks/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		BB81A15E4631062A2B38A8C2DC559DFC /* GTMNSData+zlib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSData+zlib.h"; path = "Foundation/GTMNSData+zlib.h"; sourceTree = "<group>"; };
 		BE71BC20BDE9CA80ABB0DFCA01F5DB82 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
 		BE853CAA9F792A00CC3851E8FD7D9FB4 /* SGSStaggeredFlowLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SGSStaggeredFlowLayout-prefix.pch"; sourceTree = "<group>"; };
@@ -833,6 +833,14 @@
 			path = "Target Support Files/Pods-Info Center for League of Legends";
 			sourceTree = "<group>";
 		};
+		7CBC69D1D4A25276A90BBF2E0D19212C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B970E3B8EF91B8DA7E1C48303D061087 /* GoogleMobileAds.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
@@ -904,14 +912,6 @@
 			path = "Target Support Files/Pods-Info Center for League of LegendsTests";
 			sourceTree = "<group>";
 		};
-		9EC7EAD579399960AD8BC0ED08D4B556 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9E8361EF4BA325F7E75278F1435D35ED /* GoogleMobileAds.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		9F1410A53E4E227F6E31ED4AC2195730 /* GoogleInterchangeUtilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -948,7 +948,7 @@
 		A8C927F14B7BCF56480E43A41D8DBB0D /* Google-Mobile-Ads-SDK */ = {
 			isa = PBXGroup;
 			children = (
-				9EC7EAD579399960AD8BC0ED08D4B556 /* Frameworks */,
+				7CBC69D1D4A25276A90BBF2E0D19212C /* Frameworks */,
 			);
 			name = "Google-Mobile-Ads-SDK";
 			path = "Google-Mobile-Ads-SDK";
