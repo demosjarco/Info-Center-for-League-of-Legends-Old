@@ -80,6 +80,20 @@ class DDragon: NSObject {
         }
     }
     
+    func getItemIcon(_ itemId: Int?, completion: @escaping (_ itemIconUrl: URL) -> Void) {
+        // Item 3637 is icon for empty icon slot
+        // If itemId is not there, use id 3637
+        var itemIdFinal = 3637
+        if (itemId != nil) {
+            itemIdFinal = itemId!
+        }
+        self.getCDNurl { (cdnUrl) in
+            self.getLatestDDragonVersion("item", completion: { (version) in
+                completion(URL(string: cdnUrl + "/" + version + "/img/item/" + String(itemIdFinal) + ".png")!)
+            })
+        }
+    }
+    
     func getMasteryIcon(_ masteryId: Int, gray: Bool, completion: @escaping (_ masteryIconUrl: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
             self.getLatestDDragonVersion("mastery", completion: { (version) in
