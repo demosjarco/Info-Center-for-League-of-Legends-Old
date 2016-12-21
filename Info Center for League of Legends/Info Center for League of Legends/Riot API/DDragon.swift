@@ -57,6 +57,20 @@ class DDragon: NSObject {
             })
         }
     }
+    func getChampionPassiveArt(_ fullImageName: String, completion: @escaping (_ champPassiveArtUrl: URL) -> Void) {
+        self.getCDNurl { (cdnUrl) in
+            self.getLatestDDragonVersion("champion", completion: { (version) in
+                completion(URL(string: cdnUrl + "/" + version + "/img/passive/" + fullImageName)!)
+            })
+        }
+    }
+    func getChampionAbilityArt(_ fullImageName: String, completion: @escaping (_ champAbilityArtUrl: URL) -> Void) {
+        self.getCDNurl { (cdnUrl) in
+            self.getLatestDDragonVersion("champion", completion: { (version) in
+                completion(URL(string: cdnUrl + "/" + version + "/img/spell/" + fullImageName)!)
+            })
+        }
+    }
     
     func getMasteryIcon(_ masteryId: Int, gray: Bool, completion: @escaping (_ masteryIconUrl: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
