@@ -68,13 +68,13 @@ class Profile_RecentGames: MainTableViewController {
         cell.champIcon?.image = nil
         cell.summonerSpell1?.image = nil
         cell.summonerSpell2?.image = nil
+        cell.item0?.image = nil
         cell.item1?.image = nil
         cell.item2?.image = nil
         cell.item3?.image = nil
         cell.item4?.image = nil
         cell.item5?.image = nil
         cell.item6?.image = nil
-        cell.item7?.image = nil
         
         // Configure the cell...
         StaticDataEndpoint().getChampionInfoById(recentGameList[indexPath.row].championId, championData: .Image, completion: { (champion) in
