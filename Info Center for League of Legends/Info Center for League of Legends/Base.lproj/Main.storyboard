@@ -48,11 +48,11 @@
                                 <rect key="frame" x="0.0" y="100" width="375" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ewZ-ok-VMR" id="TmW-28-PWT">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="63.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label multipleTouchEnabled="YES" contentMode="left" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" id="YR4-YT-zyw">
-                                            <rect key="frame" x="94" y="14" width="15.5" height="20.5"/>
+                                            <rect key="frame" x="93" y="13" width="16" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -60,7 +60,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label multipleTouchEnabled="YES" contentMode="left" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" id="ATh-2c-KFw">
-                                            <rect key="frame" x="94" y="34.5" width="12.5" height="16"/>
+                                            <rect key="frame" x="93" y="34" width="13" height="16"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
@@ -68,7 +68,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="poroIcon" id="2py-Nr-sTA">
-                                            <rect key="frame" x="15" y="0.0" width="64" height="63.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="63" height="63"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </imageView>
@@ -1928,14 +1928,14 @@ last -- games</string>
                                             <rect key="frame" x="2" y="116" width="112" height="34"/>
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
-                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="16"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="13.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
-                                                    <rect key="frame" x="0.0" y="16" width="112" height="18"/>
+                                                    <rect key="frame" x="0.0" y="13.5" width="112" height="20.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
