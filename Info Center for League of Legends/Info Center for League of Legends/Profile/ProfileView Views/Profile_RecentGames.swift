@@ -136,6 +136,28 @@ class Profile_RecentGames: MainTableViewController {
             // Error
         }
         
+        DDragon().getItemIcon(recentGameList[indexPath.row].stats.item0) { (itemIconUrl) in
+            cell.item0?.setImageWith(itemIconUrl)
+        }
+        DDragon().getItemIcon(recentGameList[indexPath.row].stats.item1) { (itemIconUrl) in
+            cell.item1?.setImageWith(itemIconUrl)
+        }
+        DDragon().getItemIcon(recentGameList[indexPath.row].stats.item2) { (itemIconUrl) in
+            cell.item2?.setImageWith(itemIconUrl)
+        }
+        DDragon().getItemIcon(recentGameList[indexPath.row].stats.item3) { (itemIconUrl) in
+            cell.item3?.setImageWith(itemIconUrl)
+        }
+        DDragon().getItemIcon(recentGameList[indexPath.row].stats.item4) { (itemIconUrl) in
+            cell.item4?.setImageWith(itemIconUrl)
+        }
+        DDragon().getItemIcon(recentGameList[indexPath.row].stats.item5) { (itemIconUrl) in
+            cell.item5?.setImageWith(itemIconUrl)
+        }
+        DDragon().getItemIcon(recentGameList[indexPath.row].stats.item6) { (itemIconUrl) in
+            cell.item6?.setImageWith(itemIconUrl)
+        }
+        
         var kills = 0
         if recentGameList[indexPath.row].stats.championsKilled != nil {
             kills = recentGameList[indexPath.row].stats.championsKilled!
