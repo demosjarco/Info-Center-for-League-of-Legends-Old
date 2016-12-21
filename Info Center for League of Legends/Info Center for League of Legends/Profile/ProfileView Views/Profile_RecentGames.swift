@@ -190,6 +190,8 @@ class Profile_RecentGames: MainTableViewController {
             cell.item6?.setImageWith(itemIconUrl)
         }
         
+        cell.ipEarned?.text = String(recentGameList[indexPath.row].ipEarned)
+        
         var kills = 0
         if recentGameList[indexPath.row].stats.championsKilled != nil {
             kills = recentGameList[indexPath.row].stats.championsKilled!
