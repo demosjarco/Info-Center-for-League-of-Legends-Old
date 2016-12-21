@@ -40,7 +40,7 @@
                             <connections>
                                 <outlet property="adSizeDelegate" destination="Rgb-Gr-bsT" id="BAb-Aq-Cao"/>
                                 <outlet property="delegate" destination="Rgb-Gr-bsT" id="z3S-ot-8Fi"/>
-                                <outlet property="rootViewController" destination="Rgb-Gr-bsT" id="eiY-0H-kya"/>
+                                <outlet property="rootViewController" destination="Rgb-Gr-bsT" id="4p9-iu-GIL"/>
                             </connections>
                         </view>
                         <prototypes>
