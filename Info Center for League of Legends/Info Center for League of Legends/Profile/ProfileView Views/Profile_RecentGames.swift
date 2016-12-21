@@ -108,7 +108,39 @@ class Profile_RecentGames: MainTableViewController {
             cell.gameType?.text = "Custom"
             break
         case "MATCHED_GAME":
-            cell.gameType?.text = recentGameList[indexPath.row].subType
+            // Nice text
+            switch recentGameList[indexPath.row].subType {
+            case "RANKED_SOLO_5x5":
+                cell.gameType?.text = "Ranked Solo"
+                break
+            case "RANKED_PREMADE_5x5":
+                cell.gameType?.text = "Ranked 5s"
+                break
+            case "RANKED_TEAM_3x3":
+                cell.gameType?.text = "Ranked 3s"
+                break
+            case "RANKED_FLEX_SR":
+                cell.gameType?.text = "Ranked Flex"
+                break
+            case "RANKED_FLEX_TT":
+                cell.gameType?.text = "Ranked Flex"
+                break
+            case "KING_PORO":
+                cell.gameType?.text = "Poro King"
+                break
+            case "NORMAL":
+                cell.gameType?.text = "Normal"
+                break
+            case "SIEGE":
+                cell.gameType?.text = "Nexus Seige"
+                break
+            case "NIGHTMARE_BOT":
+                cell.gameType?.text = "Doom Bots"
+                break
+            default:
+                cell.gameType?.text = recentGameList[indexPath.row].subType
+                break
+            }
             break
         case "TUTORIAL_GAME":
             cell.gameType?.text = "Tutorial"
