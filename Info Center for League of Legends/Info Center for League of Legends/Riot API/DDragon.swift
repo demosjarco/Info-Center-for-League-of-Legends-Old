@@ -72,6 +72,14 @@ class DDragon: NSObject {
         }
     }
     
+    func getSummonerSpellIcon(_ fullImageName: String, completion: @escaping (_ spellIconUrl: URL) -> Void) {
+        self.getCDNurl { (cdnUrl) in
+            self.getLatestDDragonVersion("summoner", completion: { (version) in
+                completion(URL(string: cdnUrl + "/" + version + "/img/spell/" + fullImageName)!)
+            })
+        }
+    }
+    
     func getMasteryIcon(_ masteryId: Int, gray: Bool, completion: @escaping (_ masteryIconUrl: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
             self.getLatestDDragonVersion("mastery", completion: { (version) in
@@ -80,14 +88,6 @@ class DDragon: NSObject {
                     grayText = "gray_"
                 }
                 completion(URL(string: cdnUrl + "/" + version + "/img/mastery/" + grayText + String(masteryId) + ".png")!)
-            })
-        }
-    }
-    
-    func getSummonerSpellIcon(_ fullImageName: String, completion: @escaping (_ spellIconUrl: URL) -> Void) {
-        getCDNurl { (cdnUrl) in
-            self.getLatestDDragonVersion("summoner", completion: { (version) in
-                completion(URL(string: cdnUrl + "/" + version + "/img/spell/" + fullImageName)!)
             })
         }
     }
