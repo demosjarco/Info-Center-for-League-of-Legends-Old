@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Firebase
 import JSBadgeView
+import SafariServices
 
-class Profile_RecentGames: MainTableViewController {
+class Profile_RecentGames: MainTableViewController, SFSafariViewControllerDelegate {
     var summoner = SummonerDto()
     var recentGameList = [GameDto]()
     
@@ -227,14 +229,67 @@ class Profile_RecentGames: MainTableViewController {
         
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        FIRDatabase.database().reference().child("news_languages").observe(FIRDataEventType.value, with: { (snapshot) in
+            let languages = snapshot.value as! [String: AnyObject]
+            let languagesForRegion = languages[Endpoints().getRegion()] as! [String]
+            
+            var region = ""
+            switch Endpoints().getRegion() {
+            case "br":
+                region = Endpoints.platformId.br.rawValue
+                break
+            case "eune":
+                region = Endpoints.platformId.eune.rawValue
+                break
+            case "euw":
+                region = Endpoints.platformId.euw.rawValue
+                break
+            case "jp":
+                region = Endpoints.platformId.jp.rawValue
+                break
+            case "kr":
+                region = Endpoints.platformId.kr.rawValue
+                break
+            case "lan":
+                region = Endpoints.platformId.lan.rawValue
+                break
+            case "las":
+                region = Endpoints.platformId.las.rawValue
+                break
+            case "na":
+                region = Endpoints.platformId.na.rawValue
+                break
+            case "oce":
+                region = Endpoints.platformId.oce.rawValue
+                break
+            case "ru":
+                region = Endpoints.platformId.ru.rawValue
+                break
+            case "tr":
+                region = Endpoints.platformId.br.rawValue
+                break
+            default:
+                region = ""
+                break
+            }
+            
+            var language = ""
+            if languagesForRegion.contains(Locale.preferredLanguages[0].components(separatedBy: "-")[0]) {
+                language = Locale.preferredLanguages[0].components(separatedBy: "-")[0]
+            } else {
+                language = languagesForRegion[0]
+            }
+            let matchDetailScreen = SFSafariViewController(url: URL(string: "http://matchhistory." + Endpoints().getRegion() + ".leagueoflegends.com/" + language + "/#match-details/" + region + "/" + String(self.recentGameList[indexPath.row].gameId) + "/0")!, entersReaderIfAvailable: false)
+            matchDetailScreen.delegate = self
+            self.present(matchDetailScreen, animated: true, completion: {
+                tableView.deselectRow(at: indexPath, animated: true)
+            })
+        })
     }
-    */
+    
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true, completion: nil)
+    }
 }
