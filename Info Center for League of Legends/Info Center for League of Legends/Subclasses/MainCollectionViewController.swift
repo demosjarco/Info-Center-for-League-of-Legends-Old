@@ -63,11 +63,11 @@ class MainCollectionViewController: UICollectionViewController, GADBannerViewDel
         adBanner?.isAutoloadEnabled = true*/
     }
     
-    func adViewDidReceiveAd(_ bannerView: GADBannerView!) {
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         
     }
     
-    func adView(_ bannerView: GADBannerView!, didFailToReceiveAdWithError error: GADRequestError!) {
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
         
     }
     

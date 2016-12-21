@@ -58,7 +58,7 @@ class MainTableViewController: UITableViewController, GADBannerViewDelegate, GAD
         self.tableView.backgroundView = tableBG
     }
     
-    func adViewDidReceiveAd(_ bannerView: GADBannerView!) {
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
         self.tableView.contentInset = UIEdgeInsets(top: self.tableView.contentInset.top, left: self.tableView.contentInset.left, bottom: bannerView.adSize.size.height, right: self.tableView.contentInset.right)
         
         var tabBarHeight = CGFloat(0)

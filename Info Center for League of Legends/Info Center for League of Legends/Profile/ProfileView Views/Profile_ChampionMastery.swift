@@ -17,20 +17,20 @@ class Profile_ChampionMastery: MainCollectionViewController {
         
         let refresher = UIRefreshControl(frame: self.collectionView!.frame)
         refresher.tintColor = UIColor.lightText
-        refresher.addTarget(self, action: #selector(self.refresh(sender:)), for: .valueChanged)
+        refresher.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         self.collectionView?.insertSubview(refresher, at: self.collectionView!.subviews.count - 1)
         
-        self.refresh(sender: refresher)
+        self.refresh(refresher)
     }
     
     @IBAction func closeView() {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func refresh(sender: UIRefreshControl) {
+    @IBAction func refresh(_ sender: UIRefreshControl) {
         sender.beginRefreshing()
         
-        ChampionMasteryEndpoint().getAllChampsBySummonerId(playerId: self.summoner.summonerId, completion: { (champions) in
+        ChampionMasteryEndpoint().getAllChampsBySummonerId(self.summoner.summonerId, completion: { (champions) in
             // Stuff
             self.championMasteries = champions
             self.collectionView?.reloadSections(IndexSet(integer: 0))
@@ -74,8 +74,8 @@ class Profile_ChampionMastery: MainCollectionViewController {
         cell.championIcon?.image = nil
         cell.championName?.text = "--"
         // Configure the cell
-        StaticDataEndpoint().getChampionInfoById(champId: championMasteries[indexPath.item].championId, championData: .Image, completion: { (champion) in
-            DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
+        StaticDataEndpoint().getChampionInfoById(championMasteries[indexPath.item].championId, championData: .Image, completion: { (champion) in
+            DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
                 cell.championIcon?.setImageWith(URLRequest(url: champSquareArtUrl), placeholderImage: nil, success: { (request, response, image) in
                     cell.championIcon?.image = image
                 }, failure: nil)

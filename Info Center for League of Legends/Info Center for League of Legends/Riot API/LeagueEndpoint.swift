@@ -11,7 +11,7 @@ import Firebase
 import AFNetworking
 
 class LeagueEndpoint: NSObject {
-    func tierToNumber(tier: String) -> Int {
+    func tierToNumber(_ tier: String) -> Int {
         switch tier {
         case "CHALLENGER":
             return 0
@@ -30,7 +30,7 @@ class LeagueEndpoint: NSObject {
         }
     }
     
-    func romanNumeralToNumber(romanNumeral: String) -> Int {
+    func romanNumeralToNumber(_ romanNumeral: String) -> Int {
         switch romanNumeral {
         case "I":
             return 1
@@ -45,13 +45,13 @@ class LeagueEndpoint: NSObject {
         }
     }
     
-    func getLeagueEntryBySummonerIds(summonerIds: [CLong], completion: @escaping (_ summonerMap: [String: [LeagueDto]]) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
+    func getLeagueEntryBySummonerIds(_ summonerIds: [CLong], completion: @escaping (_ summonerMap: [String: [LeagueDto]]) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
         var stringSummonerIds = [String]()
         for summonerId in summonerIds {
             stringSummonerIds.append(String(summonerId))
         }
         
-        Endpoints().league_bySummoner_entry(summonerIds: stringSummonerIds.joined(separator: ",")) { (composedUrl) in
+        Endpoints().league_bySummoner_entry(stringSummonerIds.joined(separator: ",")) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 var newDict = [String: [LeagueDto]]()
                 let json = responseObject as! NSDictionary

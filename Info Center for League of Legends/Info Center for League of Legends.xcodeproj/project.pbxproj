@@ -696,6 +696,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 84PD2967AA;
 						DevelopmentTeamName = "Eugenia Ilisei";
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -716,6 +717,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 84PD2967AA;
 						DevelopmentTeamName = "Eugenia Ilisei";
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
 						TestTargetID = 174C95131D106CCC00EBFB07;
 					};
@@ -723,6 +725,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 84PD2967AA;
 						DevelopmentTeamName = "Eugenia Ilisei";
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 174C95131D106CCC00EBFB07;
 					};

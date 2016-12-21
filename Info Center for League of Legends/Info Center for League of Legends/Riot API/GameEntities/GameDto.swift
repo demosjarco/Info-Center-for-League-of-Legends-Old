@@ -12,7 +12,7 @@ class GameDto: NSObject {
     /// Champion ID associated with game.
     var championId:Int = 0
     /// Date that end game data was recorded, specified as epoch milliseconds.
-    var createDate = NSDate()
+    var createDate = Date()
     /// Other players associated with the game.
     var fellowPlayers = [PlayerDto]()
     /// Game ID.

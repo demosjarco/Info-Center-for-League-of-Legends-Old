@@ -31,13 +31,13 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
         
         let refresher = UIRefreshControl(frame: self.collectionView!.frame)
         refresher.tintColor = UIColor.lightText
-        refresher.addTarget(self, action: #selector(self.refresh(sender:)), for: .valueChanged)
+        refresher.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         self.collectionView?.insertSubview(refresher, at: self.collectionView!.subviews.count - 1)
         
-        self.refresh(sender: refresher)
+        self.refresh(refresher)
     }
     
-    func refresh(sender: UIRefreshControl) {
+    func refresh(_ sender: UIRefreshControl) {
         UIView.animate(withDuration: 0.25, delay: 0, options: .beginFromCurrentState, animations: {
             self.collectionView?.contentOffset = CGPoint(x: 0, y: -sender.frame.size.height)
         }, completion: nil)
@@ -136,7 +136,7 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
         let imageUrl = components?.url
         
         cell.newsStoryImage?.setImageWith(URLRequest(url: imageUrl!), placeholderImage: nil, success: { (request, response, image) in
-            cell.setStoryImage(storyImage: image)
+            cell.setStoryImage(image)
         }, failure: nil)
         
         cell.newsStoryBlurTitle?.text = entries[indexPath.row]["title"] as? String

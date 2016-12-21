@@ -29,7 +29,7 @@ class ServerStatus: UITableViewController, UIPopoverPresentationControllerDelega
         self.navigationController?.popoverPresentationController?.backgroundColor = self.tableView.backgroundColor
     }
     
-    func imageWithColor(severity: String, index: IndexPath) -> UIImage {
+    func imageWithColor(_ severity: String, index: IndexPath) -> UIImage {
         let rect = CGRect(x: 0, y: 0, width: 13, height: self.tableView.rectForRow(at: index).size.height)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
@@ -58,30 +58,30 @@ class ServerStatus: UITableViewController, UIPopoverPresentationControllerDelega
     @IBAction func refresh() {
         refreshTimeText.title = "Loading..."
         self.refreshControl?.beginRefreshing()
-        StatusEndpoint().getShardStatus(completion: { (shardStatus) in
+        StatusEndpoint().getShardStatus({ (shardStatus) in
             self.title = shardStatus.name + " Status"
             self.services = shardStatus.services
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
             self.lastRefreshTime = Date()
             self.refreshTimeText.title = "Refreshing in " + String(60 - Int(floor(self.lastRefreshTime.timeIntervalSinceNow) * -1)) + " seconds..."
-            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshWithTimer(timer:)), userInfo: nil, repeats: false)
+            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshWithTimer(_:)), userInfo: nil, repeats: false)
         }, errorBlock: {
             self.refreshTimeText.title = "Error...trying again in 60 seconds..."
             self.refreshControl?.endRefreshing()
             self.lastRefreshTime = Date()
-            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshWithTimer(timer:)), userInfo: nil, repeats: false)
+            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshWithTimer(_:)), userInfo: nil, repeats: false)
             // Error
         })
     }
     
-    func refreshWithTimer(timer: Timer?) {
+    func refreshWithTimer(_ timer: Timer?) {
         timer?.invalidate()
         refreshTimeText.title = "Refreshing in " + String(60 - Int(floor(lastRefreshTime.timeIntervalSinceNow) * -1)) + " seconds..."
         if lastRefreshTime.timeIntervalSinceNow <= -60.0 {
             refresh()
         } else {
-            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshWithTimer(timer:)), userInfo: nil, repeats: false)
+            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshWithTimer(_:)), userInfo: nil, repeats: false)
         }
     }
 
@@ -109,7 +109,7 @@ class ServerStatus: UITableViewController, UIPopoverPresentationControllerDelega
         // Configure the cell...
         let incident = services[indexPath.section].incidents[indexPath.row]
         
-        let severityImage = UIImageView(image: imageWithColor(severity: incident.updates.first!.severity, index: indexPath))
+        let severityImage = UIImageView(image: imageWithColor(incident.updates.first!.severity, index: indexPath))
         cell.contentView.addSubview(severityImage)
         let badgeView = JSBadgeView(parentView: severityImage, alignment: .center)
         badgeView?.badgeBackgroundColor = UIColor.clear

@@ -62,8 +62,8 @@ class StaticDataEndpoint: NSObject {
         case vars = "vars"
     }
     
-    func getChampionInfoById(champId: Int, championData: champData, completion: @escaping (ChampionDto) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
-        Endpoints().staticData_champion_id(championId: String(champId), champData: championData.rawValue) { (composedUrl) in
+    func getChampionInfoById(_ champId: Int, championData: champData, completion: @escaping (ChampionDto) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
+        Endpoints().staticData_champion_id(String(champId), champData: championData.rawValue) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 let newChampion = ChampionDto()
                 let json = responseObject as! [String: AnyObject]
@@ -326,7 +326,7 @@ class StaticDataEndpoint: NSObject {
         }
     }
     
-    func getRegionValidLocales(completion: @escaping (_ languages: [String]) -> Void) {
+    func getRegionValidLocales(_ completion: @escaping (_ languages: [String]) -> Void) {
         Endpoints().staticData_languages { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 let json = responseObject as! [String]
@@ -338,8 +338,8 @@ class StaticDataEndpoint: NSObject {
         }
     }
     
-    func getMasteryInfo(masteryListData: masteryListData, completion: @escaping (_ masteryList: MasteryListDto) -> Void, errorBlock: @escaping () -> Void) {
-        Endpoints().staticData_masteries(masteryListData: masteryListData.rawValue) { (composedUrl) in
+    func getMasteryInfo(_ masteryListData: masteryListData, completion: @escaping (_ masteryList: MasteryListDto) -> Void, errorBlock: @escaping () -> Void) {
+        Endpoints().staticData_masteries(masteryListData.rawValue) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 let json = responseObject as! [String: AnyObject]
                 let newMasteryList = MasteryListDto()
@@ -463,8 +463,8 @@ class StaticDataEndpoint: NSObject {
         }
     }
     
-    func getMasteryInfoById(masteryId: Int, masteryListData: masteryListData, completion: () -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
-        Endpoints().staticData_masteries_id(masteryId: String(masteryId), masteryListData: masteryListData.rawValue) { (composedUrl) in
+    func getMasteryInfoById(_ masteryId: Int, masteryListData: masteryListData, completion: () -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
+        Endpoints().staticData_masteries_id(String(masteryId), masteryListData: masteryListData.rawValue) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 //
             }, failure: { (task, error) in
@@ -479,8 +479,8 @@ class StaticDataEndpoint: NSObject {
         }
     }
     
-    func getSpellInfoById(spellId: Int, spellData: spellData, completion: @escaping (_ spellInfo: SummonerSpellDto) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
-        Endpoints().staticData_summonerSpell_id(spellId: String(spellId), spellData: spellData.rawValue) { (composedUrl) in
+    func getSpellInfoById(_ spellId: Int, spellData: spellData, completion: @escaping (_ spellInfo: SummonerSpellDto) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
+        Endpoints().staticData_summonerSpell_id(String(spellId), spellData: spellData.rawValue) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 let json = responseObject as! [String: AnyObject]
                 let info = SummonerSpellDto()

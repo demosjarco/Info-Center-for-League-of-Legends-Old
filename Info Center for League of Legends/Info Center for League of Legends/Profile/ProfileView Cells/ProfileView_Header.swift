@@ -34,7 +34,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
     @IBOutlet var profilePicShadow:UIView?
     @IBOutlet var statsScroller:UICollectionView?
     
-    func initialLoad(loadedSummoner: SummonerDto) {
+    func initialLoad(_ loadedSummoner: SummonerDto) {
         self.summoner = loadedSummoner
         self.summonerName?.text = self.summoner.name
         
@@ -60,7 +60,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
     }
     
     func downloadProfileIconCover() {
-        DDragon().getProfileIcon(profileIconId: self.summoner.profileIconId, completion: { (profileIconURL) in
+        DDragon().getProfileIcon(self.summoner.profileIconId, completion: { (profileIconURL) in
             // Circle profile pic
             self.profilePic?.layer.cornerRadius = (self.profilePic?.frame.size.height)! / 2
             

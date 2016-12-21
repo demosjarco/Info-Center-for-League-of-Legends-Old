@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuthUI
 
-class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate, FIRAuthUIDelegate {
+class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPresentationControllerDelegate, FUIAuthDelegate {
     var oldUser = FIRAuth.auth()!.currentUser
     var currentUserProfileName = ""
     var linkedSummoners = [[String: AnyObject]]()
@@ -18,7 +18,7 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
     var summonerChangedRef = FIRDatabase.database().reference()
     var summonerRemovedRef = FIRDatabase.database().reference()
     
-    func randomAlphaNumericString(length: Int) -> String {
+    func randomAlphaNumericString(_ length: Int) -> String {
 //        let allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         let allowedChars = "0123456789"
         let allowedCharsCount = UInt32(allowedChars.characters.count)
@@ -87,14 +87,14 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
     }
     
     @IBAction func linkNewSummonerButton() {
-        let randomCode = randomAlphaNumericString(length: 5)
+        let randomCode = randomAlphaNumericString(5)
         
         let alert = UIAlertController(title: "Link Summoner", message: "Type in summoner name to begin the link process. Afterwards change the name of one of your mastery pages to \"" + randomCode + "\" and tap on the name below to verify.", preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
         let searchAction = UIAlertAction(title: "Search", style: UIAlertActionStyle.default, handler: { (action) in
             let summonerTextField = alert.textFields!.first!
-            SummonerEndpoint().getSummonersForSummonerNames(summonerNames: [summonerTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)], completion: { (summonerMap) in
+            SummonerEndpoint().getSummonersForSummonerNames([summonerTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)], completion: { (summonerMap) in
                 let summoner = summonerMap.values.first!
                 FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").updateChildValues([String(summoner.summonerId): ["summonerId": summoner.summonerId, "verified": false, "verifyCode": NSNumber(value: Int(randomCode)!)]])
             }, notFound: {
@@ -147,7 +147,7 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
         }
     }
     
-    func authUI(_ authUI: FIRAuthUI, didSignInWith user: FIRUser?, error: Error?) {
+    func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
         if error == nil && user != nil {
             // Reload account type
             self.tableView.reloadRows(at: [IndexPath(row: 1, section: 0 )], with: .automatic)
@@ -343,7 +343,7 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "summonerIdLinkCell", for: indexPath)
             // Configure the cell...
-            SummonerEndpoint().getSummonersForIds(summonerIds: [linkedSummoners[indexPath.row]["summonerId"] as! CLong], completion: { (summonerMap) in
+            SummonerEndpoint().getSummonersForIds([linkedSummoners[indexPath.row]["summonerId"] as! CLong], completion: { (summonerMap) in
                 cell.textLabel?.text = summonerMap.values.first?.name
                 if self.linkedSummoners[indexPath.row]["verified"] as! Bool {
                     cell.detailTextLabel?.text = nil
@@ -365,7 +365,7 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
                 tableView.deselectRow(at: indexPath, animated: true)
             } else {
                 oldUser = FIRAuth.auth()!.currentUser!
-                let authUI = FIRAuthUI.default()
+                let authUI = FUIAuth.defaultAuthUI()
                 authUI?.delegate = self
                 let authViewController = authUI?.authViewController()
                 authViewController?.modalPresentationStyle = UIModalPresentationStyle.formSheet
@@ -377,7 +377,7 @@ class AccountSettings: UITableViewController, UITextFieldDelegate, UIPopoverPres
             if linkedSummoners[indexPath.row]["verified"] as! Bool {
                 tableView.deselectRow(at: indexPath, animated: true)
             } else {
-                SummonerEndpoint().getMasteriesForSummonerIds(summonerIds: [self.linkedSummoners[indexPath.row]["summonerId"] as! CLong], completion: { (summonerMap) in
+                SummonerEndpoint().getMasteriesForSummonerIds([self.linkedSummoners[indexPath.row]["summonerId"] as! CLong], completion: { (summonerMap) in
                     for masteryPage in summonerMap.values.first!.pages {
                         if masteryPage.name == String(self.linkedSummoners[indexPath.row]["verifyCode"] as! Int) {
                             FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("summonerIds").child(String(summonerMap.values.first!.summonerId)).updateChildValues(["verified": true])

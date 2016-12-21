@@ -12,7 +12,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ExistingAppChecker().checkIfAppSetup(viewController: self)
+        ExistingAppChecker().checkIfAppSetup(self)
 
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
@@ -74,10 +74,10 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
             loading.view.tintColor = UIView().tintColor
         }
         
-        SummonerEndpoint().getSummonersForSummonerNames(summonerNames: [searchBar.text!.trimmingCharacters(in: .whitespacesAndNewlines)], completion: { (summonerMap) in
+        SummonerEndpoint().getSummonersForSummonerNames([searchBar.text!.trimmingCharacters(in: .whitespacesAndNewlines)], completion: { (summonerMap) in
             self.summonerInfoForSegue = summonerMap.values.first!
             
-            PlistManager().addToRecentSummoners(newSummoner: summonerMap.values.first!)
+            PlistManager().addToRecentSummoners(summonerMap.values.first!)
             self.recentSummoners.insert(summonerMap.values.first!, at: 0)
             self.tableView.insertRows(at: [IndexPath(row: self.recentSummoners.index(of: summonerMap.values.first!), section: 0)], with: .automatic)
             
@@ -131,13 +131,13 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
         
         var temp = recentSummoners[indexPath.row] as! SummonerDto
         
-        SummonerEndpoint().getSummonersForIds(summonerIds: [temp.summonerId], completion: { (summonerMap) in
+        SummonerEndpoint().getSummonersForIds([temp.summonerId], completion: { (summonerMap) in
             self.recentSummoners.replaceObject(at: indexPath.row, with: summonerMap.values.first!)
             temp = summonerMap.values.first!
             
             cell.textLabel?.text = temp.name
             
-            DDragon().getProfileIcon(profileIconId: temp.profileIconId, completion: { (profileIconURL) in
+            DDragon().getProfileIcon(temp.profileIconId, completion: { (profileIconURL) in
                 cell.imageView!.setImageWith(URLRequest(url: profileIconURL), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
                     cell.imageView!.image = image
                     cell.setNeedsLayout()
@@ -147,7 +147,7 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                 })
             })
             
-            LeagueEndpoint().getLeagueEntryBySummonerIds(summonerIds: [temp.summonerId], completion: { (summonerMap) in
+            LeagueEndpoint().getLeagueEntryBySummonerIds([temp.summonerId], completion: { (summonerMap) in
                 // Ranked
                 let currentSummoner = summonerMap.values.first
                 
@@ -157,21 +157,21 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
                 var highestDivisionRoman: String = ""
                 
                 for league in currentSummoner! {
-                    if highestTier > LeagueEndpoint().tierToNumber(tier: league.tier) {
-                        highestTier = LeagueEndpoint().tierToNumber(tier: league.tier)
+                    if highestTier > LeagueEndpoint().tierToNumber(league.tier) {
+                        highestTier = LeagueEndpoint().tierToNumber(league.tier)
                         highestTierSpelledOut = league.tier
                         highestDivision = 6
                         
                         for entry in league.entries {
-                            if highestDivision > LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division) {
-                                highestDivision = LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division)
+                            if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
+                                highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
                                 highestDivisionRoman = entry.division
                             }
                         }
-                    } else if highestTier == LeagueEndpoint().tierToNumber(tier: league.tier) {
+                    } else if highestTier == LeagueEndpoint().tierToNumber(league.tier) {
                         for entry in league.entries {
-                            if highestDivision > LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division) {
-                                highestDivision = LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division)
+                            if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
+                                highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
                                 highestDivisionRoman = entry.division
                             }
                         }

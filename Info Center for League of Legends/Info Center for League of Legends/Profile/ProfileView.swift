@@ -70,7 +70,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     }
     
     func loadRanked() {
-        LeagueEndpoint().getLeagueEntryBySummonerIds(summonerIds: [self.summoner.summonerId], completion: { (summonerMap) in
+        LeagueEndpoint().getLeagueEntryBySummonerIds([self.summoner.summonerId], completion: { (summonerMap) in
             // Ranked
             let currentSummoner = summonerMap.values.first
             
@@ -107,21 +107,21 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                     self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 2, section: 0)])
                 }
                 
-                if highestTier > LeagueEndpoint().tierToNumber(tier: league.tier) {
-                    highestTier = LeagueEndpoint().tierToNumber(tier: league.tier)
+                if highestTier > LeagueEndpoint().tierToNumber(league.tier) {
+                    highestTier = LeagueEndpoint().tierToNumber(league.tier)
                     highestTierSpelledOut = league.tier
                     highestDivision = 6
                     
                     for entry in league.entries {
-                        if highestDivision > LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division) {
-                            highestDivision = LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division)
+                        if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
+                            highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
                             highestDivisionRoman = entry.division
                         }
                     }
-                } else if highestTier == LeagueEndpoint().tierToNumber(tier: league.tier) {
+                } else if highestTier == LeagueEndpoint().tierToNumber(league.tier) {
                     for entry in league.entries {
-                        if highestDivision > LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division) {
-                            highestDivision = LeagueEndpoint().romanNumeralToNumber(romanNumeral: entry.division)
+                        if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
+                            highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
                             highestDivisionRoman = entry.division
                         }
                     }
@@ -152,7 +152,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     }
     
     func loadSummonerStats() {
-        StatsEndpoint().getStatsSummaryBySummonerId(summonerId: self.summoner.summonerId, completion: { (summaryList) in
+        StatsEndpoint().getStatsSummaryBySummonerId(self.summoner.summonerId, completion: { (summaryList) in
             for summary in summaryList.playerStatSummaries {
                 if summary.playerStatSummaryType == "RankedSolo5x5" {
                     let rWins = self.profileHeader.summonerStats[0] as! NSMutableDictionary
@@ -197,7 +197,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     }
     
     func loadChampionMastery() {
-        ChampionMasteryEndpoint().getAllChampsBySummonerId(playerId: self.summoner.summonerId, completion: { (champions) in
+        ChampionMasteryEndpoint().getAllChampsBySummonerId(self.summoner.summonerId, completion: { (champions) in
             if champions.count > 0 {
                 self.cm_top3champs.append(champions[0])
             }
@@ -226,7 +226,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     }
     
     func loadRecentGames() {
-        GameEndpoint().getRecentGamesBySummonerId(summonerId: self.summoner.summonerId, completion: { (recentGamesMap) in
+        GameEndpoint().getRecentGamesBySummonerId(self.summoner.summonerId, completion: { (recentGamesMap) in
             self.rc_lastGame = recentGamesMap.games.first!
             self.rc_totalGames = 0
             self.rc_gamesWon = 0
@@ -249,7 +249,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     }
     
     func loadMasteries() {
-        SummonerEndpoint().getMasteriesForSummonerIds(summonerIds: [self.summoner.summonerId], completion: { (summonerMap) in
+        SummonerEndpoint().getMasteriesForSummonerIds([self.summoner.summonerId], completion: { (summonerMap) in
             let currentSummoner = summonerMap.values.first
             
             for page in currentSummoner!.pages {
@@ -274,7 +274,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     }
     
     func addSummonerToRecents() {
-        PlistManager().addToRecentSummoners(newSummoner: self.summoner)
+        PlistManager().addToRecentSummoners(self.summoner)
     }
     
     // MARK: - Navigation
@@ -313,11 +313,11 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 if self.cm_top3champs.count > 0 {
                     let championMastery = self.cm_top3champs[0]
                     
-                    StaticDataEndpoint().getChampionInfoById(champId: championMastery.championId, championData: .Image, completion: { (champion) in
-                        DDragon().getChampionLoadingArt(fullImageName: champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
+                    StaticDataEndpoint().getChampionInfoById(championMastery.championId, championData: .Image, completion: { (champion) in
+                        DDragon().getChampionLoadingArt(champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
                             champMasteryCell.champ1bg?.setImageWith(champLoadingArtUrl)
                         })
-                        DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
+                        DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
                             champMasteryCell.champ1squareIcon?.setImageWith(champSquareArtUrl)
                         })
                         champMasteryCell.champ1name?.text = champion.name
@@ -342,11 +342,11 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 if self.cm_top3champs.count > 1 {
                     let championMastery = self.cm_top3champs[1]
                     
-                    StaticDataEndpoint().getChampionInfoById(champId: championMastery.championId, championData: .Image, completion: { (champion) in
-                        DDragon().getChampionLoadingArt(fullImageName: champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
+                    StaticDataEndpoint().getChampionInfoById(championMastery.championId, championData: .Image, completion: { (champion) in
+                        DDragon().getChampionLoadingArt(champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
                             champMasteryCell.champ2bg?.setImageWith(champLoadingArtUrl)
                         })
-                        DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
+                        DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
                             champMasteryCell.champ2squareIcon?.setImageWith(champSquareArtUrl)
                         })
                         champMasteryCell.champ2name?.text = champion.name
@@ -371,11 +371,11 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 if self.cm_top3champs.count > 2 {
                     let championMastery = self.cm_top3champs[2]
                     
-                    StaticDataEndpoint().getChampionInfoById(champId: championMastery.championId, championData: .Image, completion: { (champion) in
-                        DDragon().getChampionLoadingArt(fullImageName: champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
+                    StaticDataEndpoint().getChampionInfoById(championMastery.championId, championData: .Image, completion: { (champion) in
+                        DDragon().getChampionLoadingArt(champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
                             champMasteryCell.champ3bg?.setImageWith(champLoadingArtUrl)
                         })
-                        DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
+                        DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
                             champMasteryCell.champ3squareIcon?.setImageWith(champSquareArtUrl)
                         })
                         champMasteryCell.champ3name?.text = champion.name
@@ -425,8 +425,8 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 }
                 
                 if self.rc_lastGame.championId != 0 {
-                    StaticDataEndpoint().getChampionInfoById(champId: self.rc_lastGame.championId, championData: .Image, completion: { (champion) in
-                        DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
+                    StaticDataEndpoint().getChampionInfoById(self.rc_lastGame.championId, championData: .Image, completion: { (champion) in
+                        DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
                             recentGamesCell.lastGameChamp?.setImageWith(champSquareArtUrl)
                         })
                     }, notFound: {
@@ -471,7 +471,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                         leftColumnCount += mastery.rank
                         if mastery.masteryId == 6161 || mastery.masteryId == 6162 || mastery.masteryId == 6164 {
                             // Keystone
-                            DDragon().getMasteryIcon(masteryId: mastery.masteryId, gray: false, completion: { (masteryIconUrl) in
+                            DDragon().getMasteryIcon(mastery.masteryId, gray: false, completion: { (masteryIconUrl) in
                                 masteriesCell.leftColumnKeystone?.setImageWith(URLRequest(url: masteryIconUrl), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
                                     masteriesCell.leftColumnKeystone?.image = image
                                     masteriesCell.leftColumnKeystone?.isHidden = false
@@ -491,7 +491,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                         middleColumnCount += mastery.rank
                         if mastery.masteryId == 6361 || mastery.masteryId == 6362 || mastery.masteryId == 6363 {
                             // Keystone
-                            DDragon().getMasteryIcon(masteryId: mastery.masteryId, gray: false, completion: { (masteryIconUrl) in
+                            DDragon().getMasteryIcon(mastery.masteryId, gray: false, completion: { (masteryIconUrl) in
                                 masteriesCell.middleColumnKeystone?.setImageWith(URLRequest(url: masteryIconUrl), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
                                     masteriesCell.middleColumnKeystone?.image = image
                                     masteriesCell.middleColumnKeystone?.isHidden = false
@@ -511,7 +511,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                         rightColumnCount += mastery.rank
                         if mastery.masteryId == 6261 || mastery.masteryId == 6262 || mastery.masteryId == 6263 {
                             // Keystone
-                            DDragon().getMasteryIcon(masteryId: mastery.masteryId, gray: false, completion: { (masteryIconUrl) in
+                            DDragon().getMasteryIcon(mastery.masteryId, gray: false, completion: { (masteryIconUrl) in
                                 masteriesCell.rightColumnKeystone?.setImageWith(URLRequest(url: masteryIconUrl), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
                                     masteriesCell.rightColumnKeystone?.image = image
                                     masteriesCell.rightColumnKeystone?.isHidden = false
@@ -551,7 +551,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 self.profileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profile_view_header", for: indexPath) as! ProfileView_Header
                 
                 self.profileHeader.delegate = self
-                self.profileHeader.initialLoad(loadedSummoner: self.summoner)
+                self.profileHeader.initialLoad(self.summoner)
                 
                 return self.profileHeader
             case UICollectionElementKindSectionFooter:
@@ -569,7 +569,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         let newTileOrder = NSMutableArray(array: tileOrder)
         newTileOrder.removeObject(at: sourceIndexPath.row)
         newTileOrder.insert(tileOrder[sourceIndexPath.row], at: destinationIndexPath.row)
-        PlistManager().writeTileOrder(tileOrder: NSArray(array: newTileOrder))
+        PlistManager().writeTileOrder(NSArray(array: newTileOrder))
         
         tileOrder = NSArray(array: newTileOrder)
     }

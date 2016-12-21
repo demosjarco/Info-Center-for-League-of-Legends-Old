@@ -11,8 +11,8 @@ import Firebase
 import AFNetworking
 
 class GameEndpoint: NSObject {
-    func getRecentGamesBySummonerId(summonerId: CLong, completion: @escaping (_ recentGamesMap: RecentGamesDto) -> Void, errorBlock: @escaping () -> Void) {
-        Endpoints().game_BySummoner(summonerId: String(summonerId)) { (composedUrl) in
+    func getRecentGamesBySummonerId(_ summonerId: CLong, completion: @escaping (_ recentGamesMap: RecentGamesDto) -> Void, errorBlock: @escaping () -> Void) {
+        Endpoints().game_BySummoner(String(summonerId)) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
                 let recentGames = RecentGamesDto()
                 let json = responseObject as! NSDictionary

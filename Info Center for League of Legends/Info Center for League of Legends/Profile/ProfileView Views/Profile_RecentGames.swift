@@ -25,7 +25,7 @@ class Profile_RecentGames: MainTableViewController {
     @IBAction func refresh() {
         self.refreshControl?.beginRefreshing()
         
-        GameEndpoint().getRecentGamesBySummonerId(summonerId: summoner.summonerId, completion: { (recentGamesMap) in
+        GameEndpoint().getRecentGamesBySummonerId(summoner.summonerId, completion: { (recentGamesMap) in
             self.recentGameList = recentGamesMap.games
             self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
             self.refreshControl?.endRefreshing()
@@ -77,8 +77,8 @@ class Profile_RecentGames: MainTableViewController {
         cell.item7?.image = nil
         
         // Configure the cell...
-        StaticDataEndpoint().getChampionInfoById(champId: recentGameList[indexPath.row].championId, championData: .Image, completion: { (champion) in
-            DDragon().getChampionSquareArt(fullImageName: champion.image!.full, completion: { (champSquareArtUrl) in
+        StaticDataEndpoint().getChampionInfoById(recentGameList[indexPath.row].championId, championData: .Image, completion: { (champion) in
+            DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
                 cell.champIcon?.setImageWith(champSquareArtUrl)
             })
         }, notFound: {
@@ -117,8 +117,8 @@ class Profile_RecentGames: MainTableViewController {
             break
         }
         
-        StaticDataEndpoint().getSpellInfoById(spellId: recentGameList[indexPath.row].spell1, spellData: .image, completion: { (spellInfo) in
-            DDragon().getSummonerSpellIcon(fullImageName: spellInfo.image!.full, completion: { (spellIconUrl) in
+        StaticDataEndpoint().getSpellInfoById(recentGameList[indexPath.row].spell1, spellData: .image, completion: { (spellInfo) in
+            DDragon().getSummonerSpellIcon(spellInfo.image!.full, completion: { (spellIconUrl) in
                 cell.summonerSpell1?.setImageWith(spellIconUrl)
             })
         }, notFound: {
@@ -126,8 +126,8 @@ class Profile_RecentGames: MainTableViewController {
         }) {
             // Error
         }
-        StaticDataEndpoint().getSpellInfoById(spellId: recentGameList[indexPath.row].spell2, spellData: .image, completion: { (spellInfo) in
-            DDragon().getSummonerSpellIcon(fullImageName: spellInfo.image!.full, completion: { (spellIconUrl) in
+        StaticDataEndpoint().getSpellInfoById(recentGameList[indexPath.row].spell2, spellData: .image, completion: { (spellInfo) in
+            DDragon().getSummonerSpellIcon(spellInfo.image!.full, completion: { (spellIconUrl) in
                 cell.summonerSpell2?.setImageWith(spellIconUrl)
             })
         }, notFound: {
@@ -149,7 +149,7 @@ class Profile_RecentGames: MainTableViewController {
             assists = recentGameList[indexPath.row].stats.assists!
         }
         cell.kda?.text = String(kills) + " /" + String(deaths) + " /" + String(assists)
-        DDragon().getUserInterfaceIcons(type: .minion) { (uiIconUrl) in
+        DDragon().getUserInterfaceIcons(.minion) { (uiIconUrl) in
             cell.creepScoreIcon?.setImageWith(uiIconUrl)
         }
         var cs = 0
@@ -164,7 +164,7 @@ class Profile_RecentGames: MainTableViewController {
         if recentGameList[indexPath.row].stats.goldEarned != nil {
             gold = recentGameList[indexPath.row].stats.goldEarned!
         }
-        DDragon().getUserInterfaceIcons(type: .gold) { (uiIconUrl) in
+        DDragon().getUserInterfaceIcons(.gold) { (uiIconUrl) in
             cell.goldIcon?.setImageWith(uiIconUrl)
         }
         cell.gold?.text = String(gold)

@@ -11,18 +11,18 @@ import CloudKit
 import Firebase
 
 class ExistingAppChecker: NSObject {
-    func checkIfAppSetup(viewController: UIViewController) {
+    func checkIfAppSetup(_ viewController: UIViewController) {
         if let region = UserDefaults.standard.string(forKey: "league_region") {
             print("App Region: " + region)
         } else {
-            promptUserForRegion(viewController: viewController, userChose: { (region) in
+            promptUserForRegion(viewController, userChose: { (region) in
                 UserDefaults.standard.setValue(region, forKey: "league_region")
                 FIRMessaging.messaging().subscribe(toTopic: "/topics/" + region)
             })
         }
     }
     
-    func promptUserForRegion(viewController: UIViewController, userChose: @escaping (_ region: String) -> Void) {
+    func promptUserForRegion(_ viewController: UIViewController, userChose: @escaping (_ region: String) -> Void) {
         let alert = UIAlertController(title: "Region Selector", message: "Select the League of Legends region for this app to use", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "North America", style: .default, handler: { (action) in

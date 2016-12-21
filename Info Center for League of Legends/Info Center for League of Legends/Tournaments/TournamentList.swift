@@ -28,7 +28,7 @@ class TournamentList: UITableViewController {
             if user != nil {
                 self.tournamentAddedRef = FIRDatabase.database().reference().child("tournaments").child(Endpoints().getRegion()).child("tournamentList")
                 self.tournamentAddedRef.observe(FIRDataEventType.childAdded, with: { (snapshot) in
-                    if self.checkIfMyTournament(snapshot: snapshot) {
+                    if self.checkIfMyTournament(snapshot) {
                         self.myTournaments.append(snapshot.value as! [String: Any])
                         let tempArray = self.myTournaments as NSArray
                         self.tableView.insertRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: Any]), section: 0)], with: .automatic)
@@ -43,7 +43,7 @@ class TournamentList: UITableViewController {
                 self.tournamentAddedRef.observe(FIRDataEventType.childChanged, with: { (snapshot) in
                     let tempTournament = snapshot.value as! [String: Any]
                     var index = 0
-                    if self.checkIfMyTournament(snapshot: snapshot) {
+                    if self.checkIfMyTournament(snapshot) {
                         for tournament in self.myTournaments {
                             if tournament["tournamentId"] as! String == tempTournament["tournamentId"] as! String {
                                 break
@@ -68,7 +68,7 @@ class TournamentList: UITableViewController {
                 
                 self.tournamentRemovedRef = FIRDatabase.database().reference().child("tournaments").child(Endpoints().getRegion()).child("tournamentList")
                 self.tournamentAddedRef.observe(FIRDataEventType.childRemoved, with: { (snapshot) in
-                    if self.checkIfMyTournament(snapshot: snapshot) {
+                    if self.checkIfMyTournament(snapshot) {
                         let tempArray = self.myTournaments as NSArray
                         self.myTournaments.remove(at: tempArray.index(of: snapshot.value as! [String: Any]))
                         self.tableView.deleteRows(at: [IndexPath(row: tempArray.index(of: snapshot.value as! [String: Any]), section: 0)], with: .automatic)
@@ -82,7 +82,7 @@ class TournamentList: UITableViewController {
         })
     }
     
-    func checkIfMyTournament(snapshot: FIRDataSnapshot) -> Bool {
+    func checkIfMyTournament(_ snapshot: FIRDataSnapshot) -> Bool {
         var myTournament = false
         let admin = snapshot.childSnapshot(forPath: "createdBy").value as! String
         if admin == FIRAuth.auth()?.currentUser?.uid {

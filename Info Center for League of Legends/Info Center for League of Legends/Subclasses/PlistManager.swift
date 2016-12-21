@@ -11,7 +11,7 @@ import Foundation
 class PlistManager: NSObject {
     func loadRecentSummoners() -> NSArray {
         if let region = UserDefaults.standard.string(forKey: "league_region") {
-            if let recentSummoners = NSArray(contentsOfFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(recentSummonersFileName(regionCode: region))) {
+            if let recentSummoners = NSArray(contentsOfFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(recentSummonersFileName(region))) {
                 return recentSummoners
             } else {
                 return NSArray()
@@ -21,7 +21,7 @@ class PlistManager: NSObject {
         }
     }
     
-    func addToRecentSummoners(newSummoner: SummonerDto) {
+    func addToRecentSummoners(_ newSummoner: SummonerDto) {
         let recentSummoners = NSMutableArray(array: loadRecentSummoners())
         
         if !recentSummoners.contains(newSummoner.summonerId) {
@@ -35,7 +35,7 @@ class PlistManager: NSObject {
                 }
             }
             
-            recentSummoners.write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: Endpoints().getRegion())), atomically: true)
+            recentSummoners.write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(Endpoints().getRegion())), atomically: true)
         }
     }
     
@@ -46,7 +46,7 @@ class PlistManager: NSObject {
         recentSummoners.removeObject(at: oldIndex)
         recentSummoners.insert(item, at: newIndex)
         
-        recentSummoners.write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: Endpoints().getRegion())), atomically: true)
+        recentSummoners.write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(Endpoints().getRegion())), atomically: true)
     }
     
     func removeItemInRecentSummoners(oldIndex: Int) {
@@ -54,13 +54,13 @@ class PlistManager: NSObject {
         
         recentSummoners.removeObject(at: oldIndex)
         
-        recentSummoners.write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(regionCode: Endpoints().getRegion())), atomically: true)
+        recentSummoners.write(toFile: self.getDocumentDirectory().appending(self.baseDatabaseDirectory).appending(self.recentSummonersFileName(Endpoints().getRegion())), atomically: true)
     }
     
     // Local
     let baseDatabaseDirectory: String = "/databases"
     
-    func recentSummonersFileName(regionCode: String) -> String {
+    func recentSummonersFileName(_ regionCode: String) -> String {
         return "/" + regionCode + "_recentSummoners.plist"
     }
     let rankedSummonerHistoryDirectoy: String = "/rankedSummonerHistory"
@@ -86,7 +86,7 @@ class PlistManager: NSObject {
             return NSArray(array: tempTileOrder)
         }
     }
-    func writeTileOrder(tileOrder: NSArray) {
+    func writeTileOrder(_ tileOrder: NSArray) {
         if !FileManager.default.fileExists(atPath: getDocumentDirectory().appending(baseDatabaseDirectory)) {
             do {
                 try FileManager.default.createDirectory(atPath: getDocumentDirectory().appending(baseDatabaseDirectory), withIntermediateDirectories: true, attributes: nil)

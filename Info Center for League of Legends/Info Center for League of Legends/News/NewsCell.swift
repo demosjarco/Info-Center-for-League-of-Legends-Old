@@ -19,7 +19,7 @@ class NewsCell: UICollectionViewCell {
     @IBOutlet var newsStoryTitle: UILabel?
     @IBOutlet var newsStoryContent: UILabel?
     
-    func setStoryImage(storyImage: UIImage) {
+    func setStoryImage(_ storyImage: UIImage) {
         self.newsStoryImage?.image = storyImage
         self.newsStoryImageForBlur?.image = storyImage
         self.newsStoryImage?.isHidden = false
