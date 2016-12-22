@@ -12,7 +12,7 @@ class Profile_Masteries_MasteriesView: UIViewController, UICollectionViewDataSou
     var summoner = SummonerDto()
     var pageId:CLong = 0
     
-    @IBOutlet var sectionBar:UISegmentedControl
+    @IBOutlet var sectionBar:UISegmentedControl?
     @IBOutlet var treeScrollView:UIScrollView?
     @IBOutlet var masteryBg:UIImageView?
     @IBOutlet var ferocityTree: UICollectionView?
