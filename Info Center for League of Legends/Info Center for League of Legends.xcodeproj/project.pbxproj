@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17106E5B1E0BAD4E0076E2C7 /* lcuRunes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */; };
 		171A1C0F1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */; };
 		171A1C111D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */; };
 		171A1C131D38989D00BAB5B4 /* AggregatedStatsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C121D38989D00BAB5B4 /* AggregatedStatsDto.swift */; };
@@ -123,6 +124,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = lcuRunes.xcassets; sourceTree = "<group>"; };
 		171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryListDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryListDto.swift"; sourceTree = "<group>"; };
 		171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryDto.swift"; sourceTree = "<group>"; };
 		171A1C121D38989D00BAB5B4 /* AggregatedStatsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AggregatedStatsDto.swift; path = "Riot API/StatsEntities/AggregatedStatsDto.swift"; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 				17D14E171D10D928007F6938 /* Ranked.xcassets */,
 				1791E6E21D416DF400012595 /* champMastery.xcassets */,
 				17D14E191D10D947007F6938 /* FunRefresher.xcassets */,
+				17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */,
 				174C95221D106CCE00EBFB07 /* LaunchScreen.storyboard */,
 				174C95251D106CCE00EBFB07 /* Info.plist */,
 				17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */,
@@ -763,6 +766,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17D14E1A1D10D947007F6938 /* FunRefresher.xcassets in Resources */,
+				17106E5B1E0BAD4E0076E2C7 /* lcuRunes.xcassets in Resources */,
 				17D14E161D10D3A8007F6938 /* Winter.xcassets in Resources */,
 				1791E6E31D416DF400012595 /* champMastery.xcassets in Resources */,
 				172101D51D1F1A840088DB1A /* Settings.bundle in Resources */,
