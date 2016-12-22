@@ -211,7 +211,7 @@ class Endpoints: NSObject {
                 if optimalLocale {
                     urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&masteryData=" + masteryListData + "&api_key=" + apiKey
                 } else {
-                    urlString += "?masteryListData=" + masteryListData + "&api_key=" + apiKey
+                    urlString += "?masteryData=" + masteryListData + "&api_key=" + apiKey
                 }
                 completion(urlString)
             })
