@@ -338,8 +338,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let niceTileOrder = tileOrder as! [[String: String]]
-        switch niceTileOrder[indexPath.row]["tileType"] {
+        if collectionView == self.collectionView {
+            let niceTileOrder = tileOrder as! [[String: String]]
+            switch niceTileOrder[indexPath.row]["tileType"] {
             case "champMastery" as NSString:
                 // Champion Mastery
                 let champMasteryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_champ_mastery", for: indexPath) as! ProfileView_ChampMastery
@@ -415,10 +416,10 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                             champMasteryCell.champ3squareIcon?.setImageWith(champSquareArtUrl)
                         })
                         champMasteryCell.champ3name?.text = champion.name
-                        }, notFound: {
-                            // 404
-                        }, errorBlock: {
-                            // Error
+                    }, notFound: {
+                        // 404
+                    }, errorBlock: {
+                        // Error
                     })
                     
                     champMasteryCell.champ3progressBar?.value = CGFloat(championMastery.championPointsSinceLastLevel)
@@ -511,9 +512,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                                 masteriesCell.leftColumnKeystone?.setImageWith(URLRequest(url: masteryIconUrl), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
                                     masteriesCell.leftColumnKeystone?.image = image
                                     masteriesCell.leftColumnKeystone?.isHidden = false
-                                    }, failure: { (request, response, error) in
-                                        masteriesCell.leftColumnKeystone?.image = UIImage(named: "poroIcon")
-                                        masteriesCell.leftColumnKeystone?.isHidden = false
+                                }, failure: { (request, response, error) in
+                                    masteriesCell.leftColumnKeystone?.image = UIImage(named: "poroIcon")
+                                    masteriesCell.leftColumnKeystone?.isHidden = false
                                 })
                             })
                         }
@@ -531,9 +532,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                                 masteriesCell.middleColumnKeystone?.setImageWith(URLRequest(url: masteryIconUrl), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
                                     masteriesCell.middleColumnKeystone?.image = image
                                     masteriesCell.middleColumnKeystone?.isHidden = false
-                                    }, failure: { (request, response, error) in
-                                        masteriesCell.middleColumnKeystone?.image = UIImage(named: "poroIcon")
-                                        masteriesCell.middleColumnKeystone?.isHidden = false
+                                }, failure: { (request, response, error) in
+                                    masteriesCell.middleColumnKeystone?.image = UIImage(named: "poroIcon")
+                                    masteriesCell.middleColumnKeystone?.isHidden = false
                                 })
                             })
                         }
@@ -551,9 +552,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                                 masteriesCell.rightColumnKeystone?.setImageWith(URLRequest(url: masteryIconUrl), placeholderImage: UIImage(named: "poroIcon"), success: { (request, response, image) in
                                     masteriesCell.rightColumnKeystone?.image = image
                                     masteriesCell.rightColumnKeystone?.isHidden = false
-                                    }, failure: { (request, response, error) in
-                                        masteriesCell.rightColumnKeystone?.image = UIImage(named: "poroIcon")
-                                        masteriesCell.rightColumnKeystone?.isHidden = false
+                                }, failure: { (request, response, error) in
+                                    masteriesCell.rightColumnKeystone?.image = UIImage(named: "poroIcon")
+                                    masteriesCell.rightColumnKeystone?.isHidden = false
                                 })
                             })
                         }
@@ -573,6 +574,12 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 return runesCell
             default:
                 return collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
+            }
+        } else {
+            // Rune Page stat cell
+            let runeStatCell = collectionView.dequeueReusableCell(withReuseIdentifier: "runeStatCell", for: indexPath) as! ProfileView_Rune_StatsCell
+            
+            return runeStatCell
         }
     }
     
@@ -593,7 +600,11 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     }
     
     override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
-        return true
+        if collectionView == self.collectionView {
+            return true
+        } else {
+            return false
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
