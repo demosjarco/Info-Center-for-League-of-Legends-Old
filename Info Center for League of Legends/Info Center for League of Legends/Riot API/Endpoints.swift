@@ -209,7 +209,7 @@ class Endpoints: NSObject {
             self.optimalLocaleForRegion({ (optimalLocale) in
                 var urlString = self.getStaticDataBaseEndpoint() + "mastery/" + masteryId
                 if optimalLocale {
-                    urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&masteryListData=" + masteryListData + "&api_key=" + apiKey
+                    urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&masteryData=" + masteryListData + "&api_key=" + apiKey
                 } else {
                     urlString += "?masteryListData=" + masteryListData + "&api_key=" + apiKey
                 }
