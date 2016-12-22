@@ -46,6 +46,7 @@
 		174C953A1D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C95391D106CCE00EBFB07 /* Info_Center_for_League_of_LegendsUITests.swift */; };
 		1765108E1D23101800A076BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1765108C1D230CB800A076BA /* QuartzCore.framework */; };
 		176510911D231DBE00A076BA /* ProfileView_Header_StatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176510901D231DBE00A076BA /* ProfileView_Header_StatsCell.swift */; };
+		176A5BF51E0B6B000030919A /* Profile_Masteries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176A5BF41E0B6B000030919A /* Profile_Masteries.swift */; };
 		176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D5B951D1C42A2000D9D85 /* Endpoints.swift */; };
 		176D5B981D1C478F000D9D85 /* SummonerDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D5B971D1C478F000D9D85 /* SummonerDto.swift */; };
 		1771CBCE1D28290200D0DB08 /* LeagueEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771CBCD1D28290200D0DB08 /* LeagueEndpoint.swift */; };
@@ -166,6 +167,7 @@
 		174C953B1D106CCE00EBFB07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1765108C1D230CB800A076BA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		176510901D231DBE00A076BA /* ProfileView_Header_StatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Header_StatsCell.swift; path = "Profile/ProfileView Cells/ProfileView Stats/ProfileView_Header_StatsCell.swift"; sourceTree = "<group>"; };
+		176A5BF41E0B6B000030919A /* Profile_Masteries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile_Masteries.swift; path = "Profile/ProfileView Views/Profile_Masteries.swift"; sourceTree = "<group>"; };
 		176D5B951D1C42A2000D9D85 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Endpoints.swift; path = "Riot API/Endpoints.swift"; sourceTree = "<group>"; };
 		176D5B971D1C478F000D9D85 /* SummonerDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummonerDto.swift; path = "Riot API/SummonerEntities/SummonerDto.swift"; sourceTree = "<group>"; };
 		1770B79B1D13B8790096AA9B /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Objective-C/Bridging-Header.h"; sourceTree = "<group>"; };
@@ -518,6 +520,7 @@
 				17EE83921D5D2049009948AC /* Profile_ChampionMastery_Cell.swift */,
 				171A5C851D5E4EEE002A8F57 /* Profile_RecentGames.swift */,
 				171A5C871D5E4F03002A8F57 /* Profile_RecentGames_Cell.swift */,
+				176A5BF41E0B6B000030919A /* Profile_Masteries.swift */,
 			);
 			name = "ProfileView Views";
 			sourceTree = "<group>";
@@ -1126,6 +1129,7 @@
 				173705411D4D035C006E112E /* StretchyHeaderCollectionViewLayout.swift in Sources */,
 				1771CBCE1D28290200D0DB08 /* LeagueEndpoint.swift in Sources */,
 				171A1C0F1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift in Sources */,
+				176A5BF51E0B6B000030919A /* Profile_Masteries.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
