@@ -318,6 +318,8 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
             let destinationNav = segue.destination as! UINavigationController
             let destination = destinationNav.topViewController as! Profile_Masteries
             destination.summoner = self.summoner
+        } else if segue.identifier == "showRunesDetail" {
+            let destinationNav = segue.destination as! UINavigationController
         }
     }
     
