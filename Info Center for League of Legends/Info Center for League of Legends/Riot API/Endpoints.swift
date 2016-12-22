@@ -270,4 +270,10 @@ class Endpoints: NSObject {
             completion(urlString)
         }
     }
+    func summoner_runesById(_ summonerIds: String, completion: @escaping (_ composedUrl: String) -> Void) {
+        self.getApiKey { (apiKey) in
+            let urlString = self.getBaseEndpoint() + "/v1.4/summoner/" + summonerIds + "/runes?api_key=" + apiKey
+            completion(urlString)
+        }
+    }
 }
