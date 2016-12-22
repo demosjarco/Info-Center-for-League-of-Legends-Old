@@ -10,5 +10,6 @@ import UIKit
 import Foundation
 
 class ProfileView_Runes: ProfileView_SummaryTile {
-    
+    @IBOutlet var runePageName:UILabel?
+    @IBOutlet var runeStatsCollection:UICollectionView?
 }
