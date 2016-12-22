@@ -85,7 +85,6 @@
 		17D14E151D10D3A8007F6938 /* Normal.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E121D10D3A8007F6938 /* Normal.xcassets */; };
 		17D14E161D10D3A8007F6938 /* Winter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E131D10D3A8007F6938 /* Winter.xcassets */; };
 		17D14E181D10D928007F6938 /* Ranked.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E171D10D928007F6938 /* Ranked.xcassets */; };
-		17D14E1A1D10D947007F6938 /* FunRefresher.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E191D10D947007F6938 /* FunRefresher.xcassets */; };
 		17D70BCF1D5D030B0097207E /* Profile_ChampionMastery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D70BCE1D5D030B0097207E /* Profile_ChampionMastery.swift */; };
 		17EDBB301D10EEEF00C7B7C5 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */; };
 		17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB321D10EFAC00C7B7C5 /* ProfileSearch.swift */; };
@@ -209,7 +208,6 @@
 		17D14E121D10D3A8007F6938 /* Normal.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Normal.xcassets; sourceTree = "<group>"; };
 		17D14E131D10D3A8007F6938 /* Winter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Winter.xcassets; sourceTree = "<group>"; };
 		17D14E171D10D928007F6938 /* Ranked.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Ranked.xcassets; sourceTree = "<group>"; };
-		17D14E191D10D947007F6938 /* FunRefresher.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FunRefresher.xcassets; sourceTree = "<group>"; };
 		17D70BCE1D5D030B0097207E /* Profile_ChampionMastery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile_ChampionMastery.swift; path = "Profile/ProfileView Views/Profile_ChampionMastery.swift"; sourceTree = "<group>"; };
 		17E5B9611D11A74100F213E6 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		17EDBB2F1D10EEEF00C7B7C5 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTableViewController.swift; path = Subclasses/MainTableViewController.swift; sourceTree = "<group>"; };
@@ -386,7 +384,6 @@
 				17D14E111D10D3A8007F6938 /* Fall.xcassets */,
 				17D14E171D10D928007F6938 /* Ranked.xcassets */,
 				1791E6E21D416DF400012595 /* champMastery.xcassets */,
-				17D14E191D10D947007F6938 /* FunRefresher.xcassets */,
 				17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */,
 				174C95221D106CCE00EBFB07 /* LaunchScreen.storyboard */,
 				174C95251D106CCE00EBFB07 /* Info.plist */,
@@ -762,7 +759,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17D14E1A1D10D947007F6938 /* FunRefresher.xcassets in Resources */,
 				17106E5B1E0BAD4E0076E2C7 /* lcuRunes.xcassets in Resources */,
 				17D14E161D10D3A8007F6938 /* Winter.xcassets in Resources */,
 				1791E6E31D416DF400012595 /* champMastery.xcassets in Resources */,
