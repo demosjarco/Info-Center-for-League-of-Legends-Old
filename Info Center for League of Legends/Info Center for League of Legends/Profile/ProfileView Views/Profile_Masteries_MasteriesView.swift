@@ -143,21 +143,21 @@ class Profile_Masteries_MasteriesView: UIViewController, UICollectionViewDataSou
             DDragon().getMasteryIcon(ferocityMasteries[indexPath.section].masteryTreeItems[indexPath.row].masteryId, gray: ferocityMasteries[indexPath.section].masteryTreeItems[indexPath.row].points > 0 ? false : true, completion: { (masteryIconUrl) in
                 cell.masteryImage?.setImageWith(masteryIconUrl)
             })
-            cell.masteryLevel?.text = " " + String(ferocityMasteries[indexPath.section].masteryTreeItems[indexPath.row].points) + " / "
+            cell.masteryLevel?.text = " " + String(ferocityMasteries[indexPath.section].masteryTreeItems[indexPath.row].points) + " / " + String(masteryData[String(ferocityMasteries[indexPath.section].masteryTreeItems[indexPath.row].masteryId)]!.ranks!)
             
             break
         case cunningTree!:
             DDragon().getMasteryIcon(cunningMasteries[indexPath.section].masteryTreeItems[indexPath.row].masteryId, gray: cunningMasteries[indexPath.section].masteryTreeItems[indexPath.row].points > 0 ? false : true, completion: { (masteryIconUrl) in
                 cell.masteryImage?.setImageWith(masteryIconUrl)
             })
-            cell.masteryLevel?.text = " " + String(cunningMasteries[indexPath.section].masteryTreeItems[indexPath.row].points) + " / "
+            cell.masteryLevel?.text = " " + String(cunningMasteries[indexPath.section].masteryTreeItems[indexPath.row].points) + " / " + String(masteryData[String(cunningMasteries[indexPath.section].masteryTreeItems[indexPath.row].masteryId)]!.ranks!)
             
             break
         case resolveTree!:
             DDragon().getMasteryIcon(resolveMasteries[indexPath.section].masteryTreeItems[indexPath.row].masteryId, gray: resolveMasteries[indexPath.section].masteryTreeItems[indexPath.row].points > 0 ? false : true, completion: { (masteryIconUrl) in
                 cell.masteryImage?.setImageWith(masteryIconUrl)
             })
-            cell.masteryLevel?.text = " " + String(resolveMasteries[indexPath.section].masteryTreeItems[indexPath.row].points) + " / "
+            cell.masteryLevel?.text = " " + String(resolveMasteries[indexPath.section].masteryTreeItems[indexPath.row].points) + " / " + String(masteryData[String(resolveMasteries[indexPath.section].masteryTreeItems[indexPath.row].masteryId)]!.ranks!)
             
             break
         default:
