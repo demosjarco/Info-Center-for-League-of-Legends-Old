@@ -20,7 +20,6 @@
 		172101CB1D1EDBDB0088DB1A /* ProfileView_RecentGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C91D1EDBDB0088DB1A /* ProfileView_RecentGames.swift */; };
 		172101CF1D1EDC2C0088DB1A /* ProfileView_Masteries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101CC1D1EDC2C0088DB1A /* ProfileView_Masteries.swift */; };
 		172101D01D1EDC2C0088DB1A /* ProfileView_Runes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101CD1D1EDC2C0088DB1A /* ProfileView_Runes.swift */; };
-		172101D11D1EDC2C0088DB1A /* ProfileView_Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101CE1D1EDC2C0088DB1A /* ProfileView_Teams.swift */; };
 		172101D31D1EDC880088DB1A /* MainCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101D21D1EDC880088DB1A /* MainCollectionViewController.swift */; };
 		172101D51D1F1A840088DB1A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 172101D41D1F1A840088DB1A /* Settings.bundle */; };
 		172101D71D1F26A00088DB1A /* DDragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101D61D1F26A00088DB1A /* DDragon.swift */; };
@@ -137,7 +136,6 @@
 		172101C91D1EDBDB0088DB1A /* ProfileView_RecentGames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_RecentGames.swift; path = "Profile/ProfileView Cells/ProfileView_RecentGames.swift"; sourceTree = "<group>"; };
 		172101CC1D1EDC2C0088DB1A /* ProfileView_Masteries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Masteries.swift; path = "Profile/ProfileView Cells/ProfileView_Masteries.swift"; sourceTree = "<group>"; };
 		172101CD1D1EDC2C0088DB1A /* ProfileView_Runes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Runes.swift; path = "Profile/ProfileView Cells/ProfileView_Runes.swift"; sourceTree = "<group>"; };
-		172101CE1D1EDC2C0088DB1A /* ProfileView_Teams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Teams.swift; path = "Profile/ProfileView Cells/ProfileView_Teams.swift"; sourceTree = "<group>"; };
 		172101D21D1EDC880088DB1A /* MainCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainCollectionViewController.swift; path = Subclasses/MainCollectionViewController.swift; sourceTree = "<group>"; };
 		172101D41D1F1A840088DB1A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		172101D61D1F26A00088DB1A /* DDragon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDragon.swift; path = "Riot API/DDragon.swift"; sourceTree = "<group>"; };
@@ -295,7 +293,6 @@
 				172101C91D1EDBDB0088DB1A /* ProfileView_RecentGames.swift */,
 				172101CC1D1EDC2C0088DB1A /* ProfileView_Masteries.swift */,
 				172101CD1D1EDC2C0088DB1A /* ProfileView_Runes.swift */,
-				172101CE1D1EDC2C0088DB1A /* ProfileView_Teams.swift */,
 			);
 			name = "ProfileView Cells";
 			sourceTree = "<group>";
@@ -1121,7 +1118,6 @@
 				17F97B8D1D5678A800A8B4E7 /* SC_MasteryDto.swift in Sources */,
 				17F97B8F1D5678DF00A8B4E7 /* MasteryTreeDto.swift in Sources */,
 				178E3C061DA7FF600088BE69 /* TournamentList.swift in Sources */,
-				172101D11D1EDC2C0088DB1A /* ProfileView_Teams.swift in Sources */,
 				176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */,
 				1732F5F91D54FC5A009DA53B /* StatusDetail.swift in Sources */,
 				178B957C1D428A4D00CAD47A /* PlayerDto.swift in Sources */,

@@ -81,7 +81,6 @@ class PlistManager: NSObject {
             tempTileOrder.insert(NSDictionary(object: "recentGames", forKey: "tileType" as NSCopying), at: 1)
             tempTileOrder.insert(NSDictionary(object: "masteries", forKey: "tileType" as NSCopying), at: 2)
             tempTileOrder.insert(NSDictionary(object: "runes", forKey: "tileType" as NSCopying), at: 3)
-            tempTileOrder.insert(NSDictionary(object: "teams", forKey: "tileType" as NSCopying), at: 4)
             
             return NSArray(array: tempTileOrder)
         }

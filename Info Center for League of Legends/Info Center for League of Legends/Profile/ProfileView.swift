@@ -537,13 +537,6 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 runesCell.setupCell()
                 
                 return runesCell
-            case "teams" as NSString:
-                // Teams
-                let teamsCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_teams", for: indexPath) as! ProfileView_Teams
-                
-                teamsCell.setupCell()
-                
-                return teamsCell
             default:
                 return collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
         }
