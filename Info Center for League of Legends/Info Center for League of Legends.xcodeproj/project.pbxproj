@@ -12,6 +12,12 @@
 		17029E371E0C3E58004E653E /* RunePageDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E361E0C3E58004E653E /* RunePageDto.swift */; };
 		17029E391E0C3EA8004E653E /* RuneSlotDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E381E0C3EA8004E653E /* RuneSlotDto.swift */; };
 		17029E3B1E0C4B9B004E653E /* lcuRuneOutlines.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17029E3A1E0C4B9B004E653E /* lcuRuneOutlines.xcassets */; };
+		17029E3E1E0C556A004E653E /* RuneListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E3D1E0C556A004E653E /* RuneListDto.swift */; };
+		17029E401E0C55D0004E653E /* BasicDataDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E3F1E0C55D0004E653E /* BasicDataDto.swift */; };
+		17029E421E0C55E5004E653E /* RuneDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E411E0C55E5004E653E /* RuneDto.swift */; };
+		17029E441E0C55F7004E653E /* BasicDataStatsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E431E0C55F7004E653E /* BasicDataStatsDto.swift */; };
+		17029E461E0C562E004E653E /* GoldDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E451E0C562E004E653E /* GoldDto.swift */; };
+		17029E481E0C5640004E653E /* MetaDataDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E471E0C5640004E653E /* MetaDataDto.swift */; };
 		17106E5B1E0BAD4E0076E2C7 /* lcuRunes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */; };
 		171A1C0F1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */; };
 		171A1C111D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */; };
@@ -132,6 +138,12 @@
 		17029E361E0C3E58004E653E /* RunePageDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunePageDto.swift; path = "Riot API/SummonerEntities/RunePageDto.swift"; sourceTree = "<group>"; };
 		17029E381E0C3EA8004E653E /* RuneSlotDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuneSlotDto.swift; path = "Riot API/SummonerEntities/RuneSlotDto.swift"; sourceTree = "<group>"; };
 		17029E3A1E0C4B9B004E653E /* lcuRuneOutlines.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = lcuRuneOutlines.xcassets; sourceTree = "<group>"; };
+		17029E3D1E0C556A004E653E /* RuneListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuneListDto.swift; path = "Riot API/StaticDataEntities/Runes/RuneListDto.swift"; sourceTree = "<group>"; };
+		17029E3F1E0C55D0004E653E /* BasicDataDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicDataDto.swift; path = "Riot API/StaticDataEntities/Runes/BasicDataDto.swift"; sourceTree = "<group>"; };
+		17029E411E0C55E5004E653E /* RuneDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuneDto.swift; path = "Riot API/StaticDataEntities/Runes/RuneDto.swift"; sourceTree = "<group>"; };
+		17029E431E0C55F7004E653E /* BasicDataStatsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicDataStatsDto.swift; path = "Riot API/StaticDataEntities/Runes/BasicDataStatsDto.swift"; sourceTree = "<group>"; };
+		17029E451E0C562E004E653E /* GoldDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoldDto.swift; path = "Riot API/StaticDataEntities/Runes/GoldDto.swift"; sourceTree = "<group>"; };
+		17029E471E0C5640004E653E /* MetaDataDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetaDataDto.swift; path = "Riot API/StaticDataEntities/Runes/MetaDataDto.swift"; sourceTree = "<group>"; };
 		17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = lcuRunes.xcassets; sourceTree = "<group>"; };
 		171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryListDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryListDto.swift"; sourceTree = "<group>"; };
 		171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryDto.swift"; sourceTree = "<group>"; };
@@ -279,6 +291,19 @@
 				17029E321E0C3B07004E653E /* ProfileView_Rune_StatsCell.swift */,
 			);
 			name = "ProfileView Rune Stats";
+			sourceTree = "<group>";
+		};
+		17029E3C1E0C5503004E653E /* Runes */ = {
+			isa = PBXGroup;
+			children = (
+				17029E3D1E0C556A004E653E /* RuneListDto.swift */,
+				17029E3F1E0C55D0004E653E /* BasicDataDto.swift */,
+				17029E411E0C55E5004E653E /* RuneDto.swift */,
+				17029E431E0C55F7004E653E /* BasicDataStatsDto.swift */,
+				17029E451E0C562E004E653E /* GoldDto.swift */,
+				17029E471E0C5640004E653E /* MetaDataDto.swift */,
+			);
+			name = Runes;
 			sourceTree = "<group>";
 		};
 		171A1C0D1D38970500BAB5B4 /* Stats Entities */ = {
@@ -529,6 +554,7 @@
 			children = (
 				17F97B841D56771000A8B4E7 /* Champion */,
 				17F97B871D56773400A8B4E7 /* Masteries */,
+				17029E3C1E0C5503004E653E /* Runes */,
 				171A5C891D5E7525002A8F57 /* Summoner Spell */,
 			);
 			name = "StaticData Entities";
@@ -1078,6 +1104,7 @@
 				1732F5FB1D550057009DA53B /* StatusEndpoint.swift in Sources */,
 				171A1C131D38989D00BAB5B4 /* AggregatedStatsDto.swift in Sources */,
 				1732F6051D550184009DA53B /* Incident.swift in Sources */,
+				17029E421E0C55E5004E653E /* RuneDto.swift in Sources */,
 				1739C4921D1C3A3800B50BDC /* SummonerEndpoint.swift in Sources */,
 				17B9B3101D4D746300D8A755 /* ChampionDto.swift in Sources */,
 				172101D31D1EDC880088DB1A /* MainCollectionViewController.swift in Sources */,
@@ -1100,6 +1127,7 @@
 				178B957A1D428A1C00CAD47A /* RecentGamesDto.swift in Sources */,
 				1771CBD41D282B9800D0DB08 /* LeagueEntryDto.swift in Sources */,
 				176A5BF91E0B816B0030919A /* Profile_Masteries_MasteriesView_Cell.swift in Sources */,
+				17029E3E1E0C556A004E653E /* RuneListDto.swift in Sources */,
 				17F97B911D5678F200A8B4E7 /* MasteryTreeListDto.swift in Sources */,
 				1732F6031D550174009DA53B /* Service.swift in Sources */,
 				171A5C881D5E4F03002A8F57 /* Profile_RecentGames_Cell.swift in Sources */,
@@ -1123,6 +1151,7 @@
 				17EE83931D5D2049009948AC /* Profile_ChampionMastery_Cell.swift in Sources */,
 				1732F6011D550166009DA53B /* ShardStatus.swift in Sources */,
 				17C583CB1D388441007AAC43 /* StatsEndpoint.swift in Sources */,
+				17029E441E0C55F7004E653E /* BasicDataStatsDto.swift in Sources */,
 				172C606C1D3BFE67003DC152 /* NewsCell.swift in Sources */,
 				17D70BCF1D5D030B0097207E /* Profile_ChampionMastery.swift in Sources */,
 				172101C71D1EDB9D0088DB1A /* ProfileView_Header.swift in Sources */,
@@ -1137,6 +1166,7 @@
 				1771CBD51D282B9800D0DB08 /* MiniSeriesDto.swift in Sources */,
 				17FDDF601D4D391200CC7277 /* ChampionMasteryEndpoint.swift in Sources */,
 				17029E331E0C3B07004E653E /* ProfileView_Rune_StatsCell.swift in Sources */,
+				17029E481E0C5640004E653E /* MetaDataDto.swift in Sources */,
 				17029E371E0C3E58004E653E /* RunePageDto.swift in Sources */,
 				17F97B8D1D5678A800A8B4E7 /* SC_MasteryDto.swift in Sources */,
 				17029E391E0C3EA8004E653E /* RuneSlotDto.swift in Sources */,
@@ -1153,9 +1183,11 @@
 				17EDBB381D10F68D00C7B7C5 /* ExistingAppChecker.swift in Sources */,
 				17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */,
 				17B9B3211D4D759E00D8A755 /* SpellVarsDto.swift in Sources */,
+				17029E401E0C55D0004E653E /* BasicDataDto.swift in Sources */,
 				172101CF1D1EDC2C0088DB1A /* ProfileView_Masteries.swift in Sources */,
 				173705411D4D035C006E112E /* StretchyHeaderCollectionViewLayout.swift in Sources */,
 				1771CBCE1D28290200D0DB08 /* LeagueEndpoint.swift in Sources */,
+				17029E461E0C562E004E653E /* GoldDto.swift in Sources */,
 				171A1C0F1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift in Sources */,
 				176A5BF51E0B6B000030919A /* Profile_Masteries.swift in Sources */,
 			);
