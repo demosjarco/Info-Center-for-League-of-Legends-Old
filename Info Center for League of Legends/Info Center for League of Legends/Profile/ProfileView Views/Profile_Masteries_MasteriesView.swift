@@ -99,7 +99,6 @@ class Profile_Masteries_MasteriesView: UIViewController, UICollectionViewDataSou
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == treeScrollView {
-            print(scrollView.contentOffset.x)
             if scrollView.contentOffset.x < ferocityTree!.frame.size.width / 2 {
                 sectionBar?.selectedSegmentIndex = 0
             } else if scrollView.contentOffset.x >= ferocityTree!.frame.size.width / 2 && scrollView.contentOffset.x <= cunningTree!.frame.origin.x + cunningTree!.frame.size.width / 2 {
