@@ -463,6 +463,14 @@ class StaticDataEndpoint: NSObject {
         }
     }
     
+    func getRuneInfo(_ runeData: String, completion: @escaping (_ masteryList: MasteryListDto) -> Void, errorBlock: @escaping () -> Void) {
+        
+    }
+    
+    func getRuneInfoById(_ runeId: Int, runeData: String, completion: () -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
+        
+    }
+    
     func getSpellInfoById(_ spellId: Int, spellData: spellData, completion: @escaping (_ spellInfo: SummonerSpellDto) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
         Endpoints().staticData_summonerSpell_id(String(spellId), spellData: spellData.rawValue) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
