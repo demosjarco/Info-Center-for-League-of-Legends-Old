@@ -32,10 +32,10 @@
 		17029E791E0C56D8004E653E /* SummonerSpellDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E781E0C56D8004E653E /* SummonerSpellDto.swift */; };
 		17029E811E0C56E6004E653E /* BasicDataDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E7B1E0C56E6004E653E /* BasicDataDto.swift */; };
 		17029E821E0C56E6004E653E /* BasicDataStatsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E7C1E0C56E6004E653E /* BasicDataStatsDto.swift */; };
-		17029E831E0C56E6004E653E /* GoldDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E7D1E0C56E6004E653E /* GoldDto.swift */; };
 		17029E841E0C56E6004E653E /* MetaDataDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E7E1E0C56E6004E653E /* MetaDataDto.swift */; };
 		17029E851E0C56E6004E653E /* RuneDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E7F1E0C56E6004E653E /* RuneDto.swift */; };
 		17029E861E0C56E6004E653E /* RuneListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E801E0C56E6004E653E /* RuneListDto.swift */; };
+		17029E881E0C5B4E004E653E /* GoldDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E871E0C5B4E004E653E /* GoldDto.swift */; };
 		17106E5B1E0BAD4E0076E2C7 /* lcuRunes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */; };
 		171A1C0F1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */; };
 		171A1C111D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */; };
@@ -158,10 +158,10 @@
 		17029E781E0C56D8004E653E /* SummonerSpellDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummonerSpellDto.swift; sourceTree = "<group>"; };
 		17029E7B1E0C56E6004E653E /* BasicDataDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicDataDto.swift; sourceTree = "<group>"; };
 		17029E7C1E0C56E6004E653E /* BasicDataStatsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicDataStatsDto.swift; sourceTree = "<group>"; };
-		17029E7D1E0C56E6004E653E /* GoldDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldDto.swift; sourceTree = "<group>"; };
 		17029E7E1E0C56E6004E653E /* MetaDataDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaDataDto.swift; sourceTree = "<group>"; };
 		17029E7F1E0C56E6004E653E /* RuneDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneDto.swift; sourceTree = "<group>"; };
 		17029E801E0C56E6004E653E /* RuneListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneListDto.swift; sourceTree = "<group>"; };
+		17029E871E0C5B4E004E653E /* GoldDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoldDto.swift; path = "Riot API/StaticDataEntities/GoldDto.swift"; sourceTree = "<group>"; };
 		17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = lcuRunes.xcassets; sourceTree = "<group>"; };
 		171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryListDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryListDto.swift"; sourceTree = "<group>"; };
 		171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryDto.swift"; sourceTree = "<group>"; };
@@ -340,7 +340,6 @@
 			children = (
 				17029E7B1E0C56E6004E653E /* BasicDataDto.swift */,
 				17029E7C1E0C56E6004E653E /* BasicDataStatsDto.swift */,
-				17029E7D1E0C56E6004E653E /* GoldDto.swift */,
 				17029E7E1E0C56E6004E653E /* MetaDataDto.swift */,
 				17029E7F1E0C56E6004E653E /* RuneDto.swift */,
 				17029E801E0C56E6004E653E /* RuneListDto.swift */,
@@ -587,6 +586,7 @@
 		17B9B3071D4D68A100D8A755 /* StaticData Entities */ = {
 			isa = PBXGroup;
 			children = (
+				17029E871E0C5B4E004E653E /* GoldDto.swift */,
 				17029E531E0C56B1004E653E /* Champion */,
 				17029E6C1E0C56C1004E653E /* Masteries */,
 				17029E7A1E0C56E6004E653E /* Runes */,
@@ -1122,6 +1122,7 @@
 				1732F5F71D54FA9A009DA53B /* ServerStatus.swift in Sources */,
 				171A5C861D5E4EEE002A8F57 /* Profile_RecentGames.swift in Sources */,
 				178B957E1D428A5A00CAD47A /* RawStatsDto.swift in Sources */,
+				17029E881E0C5B4E004E653E /* GoldDto.swift in Sources */,
 				17029E751E0C56C1004E653E /* MasteryTreeListDto.swift in Sources */,
 				17B9B30D1D4D73EB00D8A755 /* ChampionMasteryDto.swift in Sources */,
 				17029E671E0C56B1004E653E /* PassiveDto.swift in Sources */,
@@ -1153,7 +1154,6 @@
 				172C606C1D3BFE67003DC152 /* NewsCell.swift in Sources */,
 				17D70BCF1D5D030B0097207E /* Profile_ChampionMastery.swift in Sources */,
 				172101C71D1EDB9D0088DB1A /* ProfileView_Header.swift in Sources */,
-				17029E831E0C56E6004E653E /* GoldDto.swift in Sources */,
 				172101D71D1F26A00088DB1A /* DDragon.swift in Sources */,
 				172101C41D1EDB310088DB1A /* ProfileView.swift in Sources */,
 				176D5B981D1C478F000D9D85 /* SummonerDto.swift in Sources */,
