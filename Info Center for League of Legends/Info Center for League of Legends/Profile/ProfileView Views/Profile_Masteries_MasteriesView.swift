@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AMPopTip
 
 class Profile_Masteries_MasteriesView: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
     var summoner = SummonerDto()
@@ -19,6 +20,7 @@ class Profile_Masteries_MasteriesView: UIViewController, UICollectionViewDataSou
     @IBOutlet var cunningTree: UICollectionView?
     @IBOutlet var resolveTree: UICollectionView?
     
+    var masteryData = [String: SC_MasteryDto]()
     var ferocityMasteries = [MasteryTreeListDto]()
     var cunningMasteries = [MasteryTreeListDto]()
     var resolveMasteries = [MasteryTreeListDto]()
@@ -33,6 +35,7 @@ class Profile_Masteries_MasteriesView: UIViewController, UICollectionViewDataSou
     
     func refresh() {
         StaticDataEndpoint().getMasteryInfo(.All, completion: { (masteryList) in
+            self.masteryData = masteryList.data
             self.ferocityMasteries = masteryList.tree!.ferocity
             self.cunningMasteries = masteryList.tree!.cunning
             self.resolveMasteries = masteryList.tree!.resolve
@@ -181,5 +184,45 @@ class Profile_Masteries_MasteriesView: UIViewController, UICollectionViewDataSou
         }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let popTip = AMPopTip()
+        var masteryId:Int = 0
+        var pointsIn:Int = 0
+        var attributes = UICollectionViewLayoutAttributes()
+        var cellRect = CGRect()
+        
+        if collectionView == ferocityTree! {
+            masteryId = ferocityMasteries[indexPath.section].masteryTreeItems[indexPath.row].masteryId
+            pointsIn = ferocityMasteries[indexPath.section].masteryTreeItems[indexPath.row].points
+            attributes = ferocityTree!.layoutAttributesForItem(at: indexPath)!
+            cellRect = ferocityTree!.convert(attributes.frame, to: self.view)
+        } else if collectionView == cunningTree! {
+            masteryId = cunningMasteries[indexPath.section].masteryTreeItems[indexPath.row].masteryId
+            pointsIn = cunningMasteries[indexPath.section].masteryTreeItems[indexPath.row].points
+            attributes = cunningTree!.layoutAttributesForItem(at: indexPath)!
+            cellRect = cunningTree!.convert(attributes.frame, to: self.view)
+        } else if collectionView == resolveTree! {
+            masteryId = resolveMasteries[indexPath.section].masteryTreeItems[indexPath.row].masteryId
+            pointsIn = resolveMasteries[indexPath.section].masteryTreeItems[indexPath.row].points
+            attributes = resolveTree!.layoutAttributesForItem(at: indexPath)!
+            cellRect = resolveTree!.convert(attributes.frame, to: self.view)
+        }
+        
+        if pointsIn > 0 {
+            pointsIn -= 1
+        }
+        
+        popTip.borderWidth = 2
+        popTip.borderColor = UIColor(red: 70.0/255.0, green: 55.0/255.0, blue: 20.0/255.0, alpha: 1.0)
+        popTip.popoverColor = UIColor(red: 1.0/255.0, green: 10.0/255.0, blue: 19.0/255.0, alpha: 1.0)
+        popTip.textAlignment = .center
+        
+        if indexPath.section <= 1 {
+            popTip.showText(masteryData[String(masteryId)]!.name + "\n\n" + masteryData[String(masteryId)]!.sanitizedDescription![pointsIn], direction: .down, maxWidth: self.view.frame.size.width * 0.8, in: self.view, fromFrame: cellRect)
+        } else {
+            popTip.showText(masteryData[String(masteryId)]!.name + "\n\n" + masteryData[String(masteryId)]!.sanitizedDescription![pointsIn], direction: .up, maxWidth: self.view.frame.size.width * 0.8, in: self.view, fromFrame: cellRect)
+        }
     }
 }
