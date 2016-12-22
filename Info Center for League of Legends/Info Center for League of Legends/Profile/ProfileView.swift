@@ -561,6 +561,8 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 
                 runesCell.setupCell()
                 
+                runesCell.runePageName?.text = self.run_currentPage.name
+                
                 return runesCell
             default:
                 return collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
