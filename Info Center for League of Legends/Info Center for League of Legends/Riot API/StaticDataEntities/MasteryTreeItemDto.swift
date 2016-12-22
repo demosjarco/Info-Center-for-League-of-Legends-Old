@@ -11,4 +11,7 @@ import UIKit
 class MasteryTreeItemDto: NSObject {
     var masteryId:Int = 0
     var prereq:String = ""
+    
+    // Custom
+    var points:Int = 0
 }

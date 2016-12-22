@@ -349,8 +349,8 @@ class StaticDataEndpoint: NSObject {
                     let oldMastery = data[masteryName] as! [String: AnyObject]
                     let newMastery = SC_MasteryDto()
                     
-                    newMastery.masteryDescription = oldMastery["description"] as! [String]
                     newMastery.masteryId = oldMastery["id"] as! Int
+                    newMastery.masteryDescription = oldMastery["description"] as! [String]
                     if oldMastery["image"] != nil {
                         let oldImage = oldMastery["image"] as! [String: AnyObject]
                         let newImage = ImageDto()
@@ -385,21 +385,15 @@ class StaticDataEndpoint: NSObject {
                     let oldTree = json["tree"] as! [String: AnyObject]
                     let newTree = MasteryTreeDto()
                     
-                    let oldCunning = oldTree["Cunning"] as! [[AnyObject]]
+                    let oldCunning = oldTree["Cunning"] as! [[String: [[String: AnyObject]]]]
                     for oldColumn in oldCunning {
                         let newColumn = MasteryTreeListDto()
                         
-                        for oldMastery1 in oldColumn {
+                        for oldMastery1 in oldColumn["masteryTreeItems"]! {
                             let newMastery = MasteryTreeItemDto()
-                            switch oldMastery1 {
-                            case is NSNull:
-                                newMastery.masteryId = 0
-                                break
-                            default:
-                                newMastery.masteryId = oldMastery1["masteryId"] as! Int
-                                newMastery.prereq = oldMastery1["prereq"] as! String
-                                break
-                            }
+                            
+                            newMastery.masteryId = oldMastery1["masteryId"] as! Int
+                            newMastery.prereq = oldMastery1["prereq"] as! String
                             
                             newColumn.masteryTreeItems.append(newMastery)
                         }
@@ -407,21 +401,15 @@ class StaticDataEndpoint: NSObject {
                         newTree.cunning.append(newColumn)
                     }
                     
-                    let oldFerocity = oldTree["Ferocity"] as! [[AnyObject]]
+                    let oldFerocity = oldTree["Ferocity"] as! [[String: [[String: AnyObject]]]]
                     for oldColumn in oldFerocity {
                         let newColumn = MasteryTreeListDto()
                         
-                        for oldMastery1 in oldColumn {
+                        for oldMastery1 in oldColumn["masteryTreeItems"]! {
                             let newMastery = MasteryTreeItemDto()
-                            switch oldMastery1 {
-                            case is NSNull:
-                                newMastery.masteryId = 0
-                                break
-                            default:
-                                newMastery.masteryId = oldMastery1["masteryId"] as! Int
-                                newMastery.prereq = oldMastery1["prereq"] as! String
-                                break
-                            }
+                            
+                            newMastery.masteryId = oldMastery1["masteryId"] as! Int
+                            newMastery.prereq = oldMastery1["prereq"] as! String
                             
                             newColumn.masteryTreeItems.append(newMastery)
                         }
@@ -429,27 +417,23 @@ class StaticDataEndpoint: NSObject {
                         newTree.ferocity.append(newColumn)
                     }
 
-                    let oldResolve = oldTree["Resolve"] as! [[AnyObject]]
+                    let oldResolve = oldTree["Resolve"] as! [[String: [[String: AnyObject]]]]
                     for oldColumn in oldResolve {
                         let newColumn = MasteryTreeListDto()
                         
-                        for oldMastery1 in oldColumn {
+                        for oldMastery1 in oldColumn["masteryTreeItems"]! {
                             let newMastery = MasteryTreeItemDto()
-                            switch oldMastery1 {
-                            case is NSNull:
-                                newMastery.masteryId = 0
-                                break
-                            default:
-                                newMastery.masteryId = oldMastery1["masteryId"] as! Int
-                                newMastery.prereq = oldMastery1["prereq"] as! String
-                                break
-                            }
+                            
+                            newMastery.masteryId = oldMastery1["masteryId"] as! Int
+                            newMastery.prereq = oldMastery1["prereq"] as! String
                             
                             newColumn.masteryTreeItems.append(newMastery)
                         }
                         
                         newTree.resolve.append(newColumn)
                     }
+                    
+                    newMasteryList.tree = newTree
                 }
                 newMasteryList.type = json["type"] as! String
                 newMasteryList.version = json["version"] as! String
