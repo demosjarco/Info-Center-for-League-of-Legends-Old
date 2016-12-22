@@ -12,19 +12,36 @@
 		17029E371E0C3E58004E653E /* RunePageDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E361E0C3E58004E653E /* RunePageDto.swift */; };
 		17029E391E0C3EA8004E653E /* RuneSlotDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E381E0C3EA8004E653E /* RuneSlotDto.swift */; };
 		17029E3B1E0C4B9B004E653E /* lcuRuneOutlines.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17029E3A1E0C4B9B004E653E /* lcuRuneOutlines.xcassets */; };
-		17029E3E1E0C556A004E653E /* RuneListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E3D1E0C556A004E653E /* RuneListDto.swift */; };
-		17029E401E0C55D0004E653E /* BasicDataDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E3F1E0C55D0004E653E /* BasicDataDto.swift */; };
-		17029E421E0C55E5004E653E /* RuneDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E411E0C55E5004E653E /* RuneDto.swift */; };
-		17029E441E0C55F7004E653E /* BasicDataStatsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E431E0C55F7004E653E /* BasicDataStatsDto.swift */; };
-		17029E461E0C562E004E653E /* GoldDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E451E0C562E004E653E /* GoldDto.swift */; };
-		17029E481E0C5640004E653E /* MetaDataDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E471E0C5640004E653E /* MetaDataDto.swift */; };
+		17029E601E0C56B1004E653E /* BlockDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E541E0C56B1004E653E /* BlockDto.swift */; };
+		17029E611E0C56B1004E653E /* BlockItemDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E551E0C56B1004E653E /* BlockItemDto.swift */; };
+		17029E621E0C56B1004E653E /* ChampionDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E561E0C56B1004E653E /* ChampionDto.swift */; };
+		17029E631E0C56B1004E653E /* ChampionSpellDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E571E0C56B1004E653E /* ChampionSpellDto.swift */; };
+		17029E641E0C56B1004E653E /* ImageDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E581E0C56B1004E653E /* ImageDto.swift */; };
+		17029E651E0C56B1004E653E /* InfoDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E591E0C56B1004E653E /* InfoDto.swift */; };
+		17029E661E0C56B1004E653E /* LevelTipDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E5A1E0C56B1004E653E /* LevelTipDto.swift */; };
+		17029E671E0C56B1004E653E /* PassiveDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E5B1E0C56B1004E653E /* PassiveDto.swift */; };
+		17029E681E0C56B1004E653E /* RecommendedDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E5C1E0C56B1004E653E /* RecommendedDto.swift */; };
+		17029E691E0C56B1004E653E /* SkinDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E5D1E0C56B1004E653E /* SkinDto.swift */; };
+		17029E6A1E0C56B1004E653E /* SpellVarsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E5E1E0C56B1004E653E /* SpellVarsDto.swift */; };
+		17029E6B1E0C56B1004E653E /* StatsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E5F1E0C56B1004E653E /* StatsDto.swift */; };
+		17029E721E0C56C1004E653E /* MasteryListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E6D1E0C56C1004E653E /* MasteryListDto.swift */; };
+		17029E731E0C56C1004E653E /* MasteryTreeDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E6E1E0C56C1004E653E /* MasteryTreeDto.swift */; };
+		17029E741E0C56C1004E653E /* MasteryTreeItemDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E6F1E0C56C1004E653E /* MasteryTreeItemDto.swift */; };
+		17029E751E0C56C1004E653E /* MasteryTreeListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E701E0C56C1004E653E /* MasteryTreeListDto.swift */; };
+		17029E761E0C56C1004E653E /* SC_MasteryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E711E0C56C1004E653E /* SC_MasteryDto.swift */; };
+		17029E791E0C56D8004E653E /* SummonerSpellDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E781E0C56D8004E653E /* SummonerSpellDto.swift */; };
+		17029E811E0C56E6004E653E /* BasicDataDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E7B1E0C56E6004E653E /* BasicDataDto.swift */; };
+		17029E821E0C56E6004E653E /* BasicDataStatsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E7C1E0C56E6004E653E /* BasicDataStatsDto.swift */; };
+		17029E831E0C56E6004E653E /* GoldDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E7D1E0C56E6004E653E /* GoldDto.swift */; };
+		17029E841E0C56E6004E653E /* MetaDataDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E7E1E0C56E6004E653E /* MetaDataDto.swift */; };
+		17029E851E0C56E6004E653E /* RuneDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E7F1E0C56E6004E653E /* RuneDto.swift */; };
+		17029E861E0C56E6004E653E /* RuneListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E801E0C56E6004E653E /* RuneListDto.swift */; };
 		17106E5B1E0BAD4E0076E2C7 /* lcuRunes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */; };
 		171A1C0F1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */; };
 		171A1C111D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */; };
 		171A1C131D38989D00BAB5B4 /* AggregatedStatsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C121D38989D00BAB5B4 /* AggregatedStatsDto.swift */; };
 		171A5C861D5E4EEE002A8F57 /* Profile_RecentGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A5C851D5E4EEE002A8F57 /* Profile_RecentGames.swift */; };
 		171A5C881D5E4F03002A8F57 /* Profile_RecentGames_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A5C871D5E4F03002A8F57 /* Profile_RecentGames_Cell.swift */; };
-		171A5C8B1D5E754D002A8F57 /* SummonerSpellDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A5C8A1D5E754D002A8F57 /* SummonerSpellDto.swift */; };
 		172101C41D1EDB310088DB1A /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C31D1EDB310088DB1A /* ProfileView.swift */; };
 		172101C71D1EDB9D0088DB1A /* ProfileView_Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C61D1EDB9D0088DB1A /* ProfileView_Header.swift */; };
 		172101CA1D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101C81D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift */; };
@@ -79,18 +96,6 @@
 		17A098851DA84F03004C79F4 /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A098841DA84F03004C79F4 /* AccountSettings.swift */; };
 		17A098871DA84F65004C79F4 /* AccountNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A098861DA84F65004C79F4 /* AccountNameCell.swift */; };
 		17B9B30D1D4D73EB00D8A755 /* ChampionMasteryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B30C1D4D73EB00D8A755 /* ChampionMasteryDto.swift */; };
-		17B9B3101D4D746300D8A755 /* ChampionDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B30E1D4D746300D8A755 /* ChampionDto.swift */; };
-		17B9B3111D4D746300D8A755 /* ChampionSpellDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B30F1D4D746300D8A755 /* ChampionSpellDto.swift */; };
-		17B9B3131D4D74A900D8A755 /* ImageDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B3121D4D74A900D8A755 /* ImageDto.swift */; };
-		17B9B3151D4D753D00D8A755 /* InfoDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B3141D4D753D00D8A755 /* InfoDto.swift */; };
-		17B9B3171D4D754F00D8A755 /* PassiveDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B3161D4D754F00D8A755 /* PassiveDto.swift */; };
-		17B9B3191D4D756000D8A755 /* RecommendedDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B3181D4D756000D8A755 /* RecommendedDto.swift */; };
-		17B9B31B1D4D756E00D8A755 /* SkinDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B31A1D4D756E00D8A755 /* SkinDto.swift */; };
-		17B9B31D1D4D757C00D8A755 /* StatsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B31C1D4D757C00D8A755 /* StatsDto.swift */; };
-		17B9B31F1D4D759100D8A755 /* LevelTipDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B31E1D4D759100D8A755 /* LevelTipDto.swift */; };
-		17B9B3211D4D759E00D8A755 /* SpellVarsDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B3201D4D759E00D8A755 /* SpellVarsDto.swift */; };
-		17B9B3231D4D75AF00D8A755 /* BlockDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B3221D4D75AF00D8A755 /* BlockDto.swift */; };
-		17B9B3251D4D75C300D8A755 /* BlockItemDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B3241D4D75C300D8A755 /* BlockItemDto.swift */; };
 		17C583CB1D388441007AAC43 /* StatsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C583CA1D388441007AAC43 /* StatsEndpoint.swift */; };
 		17D14E141D10D3A8007F6938 /* Fall.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E111D10D3A8007F6938 /* Fall.xcassets */; };
 		17D14E151D10D3A8007F6938 /* Normal.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E121D10D3A8007F6938 /* Normal.xcassets */; };
@@ -102,12 +107,7 @@
 		17EDBB361D10F12E00C7B7C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */; };
 		17EDBB381D10F68D00C7B7C5 /* ExistingAppChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */; };
 		17EE83931D5D2049009948AC /* Profile_ChampionMastery_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EE83921D5D2049009948AC /* Profile_ChampionMastery_Cell.swift */; };
-		17F97B861D56773100A8B4E7 /* MasteryListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F97B851D56773100A8B4E7 /* MasteryListDto.swift */; };
 		17F97B8B1D56788900A8B4E7 /* MasteryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F97B8A1D56788900A8B4E7 /* MasteryDto.swift */; };
-		17F97B8D1D5678A800A8B4E7 /* SC_MasteryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F97B8C1D5678A800A8B4E7 /* SC_MasteryDto.swift */; };
-		17F97B8F1D5678DF00A8B4E7 /* MasteryTreeDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F97B8E1D5678DF00A8B4E7 /* MasteryTreeDto.swift */; };
-		17F97B911D5678F200A8B4E7 /* MasteryTreeListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F97B901D5678F200A8B4E7 /* MasteryTreeListDto.swift */; };
-		17F97B931D56790200A8B4E7 /* MasteryTreeItemDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F97B921D56790200A8B4E7 /* MasteryTreeItemDto.swift */; };
 		17FDDF601D4D391200CC7277 /* ChampionMasteryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDDF5F1D4D391200CC7277 /* ChampionMasteryEndpoint.swift */; };
 		17FDDF651D4D494600CC7277 /* StaticDataEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDDF641D4D494600CC7277 /* StaticDataEndpoint.swift */; };
 		9BDD3013E0ED7A4DAF224558 /* Pods_Info_Center_for_League_of_Legends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */; };
@@ -138,19 +138,36 @@
 		17029E361E0C3E58004E653E /* RunePageDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunePageDto.swift; path = "Riot API/SummonerEntities/RunePageDto.swift"; sourceTree = "<group>"; };
 		17029E381E0C3EA8004E653E /* RuneSlotDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuneSlotDto.swift; path = "Riot API/SummonerEntities/RuneSlotDto.swift"; sourceTree = "<group>"; };
 		17029E3A1E0C4B9B004E653E /* lcuRuneOutlines.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = lcuRuneOutlines.xcassets; sourceTree = "<group>"; };
-		17029E3D1E0C556A004E653E /* RuneListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuneListDto.swift; path = "Riot API/StaticDataEntities/Runes/RuneListDto.swift"; sourceTree = "<group>"; };
-		17029E3F1E0C55D0004E653E /* BasicDataDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicDataDto.swift; path = "Riot API/StaticDataEntities/Runes/BasicDataDto.swift"; sourceTree = "<group>"; };
-		17029E411E0C55E5004E653E /* RuneDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuneDto.swift; path = "Riot API/StaticDataEntities/Runes/RuneDto.swift"; sourceTree = "<group>"; };
-		17029E431E0C55F7004E653E /* BasicDataStatsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicDataStatsDto.swift; path = "Riot API/StaticDataEntities/Runes/BasicDataStatsDto.swift"; sourceTree = "<group>"; };
-		17029E451E0C562E004E653E /* GoldDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoldDto.swift; path = "Riot API/StaticDataEntities/Runes/GoldDto.swift"; sourceTree = "<group>"; };
-		17029E471E0C5640004E653E /* MetaDataDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetaDataDto.swift; path = "Riot API/StaticDataEntities/Runes/MetaDataDto.swift"; sourceTree = "<group>"; };
+		17029E541E0C56B1004E653E /* BlockDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockDto.swift; sourceTree = "<group>"; };
+		17029E551E0C56B1004E653E /* BlockItemDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockItemDto.swift; sourceTree = "<group>"; };
+		17029E561E0C56B1004E653E /* ChampionDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDto.swift; sourceTree = "<group>"; };
+		17029E571E0C56B1004E653E /* ChampionSpellDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionSpellDto.swift; sourceTree = "<group>"; };
+		17029E581E0C56B1004E653E /* ImageDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDto.swift; sourceTree = "<group>"; };
+		17029E591E0C56B1004E653E /* InfoDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoDto.swift; sourceTree = "<group>"; };
+		17029E5A1E0C56B1004E653E /* LevelTipDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelTipDto.swift; sourceTree = "<group>"; };
+		17029E5B1E0C56B1004E653E /* PassiveDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassiveDto.swift; sourceTree = "<group>"; };
+		17029E5C1E0C56B1004E653E /* RecommendedDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendedDto.swift; sourceTree = "<group>"; };
+		17029E5D1E0C56B1004E653E /* SkinDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkinDto.swift; sourceTree = "<group>"; };
+		17029E5E1E0C56B1004E653E /* SpellVarsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpellVarsDto.swift; sourceTree = "<group>"; };
+		17029E5F1E0C56B1004E653E /* StatsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsDto.swift; sourceTree = "<group>"; };
+		17029E6D1E0C56C1004E653E /* MasteryListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasteryListDto.swift; sourceTree = "<group>"; };
+		17029E6E1E0C56C1004E653E /* MasteryTreeDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasteryTreeDto.swift; sourceTree = "<group>"; };
+		17029E6F1E0C56C1004E653E /* MasteryTreeItemDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasteryTreeItemDto.swift; sourceTree = "<group>"; };
+		17029E701E0C56C1004E653E /* MasteryTreeListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasteryTreeListDto.swift; sourceTree = "<group>"; };
+		17029E711E0C56C1004E653E /* SC_MasteryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SC_MasteryDto.swift; sourceTree = "<group>"; };
+		17029E781E0C56D8004E653E /* SummonerSpellDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummonerSpellDto.swift; sourceTree = "<group>"; };
+		17029E7B1E0C56E6004E653E /* BasicDataDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicDataDto.swift; sourceTree = "<group>"; };
+		17029E7C1E0C56E6004E653E /* BasicDataStatsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicDataStatsDto.swift; sourceTree = "<group>"; };
+		17029E7D1E0C56E6004E653E /* GoldDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldDto.swift; sourceTree = "<group>"; };
+		17029E7E1E0C56E6004E653E /* MetaDataDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaDataDto.swift; sourceTree = "<group>"; };
+		17029E7F1E0C56E6004E653E /* RuneDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneDto.swift; sourceTree = "<group>"; };
+		17029E801E0C56E6004E653E /* RuneListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneListDto.swift; sourceTree = "<group>"; };
 		17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = lcuRunes.xcassets; sourceTree = "<group>"; };
 		171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryListDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryListDto.swift"; sourceTree = "<group>"; };
 		171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryDto.swift"; sourceTree = "<group>"; };
 		171A1C121D38989D00BAB5B4 /* AggregatedStatsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AggregatedStatsDto.swift; path = "Riot API/StatsEntities/AggregatedStatsDto.swift"; sourceTree = "<group>"; };
 		171A5C851D5E4EEE002A8F57 /* Profile_RecentGames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile_RecentGames.swift; path = "Profile/ProfileView Views/Profile_RecentGames.swift"; sourceTree = "<group>"; };
 		171A5C871D5E4F03002A8F57 /* Profile_RecentGames_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile_RecentGames_Cell.swift; path = "Profile/ProfileView Views/Profile_RecentGames_Cell.swift"; sourceTree = "<group>"; };
-		171A5C8A1D5E754D002A8F57 /* SummonerSpellDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummonerSpellDto.swift; path = "Riot API/StaticDataEntities/SummonerSpellDto.swift"; sourceTree = "<group>"; };
 		172101C31D1EDB310088DB1A /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView.swift; path = Profile/ProfileView.swift; sourceTree = "<group>"; };
 		172101C61D1EDB9D0088DB1A /* ProfileView_Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Header.swift; path = "Profile/ProfileView Cells/ProfileView_Header.swift"; sourceTree = "<group>"; };
 		172101C81D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_ChampMastery.swift; path = "Profile/ProfileView Cells/ProfileView_ChampMastery.swift"; sourceTree = "<group>"; };
@@ -212,18 +229,6 @@
 		17A098841DA84F03004C79F4 /* AccountSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
 		17A098861DA84F65004C79F4 /* AccountNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountNameCell.swift; sourceTree = "<group>"; };
 		17B9B30C1D4D73EB00D8A755 /* ChampionMasteryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChampionMasteryDto.swift; path = "Riot API/ChampionMasteryEntities/ChampionMasteryDto.swift"; sourceTree = "<group>"; };
-		17B9B30E1D4D746300D8A755 /* ChampionDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChampionDto.swift; path = "Riot API/StaticDataEntities/ChampionDto.swift"; sourceTree = "<group>"; };
-		17B9B30F1D4D746300D8A755 /* ChampionSpellDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChampionSpellDto.swift; path = "Riot API/StaticDataEntities/ChampionSpellDto.swift"; sourceTree = "<group>"; };
-		17B9B3121D4D74A900D8A755 /* ImageDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageDto.swift; path = "Riot API/StaticDataEntities/ImageDto.swift"; sourceTree = "<group>"; };
-		17B9B3141D4D753D00D8A755 /* InfoDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoDto.swift; path = "Riot API/StaticDataEntities/InfoDto.swift"; sourceTree = "<group>"; };
-		17B9B3161D4D754F00D8A755 /* PassiveDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassiveDto.swift; path = "Riot API/StaticDataEntities/PassiveDto.swift"; sourceTree = "<group>"; };
-		17B9B3181D4D756000D8A755 /* RecommendedDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecommendedDto.swift; path = "Riot API/StaticDataEntities/RecommendedDto.swift"; sourceTree = "<group>"; };
-		17B9B31A1D4D756E00D8A755 /* SkinDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SkinDto.swift; path = "Riot API/StaticDataEntities/SkinDto.swift"; sourceTree = "<group>"; };
-		17B9B31C1D4D757C00D8A755 /* StatsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsDto.swift; path = "Riot API/StaticDataEntities/StatsDto.swift"; sourceTree = "<group>"; };
-		17B9B31E1D4D759100D8A755 /* LevelTipDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LevelTipDto.swift; path = "Riot API/StaticDataEntities/LevelTipDto.swift"; sourceTree = "<group>"; };
-		17B9B3201D4D759E00D8A755 /* SpellVarsDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpellVarsDto.swift; path = "Riot API/StaticDataEntities/SpellVarsDto.swift"; sourceTree = "<group>"; };
-		17B9B3221D4D75AF00D8A755 /* BlockDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockDto.swift; path = "Riot API/StaticDataEntities/BlockDto.swift"; sourceTree = "<group>"; };
-		17B9B3241D4D75C300D8A755 /* BlockItemDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockItemDto.swift; path = "Riot API/StaticDataEntities/BlockItemDto.swift"; sourceTree = "<group>"; };
 		17C583CA1D388441007AAC43 /* StatsEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsEndpoint.swift; path = "Riot API/StatsEndpoint.swift"; sourceTree = "<group>"; };
 		17D14E0E1D10D12A007F6938 /* Info Center for League of Legends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Info Center for League of Legends.entitlements"; sourceTree = "<group>"; };
 		17D14E111D10D3A8007F6938 /* Fall.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Fall.xcassets; sourceTree = "<group>"; };
@@ -237,12 +242,7 @@
 		17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExistingAppChecker.swift; path = Subclasses/ExistingAppChecker.swift; sourceTree = "<group>"; };
 		17EE83921D5D2049009948AC /* Profile_ChampionMastery_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Profile_ChampionMastery_Cell.swift; path = "Profile/ProfileView Views/Profile_ChampionMastery_Cell.swift"; sourceTree = "<group>"; };
-		17F97B851D56773100A8B4E7 /* MasteryListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryListDto.swift; path = "Riot API/StaticDataEntities/MasteryListDto.swift"; sourceTree = "<group>"; };
 		17F97B8A1D56788900A8B4E7 /* MasteryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryDto.swift; path = "Riot API/SummonerEntities/MasteryDto.swift"; sourceTree = "<group>"; };
-		17F97B8C1D5678A800A8B4E7 /* SC_MasteryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SC_MasteryDto.swift; path = "Riot API/StaticDataEntities/SC_MasteryDto.swift"; sourceTree = "<group>"; };
-		17F97B8E1D5678DF00A8B4E7 /* MasteryTreeDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryTreeDto.swift; path = "Riot API/StaticDataEntities/MasteryTreeDto.swift"; sourceTree = "<group>"; };
-		17F97B901D5678F200A8B4E7 /* MasteryTreeListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryTreeListDto.swift; path = "Riot API/StaticDataEntities/MasteryTreeListDto.swift"; sourceTree = "<group>"; };
-		17F97B921D56790200A8B4E7 /* MasteryTreeItemDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryTreeItemDto.swift; path = "Riot API/StaticDataEntities/MasteryTreeItemDto.swift"; sourceTree = "<group>"; };
 		17FDDF5F1D4D391200CC7277 /* ChampionMasteryEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChampionMasteryEndpoint.swift; path = "Riot API/ChampionMasteryEndpoint.swift"; sourceTree = "<group>"; };
 		17FDDF641D4D494600CC7277 /* StaticDataEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StaticDataEndpoint.swift; path = "Riot API/StaticDataEndpoint.swift"; sourceTree = "<group>"; };
 		2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Center_for_League_of_Legends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -293,17 +293,60 @@
 			name = "ProfileView Rune Stats";
 			sourceTree = "<group>";
 		};
-		17029E3C1E0C5503004E653E /* Runes */ = {
+		17029E531E0C56B1004E653E /* Champion */ = {
 			isa = PBXGroup;
 			children = (
-				17029E3D1E0C556A004E653E /* RuneListDto.swift */,
-				17029E3F1E0C55D0004E653E /* BasicDataDto.swift */,
-				17029E411E0C55E5004E653E /* RuneDto.swift */,
-				17029E431E0C55F7004E653E /* BasicDataStatsDto.swift */,
-				17029E451E0C562E004E653E /* GoldDto.swift */,
-				17029E471E0C5640004E653E /* MetaDataDto.swift */,
+				17029E541E0C56B1004E653E /* BlockDto.swift */,
+				17029E551E0C56B1004E653E /* BlockItemDto.swift */,
+				17029E561E0C56B1004E653E /* ChampionDto.swift */,
+				17029E571E0C56B1004E653E /* ChampionSpellDto.swift */,
+				17029E581E0C56B1004E653E /* ImageDto.swift */,
+				17029E591E0C56B1004E653E /* InfoDto.swift */,
+				17029E5A1E0C56B1004E653E /* LevelTipDto.swift */,
+				17029E5B1E0C56B1004E653E /* PassiveDto.swift */,
+				17029E5C1E0C56B1004E653E /* RecommendedDto.swift */,
+				17029E5D1E0C56B1004E653E /* SkinDto.swift */,
+				17029E5E1E0C56B1004E653E /* SpellVarsDto.swift */,
+				17029E5F1E0C56B1004E653E /* StatsDto.swift */,
+			);
+			name = Champion;
+			path = "Riot API/StaticDataEntities/Champion";
+			sourceTree = "<group>";
+		};
+		17029E6C1E0C56C1004E653E /* Masteries */ = {
+			isa = PBXGroup;
+			children = (
+				17029E6D1E0C56C1004E653E /* MasteryListDto.swift */,
+				17029E6E1E0C56C1004E653E /* MasteryTreeDto.swift */,
+				17029E6F1E0C56C1004E653E /* MasteryTreeItemDto.swift */,
+				17029E701E0C56C1004E653E /* MasteryTreeListDto.swift */,
+				17029E711E0C56C1004E653E /* SC_MasteryDto.swift */,
+			);
+			name = Masteries;
+			path = "Riot API/StaticDataEntities/Masteries";
+			sourceTree = "<group>";
+		};
+		17029E771E0C56D8004E653E /* Summoner Spell */ = {
+			isa = PBXGroup;
+			children = (
+				17029E781E0C56D8004E653E /* SummonerSpellDto.swift */,
+			);
+			name = "Summoner Spell";
+			path = "Riot API/StaticDataEntities/Summoner Spell";
+			sourceTree = "<group>";
+		};
+		17029E7A1E0C56E6004E653E /* Runes */ = {
+			isa = PBXGroup;
+			children = (
+				17029E7B1E0C56E6004E653E /* BasicDataDto.swift */,
+				17029E7C1E0C56E6004E653E /* BasicDataStatsDto.swift */,
+				17029E7D1E0C56E6004E653E /* GoldDto.swift */,
+				17029E7E1E0C56E6004E653E /* MetaDataDto.swift */,
+				17029E7F1E0C56E6004E653E /* RuneDto.swift */,
+				17029E801E0C56E6004E653E /* RuneListDto.swift */,
 			);
 			name = Runes;
+			path = "Riot API/StaticDataEntities/Runes";
 			sourceTree = "<group>";
 		};
 		171A1C0D1D38970500BAB5B4 /* Stats Entities */ = {
@@ -314,14 +357,6 @@
 				171A1C121D38989D00BAB5B4 /* AggregatedStatsDto.swift */,
 			);
 			name = "Stats Entities";
-			sourceTree = "<group>";
-		};
-		171A5C891D5E7525002A8F57 /* Summoner Spell */ = {
-			isa = PBXGroup;
-			children = (
-				171A5C8A1D5E754D002A8F57 /* SummonerSpellDto.swift */,
-			);
-			name = "Summoner Spell";
 			sourceTree = "<group>";
 		};
 		172101C51D1EDB340088DB1A /* ProfileView Cells */ = {
@@ -552,10 +587,10 @@
 		17B9B3071D4D68A100D8A755 /* StaticData Entities */ = {
 			isa = PBXGroup;
 			children = (
-				17F97B841D56771000A8B4E7 /* Champion */,
-				17F97B871D56773400A8B4E7 /* Masteries */,
-				17029E3C1E0C5503004E653E /* Runes */,
-				171A5C891D5E7525002A8F57 /* Summoner Spell */,
+				17029E531E0C56B1004E653E /* Champion */,
+				17029E6C1E0C56C1004E653E /* Masteries */,
+				17029E7A1E0C56E6004E653E /* Runes */,
+				17029E771E0C56D8004E653E /* Summoner Spell */,
 			);
 			name = "StaticData Entities";
 			sourceTree = "<group>";
@@ -595,37 +630,6 @@
 				17D70BCD1D5D01F90097207E /* ProfileView Views */,
 			);
 			name = Profile;
-			sourceTree = "<group>";
-		};
-		17F97B841D56771000A8B4E7 /* Champion */ = {
-			isa = PBXGroup;
-			children = (
-				17B9B30E1D4D746300D8A755 /* ChampionDto.swift */,
-				17B9B30F1D4D746300D8A755 /* ChampionSpellDto.swift */,
-				17B9B3121D4D74A900D8A755 /* ImageDto.swift */,
-				17B9B3141D4D753D00D8A755 /* InfoDto.swift */,
-				17B9B3161D4D754F00D8A755 /* PassiveDto.swift */,
-				17B9B3181D4D756000D8A755 /* RecommendedDto.swift */,
-				17B9B31A1D4D756E00D8A755 /* SkinDto.swift */,
-				17B9B31C1D4D757C00D8A755 /* StatsDto.swift */,
-				17B9B31E1D4D759100D8A755 /* LevelTipDto.swift */,
-				17B9B3201D4D759E00D8A755 /* SpellVarsDto.swift */,
-				17B9B3221D4D75AF00D8A755 /* BlockDto.swift */,
-				17B9B3241D4D75C300D8A755 /* BlockItemDto.swift */,
-			);
-			name = Champion;
-			sourceTree = "<group>";
-		};
-		17F97B871D56773400A8B4E7 /* Masteries */ = {
-			isa = PBXGroup;
-			children = (
-				17F97B851D56773100A8B4E7 /* MasteryListDto.swift */,
-				17F97B8C1D5678A800A8B4E7 /* SC_MasteryDto.swift */,
-				17F97B8E1D5678DF00A8B4E7 /* MasteryTreeDto.swift */,
-				17F97B901D5678F200A8B4E7 /* MasteryTreeListDto.swift */,
-				17F97B921D56790200A8B4E7 /* MasteryTreeItemDto.swift */,
-			);
-			name = Masteries;
 			sourceTree = "<group>";
 		};
 		17FDDF611D4D391A00CC7277 /* ChampionMastery Entities */ = {
@@ -1104,91 +1108,91 @@
 				1732F5FB1D550057009DA53B /* StatusEndpoint.swift in Sources */,
 				171A1C131D38989D00BAB5B4 /* AggregatedStatsDto.swift in Sources */,
 				1732F6051D550184009DA53B /* Incident.swift in Sources */,
-				17029E421E0C55E5004E653E /* RuneDto.swift in Sources */,
+				17029E651E0C56B1004E653E /* InfoDto.swift in Sources */,
+				17029E731E0C56C1004E653E /* MasteryTreeDto.swift in Sources */,
 				1739C4921D1C3A3800B50BDC /* SummonerEndpoint.swift in Sources */,
-				17B9B3101D4D746300D8A755 /* ChampionDto.swift in Sources */,
 				172101D31D1EDC880088DB1A /* MainCollectionViewController.swift in Sources */,
-				171A5C8B1D5E754D002A8F57 /* SummonerSpellDto.swift in Sources */,
-				17B9B31B1D4D756E00D8A755 /* SkinDto.swift in Sources */,
+				17029E601E0C56B1004E653E /* BlockDto.swift in Sources */,
 				178B95791D428A1C00CAD47A /* GameDto.swift in Sources */,
 				17A098871DA84F65004C79F4 /* AccountNameCell.swift in Sources */,
 				17FDDF651D4D494600CC7277 /* StaticDataEndpoint.swift in Sources */,
-				17B9B3231D4D75AF00D8A755 /* BlockDto.swift in Sources */,
-				17B9B31D1D4D757C00D8A755 /* StatsDto.swift in Sources */,
 				1732F6091D55019F009DA53B /* Translation.swift in Sources */,
 				17A098801DA83517004C79F4 /* TournamentListCell.swift in Sources */,
 				176A5BF71E0B791F0030919A /* Profile_Masteries_MasteriesView.swift in Sources */,
 				1732F5F71D54FA9A009DA53B /* ServerStatus.swift in Sources */,
-				17B9B31F1D4D759100D8A755 /* LevelTipDto.swift in Sources */,
 				171A5C861D5E4EEE002A8F57 /* Profile_RecentGames.swift in Sources */,
 				178B957E1D428A5A00CAD47A /* RawStatsDto.swift in Sources */,
-				17B9B3191D4D756000D8A755 /* RecommendedDto.swift in Sources */,
+				17029E751E0C56C1004E653E /* MasteryTreeListDto.swift in Sources */,
 				17B9B30D1D4D73EB00D8A755 /* ChampionMasteryDto.swift in Sources */,
+				17029E671E0C56B1004E653E /* PassiveDto.swift in Sources */,
 				178B957A1D428A1C00CAD47A /* RecentGamesDto.swift in Sources */,
 				1771CBD41D282B9800D0DB08 /* LeagueEntryDto.swift in Sources */,
 				176A5BF91E0B816B0030919A /* Profile_Masteries_MasteriesView_Cell.swift in Sources */,
-				17029E3E1E0C556A004E653E /* RuneListDto.swift in Sources */,
-				17F97B911D5678F200A8B4E7 /* MasteryTreeListDto.swift in Sources */,
 				1732F6031D550174009DA53B /* Service.swift in Sources */,
+				17029E631E0C56B1004E653E /* ChampionSpellDto.swift in Sources */,
 				171A5C881D5E4F03002A8F57 /* Profile_RecentGames_Cell.swift in Sources */,
 				1775F64F1D41C95800E58003 /* GameEndpoint.swift in Sources */,
 				172101CB1D1EDBDB0088DB1A /* ProfileView_RecentGames.swift in Sources */,
 				17029E351E0C3E0D004E653E /* RunePagesDto.swift in Sources */,
+				17029E6A1E0C56B1004E653E /* SpellVarsDto.swift in Sources */,
 				1791E6E51D41980400012595 /* ProfileView_SummaryTile.swift in Sources */,
-				17B9B3251D4D75C300D8A755 /* BlockItemDto.swift in Sources */,
-				17B9B3151D4D753D00D8A755 /* InfoDto.swift in Sources */,
 				1732F5FE1D5500CF009DA53B /* Shard.swift in Sources */,
 				176510911D231DBE00A076BA /* ProfileView_Header_StatsCell.swift in Sources */,
 				1771CBD11D282B6D00D0DB08 /* LeagueDto.swift in Sources */,
-				17B9B3111D4D746300D8A755 /* ChampionSpellDto.swift in Sources */,
-				17B9B3171D4D754F00D8A755 /* PassiveDto.swift in Sources */,
+				17029E761E0C56C1004E653E /* SC_MasteryDto.swift in Sources */,
 				17421AB61D4BCD7A00F22B52 /* MasteryPageDto.swift in Sources */,
 				172101D01D1EDC2C0088DB1A /* ProfileView_Runes.swift in Sources */,
 				171A1C111D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift in Sources */,
-				17F97B931D56790200A8B4E7 /* MasteryTreeItemDto.swift in Sources */,
-				17B9B3131D4D74A900D8A755 /* ImageDto.swift in Sources */,
 				17421AB41D4BCD1100F22B52 /* MasteryPagesDto.swift in Sources */,
+				17029E861E0C56E6004E653E /* RuneListDto.swift in Sources */,
+				17029E791E0C56D8004E653E /* SummonerSpellDto.swift in Sources */,
+				17029E681E0C56B1004E653E /* RecommendedDto.swift in Sources */,
 				17EE83931D5D2049009948AC /* Profile_ChampionMastery_Cell.swift in Sources */,
 				1732F6011D550166009DA53B /* ShardStatus.swift in Sources */,
 				17C583CB1D388441007AAC43 /* StatsEndpoint.swift in Sources */,
-				17029E441E0C55F7004E653E /* BasicDataStatsDto.swift in Sources */,
 				172C606C1D3BFE67003DC152 /* NewsCell.swift in Sources */,
 				17D70BCF1D5D030B0097207E /* Profile_ChampionMastery.swift in Sources */,
 				172101C71D1EDB9D0088DB1A /* ProfileView_Header.swift in Sources */,
+				17029E831E0C56E6004E653E /* GoldDto.swift in Sources */,
 				172101D71D1F26A00088DB1A /* DDragon.swift in Sources */,
 				172101C41D1EDB310088DB1A /* ProfileView.swift in Sources */,
 				176D5B981D1C478F000D9D85 /* SummonerDto.swift in Sources */,
 				17A098851DA84F03004C79F4 /* AccountSettings.swift in Sources */,
+				17029E621E0C56B1004E653E /* ChampionDto.swift in Sources */,
 				1739C48F1D1C281400B50BDC /* PlistManager.swift in Sources */,
-				17F97B861D56773100A8B4E7 /* MasteryListDto.swift in Sources */,
+				17029E641E0C56B1004E653E /* ImageDto.swift in Sources */,
 				17EDBB301D10EEEF00C7B7C5 /* MainTableViewController.swift in Sources */,
 				178E3C0B1DA7FF9B0088BE69 /* ChampionList.swift in Sources */,
+				17029E721E0C56C1004E653E /* MasteryListDto.swift in Sources */,
 				1771CBD51D282B9800D0DB08 /* MiniSeriesDto.swift in Sources */,
 				17FDDF601D4D391200CC7277 /* ChampionMasteryEndpoint.swift in Sources */,
 				17029E331E0C3B07004E653E /* ProfileView_Rune_StatsCell.swift in Sources */,
-				17029E481E0C5640004E653E /* MetaDataDto.swift in Sources */,
 				17029E371E0C3E58004E653E /* RunePageDto.swift in Sources */,
-				17F97B8D1D5678A800A8B4E7 /* SC_MasteryDto.swift in Sources */,
 				17029E391E0C3EA8004E653E /* RuneSlotDto.swift in Sources */,
-				17F97B8F1D5678DF00A8B4E7 /* MasteryTreeDto.swift in Sources */,
 				178E3C061DA7FF600088BE69 /* TournamentList.swift in Sources */,
+				17029E611E0C56B1004E653E /* BlockItemDto.swift in Sources */,
+				17029E851E0C56E6004E653E /* RuneDto.swift in Sources */,
 				176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */,
 				1732F5F91D54FC5A009DA53B /* StatusDetail.swift in Sources */,
+				17029E661E0C56B1004E653E /* LevelTipDto.swift in Sources */,
 				178B957C1D428A4D00CAD47A /* PlayerDto.swift in Sources */,
 				1732F6071D550192009DA53B /* Message.swift in Sources */,
 				174C95181D106CCD00EBFB07 /* AppDelegate.swift in Sources */,
 				172101CA1D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift in Sources */,
 				17F97B8B1D56788900A8B4E7 /* MasteryDto.swift in Sources */,
+				17029E691E0C56B1004E653E /* SkinDto.swift in Sources */,
 				17353B681D3AC7F100C56768 /* News.swift in Sources */,
 				17EDBB381D10F68D00C7B7C5 /* ExistingAppChecker.swift in Sources */,
 				17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */,
-				17B9B3211D4D759E00D8A755 /* SpellVarsDto.swift in Sources */,
-				17029E401E0C55D0004E653E /* BasicDataDto.swift in Sources */,
+				17029E741E0C56C1004E653E /* MasteryTreeItemDto.swift in Sources */,
 				172101CF1D1EDC2C0088DB1A /* ProfileView_Masteries.swift in Sources */,
+				17029E6B1E0C56B1004E653E /* StatsDto.swift in Sources */,
 				173705411D4D035C006E112E /* StretchyHeaderCollectionViewLayout.swift in Sources */,
+				17029E841E0C56E6004E653E /* MetaDataDto.swift in Sources */,
+				17029E811E0C56E6004E653E /* BasicDataDto.swift in Sources */,
 				1771CBCE1D28290200D0DB08 /* LeagueEndpoint.swift in Sources */,
-				17029E461E0C562E004E653E /* GoldDto.swift in Sources */,
 				171A1C0F1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift in Sources */,
+				17029E821E0C56E6004E653E /* BasicDataStatsDto.swift in Sources */,
 				176A5BF51E0B6B000030919A /* Profile_Masteries.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
