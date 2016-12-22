@@ -39,6 +39,27 @@ class StaticDataEndpoint: NSObject {
         case Tree = "tree"
     }
     
+    enum runeListData:String {
+        case All = "all"
+        case Colloq = "colloq"
+        case ConsumeOnFull = "consumeOnFull"
+        case Consumed = "consumed"
+        case Depth = "depth"
+        case From = "from"
+        case Gold = "gold"
+        case HideFromAll = "hideFromAll"
+        case Image = "image"
+        case InStore = "inStore"
+        case Into = "into"
+        case Maps = "maps"
+        case RequiredChampion = "requiredChampion"
+        case SanitizedDescription = "sanitizedDescription"
+        case SpecialRecipe = "specialRecipe"
+        case Stacks = "stacks"
+        case Stats = "stats"
+        case Tags = "tags"
+    }
+    
     enum spellData:String {
         case all = "all"
         case cooldown = "cooldown"
