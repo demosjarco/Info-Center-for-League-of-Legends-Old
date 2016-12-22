@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import GoogleMobileAds
+import AFNetworking
 
 class MainTableViewController: UITableViewController, GADBannerViewDelegate, GADAdSizeDelegate {
     override func viewDidLoad() {
@@ -27,9 +28,13 @@ class MainTableViewController: UITableViewController, GADBannerViewDelegate, GAD
             if status == .success {
                 remoteConfig.activateFetched()
                 
-                remoteConfig["appBackground"].stringValue!
-                
-                let storage = FIRStorage.storage()
+                FIRStorage.storage().reference().child("appBackgrounds").child(remoteConfig["appBackground"].stringValue!).downloadURL(completion: { (url, error) in
+                    if (error != nil) {
+                        // ?
+                    } else {
+                        bgImage.setImageWith(url!)
+                    }
+                })
             }
         })
         
