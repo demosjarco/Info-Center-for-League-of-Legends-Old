@@ -67,6 +67,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         loadChampionMastery()
         loadRecentGames()
         loadMasteries()
+        loadRunes()
     }
     
     func loadRanked() {
