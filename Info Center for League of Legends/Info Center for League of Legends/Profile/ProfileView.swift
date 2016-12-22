@@ -25,6 +25,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     // Masteries
     var mas_currentPage = MasteryPageDto()
     
+    // Runes
+    var run_currentPage = RunePageDto()
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -259,6 +262,27 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                     break
                 }
             }
+            for tile in self.tileOrder as! [[String: String]] {
+                if tile["tileType"]! as String == "masteries" {
+                    self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
+                }
+            }
+        }) { 
+            // Error
+        }
+    }
+    
+    func loadRunes() {
+        SummonerEndpoint().getRunesForSummonerIds([self.summoner.summonerId], completion: { (summonerMap) in
+            let currentSummoner = summonerMap.values.first
+            
+            for page in currentSummoner!.pages {
+                if page.current {
+                    self.run_currentPage = page
+                    break
+                }
+            }
+            
             for tile in self.tileOrder as! [[String: String]] {
                 if tile["tileType"]! as String == "masteries" {
                     self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
