@@ -284,7 +284,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
             }
             
             for tile in self.tileOrder as! [[String: String]] {
-                if tile["tileType"]! as String == "masteries" {
+                if tile["tileType"]! as String == "runes" {
                     self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
                 }
             }
