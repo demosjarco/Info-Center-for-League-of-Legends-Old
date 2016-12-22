@@ -579,6 +579,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
             // Rune Page stat cell
             let runeStatCell = collectionView.dequeueReusableCell(withReuseIdentifier: "runeStatCell", for: indexPath) as! ProfileView_Rune_StatsCell
             
+            runeStatCell.runeIcon?.image = UIImage(named: run_currentPage_stats[indexPath.row].keys.first!)
+            runeStatCell.runeStat?.text = String(describing: run_currentPage_stats[indexPath.row].values.first!)
+            
             return runeStatCell
         }
     }
