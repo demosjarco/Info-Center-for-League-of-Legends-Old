@@ -218,6 +218,34 @@ class Endpoints: NSObject {
         }
     }
     
+    func staticData_runes(_ runeListData: String, completion: @escaping (_ composedUrl: String) -> Void) {
+        self.getApiKey { (apiKey) in
+            self.optimalLocaleForRegion({ (optimalLocale) in
+                var urlString = self.getStaticDataBaseEndpoint() + "rune"
+                if optimalLocale {
+                    urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&runeListData=" + runeListData + "&api_key=" + apiKey
+                } else {
+                    urlString += "?runeListData=" + runeListData + "&api_key=" + apiKey
+                }
+                completion(urlString)
+            })
+        }
+    }
+    
+    func staticData_runes_id(_ runeId: String, runeListData: String, completion: @escaping (_ composedUrl: String) -> Void) {
+        self.getApiKey { (apiKey) in
+            self.optimalLocaleForRegion({ (optimalLocale) in
+                var urlString = self.getStaticDataBaseEndpoint() + "rune/" + runeId
+                if optimalLocale {
+                    urlString += "?locale=" + Locale.autoupdatingCurrent.identifier + "&runeData=" + runeListData + "&api_key=" + apiKey
+                } else {
+                    urlString += "?runeData=" + runeListData + "&api_key=" + apiKey
+                }
+                completion(urlString)
+            })
+        }
+    }
+    
     func staticData_summonerSpell_id(_ spellId: String, spellData: String, completion: @escaping (_ composedUrl: String) -> Void) {
         self.getApiKey({ (apiKey) in
             self.optimalLocaleForRegion({ (optimalLocale) in
