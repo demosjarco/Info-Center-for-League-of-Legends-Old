@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17029E351E0C3E0D004E653E /* RunePagesDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E341E0C3E0D004E653E /* RunePagesDto.swift */; };
+		17029E371E0C3E58004E653E /* RunePageDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E361E0C3E58004E653E /* RunePageDto.swift */; };
+		17029E391E0C3EA8004E653E /* RuneSlotDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E381E0C3EA8004E653E /* RuneSlotDto.swift */; };
 		17106E5B1E0BAD4E0076E2C7 /* lcuRunes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */; };
 		171A1C0F1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */; };
 		171A1C111D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */; };
@@ -122,6 +125,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17029E341E0C3E0D004E653E /* RunePagesDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunePagesDto.swift; path = "Riot API/SummonerEntities/RunePagesDto.swift"; sourceTree = "<group>"; };
+		17029E361E0C3E58004E653E /* RunePageDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunePageDto.swift; path = "Riot API/SummonerEntities/RunePageDto.swift"; sourceTree = "<group>"; };
+		17029E381E0C3EA8004E653E /* RuneSlotDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RuneSlotDto.swift; path = "Riot API/SummonerEntities/RuneSlotDto.swift"; sourceTree = "<group>"; };
 		17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = lcuRunes.xcassets; sourceTree = "<group>"; };
 		171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryListDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryListDto.swift"; sourceTree = "<group>"; };
 		171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryDto.swift"; sourceTree = "<group>"; };
@@ -426,6 +432,9 @@
 				17421AB31D4BCD1100F22B52 /* MasteryPagesDto.swift */,
 				17421AB51D4BCD7A00F22B52 /* MasteryPageDto.swift */,
 				17F97B8A1D56788900A8B4E7 /* MasteryDto.swift */,
+				17029E341E0C3E0D004E653E /* RunePagesDto.swift */,
+				17029E361E0C3E58004E653E /* RunePageDto.swift */,
+				17029E381E0C3EA8004E653E /* RuneSlotDto.swift */,
 			);
 			name = SummonerEntities;
 			sourceTree = "<group>";
@@ -1081,6 +1090,7 @@
 				171A5C881D5E4F03002A8F57 /* Profile_RecentGames_Cell.swift in Sources */,
 				1775F64F1D41C95800E58003 /* GameEndpoint.swift in Sources */,
 				172101CB1D1EDBDB0088DB1A /* ProfileView_RecentGames.swift in Sources */,
+				17029E351E0C3E0D004E653E /* RunePagesDto.swift in Sources */,
 				1791E6E51D41980400012595 /* ProfileView_SummaryTile.swift in Sources */,
 				17B9B3251D4D75C300D8A755 /* BlockItemDto.swift in Sources */,
 				17B9B3151D4D753D00D8A755 /* InfoDto.swift in Sources */,
@@ -1111,7 +1121,9 @@
 				178E3C0B1DA7FF9B0088BE69 /* ChampionList.swift in Sources */,
 				1771CBD51D282B9800D0DB08 /* MiniSeriesDto.swift in Sources */,
 				17FDDF601D4D391200CC7277 /* ChampionMasteryEndpoint.swift in Sources */,
+				17029E371E0C3E58004E653E /* RunePageDto.swift in Sources */,
 				17F97B8D1D5678A800A8B4E7 /* SC_MasteryDto.swift in Sources */,
+				17029E391E0C3EA8004E653E /* RuneSlotDto.swift in Sources */,
 				17F97B8F1D5678DF00A8B4E7 /* MasteryTreeDto.swift in Sources */,
 				178E3C061DA7FF600088BE69 /* TournamentList.swift in Sources */,
 				176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */,
