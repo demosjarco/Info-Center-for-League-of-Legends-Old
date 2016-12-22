@@ -2075,11 +2075,11 @@ last -- games</string>
                                             <constraint firstAttribute="width" secondItem="aPq-Sp-TiP" secondAttribute="height" multiplier="828:479" id="Ol2-95-QVC"/>
                                         </constraints>
                                     </imageView>
-                                    <stackView clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="cgP-cy-Maf">
+                                    <stackView clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cgP-cy-Maf">
                                         <rect key="frame" x="0.0" y="0.0" width="991" height="573"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rnw-J5-nO6">
-                                                <rect key="frame" x="0.0" y="0.0" width="329.5" height="573"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="330.5" height="573"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pfp-NO-8xJ">
                                                     <size key="itemSize" width="64" height="64"/>
@@ -2179,7 +2179,7 @@ last -- games</string>
                                                 </connections>
                                             </collectionView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ouV-pa-cWX">
-                                                <rect key="frame" x="661.5" y="0.0" width="329.5" height="573"/>
+                                                <rect key="frame" x="660.5" y="0.0" width="330.5" height="573"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JNm-Kc-3qC">
                                                     <size key="itemSize" width="64" height="64"/>
@@ -2255,7 +2255,7 @@ last -- games</string>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" prompt="Title" id="nfb-3C-MeM">
+                    <navigationItem key="navigationItem" id="nfb-3C-MeM">
                         <segmentedControl key="titleView" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="CW3-77-U6X">
                             <rect key="frame" x="89" y="37" width="197" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2265,6 +2265,9 @@ last -- games</string>
                                 <segment title="Cunning"/>
                                 <segment title="Resolve"/>
                             </segments>
+                            <connections>
+                                <action selector="jumpToSection" destination="beV-8t-PhA" eventType="valueChanged" id="NJG-df-Fso"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black"/>

@@ -87,9 +87,26 @@ class Profile_Masteries_MasteriesView: UIViewController, UICollectionViewDataSou
         }
     }
     
+    @IBAction func jumpToSection() {
+        if sectionBar!.selectedSegmentIndex == 0 {
+            treeScrollView?.scrollRectToVisible(ferocityTree!.frame, animated: true)
+        } else if sectionBar!.selectedSegmentIndex == 1 {
+            treeScrollView?.scrollRectToVisible(cunningTree!.frame, animated: true)
+        } else if sectionBar!.selectedSegmentIndex == 2 {
+            treeScrollView?.scrollRectToVisible(resolveTree!.frame, animated: true)
+        }
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == treeScrollView {
-            
+            print(scrollView.contentOffset.x)
+            if scrollView.contentOffset.x < ferocityTree!.frame.size.width / 2 {
+                sectionBar?.selectedSegmentIndex = 0
+            } else if scrollView.contentOffset.x >= ferocityTree!.frame.size.width / 2 && scrollView.contentOffset.x <= cunningTree!.frame.origin.x + cunningTree!.frame.size.width / 2 {
+                sectionBar?.selectedSegmentIndex = 1
+            } else if scrollView.contentOffset.x > cunningTree!.frame.origin.x + cunningTree!.frame.size.width / 2 {
+                sectionBar?.selectedSegmentIndex = 2
+            }
         }
     }
 
