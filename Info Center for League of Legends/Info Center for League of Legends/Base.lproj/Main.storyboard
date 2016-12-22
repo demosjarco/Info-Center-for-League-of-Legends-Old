@@ -889,7 +889,7 @@ last -- games</string>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mh5-TS-qRj">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ferocity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mh5-TS-qRj">
                                                                     <rect key="frame" x="0.0" y="76" width="106.5" height="16"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -939,7 +939,7 @@ last -- games</string>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j1Q-mc-UdD">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cunning" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j1Q-mc-UdD">
                                                                     <rect key="frame" x="8" y="76" width="91" height="16"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -998,7 +998,7 @@ last -- games</string>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I93-PU-7yt">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resolve" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I93-PU-7yt">
                                                                     <rect key="frame" x="8" y="76" width="90.5" height="16"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -1056,14 +1056,11 @@ last -- games</string>
                                 </constraints>
                                 <connections>
                                     <outlet property="leftColumnKeystone" destination="8Jn-4Q-1pq" id="0sT-Z5-RIU"/>
-                                    <outlet property="leftColumnName" destination="mh5-TS-qRj" id="MaA-03-FlB"/>
                                     <outlet property="leftColumnValue" destination="LDp-F4-Hq7" id="sKN-rr-35i"/>
                                     <outlet property="masteryPageName" destination="gk4-Km-QZn" id="rGM-zd-cjH"/>
                                     <outlet property="middleColumnKeystone" destination="h69-Gm-7zg" id="k0b-Le-Nbh"/>
-                                    <outlet property="middleColumnName" destination="j1Q-mc-UdD" id="Wwh-Lf-ekH"/>
                                     <outlet property="middleColumnValue" destination="ftE-Is-2R6" id="yZp-EK-4wi"/>
                                     <outlet property="rightColumnKeystone" destination="RFf-Xp-Hk9" id="Mbp-ol-0RX"/>
-                                    <outlet property="rightColumnName" destination="I93-PU-7yt" id="zC8-Vl-Msy"/>
                                     <outlet property="rightColumnValue" destination="iH2-Mf-q77" id="szQ-dD-VZB"/>
                                     <segue destination="EGW-ic-98k" kind="presentation" modalPresentationStyle="formSheet" id="1ng-8D-LaB"/>
                                 </connections>
@@ -1929,14 +1926,14 @@ last -- games</string>
                                             <rect key="frame" x="2" y="116" width="112" height="34"/>
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
-                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="13.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="16"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
-                                                    <rect key="frame" x="0.0" y="13.5" width="112" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="16" width="112" height="18"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2558,7 +2555,7 @@ last -- games</string>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="newsCell" id="SEf-ZJ-xUB" customClass="NewsCell" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <rect key="frame" x="60" y="0.0" width="256" height="256"/>
+                                <rect key="frame" x="59" y="0.0" width="256" height="256"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
@@ -2568,14 +2565,14 @@ last -- games</string>
                                             <rect key="frame" x="8" y="8" width="240" height="240"/>
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMU-du-UQx">
-                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="21"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="219"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Content" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uX-g3-7bg">
-                                                    <rect key="frame" x="0.0" y="21" width="240" height="219"/>
+                                                    <rect key="frame" x="0.0" y="219" width="240" height="21"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
