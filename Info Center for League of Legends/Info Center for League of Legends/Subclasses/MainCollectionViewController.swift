@@ -28,26 +28,9 @@ class MainCollectionViewController: UICollectionViewController, GADBannerViewDel
             if status == .success {
                 remoteConfig.activateFetched()
                 
-                switch remoteConfig["contentSeason"].numberValue!.intValue {
-                case 0:
-                    // Snowdown
-                    bgImage.image = UIImage(named: "howlingAbyss")
-                    break
-                case 1:
-                    // Normal
-                    bgImage.image = UIImage(named: "summonersRift")
-                    break
-                case 2:
-                    // Harrowing
-                    bgImage.image = UIImage(named: "shadowIsles")
-                    break
-                case 3:
-                    // URF
-                    bgImage.image = UIImage(named: "urfBackground")
-                    break
-                default:
-                    break
-                }
+                remoteConfig["appBackground"].stringValue!
+                
+                let storage = FIRStorage.storage()
             }
         })
         
