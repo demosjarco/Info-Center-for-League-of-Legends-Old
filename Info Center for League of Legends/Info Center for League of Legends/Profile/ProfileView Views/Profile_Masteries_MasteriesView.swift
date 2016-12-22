@@ -150,12 +150,14 @@ class Profile_Masteries_MasteriesView: UIViewController, UICollectionViewDataSou
             DDragon().getMasteryIcon(cunningMasteries[indexPath.section].masteryTreeItems[indexPath.row].masteryId, gray: cunningMasteries[indexPath.section].masteryTreeItems[indexPath.row].points > 0 ? false : true, completion: { (masteryIconUrl) in
                 cell.masteryImage?.setImageWith(masteryIconUrl)
             })
+            cell.masteryLevel?.text = " " + String(cunningMasteries[indexPath.section].masteryTreeItems[indexPath.row].points) + " / "
             
             break
         case resolveTree!:
             DDragon().getMasteryIcon(resolveMasteries[indexPath.section].masteryTreeItems[indexPath.row].masteryId, gray: resolveMasteries[indexPath.section].masteryTreeItems[indexPath.row].points > 0 ? false : true, completion: { (masteryIconUrl) in
                 cell.masteryImage?.setImageWith(masteryIconUrl)
             })
+            cell.masteryLevel?.text = " " + String(resolveMasteries[indexPath.section].masteryTreeItems[indexPath.row].points) + " / "
             
             break
         default:
