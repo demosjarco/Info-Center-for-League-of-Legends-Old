@@ -129,4 +129,54 @@ class SummonerEndpoint: NSObject {
             })
         }
     }
+    
+    func getRunesForSummonerIds(_ summonerIds: [CLong], completion: @escaping (_ summonerMap: [String: RunePagesDto]) -> Void, errorBlock: @escaping () -> Void) {
+        var stringSummonerIds = [String]()
+        for summonerId in summonerIds {
+            stringSummonerIds.append(String(summonerId))
+        }
+        
+        Endpoints().summoner_runesById(stringSummonerIds.joined(separator: ",")) { (composedUrl) in
+            AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
+                var newResponse = [String: RunePagesDto]()
+                let json = responseObject as! NSDictionary
+                let jsonValues = json.allValues as! [[String: AnyObject]]
+                for i in 0 ..< jsonValues.count {
+                    let oldRunePages = jsonValues[i]
+                    
+                    let newRunePages = RunePagesDto()
+                    let oldPages = oldRunePages["pages"] as! [[String: AnyObject]]
+                    
+                    for oldPage in oldPages {
+                        let newPage = RunePageDto()
+                        
+                        newPage.current = oldPage["current"] as! Bool
+                        newPage.runePageId = oldPage["id"] as! CLong
+                        if (oldPage["slots"] != nil) {
+                            let oldSlots = oldPage["slots"] as! [[String: AnyObject]]
+                            for oldSlot in oldSlots {
+                                let newSlot = RuneSlotDto()
+                                
+                                newSlot.runeId = oldSlot["runeId"] as! Int
+                                newSlot.runeSlotId = oldSlot["runeSlotId"] as! Int
+                                
+                                newPage.slots.append(newSlot)
+                            }
+                        }
+                        newPage.name = oldPage["name"] as! String
+                        
+                        newRunePages.pages.append(newPage)
+                    }
+                    newRunePages.summonerId = oldRunePages["summonerId"] as! CLong
+                    
+                    newResponse[json.allKeys[i] as! String] = newRunePages
+                }
+                completion(newResponse)
+            }, failure: { (task, error) in
+                let response = task!.response as! HTTPURLResponse
+                errorBlock()
+                FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+            })
+        }
+    }
 }
