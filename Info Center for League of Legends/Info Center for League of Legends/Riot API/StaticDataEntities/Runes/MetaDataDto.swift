@@ -9,5 +9,7 @@
 import UIKit
 
 class MetaDataDto: NSObject {
-    
+    var isRune = false
+    var tier = ""
+    var type = ""
 }

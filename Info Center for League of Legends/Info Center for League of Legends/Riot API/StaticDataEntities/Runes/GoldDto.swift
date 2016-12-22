@@ -9,5 +9,8 @@
 import UIKit
 
 class GoldDto: NSObject {
-    
+    var base:Int = 0
+    var purchasable = false
+    var sell:Int = 0
+    var total:Int = 0
 }
