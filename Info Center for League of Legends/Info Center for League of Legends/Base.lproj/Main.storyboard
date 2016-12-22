@@ -134,7 +134,7 @@
                                                         <visualEffectView opaque="NO" alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xcG-Tl-YWt">
                                                             <rect key="frame" x="0.0" y="0.0" width="106.5" height="200"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TpS-Vf-5at">
-                                                                <rect key="frame" x="0.0" y="0.0" width="107" height="200"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="106" height="200"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             </view>
                                                             <blurEffect style="dark"/>
@@ -441,7 +441,7 @@
                                                         <visualEffectView opaque="NO" alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0E-kb-LKI">
                                                             <rect key="frame" x="0.0" y="0.0" width="106.5" height="200"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="KUs-vw-1TA">
-                                                                <rect key="frame" x="0.0" y="0.0" width="106" height="200"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="107" height="200"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             </view>
                                                             <blurEffect style="dark"/>
@@ -2101,7 +2101,7 @@ last -- games</string>
                                                         <rect key="frame" x="8" y="8" width="64" height="64"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="65" height="64"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zgt-kK-zjb">
