@@ -81,7 +81,6 @@
 		17B9B3231D4D75AF00D8A755 /* BlockDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B3221D4D75AF00D8A755 /* BlockDto.swift */; };
 		17B9B3251D4D75C300D8A755 /* BlockItemDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B9B3241D4D75C300D8A755 /* BlockItemDto.swift */; };
 		17C583CB1D388441007AAC43 /* StatsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C583CA1D388441007AAC43 /* StatsEndpoint.swift */; };
-		17D14E101D10D373007F6938 /* Special.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E0F1D10D373007F6938 /* Special.xcassets */; };
 		17D14E141D10D3A8007F6938 /* Fall.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E111D10D3A8007F6938 /* Fall.xcassets */; };
 		17D14E151D10D3A8007F6938 /* Normal.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E121D10D3A8007F6938 /* Normal.xcassets */; };
 		17D14E161D10D3A8007F6938 /* Winter.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17D14E131D10D3A8007F6938 /* Winter.xcassets */; };
@@ -206,7 +205,6 @@
 		17B9B3241D4D75C300D8A755 /* BlockItemDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockItemDto.swift; path = "Riot API/StaticDataEntities/BlockItemDto.swift"; sourceTree = "<group>"; };
 		17C583CA1D388441007AAC43 /* StatsEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatsEndpoint.swift; path = "Riot API/StatsEndpoint.swift"; sourceTree = "<group>"; };
 		17D14E0E1D10D12A007F6938 /* Info Center for League of Legends.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Info Center for League of Legends.entitlements"; sourceTree = "<group>"; };
-		17D14E0F1D10D373007F6938 /* Special.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Special.xcassets; sourceTree = "<group>"; };
 		17D14E111D10D3A8007F6938 /* Fall.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Fall.xcassets; sourceTree = "<group>"; };
 		17D14E121D10D3A8007F6938 /* Normal.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Normal.xcassets; sourceTree = "<group>"; };
 		17D14E131D10D3A8007F6938 /* Winter.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Winter.xcassets; sourceTree = "<group>"; };
@@ -387,7 +385,6 @@
 				17D14E131D10D3A8007F6938 /* Winter.xcassets */,
 				17D14E121D10D3A8007F6938 /* Normal.xcassets */,
 				17D14E111D10D3A8007F6938 /* Fall.xcassets */,
-				17D14E0F1D10D373007F6938 /* Special.xcassets */,
 				17D14E171D10D928007F6938 /* Ranked.xcassets */,
 				1791E6E21D416DF400012595 /* champMastery.xcassets */,
 				17D14E191D10D947007F6938 /* FunRefresher.xcassets */,
@@ -774,7 +771,6 @@
 				17D14E181D10D928007F6938 /* Ranked.xcassets in Resources */,
 				17D14E141D10D3A8007F6938 /* Fall.xcassets in Resources */,
 				174C95241D106CCE00EBFB07 /* LaunchScreen.storyboard in Resources */,
-				17D14E101D10D373007F6938 /* Special.xcassets in Resources */,
 				174C951F1D106CCD00EBFB07 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
