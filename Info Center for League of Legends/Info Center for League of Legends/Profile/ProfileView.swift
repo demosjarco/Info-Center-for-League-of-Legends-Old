@@ -27,6 +27,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     
     // Runes
     var run_currentPage = RunePageDto()
+    var run_currentPage_stats = [[String: Double]]()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
