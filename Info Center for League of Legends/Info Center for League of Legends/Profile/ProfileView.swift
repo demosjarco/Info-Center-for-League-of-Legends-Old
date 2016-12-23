@@ -848,7 +848,11 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
             let runeStatCell = collectionView.dequeueReusableCell(withReuseIdentifier: "runeStatCell", for: indexPath) as! ProfileView_Rune_StatsCell
             
             runeStatCell.runeIcon?.image = UIImage(named: Array(self.run_currentPage_stats.keys)[indexPath.row])
-            runeStatCell.runeStat?.text = "\(Array(self.run_currentPage_stats.values)[indexPath.row])"
+            if Array(self.run_currentPage_stats.values)[indexPath.row] >= 0.0 {
+                runeStatCell.runeStat?.text = "+ \(Array(self.run_currentPage_stats.values)[indexPath.row])"
+            } else {
+                runeStatCell.runeStat?.text = "- \(Array(self.run_currentPage_stats.values)[indexPath.row])"
+            }
             
             return runeStatCell
         }
