@@ -27,7 +27,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     
     // Runes
     var run_currentPage = RunePageDto()
-    var run_currentPage_stats = [[String: Double]]()
+    var run_currentPage_stats = [String: Double]()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -280,13 +280,281 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
             for page in currentSummoner!.pages {
                 if page.current {
                     self.run_currentPage = page
+                    
+                    var count = page.slots.count
+                    for slot in page.slots {
+                        StaticDataEndpoint().getRuneInfoById(slot.runeId, runeData: .Stats, completion: { (rune) in
+                            if rune.stats.FlatArmorMod != 0.0 {
+                                if (self.run_currentPage_stats["FlatArmorMod"] != nil) {
+                                    self.run_currentPage_stats["FlatArmorMod"]! += rune.stats.FlatArmorMod
+                                } else {
+                                    self.run_currentPage_stats["FlatArmorMod"] = rune.stats.FlatArmorMod
+                                }
+                            }
+                            if rune.stats.FlatCritChanceMod != 0.0 {
+                                if (self.run_currentPage_stats["FlatCritChanceMod"] != nil) {
+                                    self.run_currentPage_stats["FlatCritChanceMod"]! += rune.stats.FlatCritChanceMod
+                                } else {
+                                    self.run_currentPage_stats["FlatCritChanceMod"] = rune.stats.FlatCritChanceMod
+                                }
+                            }
+                            if rune.stats.FlatCritDamageMod != 0.0 {
+                                if (self.run_currentPage_stats["FlatCritDamageMod"] != nil) {
+                                    self.run_currentPage_stats["FlatCritDamageMod"]! += rune.stats.FlatCritDamageMod
+                                } else {
+                                    self.run_currentPage_stats["FlatCritDamageMod"] = rune.stats.FlatCritDamageMod
+                                }
+                            }
+                            if rune.stats.FlatEnergyPoolMod != 0.0 {
+                                if (self.run_currentPage_stats["FlatEnergyPoolMod"] != nil) {
+                                    self.run_currentPage_stats["FlatEnergyPoolMod"]! += rune.stats.FlatEnergyPoolMod
+                                } else {
+                                    self.run_currentPage_stats["FlatEnergyPoolMod"] = rune.stats.FlatEnergyPoolMod
+                                }
+                            }
+                            if rune.stats.FlatEnergyRegenMod != 0.0 {
+                                if (self.run_currentPage_stats["FlatEnergyRegenMod"] != nil) {
+                                    self.run_currentPage_stats["FlatEnergyRegenMod"]! += rune.stats.FlatEnergyRegenMod
+                                } else {
+                                    self.run_currentPage_stats["FlatEnergyRegenMod"] = rune.stats.FlatEnergyRegenMod
+                                }
+                            }
+                            if rune.stats.FlatHPPoolMod != 0.0 {
+                                if (self.run_currentPage_stats["FlatHPPoolMod"] != nil) {
+                                    self.run_currentPage_stats["FlatHPPoolMod"]! += rune.stats.FlatHPPoolMod
+                                } else {
+                                    self.run_currentPage_stats["FlatHPPoolMod"] = rune.stats.FlatHPPoolMod
+                                }
+                            }
+                            if rune.stats.FlatHPRegenMod != 0.0 {
+                                if (self.run_currentPage_stats["FlatHPRegenMod"] != nil) {
+                                    self.run_currentPage_stats["FlatHPRegenMod"]! += rune.stats.FlatHPRegenMod
+                                } else {
+                                    self.run_currentPage_stats["FlatHPRegenMod"] = rune.stats.FlatHPRegenMod
+                                }
+                            }
+                            if rune.stats.FlatMagicDamageMod != 0.0 {
+                                if (self.run_currentPage_stats["FlatMagicDamageMod"] != nil) {
+                                    self.run_currentPage_stats["FlatMagicDamageMod"]! += rune.stats.FlatMagicDamageMod
+                                } else {
+                                    self.run_currentPage_stats["FlatMagicDamageMod"] = rune.stats.FlatMagicDamageMod
+                                }
+                            }
+                            if rune.stats.FlatMPPoolMod != 0.0 {
+                                if (self.run_currentPage_stats["FlatMPPoolMod"] != nil) {
+                                    self.run_currentPage_stats["FlatMPPoolMod"]! += rune.stats.FlatMPPoolMod
+                                } else {
+                                    self.run_currentPage_stats["FlatMPPoolMod"] = rune.stats.FlatMPPoolMod
+                                }
+                            }
+                            if rune.stats.FlatMPRegenMod != 0.0 {
+                                if (self.run_currentPage_stats["FlatMPRegenMod"] != nil) {
+                                    self.run_currentPage_stats["FlatMPRegenMod"]! += rune.stats.FlatMPRegenMod
+                                } else {
+                                    self.run_currentPage_stats["FlatMPRegenMod"] = rune.stats.FlatMPRegenMod
+                                }
+                            }
+                            if rune.stats.FlatPhysicalDamageMod != 0.0 {
+                                if (self.run_currentPage_stats["FlatPhysicalDamageMod"] != nil) {
+                                    self.run_currentPage_stats["FlatPhysicalDamageMod"]! += rune.stats.FlatPhysicalDamageMod
+                                } else {
+                                    self.run_currentPage_stats["FlatPhysicalDamageMod"] = rune.stats.FlatPhysicalDamageMod
+                                }
+                            }
+                            if rune.stats.FlatSpellBlockMod != 0.0 {
+                                if (self.run_currentPage_stats["FlatSpellBlockMod"] != nil) {
+                                    self.run_currentPage_stats["FlatSpellBlockMod"]! += rune.stats.FlatSpellBlockMod
+                                } else {
+                                    self.run_currentPage_stats["FlatSpellBlockMod"] = rune.stats.FlatSpellBlockMod
+                                }
+                            }
+                            if rune.stats.PercentAttackSpeedMod != 0.0 {
+                                if (self.run_currentPage_stats["PercentAttackSpeedMod"] != nil) {
+                                    self.run_currentPage_stats["PercentAttackSpeedMod"]! += rune.stats.PercentAttackSpeedMod
+                                } else {
+                                    self.run_currentPage_stats["PercentAttackSpeedMod"] = rune.stats.PercentAttackSpeedMod
+                                }
+                            }
+                            if rune.stats.PercentEXPBonus != 0.0 {
+                                if (self.run_currentPage_stats["PercentEXPBonus"] != nil) {
+                                    self.run_currentPage_stats["PercentEXPBonus"]! += rune.stats.PercentEXPBonus
+                                } else {
+                                    self.run_currentPage_stats["PercentEXPBonus"] = rune.stats.PercentEXPBonus
+                                }
+                            }
+                            if rune.stats.PercentHPPoolMod != 0.0 {
+                                if (self.run_currentPage_stats["PercentHPPoolMod"] != nil) {
+                                    self.run_currentPage_stats["PercentHPPoolMod"]! += rune.stats.PercentHPPoolMod
+                                } else {
+                                    self.run_currentPage_stats["PercentHPPoolMod"] = rune.stats.PercentHPPoolMod
+                                }
+                            }
+                            if rune.stats.PercentLifeStealMod != 0.0 {
+                                if (self.run_currentPage_stats["PercentLifeStealMod"] != nil) {
+                                    self.run_currentPage_stats["PercentLifeStealMod"]! += rune.stats.PercentLifeStealMod
+                                } else {
+                                    self.run_currentPage_stats["PercentLifeStealMod"] = rune.stats.PercentLifeStealMod
+                                }
+                            }
+                            if rune.stats.PercentMovementSpeedMod != 0.0 {
+                                if (self.run_currentPage_stats["PercentMovementSpeedMod"] != nil) {
+                                    self.run_currentPage_stats["PercentMovementSpeedMod"]! += rune.stats.PercentMovementSpeedMod
+                                } else {
+                                    self.run_currentPage_stats["PercentMovementSpeedMod"] = rune.stats.PercentMovementSpeedMod
+                                }
+                            }
+                            if rune.stats.PercentSpellVampMod != 0.0 {
+                                if (self.run_currentPage_stats["PercentSpellVampMod"] != nil) {
+                                    self.run_currentPage_stats["PercentSpellVampMod"]! += rune.stats.PercentSpellVampMod
+                                } else {
+                                    self.run_currentPage_stats["PercentSpellVampMod"] = rune.stats.PercentSpellVampMod
+                                }
+                            }
+                            if rune.stats.rFlatArmorModPerLevel != 0.0 {
+                                if (self.run_currentPage_stats["rFlatArmorModPerLevel"] != nil) {
+                                    self.run_currentPage_stats["rFlatArmorModPerLevel"]! += rune.stats.rFlatArmorModPerLevel
+                                } else {
+                                    self.run_currentPage_stats["rFlatArmorModPerLevel"] = rune.stats.rFlatArmorModPerLevel
+                                }
+                            }
+                            if rune.stats.rFlatArmorPenetrationMod != 0.0 {
+                                if (self.run_currentPage_stats["rFlatArmorPenetrationMod"] != nil) {
+                                    self.run_currentPage_stats["rFlatArmorPenetrationMod"]! += rune.stats.rFlatArmorPenetrationMod
+                                } else {
+                                    self.run_currentPage_stats["rFlatArmorPenetrationMod"] = rune.stats.rFlatArmorPenetrationMod
+                                }
+                            }
+                            if rune.stats.rFlatEnergyModPerLevel != 0.0 {
+                                if (self.run_currentPage_stats["rFlatEnergyModPerLevel"] != nil) {
+                                    self.run_currentPage_stats["rFlatEnergyModPerLevel"]! += rune.stats.rFlatEnergyModPerLevel
+                                } else {
+                                    self.run_currentPage_stats["rFlatEnergyModPerLevel"] = rune.stats.rFlatEnergyModPerLevel
+                                }
+                            }
+                            if rune.stats.rFlatEnergyRegenModPerLevel != 0.0 {
+                                if (self.run_currentPage_stats["rFlatEnergyRegenModPerLevel"] != nil) {
+                                    self.run_currentPage_stats["rFlatEnergyRegenModPerLevel"]! += rune.stats.rFlatEnergyRegenModPerLevel
+                                } else {
+                                    self.run_currentPage_stats["rFlatEnergyRegenModPerLevel"] = rune.stats.rFlatEnergyRegenModPerLevel
+                                }
+                            }
+                            if rune.stats.rFlatGoldPer10Mod != 0.0 {
+                                if (self.run_currentPage_stats["rFlatGoldPer10Mod"] != nil) {
+                                    self.run_currentPage_stats["rFlatGoldPer10Mod"]! += rune.stats.rFlatGoldPer10Mod
+                                } else {
+                                    self.run_currentPage_stats["rFlatGoldPer10Mod"] = rune.stats.rFlatGoldPer10Mod
+                                }
+                            }
+                            if rune.stats.rFlatHPModPerLevel != 0.0 {
+                                if (self.run_currentPage_stats["rFlatHPModPerLevel"] != nil) {
+                                    self.run_currentPage_stats["rFlatHPModPerLevel"]! += rune.stats.rFlatHPModPerLevel
+                                } else {
+                                    self.run_currentPage_stats["rFlatHPModPerLevel"] = rune.stats.rFlatHPModPerLevel
+                                }
+                            }
+                            if rune.stats.rFlatHPRegenModPerLevel != 0.0 {
+                                if (self.run_currentPage_stats["rFlatHPRegenModPerLevel"] != nil) {
+                                    self.run_currentPage_stats["rFlatHPRegenModPerLevel"]! += rune.stats.rFlatHPRegenModPerLevel
+                                } else {
+                                    self.run_currentPage_stats["rFlatHPRegenModPerLevel"] = rune.stats.rFlatHPRegenModPerLevel
+                                }
+                            }
+                            if rune.stats.rFlatMagicDamageModPerLevel != 0.0 {
+                                if (self.run_currentPage_stats["rFlatMagicDamageModPerLevel"] != nil) {
+                                    self.run_currentPage_stats["rFlatMagicDamageModPerLevel"]! += rune.stats.rFlatMagicDamageModPerLevel
+                                } else {
+                                    self.run_currentPage_stats["rFlatMagicDamageModPerLevel"] = rune.stats.rFlatMagicDamageModPerLevel
+                                }
+                            }
+                            if rune.stats.rFlatMagicPenetrationMod != 0.0 {
+                                if (self.run_currentPage_stats["rFlatMagicPenetrationMod"] != nil) {
+                                    self.run_currentPage_stats["rFlatMagicPenetrationMod"]! += rune.stats.rFlatMagicPenetrationMod
+                                } else {
+                                    self.run_currentPage_stats["rFlatMagicPenetrationMod"] = rune.stats.rFlatMagicPenetrationMod
+                                }
+                            }
+                            if rune.stats.rFlatMPModPerLevel != 0.0 {
+                                if (self.run_currentPage_stats["rFlatMPModPerLevel"] != nil) {
+                                    self.run_currentPage_stats["rFlatMPModPerLevel"]! += rune.stats.rFlatMPModPerLevel
+                                } else {
+                                    self.run_currentPage_stats["rFlatMPModPerLevel"] = rune.stats.rFlatMPModPerLevel
+                                }
+                            }
+                            if rune.stats.rFlatMPRegenModPerLevel != 0.0 {
+                                if (self.run_currentPage_stats["rFlatMPRegenModPerLevel"] != nil) {
+                                    self.run_currentPage_stats["rFlatMPRegenModPerLevel"]! += rune.stats.rFlatMPRegenModPerLevel
+                                } else {
+                                    self.run_currentPage_stats["rFlatMPRegenModPerLevel"] = rune.stats.rFlatMPRegenModPerLevel
+                                }
+                            }
+                            if rune.stats.rFlatPhysicalDamageModPerLevel != 0.0 {
+                                if (self.run_currentPage_stats["rFlatPhysicalDamageModPerLevel"] != nil) {
+                                    self.run_currentPage_stats["rFlatPhysicalDamageModPerLevel"]! += rune.stats.rFlatPhysicalDamageModPerLevel
+                                } else {
+                                    self.run_currentPage_stats["rFlatPhysicalDamageModPerLevel"] = rune.stats.rFlatPhysicalDamageModPerLevel
+                                }
+                            }
+                            if rune.stats.rFlatSpellBlockModPerLevel != 0.0 {
+                                if (self.run_currentPage_stats["rFlatSpellBlockModPerLevel"] != nil) {
+                                    self.run_currentPage_stats["rFlatSpellBlockModPerLevel"]! += rune.stats.rFlatSpellBlockModPerLevel
+                                } else {
+                                    self.run_currentPage_stats["rFlatSpellBlockModPerLevel"] = rune.stats.rFlatSpellBlockModPerLevel
+                                }
+                            }
+                            if rune.stats.rPercentCooldownMod != 0.0 {
+                                if (self.run_currentPage_stats["rPercentCooldownMod"] != nil) {
+                                    self.run_currentPage_stats["rPercentCooldownMod"]! += rune.stats.rPercentCooldownMod
+                                } else {
+                                    self.run_currentPage_stats["rPercentCooldownMod"] = rune.stats.rPercentCooldownMod
+                                }
+                            }
+                            if rune.stats.rPercentCooldownModPerLevel != 0.0 {
+                                if (self.run_currentPage_stats["rPercentCooldownModPerLevel"] != nil) {
+                                    self.run_currentPage_stats["rPercentCooldownModPerLevel"]! += rune.stats.rPercentCooldownModPerLevel
+                                } else {
+                                    self.run_currentPage_stats["rPercentCooldownModPerLevel"] = rune.stats.rPercentCooldownModPerLevel
+                                }
+                            }
+                            if rune.stats.rPercentTimeDeadMod != 0.0 {
+                                if (self.run_currentPage_stats["rPercentTimeDeadMod"] != nil) {
+                                    self.run_currentPage_stats["rPercentTimeDeadMod"]! += rune.stats.rPercentTimeDeadMod
+                                } else {
+                                    self.run_currentPage_stats["rPercentTimeDeadMod"] = rune.stats.rPercentTimeDeadMod
+                                }
+                            }
+                            
+                            count -= 1
+                            if count == 0 {
+                                for tile in self.tileOrder as! [[String: String]] {
+                                    if tile["tileType"]! as String == "runes" {
+                                        self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
+                                    }
+                                }
+                            }
+                        }, notFound: {
+                            // ???
+                            count -= 1
+                            if count == 0 {
+                                for tile in self.tileOrder as! [[String: String]] {
+                                    if tile["tileType"]! as String == "runes" {
+                                        self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
+                                    }
+                                }
+                            }
+                        }, errorBlock: {
+                            // Error
+                            count -= 1
+                            if count == 0 {
+                                for tile in self.tileOrder as! [[String: String]] {
+                                    if tile["tileType"]! as String == "runes" {
+                                        self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
+                                    }
+                                }
+                            }
+                        })
+                    }
+                    
                     break
-                }
-            }
-            
-            for tile in self.tileOrder as! [[String: String]] {
-                if tile["tileType"]! as String == "runes" {
-                    self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
                 }
             }
         }) { 
@@ -333,7 +601,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         if collectionView == self.collectionView {
             return tileOrder.count
         } else {
-            return run_currentPage_stats.count
+            return run_currentPage_stats.values.count
         }
     }
     
@@ -579,8 +847,8 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
             // Rune Page stat cell
             let runeStatCell = collectionView.dequeueReusableCell(withReuseIdentifier: "runeStatCell", for: indexPath) as! ProfileView_Rune_StatsCell
             
-            runeStatCell.runeIcon?.image = UIImage(named: run_currentPage_stats[indexPath.row].keys.first!)
-            runeStatCell.runeStat?.text = String(describing: run_currentPage_stats[indexPath.row].values.first!)
+            runeStatCell.runeIcon?.image = UIImage(named: Array(self.run_currentPage_stats.keys)[indexPath.row])
+            runeStatCell.runeStat?.text = "\(Array(self.run_currentPage_stats.values)[indexPath.row])"
             
             return runeStatCell
         }
