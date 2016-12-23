@@ -488,8 +488,185 @@ class StaticDataEndpoint: NSObject {
         
     }
     
-    func getRuneInfoById(_ runeId: Int, runeData: String, completion: () -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
-        
+    func getRuneInfoById(_ runeId: Int, runeData: runeListData, completion: @escaping (_ rune: RuneDto) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
+        Endpoints().staticData_runes_id(String(runeId), runeListData: runeData.rawValue) { (composedUrl) in
+            AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
+                let json = responseObject as! [String: AnyObject]
+                let newRune = RuneDto()
+                
+                newRune.runeId = json["id"] as! Int
+                newRune.name = json["name"] as! String
+                newRune.runeDescription = json["description"] as! String
+                if (json["sanitizedDescription"] != nil) {
+                    newRune.sanitizedDescription = json["sanitizedDescription"] as! String
+                }
+                if (json["tags"] != nil) {
+                    newRune.tags = json["tags"] as! [String]
+                }
+                if json["image"] != nil {
+                    let oldImage = json["image"] as! [String: AnyObject]
+                    let newImage = ImageDto()
+                    
+                    newImage.full = oldImage["full"] as! String
+                    newImage.group = oldImage["group"] as! String
+                    newImage.h = oldImage["h"] as! Int
+                    newImage.sprite = oldImage["sprite"] as! String
+                    newImage.w = oldImage["w"] as! Int
+                    newImage.x = oldImage["x"] as! Int
+                    newImage.y = oldImage["y"] as! Int
+                    
+                    newRune.image = newImage
+                }
+                if (json["stats"] != nil) {
+                    let oldStats = json["stats"] as! [String:Double]
+                    
+                    if oldStats.values.count == 0 {
+                        // If no stats, assume lethality runes
+                        switch json["id"] as! Int {
+                        case 5009:
+                            // Lesser Mark of Lethality
+                            newRune.stats.rFlatArmorPenetrationMod = 0.90
+                            break
+                        case 5099:
+                            // Lesser Quintessence of Lethality
+                            newRune.stats.rFlatArmorPenetrationMod = 1.78
+                            break
+                        case 5131:
+                            // Mark of Lethality
+                            newRune.stats.rFlatArmorPenetrationMod = 1.25
+                            break
+                        case 5221:
+                            // Quintessence of Lethality
+                            newRune.stats.rFlatArmorPenetrationMod = 2.49
+                            break
+                        case 5253:
+                            // Greater Mark of Lethality
+                            newRune.stats.rFlatArmorPenetrationMod = 1.60
+                            break
+                        case 5343:
+                            // Greater Quintessence of Lethality
+                            newRune.stats.rFlatArmorPenetrationMod = 3.20
+                            break
+                        default:
+                            break
+                        }
+                    } else {
+                        if (oldStats["FlatArmorMod"] != nil) {
+                            newRune.stats.FlatArmorMod = oldStats["FlatArmorMod"]!
+                        }
+                        if (oldStats["FlatCritChanceMod"] != nil) {
+                            newRune.stats.FlatCritChanceMod = oldStats["FlatCritChanceMod"]!
+                        }
+                        if (oldStats["FlatCritDamageMod"] != nil) {
+                            newRune.stats.FlatCritDamageMod = oldStats["FlatCritDamageMod"]!
+                        }
+                        if (oldStats["FlatEnergyPoolMod"] != nil) {
+                            newRune.stats.FlatEnergyPoolMod = oldStats["FlatEnergyPoolMod"]!
+                        }
+                        if (oldStats["FlatEnergyRegenMod"] != nil) {
+                            newRune.stats.FlatEnergyRegenMod = oldStats["FlatEnergyRegenMod"]!
+                        }
+                        if (oldStats["FlatHPPoolMod"] != nil) {
+                            newRune.stats.FlatHPPoolMod = oldStats["FlatHPPoolMod"]!
+                        }
+                        if (oldStats["FlatHPRegenMod"] != nil) {
+                            newRune.stats.FlatHPRegenMod = oldStats["FlatHPRegenMod"]!
+                        }
+                        if (oldStats["FlatMagicDamageMod"] != nil) {
+                            newRune.stats.FlatMagicDamageMod = oldStats["FlatMagicDamageMod"]!
+                        }
+                        if (oldStats["FlatMPPoolMod"] != nil) {
+                            newRune.stats.FlatMPPoolMod = oldStats["FlatMPPoolMod"]!
+                        }
+                        if (oldStats["FlatMPRegenMod"] != nil) {
+                            newRune.stats.FlatMPRegenMod = oldStats["FlatMPRegenMod"]!
+                        }
+                        if (oldStats["FlatPhysicalDamageMod"] != nil) {
+                            newRune.stats.FlatPhysicalDamageMod = oldStats["FlatPhysicalDamageMod"]!
+                        }
+                        if (oldStats["FlatSpellBlockMod"] != nil) {
+                            newRune.stats.FlatSpellBlockMod = oldStats["FlatSpellBlockMod"]!
+                        }
+                        if (oldStats["PercentAttackSpeedMod"] != nil) {
+                            newRune.stats.PercentAttackSpeedMod = oldStats["PercentAttackSpeedMod"]!
+                        }
+                        if (oldStats["PercentEXPBonus"] != nil) {
+                            newRune.stats.PercentEXPBonus = oldStats["PercentEXPBonus"]!
+                        }
+                        if (oldStats["PercentHPPoolMod"] != nil) {
+                            newRune.stats.PercentHPPoolMod = oldStats["PercentHPPoolMod"]!
+                        }
+                        if (oldStats["PercentLifeStealMod"] != nil) {
+                            newRune.stats.PercentLifeStealMod = oldStats["PercentLifeStealMod"]!
+                        }
+                        if (oldStats["PercentMovementSpeedMod"] != nil) {
+                            newRune.stats.PercentMovementSpeedMod = oldStats["PercentMovementSpeedMod"]!
+                        }
+                        if (oldStats["PercentSpellVampMod"] != nil) {
+                            newRune.stats.PercentSpellVampMod = oldStats["PercentSpellVampMod"]!
+                        }
+                        if (oldStats["rFlatArmorModPerLevel"] != nil) {
+                            newRune.stats.rFlatArmorModPerLevel = oldStats["rFlatArmorModPerLevel"]!
+                        }
+                        if (oldStats["rFlatArmorPenetrationMod"] != nil) {
+                            newRune.stats.rFlatArmorPenetrationMod = oldStats["rFlatArmorPenetrationMod"]!
+                        }
+                        if (oldStats["rFlatEnergyModPerLevel"] != nil) {
+                            newRune.stats.rFlatEnergyModPerLevel = oldStats["rFlatEnergyModPerLevel"]!
+                        }
+                        if (oldStats["rFlatEnergyRegenModPerLevel"] != nil) {
+                            newRune.stats.rFlatEnergyRegenModPerLevel = oldStats["rFlatEnergyRegenModPerLevel"]!
+                        }
+                        if (oldStats["rFlatGoldPer10Mod"] != nil) {
+                            newRune.stats.rFlatGoldPer10Mod = oldStats["rFlatGoldPer10Mod"]!
+                        }
+                        if (oldStats["rFlatHPModPerLevel"] != nil) {
+                            newRune.stats.rFlatHPModPerLevel = oldStats["rFlatHPModPerLevel"]!
+                        }
+                        if (oldStats["rFlatHPRegenModPerLevel"] != nil) {
+                            newRune.stats.rFlatHPRegenModPerLevel = oldStats["rFlatHPRegenModPerLevel"]!
+                        }
+                        if (oldStats["rFlatMagicDamageModPerLevel"] != nil) {
+                            newRune.stats.rFlatMagicDamageModPerLevel = oldStats["rFlatMagicDamageModPerLevel"]!
+                        }
+                        if (oldStats["rFlatMagicPenetrationMod"] != nil) {
+                            newRune.stats.rFlatMagicPenetrationMod = oldStats["rFlatMagicPenetrationMod"]!
+                        }
+                        if (oldStats["rFlatMPModPerLevel"] != nil) {
+                            newRune.stats.rFlatMPModPerLevel = oldStats["rFlatMPModPerLevel"]!
+                        }
+                        if (oldStats["rFlatMPRegenModPerLevel"] != nil) {
+                            newRune.stats.rFlatMPRegenModPerLevel = oldStats["rFlatMPRegenModPerLevel"]!
+                        }
+                        if (oldStats["rFlatPhysicalDamageModPerLevel"] != nil) {
+                            newRune.stats.rFlatPhysicalDamageModPerLevel = oldStats["rFlatPhysicalDamageModPerLevel"]!
+                        }
+                        if (oldStats["rFlatSpellBlockModPerLevel"] != nil) {
+                            newRune.stats.rFlatSpellBlockModPerLevel = oldStats["rFlatSpellBlockModPerLevel"]!
+                        }
+                        if (oldStats["rPercentCooldownMod"] != nil) {
+                            newRune.stats.rPercentCooldownMod = oldStats["rPercentCooldownMod"]!
+                        }
+                        if (oldStats["rPercentCooldownModPerLevel"] != nil) {
+                            newRune.stats.rPercentCooldownModPerLevel = oldStats["rPercentCooldownModPerLevel"]!
+                        }
+                        if (oldStats["rPercentTimeDeadMod"] != nil) {
+                            newRune.stats.rPercentTimeDeadMod = oldStats["rPercentTimeDeadMod"]!
+                        }
+                    }
+                }
+                
+                completion(newRune)
+            }, failure: { (task, error) in
+                let response = task!.response as! HTTPURLResponse
+                if response.statusCode == 404 {
+                    notFound()
+                } else {
+                    errorBlock()
+                    FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                }
+            })
+        }
     }
     
     func getSpellInfoById(_ spellId: Int, spellData: spellData, completion: @escaping (_ spellInfo: SummonerSpellDto) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
