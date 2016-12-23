@@ -484,8 +484,17 @@ class StaticDataEndpoint: NSObject {
         }
     }
     
-    func getRuneInfo(_ runeData: String, completion: @escaping (_ masteryList: MasteryListDto) -> Void, errorBlock: @escaping () -> Void) {
-        
+    func getRuneInfo(_ runeListData: runeListData, completion: @escaping (_ runeList: RuneListDto) -> Void, errorBlock: @escaping () -> Void) {
+        Endpoints().staticData_runes(runeListData.rawValue) { (composedUrl) in
+            AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
+                let json = responseObject as! [String: AnyObject]
+                
+            }, failure: { (task, error) in
+                errorBlock()
+                let response = task!.response as! HTTPURLResponse
+                FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+            })
+        }
     }
     
     func getRuneInfoById(_ runeId: Int, runeData: runeListData, completion: @escaping (_ rune: RuneDto) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
