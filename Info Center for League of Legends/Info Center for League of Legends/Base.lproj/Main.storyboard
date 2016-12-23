@@ -1073,21 +1073,21 @@ last -- games</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hrc-HR-SR2">
-                                            <rect key="frame" x="8" y="8" width="304" height="20"/>
+                                            <rect key="frame" x="8" y="8" width="304" height="16"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A3L-6Q-oLL">
-                                            <rect key="frame" x="0.0" y="36" width="320" height="1"/>
+                                            <rect key="frame" x="0.0" y="32" width="320" height="1"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="npK-ez-DIB"/>
                                             </constraints>
                                         </view>
                                         <collectionView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3NE-cv-GE8">
-                                            <rect key="frame" x="8" y="45" width="304" height="147"/>
+                                            <rect key="frame" x="8" y="41" width="304" height="151"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fDo-ZE-Hht">
                                                 <size key="itemSize" width="50" height="50"/>
