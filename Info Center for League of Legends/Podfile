@@ -9,10 +9,10 @@ target 'Info Center for League of Legends' do
 	# Pods for Info Center for League of Legends
     pod 'Firebase/Core'
     pod 'Firebase/AdMob'
-	pod 'Firebase/Database'
-	pod 'Firebase/Auth'
-	pod 'Firebase/Messaging'
-	pod 'Firebase/RemoteConfig'
+    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Messaging'
+    pod 'Firebase/RemoteConfig'
     pod 'Firebase/Storage'
     pod 'FirebaseUI/Auth'
     pod 'AFNetworking'
@@ -22,17 +22,17 @@ target 'Info Center for League of Legends' do
     # pod 'XCDYouTubeKit'
     pod 'AMPopTip'
     pod 'JSBadgeView'
-	
-	# pod 'FLAnimatedImage'
-	# pod 'M13ProgressSuite'
+    
+    # pod 'FLAnimatedImage'
+    # pod 'M13ProgressSuite'
 
-	target 'Info Center for League of LegendsTests' do
-		inherit! :search_paths
-		# Pods for testing
-	end
+target 'Info Center for League of LegendsTests' do
+    inherit! :search_paths
+    # Pods for testing
+end
 
-	target 'Info Center for League of LegendsUITests' do
-		inherit! :search_paths
-		# Pods for testing
-	end
+target 'Info Center for League of LegendsUITests' do
+    inherit! :search_paths
+    # Pods for testing
+end
 end
