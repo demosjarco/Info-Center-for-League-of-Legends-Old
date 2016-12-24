@@ -1,12 +1,11 @@
 # Uncomment this line to define a global platform for your project
 platform :ios, '9.0'
 
-target 'Info Center for League of Legends' do
-	# Comment this line if you're not using Swift and don't want to use dynamic frameworks
-	use_frameworks!
-	workspace 'project'
+  target 'Info Center for League of Legends' do
+    use_frameworks!
+	  workspace 'project'
 
-	# Pods for Info Center for League of Legends
+	  # Pods for Info Center for League of Legends
     pod 'Firebase/Core'
     pod 'Firebase/AdMob'
     pod 'Firebase/Database'
@@ -26,13 +25,13 @@ target 'Info Center for League of Legends' do
     # pod 'FLAnimatedImage'
     # pod 'M13ProgressSuite'
 
-target 'Info Center for League of LegendsTests' do
+  target 'Info Center for League of LegendsTests' do
     inherit! :search_paths
     # Pods for testing
-end
+  end
 
-target 'Info Center for League of LegendsUITests' do
+  target 'Info Center for League of LegendsUITests' do
     inherit! :search_paths
     # Pods for testing
-end
+  end
 end
