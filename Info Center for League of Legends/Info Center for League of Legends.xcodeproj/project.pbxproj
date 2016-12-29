@@ -495,11 +495,11 @@
 			children = (
 				174DFCBC1E0CE2BF001A6685 /* Profile_ChampionMastery.swift */,
 				174DFCBD1E0CE2BF001A6685 /* Profile_ChampionMastery_Cell.swift */,
+				174DFCC11E0CE2BF001A6685 /* Profile_RecentGames.swift */,
+				174DFCC21E0CE2BF001A6685 /* Profile_RecentGames_Cell.swift */,
 				174DFCBE1E0CE2BF001A6685 /* Profile_Masteries.swift */,
 				174DFCBF1E0CE2BF001A6685 /* Profile_Masteries_MasteriesView.swift */,
 				174DFCC01E0CE2BF001A6685 /* Profile_Masteries_MasteriesView_Cell.swift */,
-				174DFCC11E0CE2BF001A6685 /* Profile_RecentGames.swift */,
-				174DFCC21E0CE2BF001A6685 /* Profile_RecentGames_Cell.swift */,
 			);
 			name = "ProfileView Views";
 			path = "Profile/ProfileView Views";
