@@ -152,6 +152,42 @@ class Endpoints: NSObject {
         }
     }
     
+    // Current game
+    func currentGame(_ summonerId: String, completion: @escaping (_ composedUrl: String) -> Void) {
+        var region:String
+        switch self.getRegion() {
+        case "br":
+            region = platformId.br.rawValue
+        case "eune":
+            region = platformId.eune.rawValue
+        case "euw":
+            region = platformId.euw.rawValue
+        case "jp":
+            region = platformId.jp.rawValue
+        case "kr":
+            region = platformId.kr.rawValue
+        case "lan":
+            region = platformId.lan.rawValue
+        case "las":
+            region = platformId.las.rawValue
+        case "na":
+            region = platformId.na.rawValue
+        case "oce":
+            region = platformId.oce.rawValue
+        case "ru":
+            region = platformId.ru.rawValue
+        case "tr":
+            region = platformId.br.rawValue
+        default:
+            region = ""
+        }
+        
+        self.getApiKey { (apiKey) in
+            let urlString = "https://" + self.getRegion() + ".api.pvp.net/observer-mode/rest/consumer/getSpectatorGameInfo/" + region + "/" + summonerId + "?api_key=" + apiKey
+            completion(urlString)
+        }
+    }
+    
     // Game
     func game_BySummoner(_ summonerId: String, completion: @escaping (_ composedUrl: String) -> Void) {
         self.getApiKey { (apiKey) in

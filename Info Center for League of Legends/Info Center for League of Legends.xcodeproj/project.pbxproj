@@ -79,6 +79,11 @@
 		174DFCC91E0CE2BF001A6685 /* Profile_RecentGames_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174DFCC21E0CE2BF001A6685 /* Profile_RecentGames_Cell.swift */; };
 		175EC6511E158D75003BAB9D /* Profile_Runes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC6501E158D75003BAB9D /* Profile_Runes.swift */; };
 		175EC6531E15C199003BAB9D /* ProfileView_InGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC6521E15C199003BAB9D /* ProfileView_InGame.swift */; };
+		175EC6561E15C4B2003BAB9D /* CurrentGameEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC6551E15C4B2003BAB9D /* CurrentGameEndpoint.swift */; };
+		175EC65B1E15C4E1003BAB9D /* CurrentGameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC65A1E15C4E1003BAB9D /* CurrentGameInfo.swift */; };
+		175EC65D1E15C4FD003BAB9D /* BannedChampion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC65C1E15C4FD003BAB9D /* BannedChampion.swift */; };
+		175EC65F1E15C50B003BAB9D /* CurrentGameParticipant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC65E1E15C50B003BAB9D /* CurrentGameParticipant.swift */; };
+		175EC6611E15C521003BAB9D /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC6601E15C521003BAB9D /* Observer.swift */; };
 		1765108E1D23101800A076BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1765108C1D230CB800A076BA /* QuartzCore.framework */; };
 		176510911D231DBE00A076BA /* ProfileView_Header_StatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176510901D231DBE00A076BA /* ProfileView_Header_StatsCell.swift */; };
 		176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D5B951D1C42A2000D9D85 /* Endpoints.swift */; };
@@ -213,6 +218,11 @@
 		174DFCC21E0CE2BF001A6685 /* Profile_RecentGames_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_RecentGames_Cell.swift; sourceTree = "<group>"; };
 		175EC6501E158D75003BAB9D /* Profile_Runes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_Runes.swift; sourceTree = "<group>"; };
 		175EC6521E15C199003BAB9D /* ProfileView_InGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_InGame.swift; path = "Profile/ProfileView Cells/ProfileView_InGame.swift"; sourceTree = "<group>"; };
+		175EC6551E15C4B2003BAB9D /* CurrentGameEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentGameEndpoint.swift; path = "Riot API/CurrentGameEndpoint.swift"; sourceTree = "<group>"; };
+		175EC65A1E15C4E1003BAB9D /* CurrentGameInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentGameInfo.swift; sourceTree = "<group>"; };
+		175EC65C1E15C4FD003BAB9D /* BannedChampion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannedChampion.swift; sourceTree = "<group>"; };
+		175EC65E1E15C50B003BAB9D /* CurrentGameParticipant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentGameParticipant.swift; sourceTree = "<group>"; };
+		175EC6601E15C521003BAB9D /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		1765108C1D230CB800A076BA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		176510901D231DBE00A076BA /* ProfileView_Header_StatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Header_StatsCell.swift; path = "Profile/ProfileView Cells/ProfileView Stats/ProfileView_Header_StatsCell.swift"; sourceTree = "<group>"; };
 		176D5B951D1C42A2000D9D85 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Endpoints.swift; path = "Riot API/Endpoints.swift"; sourceTree = "<group>"; };
@@ -409,6 +419,8 @@
 				172101D61D1F26A00088DB1A /* DDragon.swift */,
 				17FDDF5F1D4D391200CC7277 /* ChampionMasteryEndpoint.swift */,
 				17FDDF611D4D391A00CC7277 /* ChampionMastery Entities */,
+				175EC6551E15C4B2003BAB9D /* CurrentGameEndpoint.swift */,
+				175EC6591E15C4E1003BAB9D /* CurrentGameEntities */,
 				1775F64E1D41C95800E58003 /* GameEndpoint.swift */,
 				178B95761D428A1C00CAD47A /* Game Entities */,
 				1771CBCD1D28290200D0DB08 /* LeagueEndpoint.swift */,
@@ -509,6 +521,18 @@
 			);
 			name = "ProfileView Views";
 			path = "Profile/ProfileView Views";
+			sourceTree = "<group>";
+		};
+		175EC6591E15C4E1003BAB9D /* CurrentGameEntities */ = {
+			isa = PBXGroup;
+			children = (
+				175EC65A1E15C4E1003BAB9D /* CurrentGameInfo.swift */,
+				175EC65C1E15C4FD003BAB9D /* BannedChampion.swift */,
+				175EC65E1E15C50B003BAB9D /* CurrentGameParticipant.swift */,
+				175EC6601E15C521003BAB9D /* Observer.swift */,
+			);
+			name = CurrentGameEntities;
+			path = "Riot API/CurrentGameEntities";
 			sourceTree = "<group>";
 		};
 		1765108F1D231D5300A076BA /* ProfileView Stats */ = {
@@ -1118,6 +1142,7 @@
 				17029E651E0C56B1004E653E /* InfoDto.swift in Sources */,
 				17029E731E0C56C1004E653E /* MasteryTreeDto.swift in Sources */,
 				1739C4921D1C3A3800B50BDC /* SummonerEndpoint.swift in Sources */,
+				175EC65B1E15C4E1003BAB9D /* CurrentGameInfo.swift in Sources */,
 				172101D31D1EDC880088DB1A /* MainCollectionViewController.swift in Sources */,
 				17029E601E0C56B1004E653E /* BlockDto.swift in Sources */,
 				178B95791D428A1C00CAD47A /* GameDto.swift in Sources */,
@@ -1153,12 +1178,14 @@
 				172101D01D1EDC2C0088DB1A /* ProfileView_Runes.swift in Sources */,
 				171A1C111D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift in Sources */,
 				17421AB41D4BCD1100F22B52 /* MasteryPagesDto.swift in Sources */,
+				175EC65D1E15C4FD003BAB9D /* BannedChampion.swift in Sources */,
 				17029E861E0C56E6004E653E /* RuneListDto.swift in Sources */,
 				17029E791E0C56D8004E653E /* SummonerSpellDto.swift in Sources */,
 				17029E681E0C56B1004E653E /* RecommendedDto.swift in Sources */,
 				174DFCC91E0CE2BF001A6685 /* Profile_RecentGames_Cell.swift in Sources */,
 				1732F6011D550166009DA53B /* ShardStatus.swift in Sources */,
 				17C583CB1D388441007AAC43 /* StatsEndpoint.swift in Sources */,
+				175EC6611E15C521003BAB9D /* Observer.swift in Sources */,
 				172C606C1D3BFE67003DC152 /* NewsCell.swift in Sources */,
 				172101C71D1EDB9D0088DB1A /* ProfileView_Header.swift in Sources */,
 				174DFCC61E0CE2BF001A6685 /* Profile_Masteries_MasteriesView.swift in Sources */,
@@ -1178,6 +1205,7 @@
 				17FDDF601D4D391200CC7277 /* ChampionMasteryEndpoint.swift in Sources */,
 				17029E331E0C3B07004E653E /* ProfileView_Rune_StatsCell.swift in Sources */,
 				17029E371E0C3E58004E653E /* RunePageDto.swift in Sources */,
+				175EC6561E15C4B2003BAB9D /* CurrentGameEndpoint.swift in Sources */,
 				17029E391E0C3EA8004E653E /* RuneSlotDto.swift in Sources */,
 				178E3C061DA7FF600088BE69 /* TournamentList.swift in Sources */,
 				17029E611E0C56B1004E653E /* BlockItemDto.swift in Sources */,
@@ -1189,6 +1217,7 @@
 				1732F6071D550192009DA53B /* Message.swift in Sources */,
 				174C95181D106CCD00EBFB07 /* AppDelegate.swift in Sources */,
 				172101CA1D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift in Sources */,
+				175EC65F1E15C50B003BAB9D /* CurrentGameParticipant.swift in Sources */,
 				17F97B8B1D56788900A8B4E7 /* MasteryDto.swift in Sources */,
 				17029E691E0C56B1004E653E /* SkinDto.swift in Sources */,
 				17353B681D3AC7F100C56768 /* News.swift in Sources */,
