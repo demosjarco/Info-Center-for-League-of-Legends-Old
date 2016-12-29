@@ -1188,12 +1188,74 @@ last -- games</string>
                                     </connections>
                                 </button>
                                 <button contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="viW-7c-R4i">
-                                    <rect key="frame" x="54" y="15.5" width="22" height="22"/>
+                                    <rect key="frame" x="54" y="16" width="22" height="22"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <action selector="addToRecentsPressed" destination="jfk-L5-GNx" eventType="touchUpInside" id="4RA-hn-L0t"/>
                                     </connections>
                                 </button>
+                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kl2-Tc-chQ" customClass="ProfileView_InGame" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
+                                    <rect key="frame" x="-11" y="46" width="202" height="51.5"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xNl-E0-S4a">
+                                            <rect key="frame" x="11" y="0.0" width="51.5" height="51.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="xNl-E0-S4a" secondAttribute="height" multiplier="1:1" id="fUB-Ux-K0V"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q84-Pm-LN6">
+                                            <rect key="frame" x="70.5" y="8" width="123.5" height="35.5"/>
+                                            <subviews>
+                                                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SR - Ranked Flex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hG2-pH-vOF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="123.5" height="19.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heimerdinger - 99m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYC-qR-wV2">
+                                                    <rect key="frame" x="0.0" y="19.5" width="123.5" height="16"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </stackView>
+                                        <button clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ZA-1i-ElD">
+                                            <rect key="frame" x="0.0" y="0.0" width="203" height="52"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.21572974324226379" green="0.7968783974647522" blue="0.90307343006134033" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="8ZA-1i-ElD" secondAttribute="bottom" id="2ns-Ka-Do6"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="q84-Pm-LN6" secondAttribute="trailing" id="4CA-z0-NOp"/>
+                                        <constraint firstAttribute="bottom" secondItem="xNl-E0-S4a" secondAttribute="bottom" id="54V-5i-2Vu"/>
+                                        <constraint firstItem="q84-Pm-LN6" firstAttribute="top" secondItem="kl2-Tc-chQ" secondAttribute="topMargin" id="BMH-bF-7PD"/>
+                                        <constraint firstItem="xNl-E0-S4a" firstAttribute="leading" secondItem="kl2-Tc-chQ" secondAttribute="leading" constant="11" id="D6U-vy-HTo"/>
+                                        <constraint firstItem="xNl-E0-S4a" firstAttribute="top" secondItem="kl2-Tc-chQ" secondAttribute="top" id="HlQ-re-DKw"/>
+                                        <constraint firstItem="8ZA-1i-ElD" firstAttribute="top" secondItem="kl2-Tc-chQ" secondAttribute="top" id="Q8p-1n-oNe"/>
+                                        <constraint firstAttribute="trailing" secondItem="8ZA-1i-ElD" secondAttribute="trailing" id="R60-no-NA8"/>
+                                        <constraint firstItem="8ZA-1i-ElD" firstAttribute="leading" secondItem="kl2-Tc-chQ" secondAttribute="leading" id="Tpo-vA-CN5"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="q84-Pm-LN6" secondAttribute="bottom" id="hjn-jP-TGF"/>
+                                        <constraint firstItem="q84-Pm-LN6" firstAttribute="leading" secondItem="xNl-E0-S4a" secondAttribute="trailing" constant="8" id="o1S-06-a9U"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="11"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outlet property="button" destination="8ZA-1i-ElD" id="7KU-Z7-hhA"/>
+                                        <outlet property="champIcon" destination="xNl-E0-S4a" id="o9F-yr-5q0"/>
+                                        <outlet property="champTime" destination="FYC-qR-wV2" id="L1y-Pa-Zog"/>
+                                        <outlet property="mapGameType" destination="hG2-pH-vOF" id="wUW-pR-ENM"/>
+                                    </connections>
+                                </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ye1-cE-TZ4">
                                     <rect key="frame" x="136" y="8" width="231" height="184"/>
                                     <subviews>
@@ -1359,7 +1421,9 @@ last -- games</string>
                                 <constraint firstAttribute="trailing" secondItem="doK-DV-tJ3" secondAttribute="trailing" id="B1t-yf-2In"/>
                                 <constraint firstItem="wzf-a0-wf5" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leading" id="CSp-B3-gTv"/>
                                 <constraint firstAttribute="trailing" secondItem="wzf-a0-wf5" secondAttribute="trailing" id="FaW-1x-Q3H"/>
+                                <constraint firstItem="kl2-Tc-chQ" firstAttribute="top" secondItem="viW-7c-R4i" secondAttribute="bottom" constant="8" id="Fg9-4r-rqz"/>
                                 <constraint firstAttribute="bottom" secondItem="doK-DV-tJ3" secondAttribute="bottom" id="Ha8-eO-Uj0"/>
+                                <constraint firstItem="kl2-Tc-chQ" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leading" constant="-11" id="KCa-IA-Vmv"/>
                                 <constraint firstItem="Ye1-cE-TZ4" firstAttribute="leading" secondItem="og1-tu-Naf" secondAttribute="trailing" id="KkC-p8-qcR"/>
                                 <constraint firstItem="XS3-3O-PA4" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leadingMargin" id="OgX-lz-Q4s"/>
                                 <constraint firstItem="doK-DV-tJ3" firstAttribute="top" secondItem="Ye1-cE-TZ4" secondAttribute="bottom" id="SDI-mW-en8"/>
@@ -1380,6 +1444,7 @@ last -- games</string>
                             <connections>
                                 <outlet property="addSummonerButton" destination="viW-7c-R4i" id="Nze-yM-5w4"/>
                                 <outlet property="cover" destination="kbV-rc-E4V" id="0ma-xY-Xyg"/>
+                                <outlet property="inGameView" destination="kl2-Tc-chQ" id="KT1-vW-YRU"/>
                                 <outlet property="profilePic" destination="og1-tu-Naf" id="4so-Xq-5I6"/>
                                 <outlet property="profilePicShadow" destination="cwH-sZ-M7B" id="0rg-e0-HhC"/>
                                 <outlet property="promotionGames" destination="s8H-eP-9ta" id="9DZ-aN-ZlH"/>
@@ -1918,14 +1983,14 @@ last -- games</string>
                                             <rect key="frame" x="2" y="116" width="112" height="34"/>
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
-                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="16"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="13.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
-                                                    <rect key="frame" x="0.0" y="16" width="112" height="18"/>
+                                                    <rect key="frame" x="0.0" y="13.5" width="112" height="20.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

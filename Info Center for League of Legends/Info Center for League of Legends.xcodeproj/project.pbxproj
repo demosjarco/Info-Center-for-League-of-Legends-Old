@@ -78,6 +78,7 @@
 		174DFCC81E0CE2BF001A6685 /* Profile_RecentGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174DFCC11E0CE2BF001A6685 /* Profile_RecentGames.swift */; };
 		174DFCC91E0CE2BF001A6685 /* Profile_RecentGames_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174DFCC21E0CE2BF001A6685 /* Profile_RecentGames_Cell.swift */; };
 		175EC6511E158D75003BAB9D /* Profile_Runes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC6501E158D75003BAB9D /* Profile_Runes.swift */; };
+		175EC6531E15C199003BAB9D /* ProfileView_InGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC6521E15C199003BAB9D /* ProfileView_InGame.swift */; };
 		1765108E1D23101800A076BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1765108C1D230CB800A076BA /* QuartzCore.framework */; };
 		176510911D231DBE00A076BA /* ProfileView_Header_StatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176510901D231DBE00A076BA /* ProfileView_Header_StatsCell.swift */; };
 		176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D5B951D1C42A2000D9D85 /* Endpoints.swift */; };
@@ -211,6 +212,7 @@
 		174DFCC11E0CE2BF001A6685 /* Profile_RecentGames.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_RecentGames.swift; sourceTree = "<group>"; };
 		174DFCC21E0CE2BF001A6685 /* Profile_RecentGames_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_RecentGames_Cell.swift; sourceTree = "<group>"; };
 		175EC6501E158D75003BAB9D /* Profile_Runes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_Runes.swift; sourceTree = "<group>"; };
+		175EC6521E15C199003BAB9D /* ProfileView_InGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_InGame.swift; path = "Profile/ProfileView Cells/ProfileView_InGame.swift"; sourceTree = "<group>"; };
 		1765108C1D230CB800A076BA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		176510901D231DBE00A076BA /* ProfileView_Header_StatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Header_StatsCell.swift; path = "Profile/ProfileView Cells/ProfileView Stats/ProfileView_Header_StatsCell.swift"; sourceTree = "<group>"; };
 		176D5B951D1C42A2000D9D85 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Endpoints.swift; path = "Riot API/Endpoints.swift"; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				172101C61D1EDB9D0088DB1A /* ProfileView_Header.swift */,
+				175EC6521E15C199003BAB9D /* ProfileView_InGame.swift */,
 				1765108F1D231D5300A076BA /* ProfileView Stats */,
 				1791E6E41D41980400012595 /* ProfileView_SummaryTile.swift */,
 				172101C81D1EDBDB0088DB1A /* ProfileView_ChampMastery.swift */,
@@ -1142,6 +1145,7 @@
 				17029E6A1E0C56B1004E653E /* SpellVarsDto.swift in Sources */,
 				1791E6E51D41980400012595 /* ProfileView_SummaryTile.swift in Sources */,
 				1732F5FE1D5500CF009DA53B /* Shard.swift in Sources */,
+				175EC6531E15C199003BAB9D /* ProfileView_InGame.swift in Sources */,
 				176510911D231DBE00A076BA /* ProfileView_Header_StatsCell.swift in Sources */,
 				1771CBD11D282B6D00D0DB08 /* LeagueDto.swift in Sources */,
 				17029E761E0C56C1004E653E /* SC_MasteryDto.swift in Sources */,
