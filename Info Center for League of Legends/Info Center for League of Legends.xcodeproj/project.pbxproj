@@ -84,6 +84,7 @@
 		175EC65D1E15C4FD003BAB9D /* BannedChampion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC65C1E15C4FD003BAB9D /* BannedChampion.swift */; };
 		175EC65F1E15C50B003BAB9D /* CurrentGameParticipant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC65E1E15C50B003BAB9D /* CurrentGameParticipant.swift */; };
 		175EC6611E15C521003BAB9D /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175EC6601E15C521003BAB9D /* Observer.swift */; };
+		175EC6631E163A5B003BAB9D /* lcuChampIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 175EC6621E163A5B003BAB9D /* lcuChampIcons.xcassets */; };
 		1765108E1D23101800A076BA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1765108C1D230CB800A076BA /* QuartzCore.framework */; };
 		176510911D231DBE00A076BA /* ProfileView_Header_StatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176510901D231DBE00A076BA /* ProfileView_Header_StatsCell.swift */; };
 		176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D5B951D1C42A2000D9D85 /* Endpoints.swift */; };
@@ -223,6 +224,7 @@
 		175EC65C1E15C4FD003BAB9D /* BannedChampion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannedChampion.swift; sourceTree = "<group>"; };
 		175EC65E1E15C50B003BAB9D /* CurrentGameParticipant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentGameParticipant.swift; sourceTree = "<group>"; };
 		175EC6601E15C521003BAB9D /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		175EC6621E163A5B003BAB9D /* lcuChampIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = lcuChampIcons.xcassets; sourceTree = "<group>"; };
 		1765108C1D230CB800A076BA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		176510901D231DBE00A076BA /* ProfileView_Header_StatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Header_StatsCell.swift; path = "Profile/ProfileView Cells/ProfileView Stats/ProfileView_Header_StatsCell.swift"; sourceTree = "<group>"; };
 		176D5B951D1C42A2000D9D85 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Endpoints.swift; path = "Riot API/Endpoints.swift"; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 				1791E6E21D416DF400012595 /* champMastery.xcassets */,
 				17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */,
 				17029E3A1E0C4B9B004E653E /* lcuRuneOutlines.xcassets */,
+				175EC6621E163A5B003BAB9D /* lcuChampIcons.xcassets */,
 				174C95221D106CCE00EBFB07 /* LaunchScreen.storyboard */,
 				174C95251D106CCE00EBFB07 /* Info.plist */,
 				17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */,
@@ -846,6 +849,7 @@
 				17106E5B1E0BAD4E0076E2C7 /* lcuRunes.xcassets in Resources */,
 				17D14E161D10D3A8007F6938 /* Winter.xcassets in Resources */,
 				1791E6E31D416DF400012595 /* champMastery.xcassets in Resources */,
+				175EC6631E163A5B003BAB9D /* lcuChampIcons.xcassets in Resources */,
 				172101D51D1F1A840088DB1A /* Settings.bundle in Resources */,
 				17EDBB361D10F12E00C7B7C5 /* GoogleService-Info.plist in Resources */,
 				17D14E151D10D3A8007F6938 /* Normal.xcassets in Resources */,
