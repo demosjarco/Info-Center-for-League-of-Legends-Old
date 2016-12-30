@@ -1195,7 +1195,7 @@ last -- games</string>
                                     </connections>
                                 </button>
                                 <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kl2-Tc-chQ" customClass="ProfileView_InGame" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                    <rect key="frame" x="-11" y="46" width="202" height="51.5"/>
+                                    <rect key="frame" x="-11" y="46" width="93" height="51.5"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xNl-E0-S4a">
                                             <rect key="frame" x="11" y="0.0" width="51.5" height="51.5"/>
@@ -1205,17 +1205,17 @@ last -- games</string>
                                             </constraints>
                                         </imageView>
                                         <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q84-Pm-LN6">
-                                            <rect key="frame" x="70.5" y="8" width="123.5" height="35.5"/>
+                                            <rect key="frame" x="70.5" y="8" width="14.5" height="35.5"/>
                                             <subviews>
-                                                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SR - Ranked Flex" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hG2-pH-vOF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="123.5" height="19.5"/>
+                                                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hG2-pH-vOF">
+                                                    <rect key="frame" x="0.0" y="0.0" width="14.5" height="19.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heimerdinger - 99m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYC-qR-wV2">
-                                                    <rect key="frame" x="0.0" y="19.5" width="123.5" height="16"/>
+                                                <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYC-qR-wV2">
+                                                    <rect key="frame" x="0.0" y="19.5" width="14.5" height="16"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1224,8 +1224,8 @@ last -- games</string>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </stackView>
-                                        <button clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ZA-1i-ElD">
-                                            <rect key="frame" x="0.0" y="0.0" width="203" height="52"/>
+                                        <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ZA-1i-ElD">
+                                            <rect key="frame" x="0.0" y="0.0" width="93" height="51.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         </button>
@@ -1234,13 +1234,13 @@ last -- games</string>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="8ZA-1i-ElD" secondAttribute="bottom" id="2ns-Ka-Do6"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="q84-Pm-LN6" secondAttribute="trailing" id="4CA-z0-NOp"/>
-                                        <constraint firstAttribute="bottom" secondItem="xNl-E0-S4a" secondAttribute="bottom" id="54V-5i-2Vu"/>
                                         <constraint firstItem="q84-Pm-LN6" firstAttribute="top" secondItem="kl2-Tc-chQ" secondAttribute="topMargin" id="BMH-bF-7PD"/>
                                         <constraint firstItem="xNl-E0-S4a" firstAttribute="leading" secondItem="kl2-Tc-chQ" secondAttribute="leading" constant="11" id="D6U-vy-HTo"/>
                                         <constraint firstItem="xNl-E0-S4a" firstAttribute="top" secondItem="kl2-Tc-chQ" secondAttribute="top" id="HlQ-re-DKw"/>
                                         <constraint firstItem="8ZA-1i-ElD" firstAttribute="top" secondItem="kl2-Tc-chQ" secondAttribute="top" id="Q8p-1n-oNe"/>
                                         <constraint firstAttribute="trailing" secondItem="8ZA-1i-ElD" secondAttribute="trailing" id="R60-no-NA8"/>
                                         <constraint firstItem="8ZA-1i-ElD" firstAttribute="leading" secondItem="kl2-Tc-chQ" secondAttribute="leading" id="Tpo-vA-CN5"/>
+                                        <constraint firstItem="q84-Pm-LN6" firstAttribute="height" secondItem="xNl-E0-S4a" secondAttribute="height" constant="-16" id="ZLd-Vn-jTH"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="q84-Pm-LN6" secondAttribute="bottom" id="hjn-jP-TGF"/>
                                         <constraint firstItem="q84-Pm-LN6" firstAttribute="leading" secondItem="xNl-E0-S4a" secondAttribute="trailing" constant="8" id="o1S-06-a9U"/>
                                     </constraints>
@@ -2252,7 +2252,7 @@ last -- games</string>
                                                         <rect key="frame" x="8" y="8" width="64" height="64"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="65" height="64"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zgt-kK-zjb">
