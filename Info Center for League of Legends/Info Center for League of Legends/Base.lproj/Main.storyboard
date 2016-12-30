@@ -1195,27 +1195,27 @@ last -- games</string>
                                     </connections>
                                 </button>
                                 <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kl2-Tc-chQ" customClass="ProfileView_InGame" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                    <rect key="frame" x="-11" y="46" width="93" height="51.5"/>
+                                    <rect key="frame" x="-11" y="46" width="96.5" height="55"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xNl-E0-S4a">
-                                            <rect key="frame" x="11" y="0.0" width="51.5" height="51.5"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xNl-E0-S4a">
+                                            <rect key="frame" x="11" y="0.0" width="55" height="55"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="xNl-E0-S4a" secondAttribute="height" multiplier="1:1" id="fUB-Ux-K0V"/>
                                             </constraints>
                                         </imageView>
-                                        <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="q84-Pm-LN6">
-                                            <rect key="frame" x="70.5" y="8" width="14.5" height="35.5"/>
+                                        <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="q84-Pm-LN6">
+                                            <rect key="frame" x="74" y="0.0" width="14.5" height="55"/>
                                             <subviews>
                                                 <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hG2-pH-vOF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="14.5" height="19.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="14.5" height="27.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYC-qR-wV2">
-                                                    <rect key="frame" x="0.0" y="19.5" width="14.5" height="16"/>
+                                                    <rect key="frame" x="0.0" y="27.5" width="14.5" height="27.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1225,7 +1225,7 @@ last -- games</string>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </stackView>
                                         <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ZA-1i-ElD">
-                                            <rect key="frame" x="0.0" y="0.0" width="93" height="51.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="96" height="55"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         </button>
@@ -1234,14 +1234,15 @@ last -- games</string>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="8ZA-1i-ElD" secondAttribute="bottom" id="2ns-Ka-Do6"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="q84-Pm-LN6" secondAttribute="trailing" id="4CA-z0-NOp"/>
-                                        <constraint firstItem="q84-Pm-LN6" firstAttribute="top" secondItem="kl2-Tc-chQ" secondAttribute="topMargin" id="BMH-bF-7PD"/>
+                                        <constraint firstAttribute="bottom" secondItem="xNl-E0-S4a" secondAttribute="bottom" id="4f0-aj-XGo"/>
+                                        <constraint firstItem="q84-Pm-LN6" firstAttribute="top" secondItem="kl2-Tc-chQ" secondAttribute="top" id="BMH-bF-7PD"/>
                                         <constraint firstItem="xNl-E0-S4a" firstAttribute="leading" secondItem="kl2-Tc-chQ" secondAttribute="leading" constant="11" id="D6U-vy-HTo"/>
                                         <constraint firstItem="xNl-E0-S4a" firstAttribute="top" secondItem="kl2-Tc-chQ" secondAttribute="top" id="HlQ-re-DKw"/>
                                         <constraint firstItem="8ZA-1i-ElD" firstAttribute="top" secondItem="kl2-Tc-chQ" secondAttribute="top" id="Q8p-1n-oNe"/>
                                         <constraint firstAttribute="trailing" secondItem="8ZA-1i-ElD" secondAttribute="trailing" id="R60-no-NA8"/>
                                         <constraint firstItem="8ZA-1i-ElD" firstAttribute="leading" secondItem="kl2-Tc-chQ" secondAttribute="leading" id="Tpo-vA-CN5"/>
-                                        <constraint firstItem="q84-Pm-LN6" firstAttribute="height" secondItem="xNl-E0-S4a" secondAttribute="height" constant="-16" id="ZLd-Vn-jTH"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="q84-Pm-LN6" secondAttribute="bottom" id="hjn-jP-TGF"/>
+                                        <constraint firstAttribute="bottom" secondItem="q84-Pm-LN6" secondAttribute="bottom" id="hjn-jP-TGF"/>
+                                        <constraint firstAttribute="height" constant="55" id="nQP-Rs-bJw"/>
                                         <constraint firstItem="q84-Pm-LN6" firstAttribute="leading" secondItem="xNl-E0-S4a" secondAttribute="trailing" constant="8" id="o1S-06-a9U"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
@@ -1983,14 +1984,14 @@ last -- games</string>
                                             <rect key="frame" x="2" y="116" width="112" height="34"/>
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
-                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="13.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="16"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
-                                                    <rect key="frame" x="0.0" y="13.5" width="112" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="16" width="112" height="18"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
