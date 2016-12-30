@@ -14,7 +14,7 @@ class CurrentGameInfo: NSObject {
     var gameLength:CLong = 0
     var gameMode = ""
     var gameQueueConfigId:CLong = 0
-    var gameStartTime:CLong = 0
+    var gameStartTime = Date()
     var gameType = ""
     var mapId:CLong = 0
     var observers = Observer()
