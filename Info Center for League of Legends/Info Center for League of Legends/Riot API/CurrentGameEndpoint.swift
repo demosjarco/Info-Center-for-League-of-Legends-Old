@@ -11,6 +11,7 @@ import Firebase
 import AFNetworking
 
 class CurrentGameEndpoint: NSObject {
+    
     /**
      Get current game information for the given summoner ID.
      */
