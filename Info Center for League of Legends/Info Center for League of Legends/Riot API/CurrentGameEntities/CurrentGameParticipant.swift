@@ -9,5 +9,14 @@
 import UIKit
 
 class CurrentGameParticipant: NSObject {
-    
+    var bot = false
+    var championId:CLong = 0
+    var masteries = [AnyObject]()
+    var profileIconId:CLong = 0
+    var runes = [AnyObject]()
+    var spell1Id:CLong = 0
+    var spell2Id:CLong = 0
+    var summonerId:CLong = 0
+    var summonerName = ""
+    var teamId:CLong = 0
 }
