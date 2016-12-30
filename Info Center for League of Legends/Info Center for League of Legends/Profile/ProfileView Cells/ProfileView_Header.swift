@@ -131,9 +131,13 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
                     self.inGameView?.mapGameType?.text = mapName + " - " + gameType
                     
                     StaticDataEndpoint().getChampionInfoById(Int(participant.championId), championData: .Image, completion: { (champInfo) in
-                        DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
-                            self.inGameView?.champIcon?.setImageWith(champSquareArtUrl)
-                        })
+                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(participant.championId)) {
+                            self.inGameView?.champIcon?.image = champIcon
+                        } else {
+                            DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
+                                self.inGameView?.champIcon?.setImageWith(champSquareArtUrl)
+                            })
+                        }
                         
                         self.champName = champInfo.name
                         self.updateCurrentGameTime(nil)
