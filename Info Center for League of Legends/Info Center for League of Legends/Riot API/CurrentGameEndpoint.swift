@@ -20,6 +20,41 @@ class CurrentGameEndpoint: NSObject {
                 let json = responseObject as! [String: AnyObject]
                 let game = CurrentGameInfo()
                 
+                // bannedChampions
+                game.gameId = json["gameId"] as! CLong
+                game.gameLength = json["gameLength"] as! CLong
+                game.gameMode = json["gameMode"] as! String
+                game.gameQueueConfigId = json["gameQueueConfigId"] as! CLong
+                
+                let epochSec = json["gameStartTime"] as! CLong / CLong(1000)
+                game.gameStartTime = Date(timeIntervalSince1970: TimeInterval(epochSec))
+                
+                game.gameType = json["gameType"] as! String
+                game.mapId = json["mapId"] as! CLong
+                
+                let oldObservers = json["observers"] as! [String: String]
+                game.observers.encryptionKey = oldObservers["encryptionKey"]!
+                
+                let oldParticipants = json["participants"] as! [[String: AnyObject]]
+                for oldParticipant in oldParticipants {
+                    let newParticipant = CurrentGameParticipant()
+                    
+                    newParticipant.bot = oldParticipant["bot"] as! Bool
+                    newParticipant.championId = oldParticipant["championId"] as! CLong
+                    // masteries
+                    newParticipant.profileIconId = oldParticipant["profileIconId"] as! CLong
+                    // runes
+                    newParticipant.spell1Id = oldParticipant["spell1Id"] as! CLong
+                    newParticipant.spell2Id = oldParticipant["spell2Id"] as! CLong
+                    newParticipant.summonerId = oldParticipant["summonerId"] as! CLong
+                    newParticipant.summonerName = oldParticipant["summonerName"] as! String
+                    newParticipant.teamId = oldParticipant["teamId"] as! CLong
+                    
+                    game.participants.append(newParticipant)
+                }
+                
+                game.platformId = json["platformId"] as! String
+                
                 completion(game)
             }, failure: { (task, error) in
                 let response = task!.response as! HTTPURLResponse
