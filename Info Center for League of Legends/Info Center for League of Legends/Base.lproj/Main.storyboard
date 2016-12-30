@@ -1204,18 +1204,18 @@ last -- games</string>
                                                 <constraint firstAttribute="width" secondItem="xNl-E0-S4a" secondAttribute="height" multiplier="1:1" id="fUB-Ux-K0V"/>
                                             </constraints>
                                         </imageView>
-                                        <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="q84-Pm-LN6">
+                                        <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="q84-Pm-LN6">
                                             <rect key="frame" x="74" y="0.0" width="14.5" height="55"/>
                                             <subviews>
                                                 <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hG2-pH-vOF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="14.5" height="27.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="14.5" height="30"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FYC-qR-wV2">
-                                                    <rect key="frame" x="0.0" y="27.5" width="14.5" height="27.5"/>
+                                                    <rect key="frame" x="0.0" y="30" width="14.5" height="25"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
