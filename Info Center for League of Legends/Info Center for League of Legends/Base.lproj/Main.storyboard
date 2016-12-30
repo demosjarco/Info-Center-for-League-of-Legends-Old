@@ -1194,7 +1194,7 @@ last -- games</string>
                                         <action selector="addToRecentsPressed" destination="jfk-L5-GNx" eventType="touchUpInside" id="4RA-hn-L0t"/>
                                     </connections>
                                 </button>
-                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kl2-Tc-chQ" customClass="ProfileView_InGame" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
+                                <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kl2-Tc-chQ" customClass="ProfileView_InGame" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
                                     <rect key="frame" x="-11" y="46" width="202" height="51.5"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xNl-E0-S4a">
@@ -1224,7 +1224,7 @@ last -- games</string>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </stackView>
-                                        <button clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ZA-1i-ElD">
+                                        <button clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ZA-1i-ElD">
                                             <rect key="frame" x="0.0" y="0.0" width="203" height="52"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
