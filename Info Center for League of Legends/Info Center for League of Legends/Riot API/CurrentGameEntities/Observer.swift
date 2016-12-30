@@ -9,5 +9,6 @@
 import UIKit
 
 class Observer: NSObject {
+    var encryptionKey = ""
     
 }
