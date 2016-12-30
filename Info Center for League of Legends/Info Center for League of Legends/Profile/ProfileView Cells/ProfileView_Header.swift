@@ -44,8 +44,42 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
             self.addSummonerButton?.isEnabled = true
         }
         
+        self.getCurrentGame()
         self.setupSummonerStats()
         self.downloadProfileIconCover()
+    }
+    
+    func getCurrentGame() {
+        CurrentGameEndpoint().getSpectatorGameInfo(self.summoner.summonerId, completion: { (game) in
+            // Get champ info
+            for participant in game.participants {
+                if participant.summonerId == self.summoner.summonerId {
+                    StaticDataEndpoint().getChampionInfoById(Int(participant.championId), championData: .Image, completion: { (champInfo) in
+                        DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
+                            self.inGameView?.champIcon?.setImageWith(champSquareArtUrl)
+                        })
+                        self.inGameView?.champTime?.text = champInfo.name + " - 99m"
+                    }, notFound: {
+                        // ???
+                    }, errorBlock: {
+                        // Error
+                    })
+                    break
+                }
+            }
+            // Unhide
+            self.inGameView?.isHidden = false
+            self.inGameView?.frame = CGRect(x: self.inGameView!.frame.origin.x - self.inGameView!.frame.size.width, y: self.inGameView!.frame.origin.y, width: self.inGameView!.frame.size.width, height: self.inGameView!.frame.size.height)
+            // Animate slide in
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: { 
+                self.inGameView?.frame = CGRect(x: self.inGameView!.frame.origin.x + self.inGameView!.frame.size.width, y: self.inGameView!.frame.origin.y, width: self.inGameView!.frame.size.width, height: self.inGameView!.frame.size.height)
+            }, completion: nil)
+        }, notFound: { 
+            // Stay hidden
+            self.inGameView?.isHidden = true
+        }, errorBlock: {
+            // Error
+        })
     }
     
     func setupSummonerStats() {
