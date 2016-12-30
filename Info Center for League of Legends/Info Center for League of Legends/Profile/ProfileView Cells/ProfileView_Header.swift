@@ -21,6 +21,10 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
     var summoner = SummonerDto()
     var summonerStats = NSMutableArray()
     
+    var currentGameRefreshCount = 0
+    var champName: String?
+    var startDate: Date?
+    
     @IBOutlet var cover:UIImageView?
     @IBOutlet var addSummonerButton:UIButton?
     @IBOutlet var inGameView:ProfileView_InGame?
@@ -51,14 +55,88 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
     
     func getCurrentGame() {
         CurrentGameEndpoint().getSpectatorGameInfo(self.summoner.summonerId, completion: { (game) in
+            self.startDate = game.gameStartTime
+            
             // Get champ info
             for participant in game.participants {
                 if participant.summonerId == self.summoner.summonerId {
+                    var mapName = "??"
+                    if game.mapId == 9 {
+                        mapName = "CS"
+                    } else if game.mapId == 10 {
+                        mapName = "TT"
+                    }  else if game.mapId == 11 {
+                        mapName = "SR"
+                    } else if game.mapId == 12 {
+                        mapName = "HA"
+                    } else if game.mapId == 14 {
+                        mapName = "BB"
+                    }
+                    
+                    var gameType = "??"
+                    if game.gameQueueConfigId == 0 {
+                        gameType = "Custom"
+                    } else if game.gameQueueConfigId == 8 || game.gameQueueConfigId == 2 {
+                        gameType = "Normals Blind"
+                    } else if game.gameQueueConfigId == 14 || game.gameQueueConfigId == 400 {
+                        gameType = "Normal Draft"
+                    } else if game.gameQueueConfigId == 9 || game.gameQueueConfigId == 440 {
+                        gameType = "Ranked Flex"
+                    } else if game.gameQueueConfigId == 42 {
+                        gameType = "Ranked Team"
+                    } else if game.gameQueueConfigId == 16 {
+                        gameType = "Dominion Blind"
+                    } else if game.gameQueueConfigId == 17 {
+                        gameType = "Dominion Draft"
+                    } else if game.gameQueueConfigId == 25 {
+                        gameType = "Dominion Coop"
+                    } else if game.gameQueueConfigId == 31 || game.gameQueueConfigId == 32 || game.gameQueueConfigId == 33 || game.gameQueueConfigId == 52 {
+                        gameType = "Coop"
+                    } else if game.gameQueueConfigId == 65 {
+                        gameType = "ARAM"
+                    } else if game.gameQueueConfigId == 70 {
+                        gameType = "One for All"
+                    } else if game.gameQueueConfigId == 72 || game.gameQueueConfigId == 73 {
+                        gameType = "Snowdown Showdown"
+                    } else if game.gameQueueConfigId == 75 || game.gameQueueConfigId == 98 {
+                        gameType = "Hexakill"
+                    } else if game.gameQueueConfigId == 76 {
+                        gameType = "URF"
+                    } else if game.gameQueueConfigId == 78 {
+                        gameType = "One For All Coop"
+                    } else if game.gameQueueConfigId == 83 {
+                        gameType = "URF Bots"
+                    } else if game.gameQueueConfigId == 91 || game.gameQueueConfigId == 92 || game.gameQueueConfigId == 93 {
+                        gameType = "Doom Bots"
+                    } else if game.gameQueueConfigId == 96 {
+                        gameType = "Acension"
+                    } else if game.gameQueueConfigId == 100 {
+                        gameType = "Butchers Bridge"
+                    } else if game.gameQueueConfigId == 300 {
+                        gameType = "King Poro"
+                    } else if game.gameQueueConfigId == 310 {
+                        gameType = "Nemesis"
+                    } else if game.gameQueueConfigId == 313 {
+                        gameType = "Black Market Brawlers"
+                    } else if game.gameQueueConfigId == 315 {
+                        gameType = "Nexus Siege"
+                    } else if game.gameQueueConfigId == 317 {
+                        gameType = "Definitely Not Dominion"
+                    } else if game.gameQueueConfigId == 318 {
+                        gameType = "ARURF"
+                    } else if game.gameQueueConfigId == 420 {
+                        gameType = "Ranked Solo"
+                    }
+                    
+                    self.inGameView?.mapGameType?.text = mapName + " - " + gameType
+                    
                     StaticDataEndpoint().getChampionInfoById(Int(participant.championId), championData: .Image, completion: { (champInfo) in
                         DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
                             self.inGameView?.champIcon?.setImageWith(champSquareArtUrl)
                         })
-                        self.inGameView?.champTime?.text = champInfo.name + " - 99m"
+                        
+                        self.champName = champInfo.name
+                        self.updateCurrentGameTime(nil)
                     }, notFound: {
                         // ???
                     }, errorBlock: {
@@ -77,9 +155,59 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
         }, notFound: { 
             // Stay hidden
             self.inGameView?.isHidden = true
+            self.updateCurrentGameTime(nil)
         }, errorBlock: {
             // Error
+            self.updateCurrentGameTime(nil)
         })
+    }
+    
+    func updateCurrentGameTime(_ timer: Timer?) {
+        timer?.invalidate()
+        self.currentGameRefreshCount += 1
+        if (startDate != nil) {
+            if startDate!.timeIntervalSinceNow > TimeInterval(-1800) {
+                // Less than 30 min
+                // Refresh every 60 sec
+                if self.currentGameRefreshCount >= 60 {
+                    self.currentGameRefreshCount = 0
+                    self.champName = nil
+                    self.startDate = nil
+                    self.getCurrentGame()
+                }
+            } else if startDate!.timeIntervalSinceNow <= TimeInterval(-1800) || startDate!.timeIntervalSinceNow >= TimeInterval(-2100) {
+                // Between 30 and 35 min
+                // Refresh every 30 sec
+                if self.currentGameRefreshCount >= 30 {
+                    self.currentGameRefreshCount = 0
+                    self.champName = nil
+                    self.startDate = nil
+                    self.getCurrentGame()
+                }
+            } else if startDate!.timeIntervalSinceNow < TimeInterval(-2100) {
+                // Greater than 35 min
+                // Refresh every 15 sec
+                if self.currentGameRefreshCount >= 15 {
+                    self.currentGameRefreshCount = 0
+                    self.champName = nil
+                    self.startDate = nil
+                    self.getCurrentGame()
+                }
+            }
+        } else {
+            // Not in game
+            // Refresh every 60 sec
+            if self.currentGameRefreshCount >= 60 {
+                self.currentGameRefreshCount = 0
+                self.champName = nil
+                self.startDate = nil
+                self.getCurrentGame()
+            }
+        }
+        if (champName != nil) && (startDate != nil) {
+            self.inGameView?.champTime?.text = champName! + " - " + String(format: "%.0fm", (startDate!.timeIntervalSinceNow * TimeInterval(-1)) / TimeInterval(60))
+            Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(self.updateCurrentGameTime(_:)), userInfo: nil, repeats: false)
+        }
     }
     
     func setupSummonerStats() {
