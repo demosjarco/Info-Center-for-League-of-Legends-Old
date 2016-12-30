@@ -10,6 +10,8 @@ import UIKit
 
 class ProfileView_InGame: UIView {
     @IBOutlet var champIcon:UIImageView?
+    @IBOutlet var spell1icon:UIImageView?
+    @IBOutlet var spell2icon:UIImageView?
     @IBOutlet var mapGameType:UILabel?
     @IBOutlet var champTime:UILabel?
     @IBOutlet var button:UIButton?
