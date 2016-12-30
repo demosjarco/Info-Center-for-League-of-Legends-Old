@@ -50,6 +50,9 @@ class DDragon: NSObject {
             completion(URL(string: cdnUrl + "/img/champion/loading/" + fullImageName.replacingOccurrences(of: ".png", with: "_" + String(skinNumber) + ".jpg"))!)
         }
     }
+    func getLcuChampionSquareArt(champId: Int) -> UIImage? {
+        return UIImage(named: String(champId) + "_Web_0")
+    }
     func getChampionSquareArt(_ fullImageName: String, completion: @escaping (_ champSquareArtUrl: URL) -> Void) {
         self.getCDNurl { (cdnUrl) in
             self.getLatestDDragonVersion("champion", completion: { (version) in
