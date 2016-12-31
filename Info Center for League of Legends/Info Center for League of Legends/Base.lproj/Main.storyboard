@@ -2160,20 +2160,81 @@ last -- games</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="teamHeader" rowHeight="32" id="d6r-lR-WNo" customClass="Profile_CurrentGame_Header" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="32"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d6r-lR-WNo" id="b6y-6b-UPL">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="31"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Color] Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CkF-UU-Uwg">
+                                            <rect key="frame" x="8" y="8" width="94" height="15.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LtD-Tb-cmo">
+                                            <rect key="frame" x="276" y="8" width="16" height="15.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJW-0d-Fli">
+                                            <rect key="frame" x="304" y="8" width="17" height="15.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoo-N1-i1q">
+                                            <rect key="frame" x="337" y="8" width="30" height="15.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="LtD-Tb-cmo" firstAttribute="bottom" secondItem="b6y-6b-UPL" secondAttribute="bottomMargin" id="Ae0-EN-bUY"/>
+                                        <constraint firstItem="zoo-N1-i1q" firstAttribute="leading" secondItem="gJW-0d-Fli" secondAttribute="trailing" constant="16" id="Fv4-rD-5Wq"/>
+                                        <constraint firstItem="CkF-UU-Uwg" firstAttribute="top" secondItem="b6y-6b-UPL" secondAttribute="topMargin" id="IpP-jM-KbK"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="zoo-N1-i1q" secondAttribute="bottom" id="MGG-4z-eh2"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="gJW-0d-Fli" secondAttribute="bottom" id="PQE-cr-n9W"/>
+                                        <constraint firstItem="zoo-N1-i1q" firstAttribute="top" secondItem="b6y-6b-UPL" secondAttribute="topMargin" id="QOZ-vq-fQO"/>
+                                        <constraint firstItem="gJW-0d-Fli" firstAttribute="leading" secondItem="LtD-Tb-cmo" secondAttribute="trailing" constant="12" id="S2f-Lq-N9t"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="CkF-UU-Uwg" secondAttribute="bottom" id="VHV-18-ceK"/>
+                                        <constraint firstItem="LtD-Tb-cmo" firstAttribute="top" secondItem="b6y-6b-UPL" secondAttribute="topMargin" id="fc4-Uk-ROx"/>
+                                        <constraint firstItem="CkF-UU-Uwg" firstAttribute="leading" secondItem="b6y-6b-UPL" secondAttribute="leadingMargin" id="hhS-u8-Bnt"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="zoo-N1-i1q" secondAttribute="trailing" id="mQh-2E-312"/>
+                                        <constraint firstItem="gJW-0d-Fli" firstAttribute="top" secondItem="b6y-6b-UPL" secondAttribute="topMargin" id="pun-Sp-KaT"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.21572974319999999" green="0.7968783975" blue="0.90307343009999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="bans" destination="zoo-N1-i1q" id="80g-oU-xko"/>
+                                    <outlet property="currentSeason" destination="LtD-Tb-cmo" id="3pr-gG-c4p"/>
+                                    <outlet property="lastSeason" destination="gJW-0d-Fli" id="lih-91-Go2"/>
+                                    <outlet property="teamName" destination="CkF-UU-Uwg" id="eMz-t4-MO7"/>
+                                </connections>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="gamePlayer" id="ao1-aM-qDl" customClass="Profile_CurrentGame_Cell" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ao1-aM-qDl" id="MUI-Bq-heA">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SMp-Eh-s5N">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SMp-Eh-s5N">
                                             <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="SMp-Eh-s5N" secondAttribute="height" multiplier="1:1" id="Mkf-Uc-xs6"/>
                                             </constraints>
                                         </imageView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2k9-SQ-JlT">
+                                        <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2k9-SQ-JlT">
                                             <rect key="frame" x="43" y="0.0" width="21.5" height="43"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="roH-2B-qUy">
@@ -2189,23 +2250,41 @@ last -- games</string>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </stackView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MUK-QL-CN4">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MUK-QL-CN4">
                                             <rect key="frame" x="64.5" y="5" width="33" height="33"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="MUK-QL-CN4" secondAttribute="height" multiplier="1:1" id="3Lk-Gd-GfR"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJe-4U-sfc">
-                                            <rect key="frame" x="105.5" y="0.0" width="45" height="43"/>
+                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8888888888" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" translatesAutoresizingMaskIntoConstraints="NO" id="dJe-4U-sfc">
+                                            <rect key="frame" x="105.5" y="0.0" width="105" height="43"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6ov-mD-sVX">
-                                            <rect key="frame" x="334" y="6" width="33" height="33"/>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6ov-mD-sVX">
+                                            <rect key="frame" x="334" y="5" width="33" height="33"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="6ov-mD-sVX" secondAttribute="height" multiplier="1:1" id="YRH-Ss-WlT"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sf4-dH-KxW">
+                                            <rect key="frame" x="272" y="11" width="22" height="22"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="sf4-dH-KxW" secondAttribute="height" multiplier="1:1" id="jIL-7k-jmJ"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="11o-N8-a2a">
+                                            <rect key="frame" x="302" y="10" width="22" height="22"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="11o-N8-a2a" secondAttribute="height" multiplier="1:1" id="F1t-qF-LAp"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
@@ -2215,11 +2294,15 @@ last -- games</string>
                                         <constraint firstItem="2k9-SQ-JlT" firstAttribute="top" secondItem="MUI-Bq-heA" secondAttribute="top" id="8Ob-GV-EA9"/>
                                         <constraint firstAttribute="bottom" secondItem="2k9-SQ-JlT" secondAttribute="bottom" id="9hU-vL-Dj1"/>
                                         <constraint firstAttribute="bottom" secondItem="SMp-Eh-s5N" secondAttribute="bottom" id="DIV-cl-yyb"/>
+                                        <constraint firstItem="6ov-mD-sVX" firstAttribute="leading" secondItem="11o-N8-a2a" secondAttribute="trailing" constant="10" id="FYN-Dk-9NN"/>
                                         <constraint firstItem="MUK-QL-CN4" firstAttribute="leading" secondItem="2k9-SQ-JlT" secondAttribute="trailing" id="HRt-Jc-cpu"/>
+                                        <constraint firstItem="sf4-dH-KxW" firstAttribute="centerY" secondItem="MUI-Bq-heA" secondAttribute="centerY" id="JAH-xy-Dt1"/>
                                         <constraint firstItem="MUK-QL-CN4" firstAttribute="centerY" secondItem="MUI-Bq-heA" secondAttribute="centerY" id="PiG-m0-MXr"/>
                                         <constraint firstItem="2k9-SQ-JlT" firstAttribute="leading" secondItem="SMp-Eh-s5N" secondAttribute="trailing" id="QXA-V4-wqy"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="6ov-mD-sVX" secondAttribute="trailing" id="Vlj-rX-f1y"/>
+                                        <constraint firstItem="11o-N8-a2a" firstAttribute="centerY" secondItem="MUI-Bq-heA" secondAttribute="centerY" id="YJ6-i0-urs"/>
                                         <constraint firstItem="SMp-Eh-s5N" firstAttribute="top" secondItem="MUI-Bq-heA" secondAttribute="top" id="ZZt-mj-A6I"/>
+                                        <constraint firstItem="11o-N8-a2a" firstAttribute="leading" secondItem="sf4-dH-KxW" secondAttribute="trailing" constant="8" id="f5G-25-9NG"/>
                                         <constraint firstItem="dJe-4U-sfc" firstAttribute="leading" secondItem="MUK-QL-CN4" secondAttribute="trailing" constant="8" id="hVf-vs-FM4"/>
                                         <constraint firstItem="6ov-mD-sVX" firstAttribute="centerY" secondItem="MUI-Bq-heA" secondAttribute="centerY" id="r5z-eL-2dE"/>
                                         <constraint firstItem="SMp-Eh-s5N" firstAttribute="leading" secondItem="MUI-Bq-heA" secondAttribute="leading" id="tEi-LJ-ueY"/>
@@ -2229,12 +2312,16 @@ last -- games</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="MUK-QL-CN4" firstAttribute="height" secondItem="ao1-aM-qDl" secondAttribute="height" multiplier="0.75" id="UQA-Nw-AGX"/>
+                                    <constraint firstItem="11o-N8-a2a" firstAttribute="height" secondItem="ao1-aM-qDl" secondAttribute="height" multiplier="0.5" id="VgY-rH-CH4"/>
                                     <constraint firstItem="6ov-mD-sVX" firstAttribute="height" secondItem="ao1-aM-qDl" secondAttribute="height" multiplier="0.75" id="jTo-OS-ysY"/>
+                                    <constraint firstItem="sf4-dH-KxW" firstAttribute="height" secondItem="ao1-aM-qDl" secondAttribute="height" multiplier="0.5" id="mo6-H5-ud6"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="champBan" destination="6ov-mD-sVX" id="n0T-Sw-7IB"/>
                                     <outlet property="champIcon" destination="SMp-Eh-s5N" id="dY4-LZ-WCb"/>
+                                    <outlet property="currentSeasonRank" destination="sf4-dH-KxW" id="uoa-WV-ZhC"/>
                                     <outlet property="keyStoneMastery" destination="MUK-QL-CN4" id="30L-vS-fTB"/>
+                                    <outlet property="lastSeasonRank" destination="11o-N8-a2a" id="7uz-xb-McJ"/>
                                     <outlet property="spell1" destination="roH-2B-qUy" id="NHq-So-UYL"/>
                                     <outlet property="spell2" destination="zxi-sO-f0C" id="kIb-zZ-Qdv"/>
                                     <outlet property="summonerName" destination="dJe-4U-sfc" id="Ddg-Gp-day"/>
