@@ -16,6 +16,8 @@ class Profile_CurrentGame: MainTableViewController {
     var participantsRed = [CurrentGameParticipant]()
     var currentGameRefreshCount = 0
     var startDate: Date?
+    
+    var summonerInfoForSegue = SummonerDto()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -569,6 +571,14 @@ class Profile_CurrentGame: MainTableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            summonerInfoForSegue.summonerId = participantsBlue[indexPath.row].summonerId
+        } else {
+            summonerInfoForSegue.summonerId = participantsRed[indexPath.row].summonerId
+        }
+    }
 
     // MARK: - Navigation
 
@@ -576,5 +586,9 @@ class Profile_CurrentGame: MainTableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showParticiapantProfileInfo" {
+            let profileView = segue.destination as! ProfileView
+            profileView.summoner = self.summonerInfoForSegue
+        }
     }
 }

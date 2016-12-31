@@ -2347,6 +2347,7 @@ last -- games</string>
                                     <outlet property="spell1" destination="roH-2B-qUy" id="NHq-So-UYL"/>
                                     <outlet property="spell2" destination="zxi-sO-f0C" id="kIb-zZ-Qdv"/>
                                     <outlet property="summonerName" destination="dJe-4U-sfc" id="Ddg-Gp-day"/>
+                                    <segue destination="aWa-Ow-Xf5" kind="show" identifier="showParticiapantProfileInfo" id="tJR-2F-XSt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -3513,4 +3514,7 @@ last -- games</string>
         <image name="tournamentAdminIcon" width="16" height="16"/>
         <image name="tournaments" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="tJR-2F-XSt"/>
+    </inferredMetricsTieBreakers>
 </document>
