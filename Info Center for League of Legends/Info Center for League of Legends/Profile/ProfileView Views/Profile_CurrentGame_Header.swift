@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Profile_CurrentGame_Header: UIView {
+class Profile_CurrentGame_Header: UITableViewCell {
     @IBOutlet var teamName:UILabel?
     @IBOutlet var currentSeason:UILabel?
     @IBOutlet var lastSeason:UILabel?
