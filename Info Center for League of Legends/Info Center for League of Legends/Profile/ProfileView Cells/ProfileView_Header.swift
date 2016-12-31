@@ -128,14 +128,14 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
                         gameType = "Ranked Solo"
                     }
                     
-                    self.inGameView?.mapGameType?.text = mapName + " - " + gameType
+                    self.inGameBanner?.mapGameType?.text = mapName + " - " + gameType
                     
                     StaticDataEndpoint().getChampionInfoById(Int(participant.championId), championData: .Image, completion: { (champInfo) in
                         if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(participant.championId)) {
-                            self.inGameView?.champIcon?.image = champIcon
+                            self.inGameBanner?.champIcon?.image = champIcon
                         } else {
                             DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
-                                self.inGameView?.champIcon?.setImageWith(champSquareArtUrl)
+                                self.inGameBanner?.champIcon?.setImageWith(champSquareArtUrl)
                             })
                         }
                         
@@ -150,15 +150,15 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
                 }
             }
             // Unhide
-            self.inGameView?.isHidden = false
-            self.inGameView?.frame = CGRect(x: self.inGameView!.frame.origin.x - self.inGameView!.frame.size.width, y: self.inGameView!.frame.origin.y, width: self.inGameView!.frame.size.width, height: self.inGameView!.frame.size.height)
+            self.inGameBanner?.isHidden = false
+            self.inGameBanner?.frame = CGRect(x: self.inGameBanner!.frame.origin.x - self.inGameBanner!.frame.size.width, y: self.inGameBanner!.frame.origin.y, width: self.inGameBanner!.frame.size.width, height: self.inGameBanner!.frame.size.height)
             // Animate slide in
             UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: { 
-                self.inGameView?.frame = CGRect(x: self.inGameView!.frame.origin.x + self.inGameView!.frame.size.width, y: self.inGameView!.frame.origin.y, width: self.inGameView!.frame.size.width, height: self.inGameView!.frame.size.height)
+                self.inGameBanner?.frame = CGRect(x: self.inGameBanner!.frame.origin.x + self.inGameBanner!.frame.size.width, y: self.inGameBanner!.frame.origin.y, width: self.inGameBanner!.frame.size.width, height: self.inGameBanner!.frame.size.height)
             }, completion: nil)
         }, notFound: { 
             // Stay hidden
-            self.inGameView?.isHidden = true
+            self.inGameBanner?.isHidden = true
             self.updateCurrentGameTime(nil)
         }, errorBlock: {
             // Error
@@ -209,7 +209,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
             }
         }
         if (champName != nil) && (startDate != nil) {
-            self.inGameView?.champTime?.text = champName! + " - " + String(format: "%.0fm", (startDate!.timeIntervalSinceNow * TimeInterval(-1)) / TimeInterval(60))
+            self.inGameBanner?.champTime?.text = champName! + " - " + String(format: "%.0fm", (startDate!.timeIntervalSinceNow * TimeInterval(-1)) / TimeInterval(60))
             Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(self.updateCurrentGameTime(_:)), userInfo: nil, repeats: false)
         }
     }
