@@ -33,6 +33,22 @@ class Profile_CurrentGame: MainTableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "teamHeader") as! Profile_CurrentGame_Header
+        
+        if section == 0 {
+            // Blue team
+            cell.teamName?.text = "Blue Team"
+            cell.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.75, alpha: 1.0)
+        } else {
+            // Red team
+            cell.teamName?.text = "Red Team"
+            cell.backgroundColor = UIColor(red: 0.75, green: 0.0, blue: 0.0, alpha: 1.0)
+        }
+        
+        return cell
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gamePlayer", for: indexPath) as! Profile_CurrentGame_Cell
