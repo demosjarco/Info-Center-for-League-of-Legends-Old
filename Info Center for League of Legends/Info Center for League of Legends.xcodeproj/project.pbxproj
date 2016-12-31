@@ -65,6 +65,7 @@
 		1739C4921D1C3A3800B50BDC /* SummonerEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */; };
 		17421AB41D4BCD1100F22B52 /* MasteryPagesDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17421AB31D4BCD1100F22B52 /* MasteryPagesDto.swift */; };
 		17421AB61D4BCD7A00F22B52 /* MasteryPageDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17421AB51D4BCD7A00F22B52 /* MasteryPageDto.swift */; };
+		17425AA21E17580700EB3058 /* Profile_CurrentGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17425AA11E17580700EB3058 /* Profile_CurrentGame.swift */; };
 		174C95181D106CCD00EBFB07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C95171D106CCD00EBFB07 /* AppDelegate.swift */; };
 		174C951F1D106CCD00EBFB07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174C951D1D106CCD00EBFB07 /* Main.storyboard */; };
 		174C95241D106CCE00EBFB07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174C95221D106CCE00EBFB07 /* LaunchScreen.storyboard */; };
@@ -199,6 +200,7 @@
 		1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummonerEndpoint.swift; path = "Riot API/SummonerEndpoint.swift"; sourceTree = "<group>"; };
 		17421AB31D4BCD1100F22B52 /* MasteryPagesDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryPagesDto.swift; path = "Riot API/SummonerEntities/MasteryPagesDto.swift"; sourceTree = "<group>"; };
 		17421AB51D4BCD7A00F22B52 /* MasteryPageDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryPageDto.swift; path = "Riot API/SummonerEntities/MasteryPageDto.swift"; sourceTree = "<group>"; };
+		17425AA11E17580700EB3058 /* Profile_CurrentGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_CurrentGame.swift; sourceTree = "<group>"; };
 		174C95141D106CCD00EBFB07 /* Info Center for League of Legends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Info Center for League of Legends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		174C95171D106CCD00EBFB07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		174C951E1D106CCD00EBFB07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 		174DFCBB1E0CE2BF001A6685 /* ProfileView Views */ = {
 			isa = PBXGroup;
 			children = (
+				17425AA11E17580700EB3058 /* Profile_CurrentGame.swift */,
 				174DFCBC1E0CE2BF001A6685 /* Profile_ChampionMastery.swift */,
 				174DFCBD1E0CE2BF001A6685 /* Profile_ChampionMastery_Cell.swift */,
 				174DFCC11E0CE2BF001A6685 /* Profile_RecentGames.swift */,
@@ -1198,6 +1201,7 @@
 				176D5B981D1C478F000D9D85 /* SummonerDto.swift in Sources */,
 				17A098851DA84F03004C79F4 /* AccountSettings.swift in Sources */,
 				174DFCC51E0CE2BF001A6685 /* Profile_Masteries.swift in Sources */,
+				17425AA21E17580700EB3058 /* Profile_CurrentGame.swift in Sources */,
 				17029E621E0C56B1004E653E /* ChampionDto.swift in Sources */,
 				1739C48F1D1C281400B50BDC /* PlistManager.swift in Sources */,
 				17029E641E0C56B1004E653E /* ImageDto.swift in Sources */,
