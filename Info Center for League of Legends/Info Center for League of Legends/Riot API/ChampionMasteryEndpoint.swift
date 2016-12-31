@@ -38,14 +38,14 @@ class ChampionMasteryEndpoint: NSObject {
                 completion(championMasteryList.sorted(by: { (o1, o2) -> Bool in
                     return o1.championLevel == o2.championLevel ? (o1.championPoints > o2.championPoints) : (o1.championLevel > o2.championLevel)
                 }))
-                }, failure: { (task, error) in
-                    let response = task!.response as! HTTPURLResponse
-                    if response.statusCode == 404 {
-                        notFound()
-                    } else {
-                        errorBlock()
-                        FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
-                    }
+            }, failure: { (task, error) in
+                let response = task!.response as! HTTPURLResponse
+                if response.statusCode == 404 {
+                    notFound()
+                } else {
+                    errorBlock()
+                    FIRDatabase.database().reference().child("api_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": composedUrl, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                }
             })
         }
     }
