@@ -9,5 +9,7 @@
 import UIKit
 
 class BannedChampion: NSObject {
-    
+    var championId:CLong = 0
+    var pickTurn = 0
+    var teamId:CLong = 0
 }

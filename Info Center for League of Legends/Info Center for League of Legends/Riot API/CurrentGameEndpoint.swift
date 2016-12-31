@@ -21,7 +21,17 @@ class CurrentGameEndpoint: NSObject {
                 let json = responseObject as! [String: AnyObject]
                 let game = CurrentGameInfo()
                 
-                // bannedChampions
+                let oldBannedChampions = json["bannedChampions"] as! [[String: AnyObject]]
+                for oldBannedChampion in oldBannedChampions {
+                    let newBannedChampion = BannedChampion()
+                    
+                    newBannedChampion.championId = oldBannedChampion["championId"] as! CLong
+                    newBannedChampion.pickTurn = oldBannedChampion["pickTurn"] as! Int
+                    newBannedChampion.teamId = oldBannedChampion["teamId"] as! CLong
+                    
+                    game.bannedChampions.append(newBannedChampion)
+                }
+                
                 game.gameId = json["gameId"] as! CLong
                 game.gameLength = json["gameLength"] as! CLong
                 game.gameMode = json["gameMode"] as! String
