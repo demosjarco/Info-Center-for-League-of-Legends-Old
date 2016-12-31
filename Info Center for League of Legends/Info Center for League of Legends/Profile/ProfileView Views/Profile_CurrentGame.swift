@@ -24,7 +24,17 @@ class Profile_CurrentGame: MainTableViewController {
     }
     
     @IBAction func closeView() {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            self.summoner = SummonerDto()
+            
+            self.bans = [BannedChampion]()
+            self.participantsBlue = [CurrentGameParticipant]()
+            self.participantsRed = [CurrentGameParticipant]()
+            self.currentGameRefreshCount = 0
+            self.startDate = nil
+            
+            self.summonerInfoForSegue = SummonerDto()
+        }
     }
     
     @IBAction func refresh() {
