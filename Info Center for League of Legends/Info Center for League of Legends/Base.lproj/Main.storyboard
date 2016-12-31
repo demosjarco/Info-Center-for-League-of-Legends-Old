@@ -2151,7 +2151,7 @@ last -- games</string>
             </objects>
             <point key="canvasLocation" x="4566" y="-1646"/>
         </scene>
-        <!--Root View Controller-->
+        <!-- - -->
         <scene sceneID="MR0-Pg-5Gx">
             <objects>
                 <tableViewController id="qw1-h9-Xrd" customClass="Profile_CurrentGame" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
@@ -2235,6 +2235,10 @@ last -- games</string>
                                                 <constraint firstAttribute="width" secondItem="SMp-Eh-s5N" secondAttribute="height" multiplier="1:1" id="Mkf-Uc-xs6"/>
                                             </constraints>
                                         </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VaM-st-XI1">
+                                            <rect key="frame" x="21.5" y="21.5" width="21.5" height="21.5"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </imageView>
                                         <stackView clipsSubviews="YES" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2k9-SQ-JlT">
                                             <rect key="frame" x="43" y="0.0" width="21.5" height="43"/>
                                             <subviews>
@@ -2254,14 +2258,14 @@ last -- games</string>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </stackView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MUK-QL-CN4">
-                                            <rect key="frame" x="64.5" y="5" width="33" height="33"/>
+                                            <rect key="frame" x="64.5" y="11" width="22" height="22"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="MUK-QL-CN4" secondAttribute="height" multiplier="1:1" id="3Lk-Gd-GfR"/>
                                             </constraints>
                                         </imageView>
                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8888888888" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" translatesAutoresizingMaskIntoConstraints="NO" id="dJe-4U-sfc">
-                                            <rect key="frame" x="105.5" y="0.0" width="105" height="43"/>
+                                            <rect key="frame" x="94.5" y="0.0" width="105" height="43"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2295,15 +2299,19 @@ last -- games</string>
                                         <constraint firstItem="2k9-SQ-JlT" firstAttribute="top" secondItem="MUI-Bq-heA" secondAttribute="top" id="8Ob-GV-EA9"/>
                                         <constraint firstAttribute="bottom" secondItem="2k9-SQ-JlT" secondAttribute="bottom" id="9hU-vL-Dj1"/>
                                         <constraint firstAttribute="bottom" secondItem="SMp-Eh-s5N" secondAttribute="bottom" id="DIV-cl-yyb"/>
+                                        <constraint firstItem="VaM-st-XI1" firstAttribute="height" secondItem="SMp-Eh-s5N" secondAttribute="height" multiplier="0.5" id="FW8-Yn-FvZ"/>
                                         <constraint firstItem="6ov-mD-sVX" firstAttribute="leading" secondItem="11o-N8-a2a" secondAttribute="trailing" constant="10" id="FYN-Dk-9NN"/>
                                         <constraint firstItem="MUK-QL-CN4" firstAttribute="leading" secondItem="2k9-SQ-JlT" secondAttribute="trailing" id="HRt-Jc-cpu"/>
                                         <constraint firstItem="sf4-dH-KxW" firstAttribute="centerY" secondItem="MUI-Bq-heA" secondAttribute="centerY" id="JAH-xy-Dt1"/>
+                                        <constraint firstAttribute="bottom" secondItem="VaM-st-XI1" secondAttribute="bottom" id="LZ4-Og-Zlt"/>
                                         <constraint firstItem="MUK-QL-CN4" firstAttribute="centerY" secondItem="MUI-Bq-heA" secondAttribute="centerY" id="PiG-m0-MXr"/>
                                         <constraint firstItem="2k9-SQ-JlT" firstAttribute="leading" secondItem="SMp-Eh-s5N" secondAttribute="trailing" id="QXA-V4-wqy"/>
+                                        <constraint firstItem="2k9-SQ-JlT" firstAttribute="leading" secondItem="VaM-st-XI1" secondAttribute="trailing" id="RIj-Hg-JCY"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="6ov-mD-sVX" secondAttribute="trailing" id="Vlj-rX-f1y"/>
                                         <constraint firstItem="sf4-dH-KxW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dJe-4U-sfc" secondAttribute="trailing" constant="8" id="Wzn-ts-drZ"/>
                                         <constraint firstItem="11o-N8-a2a" firstAttribute="centerY" secondItem="MUI-Bq-heA" secondAttribute="centerY" id="YJ6-i0-urs"/>
                                         <constraint firstItem="SMp-Eh-s5N" firstAttribute="top" secondItem="MUI-Bq-heA" secondAttribute="top" id="ZZt-mj-A6I"/>
+                                        <constraint firstItem="VaM-st-XI1" firstAttribute="width" secondItem="SMp-Eh-s5N" secondAttribute="width" multiplier="0.5" id="eUo-OY-968"/>
                                         <constraint firstItem="11o-N8-a2a" firstAttribute="leading" secondItem="sf4-dH-KxW" secondAttribute="trailing" constant="8" id="f5G-25-9NG"/>
                                         <constraint firstItem="dJe-4U-sfc" firstAttribute="leading" secondItem="MUK-QL-CN4" secondAttribute="trailing" constant="8" id="hVf-vs-FM4"/>
                                         <constraint firstItem="6ov-mD-sVX" firstAttribute="centerY" secondItem="MUI-Bq-heA" secondAttribute="centerY" id="r5z-eL-2dE"/>
@@ -2313,7 +2321,7 @@ last -- games</string>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="MUK-QL-CN4" firstAttribute="height" secondItem="ao1-aM-qDl" secondAttribute="height" multiplier="0.75" id="UQA-Nw-AGX"/>
+                                    <constraint firstItem="MUK-QL-CN4" firstAttribute="height" secondItem="ao1-aM-qDl" secondAttribute="height" multiplier="0.5" id="UQA-Nw-AGX"/>
                                     <constraint firstItem="11o-N8-a2a" firstAttribute="height" secondItem="ao1-aM-qDl" secondAttribute="height" multiplier="0.5" id="VgY-rH-CH4"/>
                                     <constraint firstItem="6ov-mD-sVX" firstAttribute="height" secondItem="ao1-aM-qDl" secondAttribute="height" multiplier="0.75" id="jTo-OS-ysY"/>
                                     <constraint firstItem="sf4-dH-KxW" firstAttribute="height" secondItem="ao1-aM-qDl" secondAttribute="height" multiplier="0.5" id="mo6-H5-ud6"/>
@@ -2321,6 +2329,7 @@ last -- games</string>
                                 <connections>
                                     <outlet property="champBan" destination="6ov-mD-sVX" id="n0T-Sw-7IB"/>
                                     <outlet property="champIcon" destination="SMp-Eh-s5N" id="dY4-LZ-WCb"/>
+                                    <outlet property="champMastery" destination="VaM-st-XI1" id="neV-9q-ESx"/>
                                     <outlet property="currentSeasonRank" destination="sf4-dH-KxW" id="uoa-WV-ZhC"/>
                                     <outlet property="keyStoneMastery" destination="MUK-QL-CN4" id="30L-vS-fTB"/>
                                     <outlet property="lastSeasonRank" destination="11o-N8-a2a" id="7uz-xb-McJ"/>
@@ -2336,7 +2345,7 @@ last -- games</string>
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="7DK-Yb-slD">
+                    <navigationItem key="navigationItem" title="--" id="7DK-Yb-slD">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="CLO-j1-Ww1">
                             <connections>
                                 <action selector="closeView" destination="qw1-h9-Xrd" id="jJG-GJ-Hex"/>
@@ -2509,7 +2518,7 @@ last -- games</string>
                                                         <rect key="frame" x="8" y="8" width="64" height="64"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="65" height="64"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zgt-kK-zjb">
