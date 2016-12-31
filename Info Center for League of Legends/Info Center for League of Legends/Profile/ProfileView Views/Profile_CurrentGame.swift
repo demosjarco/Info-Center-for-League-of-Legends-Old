@@ -26,15 +26,13 @@ class Profile_CurrentGame: MainTableViewController {
         return 0
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gamePlayer", for: indexPath) as! Profile_CurrentGame_Cell
 
         // Configure the cell...
 
         return cell
     }
-    */
 
     // MARK: - Navigation
 
