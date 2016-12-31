@@ -106,7 +106,8 @@ class Profile_CurrentGame: MainTableViewController {
             
             self.title = mapName + " - " + gameType
             
-            // Get champ info
+            self.participantsBlue = [CurrentGameParticipant]()
+            self.participantsRed = [CurrentGameParticipant]()
             for participant in game.participants {
                 if participant.teamId == 100 {
                     // Blue Team
