@@ -14,6 +14,10 @@ class Profile_CurrentGame: MainTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction func closeView() {
+        self.dismiss(animated: true, completion: nil)
+    }
 
     // MARK: - Table view data source
 
