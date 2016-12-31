@@ -27,7 +27,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
     
     @IBOutlet var cover:UIImageView?
     @IBOutlet var addSummonerButton:UIButton?
-    @IBOutlet var inGameView:ProfileView_InGame?
+    @IBOutlet var inGameBanner:ProfileView_InGame?
     
     @IBOutlet var promotionGames:UILabel?
     @IBOutlet var summonerName:UILabel?
