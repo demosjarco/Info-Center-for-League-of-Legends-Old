@@ -52,7 +52,17 @@ class CurrentGameEndpoint: NSObject {
                     
                     newParticipant.bot = oldParticipant["bot"] as! Bool
                     newParticipant.championId = oldParticipant["championId"] as! CLong
-                    // masteries
+                    
+                    let oldMasteries = oldParticipant["masteries"] as! [[String: AnyObject]]
+                    for oldMastery in oldMasteries {
+                        let newMastery = MasteryDto()
+                        
+                        newMastery.masteryId = oldMastery["masteryId"] as! Int
+                        newMastery.rank = oldMastery["rank"] as! Int
+                        
+                        newParticipant.masteries.append(newMastery)
+                    }
+                    
                     newParticipant.profileIconId = oldParticipant["profileIconId"] as! CLong
                     // runes
                     newParticipant.spell1Id = oldParticipant["spell1Id"] as! CLong
