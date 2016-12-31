@@ -128,15 +128,20 @@ class Profile_CurrentGame: MainTableViewController {
                 }
                 self.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
+                self.updateCurrentGameTime(nil)
             }
         }, notFound: {
             // ??
+            self.startDate = nil
+            self.updateCurrentGameTime(nil)
         }) {
             // Error
+            self.startDate = nil
+            self.updateCurrentGameTime(nil)
         }
     }
     
-    /*sfunc updateCurrentGameTime(_ timer: Timer?) {
+    func updateCurrentGameTime(_ timer: Timer?) {
         timer?.invalidate()
         self.currentGameRefreshCount += 1
         if (startDate != nil) {
@@ -145,27 +150,24 @@ class Profile_CurrentGame: MainTableViewController {
                 // Refresh every 60 sec
                 if self.currentGameRefreshCount >= 60 {
                     self.currentGameRefreshCount = 0
-                    self.champName = nil
                     self.startDate = nil
-                    self.getCurrentGame()
+                    self.refresh()
                 }
             } else if startDate!.timeIntervalSinceNow <= TimeInterval(-1800) || startDate!.timeIntervalSinceNow >= TimeInterval(-2100) {
                 // Between 30 and 35 min
                 // Refresh every 30 sec
                 if self.currentGameRefreshCount >= 30 {
                     self.currentGameRefreshCount = 0
-                    self.champName = nil
                     self.startDate = nil
-                    self.getCurrentGame()
+                    self.refresh()
                 }
             } else if startDate!.timeIntervalSinceNow < TimeInterval(-2100) {
                 // Greater than 35 min
                 // Refresh every 15 sec
                 if self.currentGameRefreshCount >= 15 {
                     self.currentGameRefreshCount = 0
-                    self.champName = nil
                     self.startDate = nil
-                    self.getCurrentGame()
+                    self.refresh()
                 }
             }
         } else {
@@ -173,16 +175,17 @@ class Profile_CurrentGame: MainTableViewController {
             // Refresh every 60 sec
             if self.currentGameRefreshCount >= 60 {
                 self.currentGameRefreshCount = 0
-                self.champName = nil
                 self.startDate = nil
-                self.getCurrentGame()
+                self.refresh()
             }
         }
-        if (champName != nil) && (startDate != nil) {
-            self.inGameBanner?.champTime?.text = champName! + " - " + String(format: "%.0fm", (startDate!.timeIntervalSinceNow * TimeInterval(-1)) / TimeInterval(60))
-            Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(self.updateCurrentGameTime(_:)), userInfo: nil, repeats: false)
+        DispatchQueue.main.async { [unowned self] in
+            if (self.startDate != nil) {
+                self.navigationItem.prompt = String(format: "%.0f:%02.0f", (self.startDate!.timeIntervalSinceNow * TimeInterval(-1)) / TimeInterval(60), (self.startDate!.timeIntervalSinceNow * TimeInterval(-1)).truncatingRemainder(dividingBy: 60))
+                Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(self.updateCurrentGameTime(_:)), userInfo: nil, repeats: false)
+            }
         }
-    }*/
+    }
 
     // MARK: - Table view data source
 
@@ -240,6 +243,14 @@ class Profile_CurrentGame: MainTableViewController {
                 // Error
             })
             // Champion Mastery
+            ChampionMasteryEndpoint().getChampByIdBySummonerId(participantsBlue[indexPath.row].championId, playerId: participantsBlue[indexPath.row].summonerId, completion: { (champion) in
+                cell.champMastery?.image = UIImage(named: "rank" + String(champion.championLevel))
+            }, notFound: {
+                // No champion mastery for it
+                cell.champMastery?.image = nil
+            }, errorBlock: { 
+                // Error
+            })
             
             // Spell 1
             StaticDataEndpoint().getSpellInfoById(Int(participantsBlue[indexPath.row].spell1Id), spellData: .image, completion: { (spellInfo) in
@@ -281,6 +292,55 @@ class Profile_CurrentGame: MainTableViewController {
             
             // Summoner Name
             cell.summonerName?.text = participantsBlue[indexPath.row].summonerName
+            
+            // Current Season
+            LeagueEndpoint().getLeagueEntryBySummonerIds([participantsBlue[indexPath.row].summonerId], completion: { (summonerMap) in
+                // Ranked
+                let currentSummoner = summonerMap.values.first
+                
+                var highestTier: Int = 7
+                var highestTierSpelledOut: String = ""
+                var highestDivision: Int = 6
+                var highestDivisionRoman: String = ""
+                
+                for league in currentSummoner! {
+                    if highestTier > LeagueEndpoint().tierToNumber(league.tier) {
+                        highestTier = LeagueEndpoint().tierToNumber(league.tier)
+                        highestTierSpelledOut = league.tier
+                        highestDivision = 6
+                        
+                        for entry in league.entries {
+                            if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
+                                highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
+                                highestDivisionRoman = entry.division
+                            }
+                        }
+                    } else if highestTier == LeagueEndpoint().tierToNumber(league.tier) {
+                        for entry in league.entries {
+                            if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
+                                highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
+                                highestDivisionRoman = entry.division
+                            }
+                        }
+                    }
+                    
+                    if highestTier < 2 {
+                        // Challenger & Master
+                        // Dont use division
+                        cell.currentSeasonRank?.image = UIImage(named: highestTierSpelledOut.lowercased())
+                    } else {
+                        // Diamond and lower
+                        // Use division
+                        cell.currentSeasonRank?.image = UIImage(named: highestTierSpelledOut.lowercased() + "_" + highestDivisionRoman.lowercased())
+                    }
+                }
+            }, notFound: {
+                // Unranked
+                cell.currentSeasonRank?.image = UIImage(named: "provisional")
+            }, errorBlock: {
+                // Error
+                cell.currentSeasonRank?.image = UIImage(named: "provisional")
+            })
             
             // Bans
             switch indexPath.row {
@@ -354,6 +414,14 @@ class Profile_CurrentGame: MainTableViewController {
                 // Error
             })
             // Champion Mastery
+            ChampionMasteryEndpoint().getChampByIdBySummonerId(participantsRed[indexPath.row].championId, playerId: participantsRed[indexPath.row].summonerId, completion: { (champion) in
+                cell.champMastery?.image = UIImage(named: "rank" + String(champion.championLevel))
+            }, notFound: {
+                // No champion mastery for it
+                cell.champMastery?.image = nil
+            }, errorBlock: {
+                // Error
+            })
             
             // Spell 1
             StaticDataEndpoint().getSpellInfoById(Int(participantsRed[indexPath.row].spell1Id), spellData: .image, completion: { (spellInfo) in
@@ -395,6 +463,54 @@ class Profile_CurrentGame: MainTableViewController {
             
             // Summoner Name
             cell.summonerName?.text = participantsRed[indexPath.row].summonerName
+            
+            LeagueEndpoint().getLeagueEntryBySummonerIds([participantsRed[indexPath.row].summonerId], completion: { (summonerMap) in
+                // Ranked
+                let currentSummoner = summonerMap.values.first
+                
+                var highestTier: Int = 7
+                var highestTierSpelledOut: String = ""
+                var highestDivision: Int = 6
+                var highestDivisionRoman: String = ""
+                
+                for league in currentSummoner! {
+                    if highestTier > LeagueEndpoint().tierToNumber(league.tier) {
+                        highestTier = LeagueEndpoint().tierToNumber(league.tier)
+                        highestTierSpelledOut = league.tier
+                        highestDivision = 6
+                        
+                        for entry in league.entries {
+                            if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
+                                highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
+                                highestDivisionRoman = entry.division
+                            }
+                        }
+                    } else if highestTier == LeagueEndpoint().tierToNumber(league.tier) {
+                        for entry in league.entries {
+                            if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
+                                highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
+                                highestDivisionRoman = entry.division
+                            }
+                        }
+                    }
+                    
+                    if highestTier < 2 {
+                        // Challenger & Master
+                        // Dont use division
+                        cell.currentSeasonRank?.image = UIImage(named: highestTierSpelledOut.lowercased())
+                    } else {
+                        // Diamond and lower
+                        // Use division
+                        cell.currentSeasonRank?.image = UIImage(named: highestTierSpelledOut.lowercased() + "_" + highestDivisionRoman.lowercased())
+                    }
+                }
+            }, notFound: {
+                // Unranked
+                cell.currentSeasonRank?.image = UIImage(named: "provisional")
+            }, errorBlock: {
+                // Error
+                cell.currentSeasonRank?.image = UIImage(named: "provisional")
+            })
             
             // Bans
             switch indexPath.row {
