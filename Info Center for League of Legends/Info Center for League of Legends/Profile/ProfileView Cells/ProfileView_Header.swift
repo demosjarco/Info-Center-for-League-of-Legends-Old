@@ -177,26 +177,31 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
             }
             // Unhide
             DispatchQueue.main.async { [unowned self] in
-                self.inGameBanner?.isHidden = false
+                self.inGameBannerButton?.isHidden = false
                 self.inGameBannerButton?.isEnabled = true
+                self.inGameBanner?.isHidden = false
                 self.inGameBanner?.frame = CGRect(x: self.inGameBanner!.frame.origin.x - self.inGameBanner!.frame.size.width, y: self.inGameBanner!.frame.origin.y, width: self.inGameBanner!.frame.size.width, height: self.inGameBanner!.frame.size.height)
+                self.inGameBannerButton?.frame = CGRect(x: self.inGameBannerButton!.frame.origin.x - self.inGameBannerButton!.frame.size.width, y: self.inGameBannerButton!.frame.origin.y, width: self.inGameBannerButton!.frame.size.width, height: self.inGameBannerButton!.frame.size.height)
                 // Animate slide in
                 UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
                     self.inGameBanner?.frame = CGRect(x: self.inGameBanner!.frame.origin.x + self.inGameBanner!.frame.size.width, y: self.inGameBanner!.frame.origin.y, width: self.inGameBanner!.frame.size.width, height: self.inGameBanner!.frame.size.height)
+                    self.inGameBannerButton?.frame = CGRect(x: self.inGameBannerButton!.frame.origin.x + self.inGameBannerButton!.frame.size.width, y: self.inGameBannerButton!.frame.origin.y, width: self.inGameBannerButton!.frame.size.width, height: self.inGameBannerButton!.frame.size.height)
                 }, completion: nil)
             }
         }, notFound: { 
             // Stay hidden
             DispatchQueue.main.async { [unowned self] in
-                self.inGameBanner?.isHidden = true
+                self.inGameBannerButton?.isHidden = true
                 self.inGameBannerButton?.isEnabled = false
+                self.inGameBanner?.isHidden = true
                 self.updateCurrentGameTime(nil)
             }
         }, errorBlock: {
             // Error
             DispatchQueue.main.async { [unowned self] in
-                self.inGameBanner?.isHidden = true
+                self.inGameBannerButton?.isHidden = true
                 self.inGameBannerButton?.isEnabled = false
+                self.inGameBanner?.isHidden = true
                 self.updateCurrentGameTime(nil)
             }
         })
