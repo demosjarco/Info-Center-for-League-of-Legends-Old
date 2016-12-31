@@ -1272,15 +1272,23 @@ last -- games</string>
                                         <outlet property="spell2icon" destination="nGJ-hp-brS" id="ZOl-Z0-CUz"/>
                                     </connections>
                                 </view>
-                                <button clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpj-g7-AZU">
-                                    <rect key="frame" x="0.0" y="46" width="125" height="55"/>
+                                <button hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mpj-g7-AZU">
+                                    <rect key="frame" x="-11" y="46" width="124" height="55"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                    <state key="normal">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="11"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <segue destination="mu8-6E-auq" kind="presentation" identifier="showCurrentGame" id="ICd-1j-ncV"/>
                                     </connections>
                                 </button>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ye1-cE-TZ4">
+                                <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ye1-cE-TZ4">
                                     <rect key="frame" x="136" y="8" width="231" height="184"/>
                                     <subviews>
                                         <label userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" translatesAutoresizingMaskIntoConstraints="NO" id="s8H-eP-9ta">
@@ -1441,7 +1449,7 @@ last -- games</string>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="mpj-g7-AZU" firstAttribute="top" secondItem="viW-7c-R4i" secondAttribute="bottom" constant="8" id="3LC-Ef-fXy"/>
-                                <constraint firstItem="mpj-g7-AZU" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leading" id="5jz-or-sBx"/>
+                                <constraint firstItem="mpj-g7-AZU" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leading" constant="-11" id="5jz-or-sBx"/>
                                 <constraint firstItem="doK-DV-tJ3" firstAttribute="top" secondItem="wzf-a0-wf5" secondAttribute="bottom" id="6ag-3R-ufi"/>
                                 <constraint firstItem="cwH-sZ-M7B" firstAttribute="centerY" secondItem="og1-tu-Naf" secondAttribute="centerY" id="7pE-qC-MkT"/>
                                 <constraint firstAttribute="trailing" secondItem="doK-DV-tJ3" secondAttribute="trailing" id="B1t-yf-2In"/>
@@ -2012,14 +2020,14 @@ last -- games</string>
                                             <rect key="frame" x="2" y="116" width="112" height="34"/>
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
-                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="13.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="16"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
-                                                    <rect key="frame" x="0.0" y="13.5" width="112" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="16" width="112" height="18"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
