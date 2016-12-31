@@ -2225,6 +2225,7 @@ last -- games</string>
                                 <color key="backgroundColor" red="0.21572974319999999" green="0.7968783975" blue="0.90307343009999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="bans" destination="zoo-N1-i1q" id="80g-oU-xko"/>
+                                    <outlet property="championMastery" destination="izt-dr-11A" id="qc3-2J-r79"/>
                                     <outlet property="currentSeason" destination="LtD-Tb-cmo" id="3pr-gG-c4p"/>
                                     <outlet property="lastSeason" destination="gJW-0d-Fli" id="lih-91-Go2"/>
                                     <outlet property="teamName" destination="CkF-UU-Uwg" id="eMz-t4-MO7"/>
@@ -2530,7 +2531,7 @@ last -- games</string>
                                                         <rect key="frame" x="8" y="8" width="64" height="64"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="65" height="64"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zgt-kK-zjb">

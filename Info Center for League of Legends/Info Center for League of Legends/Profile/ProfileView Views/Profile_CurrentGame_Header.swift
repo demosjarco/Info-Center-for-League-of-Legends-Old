@@ -10,6 +10,7 @@ import UIKit
 
 class Profile_CurrentGame_Header: UITableViewCell {
     @IBOutlet var teamName:UILabel?
+    @IBOutlet var championMastery:UILabel?
     @IBOutlet var currentSeason:UILabel?
     @IBOutlet var lastSeason:UILabel?
     @IBOutlet var bans:UILabel?
