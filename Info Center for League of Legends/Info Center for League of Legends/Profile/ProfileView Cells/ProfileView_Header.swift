@@ -60,6 +60,28 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
             // Get champ info
             for participant in game.participants {
                 if participant.summonerId == self.summoner.summonerId {
+                    // Summoner Spell 1
+                    StaticDataEndpoint().getSpellInfoById(Int(participant.spell1Id), spellData: .image, completion: { (spellInfo) in
+                        DDragon().getSummonerSpellIcon(spellInfo.image!.full, completion: { (spellIconUrl) in
+                            self.inGameBanner?.spell1icon?.setImageWith(spellIconUrl)
+                        })
+                    }, notFound: { 
+                        // ??
+                    }, errorBlock: { 
+                        // Error
+                    })
+                    // Summoner Spell 2
+                    StaticDataEndpoint().getSpellInfoById(Int(participant.spell2Id), spellData: .image, completion: { (spellInfo) in
+                        DDragon().getSummonerSpellIcon(spellInfo.image!.full, completion: { (spellIconUrl) in
+                            self.inGameBanner?.spell2icon?.setImageWith(spellIconUrl)
+                        })
+                    }, notFound: { 
+                        // ??
+                    }, errorBlock: { 
+                        // Error
+                    })
+                    
+                    // Short map name
                     var mapName = "??"
                     if game.mapId == 9 {
                         mapName = "CS"
@@ -73,6 +95,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
                         mapName = "BB"
                     }
                     
+                    // Easy to read game type
                     var gameType = "??"
                     if game.gameQueueConfigId == 0 {
                         gameType = "Custom"
@@ -130,7 +153,9 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
                     
                     self.inGameBanner?.mapGameType?.text = mapName + " - " + gameType
                     
+                    // Get champ icon
                     StaticDataEndpoint().getChampionInfoById(Int(participant.championId), championData: .Image, completion: { (champInfo) in
+                        // Use the new LCU icon if exists
                         if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(participant.championId)) {
                             self.inGameBanner?.champIcon?.image = champIcon
                         } else {
