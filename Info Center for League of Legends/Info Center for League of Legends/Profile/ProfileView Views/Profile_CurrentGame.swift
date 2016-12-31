@@ -55,8 +55,78 @@ class Profile_CurrentGame: MainTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gamePlayer", for: indexPath) as! Profile_CurrentGame_Cell
-
         // Configure the cell...
+        if indexPath.section == 0 {
+            // Blue team
+            StaticDataEndpoint().getChampionInfoById(Int(participantsBlue[indexPath.row].championId), championData: .Image, completion: { (champInfo) in
+                // Use the new LCU icon if exists
+                if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.participantsBlue[indexPath.row].championId)) {
+                    cell.champIcon?.image = champIcon
+                } else {
+                    DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
+                        cell.champIcon?.setImageWith(champSquareArtUrl)
+                    })
+                }
+            }, notFound: {
+                // ???
+            }, errorBlock: {
+                // Error
+            })
+            StaticDataEndpoint().getSpellInfoById(Int(participantsBlue[indexPath.row].spell1Id), spellData: .image, completion: { (spellInfo) in
+                DDragon().getSummonerSpellIcon(spellInfo.image!.full, completion: { (spellIconUrl) in
+                    cell.spell1?.setImageWith(spellIconUrl)
+                })
+            }, notFound: {
+                // ??
+            }, errorBlock: { 
+                // Error
+            })
+            StaticDataEndpoint().getSpellInfoById(Int(participantsBlue[indexPath.row].spell2Id), spellData: .image, completion: { (spellInfo) in
+                DDragon().getSummonerSpellIcon(spellInfo.image!.full, completion: { (spellIconUrl) in
+                    cell.spell2?.setImageWith(spellIconUrl)
+                })
+            }, notFound: {
+                // ??
+            }, errorBlock: {
+                // Error
+            })
+            cell.summonerName?.text = participantsBlue[indexPath.row].summonerName
+        } else {
+            // Red team
+            StaticDataEndpoint().getChampionInfoById(Int(participantsRed[indexPath.row].championId), championData: .Image, completion: { (champInfo) in
+                // Use the new LCU icon if exists
+                if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.participantsRed[indexPath.row].championId)) {
+                    cell.champIcon?.image = champIcon
+                } else {
+                    DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
+                        cell.champIcon?.setImageWith(champSquareArtUrl)
+                    })
+                }
+            }, notFound: {
+                // ???
+            }, errorBlock: {
+                // Error
+            })
+            StaticDataEndpoint().getSpellInfoById(Int(participantsRed[indexPath.row].spell1Id), spellData: .image, completion: { (spellInfo) in
+                DDragon().getSummonerSpellIcon(spellInfo.image!.full, completion: { (spellIconUrl) in
+                    cell.spell1?.setImageWith(spellIconUrl)
+                })
+            }, notFound: {
+                // ??
+            }, errorBlock: {
+                // Error
+            })
+            StaticDataEndpoint().getSpellInfoById(Int(participantsRed[indexPath.row].spell2Id), spellData: .image, completion: { (spellInfo) in
+                DDragon().getSummonerSpellIcon(spellInfo.image!.full, completion: { (spellIconUrl) in
+                    cell.spell2?.setImageWith(spellIconUrl)
+                })
+            }, notFound: {
+                // ??
+            }, errorBlock: {
+                // Error
+            })
+            cell.summonerName?.text = participantsRed[indexPath.row].summonerName
+        }
 
         return cell
     }
