@@ -14,5 +14,4 @@ class ProfileView_InGame: UIView {
     @IBOutlet var spell2icon:UIImageView?
     @IBOutlet var mapGameType:UILabel?
     @IBOutlet var champTime:UILabel?
-    @IBOutlet var button:UIButton?
 }

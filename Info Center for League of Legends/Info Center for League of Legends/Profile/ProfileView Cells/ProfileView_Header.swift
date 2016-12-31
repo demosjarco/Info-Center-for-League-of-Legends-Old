@@ -28,6 +28,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
     @IBOutlet var cover:UIImageView?
     @IBOutlet var addSummonerButton:UIButton?
     @IBOutlet var inGameBanner:ProfileView_InGame?
+    @IBOutlet var inGameBannerButton:UIButton?
     
     @IBOutlet var promotionGames:UILabel?
     @IBOutlet var summonerName:UILabel?
@@ -176,6 +177,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
             }
             // Unhide
             self.inGameBanner?.isHidden = false
+            self.inGameBannerButton?.isEnabled = true
             self.inGameBanner?.frame = CGRect(x: self.inGameBanner!.frame.origin.x - self.inGameBanner!.frame.size.width, y: self.inGameBanner!.frame.origin.y, width: self.inGameBanner!.frame.size.width, height: self.inGameBanner!.frame.size.height)
             // Animate slide in
             UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: { 
@@ -184,10 +186,13 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
         }, notFound: { 
             // Stay hidden
             self.inGameBanner?.isHidden = true
+            self.inGameBannerButton?.isEnabled = false
             self.updateCurrentGameTime(nil)
         }, errorBlock: {
             // Error
             self.updateCurrentGameTime(nil)
+            self.inGameBanner?.isHidden = true
+            self.inGameBannerButton?.isEnabled = false
         })
     }
     
