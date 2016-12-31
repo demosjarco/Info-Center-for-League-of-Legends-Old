@@ -66,6 +66,8 @@
 		17421AB41D4BCD1100F22B52 /* MasteryPagesDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17421AB31D4BCD1100F22B52 /* MasteryPagesDto.swift */; };
 		17421AB61D4BCD7A00F22B52 /* MasteryPageDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17421AB51D4BCD7A00F22B52 /* MasteryPageDto.swift */; };
 		17425AA21E17580700EB3058 /* Profile_CurrentGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17425AA11E17580700EB3058 /* Profile_CurrentGame.swift */; };
+		17425AA41E175E1400EB3058 /* Profile_CurrentGame_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17425AA31E175E1400EB3058 /* Profile_CurrentGame_Cell.swift */; };
+		17425AA61E175E8000EB3058 /* Profile_CurrentGame_Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17425AA51E175E8000EB3058 /* Profile_CurrentGame_Header.swift */; };
 		174C95181D106CCD00EBFB07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174C95171D106CCD00EBFB07 /* AppDelegate.swift */; };
 		174C951F1D106CCD00EBFB07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174C951D1D106CCD00EBFB07 /* Main.storyboard */; };
 		174C95241D106CCE00EBFB07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 174C95221D106CCE00EBFB07 /* LaunchScreen.storyboard */; };
@@ -201,6 +203,8 @@
 		17421AB31D4BCD1100F22B52 /* MasteryPagesDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryPagesDto.swift; path = "Riot API/SummonerEntities/MasteryPagesDto.swift"; sourceTree = "<group>"; };
 		17421AB51D4BCD7A00F22B52 /* MasteryPageDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryPageDto.swift; path = "Riot API/SummonerEntities/MasteryPageDto.swift"; sourceTree = "<group>"; };
 		17425AA11E17580700EB3058 /* Profile_CurrentGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_CurrentGame.swift; sourceTree = "<group>"; };
+		17425AA31E175E1400EB3058 /* Profile_CurrentGame_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_CurrentGame_Cell.swift; sourceTree = "<group>"; };
+		17425AA51E175E8000EB3058 /* Profile_CurrentGame_Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile_CurrentGame_Header.swift; sourceTree = "<group>"; };
 		174C95141D106CCD00EBFB07 /* Info Center for League of Legends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Info Center for League of Legends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		174C95171D106CCD00EBFB07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		174C951E1D106CCD00EBFB07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -516,6 +520,8 @@
 			isa = PBXGroup;
 			children = (
 				17425AA11E17580700EB3058 /* Profile_CurrentGame.swift */,
+				17425AA51E175E8000EB3058 /* Profile_CurrentGame_Header.swift */,
+				17425AA31E175E1400EB3058 /* Profile_CurrentGame_Cell.swift */,
 				174DFCBC1E0CE2BF001A6685 /* Profile_ChampionMastery.swift */,
 				174DFCBD1E0CE2BF001A6685 /* Profile_ChampionMastery_Cell.swift */,
 				174DFCC11E0CE2BF001A6685 /* Profile_RecentGames.swift */,
@@ -1145,11 +1151,13 @@
 			files = (
 				1732F5FB1D550057009DA53B /* StatusEndpoint.swift in Sources */,
 				171A1C131D38989D00BAB5B4 /* AggregatedStatsDto.swift in Sources */,
+				17425AA61E175E8000EB3058 /* Profile_CurrentGame_Header.swift in Sources */,
 				1732F6051D550184009DA53B /* Incident.swift in Sources */,
 				17029E651E0C56B1004E653E /* InfoDto.swift in Sources */,
 				17029E731E0C56C1004E653E /* MasteryTreeDto.swift in Sources */,
 				1739C4921D1C3A3800B50BDC /* SummonerEndpoint.swift in Sources */,
 				175EC65B1E15C4E1003BAB9D /* CurrentGameInfo.swift in Sources */,
+				17425AA41E175E1400EB3058 /* Profile_CurrentGame_Cell.swift in Sources */,
 				172101D31D1EDC880088DB1A /* MainCollectionViewController.swift in Sources */,
 				17029E601E0C56B1004E653E /* BlockDto.swift in Sources */,
 				178B95791D428A1C00CAD47A /* GameDto.swift in Sources */,
