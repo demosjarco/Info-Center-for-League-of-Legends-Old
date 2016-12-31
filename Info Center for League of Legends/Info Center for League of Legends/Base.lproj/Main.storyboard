@@ -2020,14 +2020,14 @@ last -- games</string>
                                             <rect key="frame" x="2" y="116" width="112" height="34"/>
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
-                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="16"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="13.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
-                                                    <rect key="frame" x="0.0" y="16" width="112" height="18"/>
+                                                    <rect key="frame" x="0.0" y="13.5" width="112" height="20.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2258,14 +2258,14 @@ last -- games</string>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </stackView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MUK-QL-CN4">
-                                            <rect key="frame" x="64.5" y="11" width="22" height="22"/>
+                                            <rect key="frame" x="68.5" y="11" width="22" height="22"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="MUK-QL-CN4" secondAttribute="height" multiplier="1:1" id="3Lk-Gd-GfR"/>
                                             </constraints>
                                         </imageView>
-                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8888888888" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" translatesAutoresizingMaskIntoConstraints="NO" id="dJe-4U-sfc">
-                                            <rect key="frame" x="94.5" y="0.0" width="105" height="43"/>
+                                        <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" translatesAutoresizingMaskIntoConstraints="NO" id="dJe-4U-sfc">
+                                            <rect key="frame" x="98.5" y="0.0" width="15.5" height="43"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2301,7 +2301,7 @@ last -- games</string>
                                         <constraint firstAttribute="bottom" secondItem="SMp-Eh-s5N" secondAttribute="bottom" id="DIV-cl-yyb"/>
                                         <constraint firstItem="VaM-st-XI1" firstAttribute="height" secondItem="SMp-Eh-s5N" secondAttribute="height" multiplier="0.5" id="FW8-Yn-FvZ"/>
                                         <constraint firstItem="6ov-mD-sVX" firstAttribute="leading" secondItem="11o-N8-a2a" secondAttribute="trailing" constant="10" id="FYN-Dk-9NN"/>
-                                        <constraint firstItem="MUK-QL-CN4" firstAttribute="leading" secondItem="2k9-SQ-JlT" secondAttribute="trailing" id="HRt-Jc-cpu"/>
+                                        <constraint firstItem="MUK-QL-CN4" firstAttribute="leading" secondItem="2k9-SQ-JlT" secondAttribute="trailing" constant="4" id="HRt-Jc-cpu"/>
                                         <constraint firstItem="sf4-dH-KxW" firstAttribute="centerY" secondItem="MUI-Bq-heA" secondAttribute="centerY" id="JAH-xy-Dt1"/>
                                         <constraint firstAttribute="bottom" secondItem="VaM-st-XI1" secondAttribute="bottom" id="LZ4-Og-Zlt"/>
                                         <constraint firstItem="MUK-QL-CN4" firstAttribute="centerY" secondItem="MUI-Bq-heA" secondAttribute="centerY" id="PiG-m0-MXr"/>
