@@ -1195,7 +1195,7 @@ last -- games</string>
                                     </connections>
                                 </button>
                                 <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ks8-hy-B1w" customClass="ProfileView_InGame" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                    <rect key="frame" x="-11" y="38" width="124" height="55"/>
+                                    <rect key="frame" x="-11" y="46" width="124" height="55"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9mD-9U-wof">
                                             <rect key="frame" x="11" y="0.0" width="55" height="55"/>
@@ -1455,7 +1455,7 @@ last -- games</string>
                                 <constraint firstItem="ks8-hy-B1w" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leading" constant="-11" id="YqR-Tm-7NN"/>
                                 <constraint firstItem="doK-DV-tJ3" firstAttribute="leading" secondItem="og1-tu-Naf" secondAttribute="trailing" constant="-64" id="aym-ol-W9C"/>
                                 <constraint firstItem="viW-7c-R4i" firstAttribute="centerY" secondItem="XS3-3O-PA4" secondAttribute="centerY" constant="4" id="d2t-yG-4HW"/>
-                                <constraint firstItem="ks8-hy-B1w" firstAttribute="top" secondItem="viW-7c-R4i" secondAttribute="bottom" id="dlL-Rp-Oda"/>
+                                <constraint firstItem="ks8-hy-B1w" firstAttribute="top" secondItem="viW-7c-R4i" secondAttribute="bottom" constant="8" id="dlL-Rp-Oda"/>
                                 <constraint firstItem="kbV-rc-E4V" firstAttribute="leading" secondItem="jfk-L5-GNx" secondAttribute="leading" id="ebb-k8-qSB"/>
                                 <constraint firstItem="kbV-rc-E4V" firstAttribute="top" secondItem="jfk-L5-GNx" secondAttribute="top" constant="-20" id="efE-h0-7jH"/>
                                 <constraint firstAttribute="trailingMargin" secondItem="Ye1-cE-TZ4" secondAttribute="trailing" id="fXA-at-A8Q"/>
@@ -2008,14 +2008,14 @@ last -- games</string>
                                             <rect key="frame" x="2" y="116" width="112" height="34"/>
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
-                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="16"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="13.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
-                                                    <rect key="frame" x="0.0" y="16" width="112" height="18"/>
+                                                    <rect key="frame" x="0.0" y="13.5" width="112" height="20.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
