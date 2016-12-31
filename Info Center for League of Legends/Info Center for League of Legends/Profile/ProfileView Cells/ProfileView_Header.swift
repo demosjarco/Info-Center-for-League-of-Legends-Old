@@ -249,9 +249,11 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
                 self.getCurrentGame()
             }
         }
-        if (champName != nil) && (startDate != nil) {
-            self.inGameBanner?.champTime?.text = champName! + " - " + String(format: "%.0fm", (startDate!.timeIntervalSinceNow * TimeInterval(-1)) / TimeInterval(60))
-            Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(self.updateCurrentGameTime(_:)), userInfo: nil, repeats: false)
+        DispatchQueue.main.async { [unowned self] in
+            if (self.champName != nil) && (self.startDate != nil) {
+                self.inGameBanner?.champTime?.text = self.champName! + " - " + String(format: "%.0f:%02.0f", (self.startDate!.timeIntervalSinceNow * TimeInterval(-1)) / TimeInterval(60), (self.startDate!.timeIntervalSinceNow * TimeInterval(-1)).truncatingRemainder(dividingBy: 60))
+                Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(self.updateCurrentGameTime(_:)), userInfo: nil, repeats: false)
+            }
         }
     }
     
