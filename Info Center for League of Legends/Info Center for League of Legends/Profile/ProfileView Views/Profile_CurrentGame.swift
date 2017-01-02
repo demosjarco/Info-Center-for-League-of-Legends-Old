@@ -345,57 +345,59 @@ class Profile_CurrentGame: MainTableViewController {
             })
             
             // Bans
-            switch indexPath.row {
-            case 2:
-                StaticDataEndpoint().getChampionInfoById(Int(bans[0].championId), championData: .Image, completion: { (champInfo) in
-                    // Use the new LCU icon if exists
-                    if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[0].championId)) {
-                        cell.champBan?.image = champIcon
-                    } else {
-                        DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
-                            cell.champBan?.setImageWith(champSquareArtUrl)
-                        })
-                    }
-                }, notFound: { 
-                    // ??
-                }, errorBlock: { 
-                    // Error
-                })
-                break
-            case 3:
-                StaticDataEndpoint().getChampionInfoById(Int(bans[2].championId), championData: .Image, completion: { (champInfo) in
-                    // Use the new LCU icon if exists
-                    if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[2].championId)) {
-                        cell.champBan?.image = champIcon
-                    } else {
-                        DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
-                            cell.champBan?.setImageWith(champSquareArtUrl)
-                        })
-                    }
-                }, notFound: {
-                    // ??
-                }, errorBlock: {
-                    // Error
-                })
-                break
-            case 4:
-                StaticDataEndpoint().getChampionInfoById(Int(bans[4].championId), championData: .Image, completion: { (champInfo) in
-                    // Use the new LCU icon if exists
-                    if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[4].championId)) {
-                        cell.champBan?.image = champIcon
-                    } else {
-                        DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
-                            cell.champBan?.setImageWith(champSquareArtUrl)
-                        })
-                    }
-                }, notFound: {
-                    // ??
-                }, errorBlock: {
-                    // Error
-                })
-                break
-            default:
-                break
+            if bans.count == 6 {
+                switch indexPath.row {
+                case 2:
+                    StaticDataEndpoint().getChampionInfoById(Int(bans[0].championId), championData: .Image, completion: { (champInfo) in
+                        // Use the new LCU icon if exists
+                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[0].championId)) {
+                            cell.champBan?.image = champIcon
+                        } else {
+                            DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
+                                cell.champBan?.setImageWith(champSquareArtUrl)
+                            })
+                        }
+                    }, notFound: {
+                        // ??
+                    }, errorBlock: {
+                        // Error
+                    })
+                    break
+                case 3:
+                    StaticDataEndpoint().getChampionInfoById(Int(bans[2].championId), championData: .Image, completion: { (champInfo) in
+                        // Use the new LCU icon if exists
+                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[2].championId)) {
+                            cell.champBan?.image = champIcon
+                        } else {
+                            DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
+                                cell.champBan?.setImageWith(champSquareArtUrl)
+                            })
+                        }
+                    }, notFound: {
+                        // ??
+                    }, errorBlock: {
+                        // Error
+                    })
+                    break
+                case 4:
+                    StaticDataEndpoint().getChampionInfoById(Int(bans[4].championId), championData: .Image, completion: { (champInfo) in
+                        // Use the new LCU icon if exists
+                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[4].championId)) {
+                            cell.champBan?.image = champIcon
+                        } else {
+                            DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
+                                cell.champBan?.setImageWith(champSquareArtUrl)
+                            })
+                        }
+                    }, notFound: {
+                        // ??
+                    }, errorBlock: {
+                        // Error
+                    })
+                    break
+                default:
+                    break
+                }
             }
         } else {
             // Red team
@@ -521,57 +523,59 @@ class Profile_CurrentGame: MainTableViewController {
             })
             
             // Bans
-            switch indexPath.row {
-            case 2:
-                StaticDataEndpoint().getChampionInfoById(Int(bans[1].championId), championData: .Image, completion: { (champInfo) in
-                    // Use the new LCU icon if exists
-                    if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[1].championId)) {
-                        cell.champBan?.image = champIcon
-                    } else {
-                        DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
-                            cell.champBan?.setImageWith(champSquareArtUrl)
-                        })
-                    }
-                }, notFound: {
-                    // ??
-                }, errorBlock: {
-                    // Error
-                })
-                break
-            case 3:
-                StaticDataEndpoint().getChampionInfoById(Int(bans[3].championId), championData: .Image, completion: { (champInfo) in
-                    // Use the new LCU icon if exists
-                    if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[3].championId)) {
-                        cell.champBan?.image = champIcon
-                    } else {
-                        DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
-                            cell.champBan?.setImageWith(champSquareArtUrl)
-                        })
-                    }
-                }, notFound: {
-                    // ??
-                }, errorBlock: {
-                    // Error
-                })
-                break
-            case 4:
-                StaticDataEndpoint().getChampionInfoById(Int(bans[5].championId), championData: .Image, completion: { (champInfo) in
-                    // Use the new LCU icon if exists
-                    if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[5].championId)) {
-                        cell.champBan?.image = champIcon
-                    } else {
-                        DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
-                            cell.champBan?.setImageWith(champSquareArtUrl)
-                        })
-                    }
-                }, notFound: {
-                    // ??
-                }, errorBlock: {
-                    // Error
-                })
-                break
-            default:
-                break
+            if bans.count == 6 {
+                switch indexPath.row {
+                case 2:
+                    StaticDataEndpoint().getChampionInfoById(Int(bans[1].championId), championData: .Image, completion: { (champInfo) in
+                        // Use the new LCU icon if exists
+                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[1].championId)) {
+                            cell.champBan?.image = champIcon
+                        } else {
+                            DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
+                                cell.champBan?.setImageWith(champSquareArtUrl)
+                            })
+                        }
+                    }, notFound: {
+                        // ??
+                    }, errorBlock: {
+                        // Error
+                    })
+                    break
+                case 3:
+                    StaticDataEndpoint().getChampionInfoById(Int(bans[3].championId), championData: .Image, completion: { (champInfo) in
+                        // Use the new LCU icon if exists
+                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[3].championId)) {
+                            cell.champBan?.image = champIcon
+                        } else {
+                            DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
+                                cell.champBan?.setImageWith(champSquareArtUrl)
+                            })
+                        }
+                    }, notFound: {
+                        // ??
+                    }, errorBlock: {
+                        // Error
+                    })
+                    break
+                case 4:
+                    StaticDataEndpoint().getChampionInfoById(Int(bans[5].championId), championData: .Image, completion: { (champInfo) in
+                        // Use the new LCU icon if exists
+                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[5].championId)) {
+                            cell.champBan?.image = champIcon
+                        } else {
+                            DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
+                                cell.champBan?.setImageWith(champSquareArtUrl)
+                            })
+                        }
+                    }, notFound: {
+                        // ??
+                    }, errorBlock: {
+                        // Error
+                    })
+                    break
+                default:
+                    break
+                }
             }
         }
 
