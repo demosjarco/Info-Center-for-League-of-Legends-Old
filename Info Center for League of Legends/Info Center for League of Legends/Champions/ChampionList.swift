@@ -90,6 +90,10 @@ class ChampionList: MainCollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champCell", for: indexPath) as! ChampionListCell
+        // Performance
+        cell.layer.rasterizationScale = UIScreen.main.scale
+        cell.layer.shouldRasterize = true
+        
         // Clear cell
         cell.champIcon?.image = nil
         
