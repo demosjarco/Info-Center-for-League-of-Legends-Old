@@ -628,9 +628,14 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                         DDragon().getChampionLoadingArt(champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
                             champMasteryCell.champ1bg?.setImageWith(champLoadingArtUrl)
                         })
-                        DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
-                            champMasteryCell.champ1squareIcon?.setImageWith(champSquareArtUrl)
-                        })
+                        // Use the new LCU icon if exists
+                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: championMastery.championId) {
+                            champMasteryCell.champ1squareIcon?.image = champIcon
+                        } else {
+                            DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
+                                champMasteryCell.champ1squareIcon?.setImageWith(champSquareArtUrl)
+                            })
+                        }
                         champMasteryCell.champ1name?.text = champion.name
                     }, notFound: {
                         // 404
@@ -657,9 +662,14 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                         DDragon().getChampionLoadingArt(champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
                             champMasteryCell.champ2bg?.setImageWith(champLoadingArtUrl)
                         })
-                        DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
-                            champMasteryCell.champ2squareIcon?.setImageWith(champSquareArtUrl)
-                        })
+                        // Use the new LCU icon if exists
+                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: championMastery.championId) {
+                            champMasteryCell.champ2squareIcon?.image = champIcon
+                        } else {
+                            DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
+                                champMasteryCell.champ2squareIcon?.setImageWith(champSquareArtUrl)
+                            })
+                        }
                         champMasteryCell.champ2name?.text = champion.name
                     }, notFound: {
                         // 404
@@ -686,9 +696,14 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                         DDragon().getChampionLoadingArt(champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
                             champMasteryCell.champ3bg?.setImageWith(champLoadingArtUrl)
                         })
-                        DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
-                            champMasteryCell.champ3squareIcon?.setImageWith(champSquareArtUrl)
-                        })
+                        // Use the new LCU icon if exists
+                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: championMastery.championId) {
+                            champMasteryCell.champ3squareIcon?.image = champIcon
+                        } else {
+                            DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
+                                champMasteryCell.champ3squareIcon?.setImageWith(champSquareArtUrl)
+                            })
+                        }
                         champMasteryCell.champ3name?.text = champion.name
                     }, notFound: {
                         // 404
@@ -736,15 +751,20 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 }
                 
                 if self.rc_lastGame.championId != 0 {
-                    StaticDataEndpoint().getChampionInfoById(self.rc_lastGame.championId, championData: .Image, completion: { (champion) in
-                        DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
-                            recentGamesCell.lastGameChamp?.setImageWith(champSquareArtUrl)
+                    // Use the new LCU icon if exists
+                    if let champIcon = DDragon().getLcuChampionSquareArt(champId: self.rc_lastGame.championId) {
+                        recentGamesCell.lastGameChamp?.image = champIcon
+                    } else {
+                        StaticDataEndpoint().getChampionInfoById(self.rc_lastGame.championId, championData: .Image, completion: { (champion) in
+                            DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
+                                recentGamesCell.lastGameChamp?.setImageWith(champSquareArtUrl)
+                            })
+                        }, notFound: {
+                            // 404
+                        }, errorBlock: {
+                            // Error
                         })
-                    }, notFound: {
-                        // 404
-                    }, errorBlock: {
-                        // Error
-                    })
+                    }
                 }
                 
                 var kills = 0
