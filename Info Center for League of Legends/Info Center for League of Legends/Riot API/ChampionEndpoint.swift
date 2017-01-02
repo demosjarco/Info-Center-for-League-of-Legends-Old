@@ -19,16 +19,18 @@ class ChampionEndpoint: NSObject {
                 
                 let oldChampions = json["champions"]!
                 for oldChampion in oldChampions {
-                    let newChampion = ChampionInfoDto()
-                    
-                    newChampion.active = oldChampion["active"] as! Bool
-                    newChampion.botEnabled = oldChampion["botEnabled"] as! Bool
-                    newChampion.botMmEnabled = oldChampion["botMmEnabled"] as! Bool
-                    newChampion.freeToPlay = oldChampion["freeToPlay"] as! Bool
-                    newChampion.champId = oldChampion["id"] as! CLong
-                    newChampion.rankedPlayEnabled = oldChampion["rankedPlayEnabled"] as! Bool
-                    
-                    newChampionList.champions.append(newChampion)
+                    autoreleasepool { ()
+                        let newChampion = ChampionInfoDto()
+                        
+                        newChampion.active = oldChampion["active"] as! Bool
+                        newChampion.botEnabled = oldChampion["botEnabled"] as! Bool
+                        newChampion.botMmEnabled = oldChampion["botMmEnabled"] as! Bool
+                        newChampion.freeToPlay = oldChampion["freeToPlay"] as! Bool
+                        newChampion.champId = oldChampion["id"] as! CLong
+                        newChampion.rankedPlayEnabled = oldChampion["rankedPlayEnabled"] as! Bool
+                        
+                        newChampionList.champions.append(newChampion)
+                    }
                 }
                 
                 completion(newChampionList)
