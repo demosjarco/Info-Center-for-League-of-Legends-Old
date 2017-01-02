@@ -299,36 +299,41 @@ class Profile_CurrentGame: MainTableViewController {
                 var highestDivision: Int = 6
                 var highestDivisionRoman: String = ""
                 
-                for league in currentSummoner! {
-                    if highestTier > LeagueEndpoint().tierToNumber(league.tier) {
-                        highestTier = LeagueEndpoint().tierToNumber(league.tier)
-                        highestTierSpelledOut = league.tier
-                        highestDivision = 6
+                if (currentSummoner != nil) {
+                    for league in currentSummoner! {
+                        if highestTier > LeagueEndpoint().tierToNumber(league.tier) {
+                            highestTier = LeagueEndpoint().tierToNumber(league.tier)
+                            highestTierSpelledOut = league.tier
+                            highestDivision = 6
+                            
+                            for entry in league.entries {
+                                if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
+                                    highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
+                                    highestDivisionRoman = entry.division
+                                }
+                            }
+                        } else if highestTier == LeagueEndpoint().tierToNumber(league.tier) {
+                            for entry in league.entries {
+                                if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
+                                    highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
+                                    highestDivisionRoman = entry.division
+                                }
+                            }
+                        }
                         
-                        for entry in league.entries {
-                            if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
-                                highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
-                                highestDivisionRoman = entry.division
-                            }
-                        }
-                    } else if highestTier == LeagueEndpoint().tierToNumber(league.tier) {
-                        for entry in league.entries {
-                            if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
-                                highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
-                                highestDivisionRoman = entry.division
-                            }
+                        if highestTier < 2 {
+                            // Challenger & Master
+                            // Dont use division
+                            cell.currentSeasonRank?.image = UIImage(named: highestTierSpelledOut.lowercased())
+                        } else {
+                            // Diamond and lower
+                            // Use division
+                            cell.currentSeasonRank?.image = UIImage(named: highestTierSpelledOut.lowercased() + "_" + highestDivisionRoman.lowercased())
                         }
                     }
-                    
-                    if highestTier < 2 {
-                        // Challenger & Master
-                        // Dont use division
-                        cell.currentSeasonRank?.image = UIImage(named: highestTierSpelledOut.lowercased())
-                    } else {
-                        // Diamond and lower
-                        // Use division
-                        cell.currentSeasonRank?.image = UIImage(named: highestTierSpelledOut.lowercased() + "_" + highestDivisionRoman.lowercased())
-                    }
+                } else {
+                    // Error
+                    cell.currentSeasonRank?.image = UIImage(named: "provisional")
                 }
             }, notFound: {
                 // Unranked
@@ -469,36 +474,41 @@ class Profile_CurrentGame: MainTableViewController {
                 var highestDivision: Int = 6
                 var highestDivisionRoman: String = ""
                 
-                for league in currentSummoner! {
-                    if highestTier > LeagueEndpoint().tierToNumber(league.tier) {
-                        highestTier = LeagueEndpoint().tierToNumber(league.tier)
-                        highestTierSpelledOut = league.tier
-                        highestDivision = 6
+                if (currentSummoner != nil) {
+                    for league in currentSummoner! {
+                        if highestTier > LeagueEndpoint().tierToNumber(league.tier) {
+                            highestTier = LeagueEndpoint().tierToNumber(league.tier)
+                            highestTierSpelledOut = league.tier
+                            highestDivision = 6
+                            
+                            for entry in league.entries {
+                                if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
+                                    highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
+                                    highestDivisionRoman = entry.division
+                                }
+                            }
+                        } else if highestTier == LeagueEndpoint().tierToNumber(league.tier) {
+                            for entry in league.entries {
+                                if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
+                                    highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
+                                    highestDivisionRoman = entry.division
+                                }
+                            }
+                        }
                         
-                        for entry in league.entries {
-                            if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
-                                highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
-                                highestDivisionRoman = entry.division
-                            }
-                        }
-                    } else if highestTier == LeagueEndpoint().tierToNumber(league.tier) {
-                        for entry in league.entries {
-                            if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
-                                highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
-                                highestDivisionRoman = entry.division
-                            }
+                        if highestTier < 2 {
+                            // Challenger & Master
+                            // Dont use division
+                            cell.currentSeasonRank?.image = UIImage(named: highestTierSpelledOut.lowercased())
+                        } else {
+                            // Diamond and lower
+                            // Use division
+                            cell.currentSeasonRank?.image = UIImage(named: highestTierSpelledOut.lowercased() + "_" + highestDivisionRoman.lowercased())
                         }
                     }
-                    
-                    if highestTier < 2 {
-                        // Challenger & Master
-                        // Dont use division
-                        cell.currentSeasonRank?.image = UIImage(named: highestTierSpelledOut.lowercased())
-                    } else {
-                        // Diamond and lower
-                        // Use division
-                        cell.currentSeasonRank?.image = UIImage(named: highestTierSpelledOut.lowercased() + "_" + highestDivisionRoman.lowercased())
-                    }
+                } else {
+                    // Error
+                    cell.currentSeasonRank?.image = UIImage(named: "provisional")
                 }
             }, notFound: {
                 // Unranked
