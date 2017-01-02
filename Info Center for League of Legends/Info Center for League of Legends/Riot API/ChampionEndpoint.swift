@@ -14,26 +14,28 @@ class ChampionEndpoint: NSObject {
     func getAllChampions(_ freeToPlay: Bool, completion: @escaping (_ championList: ChampionListDto) -> Void, errorBlock: @escaping () -> Void) {
         Endpoints().champions(freeToPlay ? "true" : "false") { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
-                let json = responseObject as! [String: [[String: AnyObject]]]
-                let newChampionList = ChampionListDto()
-                
-                let oldChampions = json["champions"]!
-                for oldChampion in oldChampions {
-                    autoreleasepool { ()
-                        let newChampion = ChampionInfoDto()
-                        
-                        newChampion.active = oldChampion["active"] as! Bool
-                        newChampion.botEnabled = oldChampion["botEnabled"] as! Bool
-                        newChampion.botMmEnabled = oldChampion["botMmEnabled"] as! Bool
-                        newChampion.freeToPlay = oldChampion["freeToPlay"] as! Bool
-                        newChampion.champId = oldChampion["id"] as! CLong
-                        newChampion.rankedPlayEnabled = oldChampion["rankedPlayEnabled"] as! Bool
-                        
-                        newChampionList.champions.append(newChampion)
+                autoreleasepool(invoking: { ()
+                    let json = responseObject as! [String: [[String: AnyObject]]]
+                    let newChampionList = ChampionListDto()
+                    
+                    let oldChampions = json["champions"]!
+                    for oldChampion in oldChampions {
+                        autoreleasepool { ()
+                            let newChampion = ChampionInfoDto()
+                            
+                            newChampion.active = oldChampion["active"] as! Bool
+                            newChampion.botEnabled = oldChampion["botEnabled"] as! Bool
+                            newChampion.botMmEnabled = oldChampion["botMmEnabled"] as! Bool
+                            newChampion.freeToPlay = oldChampion["freeToPlay"] as! Bool
+                            newChampion.champId = oldChampion["id"] as! CLong
+                            newChampion.rankedPlayEnabled = oldChampion["rankedPlayEnabled"] as! Bool
+                            
+                            newChampionList.champions.append(newChampion)
+                        }
                     }
-                }
-                
-                completion(newChampionList)
+                    
+                    completion(newChampionList)
+                })
             }, failure: { (task, error) in
                 let response = task!.response as! HTTPURLResponse
                 errorBlock()
