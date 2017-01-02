@@ -133,6 +133,9 @@ class Profile_RecentGames: MainTableViewController, SFSafariViewControllerDelega
             case "NORMAL":
                 cell.gameType?.text = "Normal"
                 break
+            case "ARAM_UNRANKED_5x5":
+                cell.gameType?.text = "ARAM"
+                break
             case "SIEGE":
                 cell.gameType?.text = "Nexus Seige"
                 break
