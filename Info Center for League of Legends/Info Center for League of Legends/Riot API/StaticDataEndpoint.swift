@@ -86,7 +86,7 @@ class StaticDataEndpoint: NSObject {
     func getChampionInfoById(_ champId: Int, championData: champData, completion: @escaping (ChampionDto) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
         Endpoints().staticData_champion_id(String(champId), champData: championData.rawValue) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
-                DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async { [unowned self] in
+                DispatchQueue.main.async { [unowned self] in
                     autoreleasepool { ()
                         let newChampion = ChampionDto()
                         let json = responseObject as! [String: AnyObject]
