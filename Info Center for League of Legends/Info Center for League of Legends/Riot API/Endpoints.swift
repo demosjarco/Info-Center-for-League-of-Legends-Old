@@ -76,6 +76,14 @@ class Endpoints: NSObject {
     
     // MARK: - Endpoint URLs
     
+    // Champions
+    func champions(_ freeToPlay:String, completion: @escaping (_ composedUrl: String) -> Void) {
+        self.getApiKey { (apiKey) in
+            let urlString = self.getBaseEndpoint() + "/v1.2/champion?freeToPlay=" + freeToPlay + "&api_key=" + apiKey
+            completion(urlString)
+        }
+    }
+    
     // Champion Mastery
     func championMastery_bySummonerId_byChampionId(_ championId:String, playerId: String, completion: @escaping (_ composedUrl: String) -> Void) {
         var region:String
