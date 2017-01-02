@@ -15,35 +15,41 @@ class MainTableViewController: UITableViewController, GADBannerViewDelegate, GAD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tableBG = UIView(frame: self.tableView.frame)
-        tableBG.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
-        let bgImage = UIImageView(frame: tableBG.frame)
-        tableBG.addSubview(bgImage)
-        bgImage.autoresizingMask = tableBG.autoresizingMask
-        bgImage.contentMode = .scaleAspectFill
-        
-        let remoteConfig = FIRRemoteConfig.remoteConfig()
-        remoteConfig.fetch(completionHandler: { (status, error) in
-            if status == .success {
-                remoteConfig.activateFetched()
-                
-                FIRStorage.storage().reference().child("appBackgrounds").child(remoteConfig["appBackground"].stringValue!).downloadURL(completion: { (url, error) in
-                    if (error != nil) {
-                        // ?
-                    } else {
-                        bgImage.setImageWith(url!)
+        autoreleasepool { ()
+            let tableBG = UIView(frame: self.tableView.frame)
+            tableBG.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            
+            let bgImage = UIImageView(frame: tableBG.frame)
+            tableBG.addSubview(bgImage)
+            bgImage.autoresizingMask = tableBG.autoresizingMask
+            bgImage.contentMode = .scaleAspectFill
+            
+            let remoteConfig = FIRRemoteConfig.remoteConfig()
+            remoteConfig.fetch(completionHandler: { (status, error) in
+                autoreleasepool { ()
+                    if status == .success {
+                        remoteConfig.activateFetched()
+                        
+                        FIRStorage.storage().reference().child("appBackgrounds").child(remoteConfig["appBackground"].stringValue!).downloadURL(completion: { (url, error) in
+                            autoreleasepool { ()
+                                if (error != nil) {
+                                    // ?
+                                } else {
+                                    bgImage.setImageWith(url!)
+                                }
+                            }
+                        })
                     }
-                })
-            }
-        })
-        
-        let blur = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-        tableBG.insertSubview(blur, aboveSubview: bgImage)
-        blur.frame = tableBG.frame
-        blur.autoresizingMask = tableBG.autoresizingMask
-        
-        self.tableView.backgroundView = tableBG
+                }
+            })
+            
+            let blur = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+            tableBG.insertSubview(blur, aboveSubview: bgImage)
+            blur.frame = tableBG.frame
+            blur.autoresizingMask = tableBG.autoresizingMask
+            
+            self.tableView.backgroundView = tableBG
+        }
     }
     
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
