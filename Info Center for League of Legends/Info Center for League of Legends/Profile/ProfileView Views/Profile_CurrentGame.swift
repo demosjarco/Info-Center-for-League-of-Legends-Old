@@ -130,43 +130,42 @@ class Profile_CurrentGame: MainTableViewController {
     }
     
     func updateCurrentGameTime(_ timer: Timer?) {
-        timer?.invalidate()
-        self.currentGameRefreshCount += 1
-        if (startDate != nil) {
-            if startDate!.timeIntervalSinceNow > TimeInterval(-1800) {
-                // Less than 30 min
+        DispatchQueue.main.async { [unowned self] in
+            timer?.invalidate()
+            self.currentGameRefreshCount += 1
+            if (self.startDate != nil) {
+                if self.startDate!.timeIntervalSinceNow > TimeInterval(-1800) {
+                    // Less than 30 min
+                    // Refresh every 60 sec
+                    if self.currentGameRefreshCount >= 60 {
+                        self.currentGameRefreshCount = 0
+                        self.checkIfGameStillOn()
+                    }
+                } else if self.startDate!.timeIntervalSinceNow <= TimeInterval(-1800) || self.startDate!.timeIntervalSinceNow >= TimeInterval(-2100) {
+                    // Between 30 and 35 min
+                    // Refresh every 30 sec
+                    if self.currentGameRefreshCount >= 30 {
+                        self.currentGameRefreshCount = 0
+                        self.checkIfGameStillOn()
+                    }
+                } else if self.startDate!.timeIntervalSinceNow < TimeInterval(-2100) {
+                    // Greater than 35 min
+                    // Refresh every 15 sec
+                    if self.currentGameRefreshCount >= 15 {
+                        self.currentGameRefreshCount = 0
+                        self.checkIfGameStillOn()
+                    }
+                }
+                
+                self.navigationItem.prompt = String(format: "%.0f:%02.0f", (self.startDate!.timeIntervalSinceNow * TimeInterval(-1)) / TimeInterval(60), (self.startDate!.timeIntervalSinceNow * TimeInterval(-1)).truncatingRemainder(dividingBy: 60))
+                Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(self.updateCurrentGameTime(_:)), userInfo: nil, repeats: false)
+            } else {
+                // Not in game
                 // Refresh every 60 sec
                 if self.currentGameRefreshCount >= 60 {
                     self.currentGameRefreshCount = 0
                     self.checkIfGameStillOn()
                 }
-            } else if startDate!.timeIntervalSinceNow <= TimeInterval(-1800) || startDate!.timeIntervalSinceNow >= TimeInterval(-2100) {
-                // Between 30 and 35 min
-                // Refresh every 30 sec
-                if self.currentGameRefreshCount >= 30 {
-                    self.currentGameRefreshCount = 0
-                    self.checkIfGameStillOn()
-                }
-            } else if startDate!.timeIntervalSinceNow < TimeInterval(-2100) {
-                // Greater than 35 min
-                // Refresh every 15 sec
-                if self.currentGameRefreshCount >= 15 {
-                    self.currentGameRefreshCount = 0
-                    self.checkIfGameStillOn()
-                }
-            }
-        } else {
-            // Not in game
-            // Refresh every 60 sec
-            if self.currentGameRefreshCount >= 60 {
-                self.currentGameRefreshCount = 0
-                self.checkIfGameStillOn()
-            }
-        }
-        DispatchQueue.main.async { [unowned self] in
-            if (self.startDate != nil) {
-                self.navigationItem.prompt = String(format: "%.0f:%02.0f", (self.startDate!.timeIntervalSinceNow * TimeInterval(-1)) / TimeInterval(60), (self.startDate!.timeIntervalSinceNow * TimeInterval(-1)).truncatingRemainder(dividingBy: 60))
-                Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(self.updateCurrentGameTime(_:)), userInfo: nil, repeats: false)
             }
         }
     }
