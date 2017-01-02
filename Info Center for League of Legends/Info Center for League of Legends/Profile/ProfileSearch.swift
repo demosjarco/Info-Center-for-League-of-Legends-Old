@@ -132,9 +132,6 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
         var temp = recentSummoners[indexPath.row] as! SummonerDto
         
         SummonerEndpoint().getSummonersForIds([temp.summonerId], completion: { (summonerMap) in
-            autoreleasepool(invoking: { ()
-                <#code#>
-            })
             self.recentSummoners.replaceObject(at: indexPath.row, with: summonerMap.values.first!)
             temp = summonerMap.values.first!
             
