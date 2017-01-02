@@ -96,6 +96,7 @@
 		1771CBD11D282B6D00D0DB08 /* LeagueDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771CBD01D282B6D00D0DB08 /* LeagueDto.swift */; };
 		1771CBD41D282B9800D0DB08 /* LeagueEntryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771CBD21D282B9800D0DB08 /* LeagueEntryDto.swift */; };
 		1771CBD51D282B9800D0DB08 /* MiniSeriesDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771CBD31D282B9800D0DB08 /* MiniSeriesDto.swift */; };
+		177573081E1AF3A600D92C3A /* ChampionEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177573071E1AF3A600D92C3A /* ChampionEndpoint.swift */; };
 		1775730D1E1AF4E500D92C3A /* ChampionListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775730C1E1AF4E500D92C3A /* ChampionListDto.swift */; };
 		1775730F1E1AF50F00D92C3A /* ChampionInfoDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775730E1E1AF50F00D92C3A /* ChampionInfoDto.swift */; };
 		1775F64F1D41C95800E58003 /* GameEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775F64E1D41C95800E58003 /* GameEndpoint.swift */; };
@@ -242,6 +243,7 @@
 		1771CBD01D282B6D00D0DB08 /* LeagueDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeagueDto.swift; path = "Riot API/LeagueEntities/LeagueDto.swift"; sourceTree = "<group>"; };
 		1771CBD21D282B9800D0DB08 /* LeagueEntryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeagueEntryDto.swift; path = "Riot API/LeagueEntities/LeagueEntryDto.swift"; sourceTree = "<group>"; };
 		1771CBD31D282B9800D0DB08 /* MiniSeriesDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiniSeriesDto.swift; path = "Riot API/LeagueEntities/MiniSeriesDto.swift"; sourceTree = "<group>"; };
+		177573071E1AF3A600D92C3A /* ChampionEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChampionEndpoint.swift; path = "Riot API/ChampionEndpoint.swift"; sourceTree = "<group>"; };
 		1775730C1E1AF4E500D92C3A /* ChampionListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionListDto.swift; sourceTree = "<group>"; };
 		1775730E1E1AF50F00D92C3A /* ChampionInfoDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionInfoDto.swift; sourceTree = "<group>"; };
 		1775F64E1D41C95800E58003 /* GameEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameEndpoint.swift; path = "Riot API/GameEndpoint.swift"; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 			children = (
 				176D5B951D1C42A2000D9D85 /* Endpoints.swift */,
 				172101D61D1F26A00088DB1A /* DDragon.swift */,
+				177573071E1AF3A600D92C3A /* ChampionEndpoint.swift */,
 				1775730B1E1AF4E500D92C3A /* ChampionEndpointEntities */,
 				17FDDF5F1D4D391200CC7277 /* ChampionMasteryEndpoint.swift */,
 				17FDDF611D4D391A00CC7277 /* ChampionMastery Entities */,
@@ -1195,6 +1198,7 @@
 				1732F6031D550174009DA53B /* Service.swift in Sources */,
 				17029E631E0C56B1004E653E /* ChampionSpellDto.swift in Sources */,
 				1775F64F1D41C95800E58003 /* GameEndpoint.swift in Sources */,
+				177573081E1AF3A600D92C3A /* ChampionEndpoint.swift in Sources */,
 				174DFCC81E0CE2BF001A6685 /* Profile_RecentGames.swift in Sources */,
 				172101CB1D1EDBDB0088DB1A /* ProfileView_RecentGames.swift in Sources */,
 				17029E351E0C3E0D004E653E /* RunePagesDto.swift in Sources */,
