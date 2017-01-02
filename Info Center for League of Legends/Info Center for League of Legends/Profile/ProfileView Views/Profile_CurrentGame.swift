@@ -246,6 +246,7 @@ class Profile_CurrentGame: MainTableViewController {
                 cell.champMastery?.image = nil
             }, errorBlock: { 
                 // Error
+                cell.champMastery?.image = nil
             })
             
             // Spell 1
@@ -422,6 +423,7 @@ class Profile_CurrentGame: MainTableViewController {
                 cell.champMastery?.image = nil
             }, errorBlock: {
                 // Error
+                cell.champMastery?.image = nil
             })
             
             // Spell 1
