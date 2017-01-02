@@ -36,18 +36,20 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Layout
-        let oldLayout = self.collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
-        let strechyLayout = StretchyHeaderCollectionViewLayout()
-        strechyLayout.minimumLineSpacing = oldLayout.minimumLineSpacing
-        strechyLayout.minimumInteritemSpacing = oldLayout.minimumInteritemSpacing
-        strechyLayout.itemSize = oldLayout.itemSize
-        strechyLayout.estimatedItemSize = oldLayout.estimatedItemSize
-        strechyLayout.scrollDirection = oldLayout.scrollDirection
-        strechyLayout.headerReferenceSize = oldLayout.headerReferenceSize
-        strechyLayout.footerReferenceSize = oldLayout.footerReferenceSize
-        strechyLayout.sectionInset = oldLayout.sectionInset
-        self.collectionView?.collectionViewLayout = strechyLayout
+        autoreleasepool(invoking: { ()
+            // Layout
+            let oldLayout = self.collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
+            let strechyLayout = StretchyHeaderCollectionViewLayout()
+            strechyLayout.minimumLineSpacing = oldLayout.minimumLineSpacing
+            strechyLayout.minimumInteritemSpacing = oldLayout.minimumInteritemSpacing
+            strechyLayout.itemSize = oldLayout.itemSize
+            strechyLayout.estimatedItemSize = oldLayout.estimatedItemSize
+            strechyLayout.scrollDirection = oldLayout.scrollDirection
+            strechyLayout.headerReferenceSize = oldLayout.headerReferenceSize
+            strechyLayout.footerReferenceSize = oldLayout.footerReferenceSize
+            strechyLayout.sectionInset = oldLayout.sectionInset
+            self.collectionView?.collectionViewLayout = strechyLayout
+        })
         
         tileOrder = PlistManager().loadProfileViewTileOrder()
         
@@ -76,76 +78,80 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     
     func loadRanked() {
         LeagueEndpoint().getLeagueEntryBySummonerIds([self.summoner.summonerId], completion: { (summonerMap) in
-            // Ranked
-            let currentSummoner = summonerMap.values.first
-            
-            var highestTier: Int = 7
-            var highestTierSpelledOut: String = ""
-            var highestDivision: Int = 6
-            var highestDivisionRoman: String = ""
-            
-            for league in currentSummoner! {
-                if league.queue == "RANKED_SOLO_5x5" {
-                    let entry = league.entries.first
-                    
-                    if entry?.miniSeries != nil {
-                        let progressWithHyphen = entry?.miniSeries?.progress.replacingOccurrences(of: "W", with: "✓ -").replacingOccurrences(of: "L", with: "X -").replacingOccurrences(of: "N", with: "○ -")
-                        let progress = progressWithHyphen?.components(separatedBy: "-")
-                        let progressString = NSMutableAttributedString()
-                        for substring in progress! {
-                            switch substring {
-                            case "✓ ":
-                                progressString.append(NSAttributedString(string: substring, attributes: [NSForegroundColorAttributeName: UIColor.green]))
-                            case "X ":
-                                progressString.append(NSAttributedString(string: substring, attributes: [NSForegroundColorAttributeName: UIColor.red]))
-                            case "○ ":
-                                progressString.append(NSAttributedString(string: substring, attributes: [NSForegroundColorAttributeName: UIColor.white]))
-                            default:
-                                break
+            autoreleasepool(invoking: { ()
+                // Ranked
+                let currentSummoner = summonerMap.values.first
+                
+                var highestTier: Int = 7
+                var highestTierSpelledOut: String = ""
+                var highestDivision: Int = 6
+                var highestDivisionRoman: String = ""
+                
+                for league in currentSummoner! {
+                    autoreleasepool(invoking: { ()
+                        if league.queue == "RANKED_SOLO_5x5" {
+                            let entry = league.entries.first
+                            
+                            if entry?.miniSeries != nil {
+                                let progressWithHyphen = entry?.miniSeries?.progress.replacingOccurrences(of: "W", with: "✓ -").replacingOccurrences(of: "L", with: "X -").replacingOccurrences(of: "N", with: "○ -")
+                                let progress = progressWithHyphen?.components(separatedBy: "-")
+                                let progressString = NSMutableAttributedString()
+                                for substring in progress! {
+                                    switch substring {
+                                    case "✓ ":
+                                        progressString.append(NSAttributedString(string: substring, attributes: [NSForegroundColorAttributeName: UIColor.green]))
+                                    case "X ":
+                                        progressString.append(NSAttributedString(string: substring, attributes: [NSForegroundColorAttributeName: UIColor.red]))
+                                    case "○ ":
+                                        progressString.append(NSAttributedString(string: substring, attributes: [NSForegroundColorAttributeName: UIColor.white]))
+                                    default:
+                                        break
+                                    }
+                                }
+                                self.profileHeader.promotionGames?.attributedText = progressString
+                            }
+                            
+                            let lp = self.profileHeader.summonerStats[2] as! NSMutableDictionary
+                            lp.setObject(String(entry!.leaguePoints), forKey: "statValue" as NSCopying)
+                            self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 2, section: 0)])
+                        }
+                        
+                        if highestTier > LeagueEndpoint().tierToNumber(league.tier) {
+                            highestTier = LeagueEndpoint().tierToNumber(league.tier)
+                            highestTierSpelledOut = league.tier
+                            highestDivision = 6
+                            
+                            for entry in league.entries {
+                                if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
+                                    highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
+                                    highestDivisionRoman = entry.division
+                                }
+                            }
+                        } else if highestTier == LeagueEndpoint().tierToNumber(league.tier) {
+                            for entry in league.entries {
+                                if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
+                                    highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
+                                    highestDivisionRoman = entry.division
+                                }
                             }
                         }
-                        self.profileHeader.promotionGames?.attributedText = progressString
-                    }
-                    
-                    let lp = self.profileHeader.summonerStats[2] as! NSMutableDictionary
-                    lp.setObject(String(entry!.leaguePoints), forKey: "statValue" as NSCopying)
-                    self.profileHeader.statsScroller?.reloadItems(at: [IndexPath(item: 2, section: 0)])
-                }
-                
-                if highestTier > LeagueEndpoint().tierToNumber(league.tier) {
-                    highestTier = LeagueEndpoint().tierToNumber(league.tier)
-                    highestTierSpelledOut = league.tier
-                    highestDivision = 6
-                    
-                    for entry in league.entries {
-                        if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
-                            highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
-                            highestDivisionRoman = entry.division
+                        
+                        if highestTier < 2 {
+                            // Challenger & Master
+                            // Dont use division
+                            self.profileHeader.summonerLevelRankIcon?.image = UIImage(named: highestTierSpelledOut.lowercased())
+                            
+                            self.profileHeader.summonerLevelRank?.text = highestTierSpelledOut.capitalized
+                        } else {
+                            // Diamond and lower
+                            // Use division
+                            self.profileHeader.summonerLevelRankIcon?.image = UIImage(named: highestTierSpelledOut.lowercased() + "_" + highestDivisionRoman.lowercased())
+                            
+                            self.profileHeader.summonerLevelRank?.text = highestTierSpelledOut.capitalized + " " + highestDivisionRoman.uppercased()
                         }
-                    }
-                } else if highestTier == LeagueEndpoint().tierToNumber(league.tier) {
-                    for entry in league.entries {
-                        if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
-                            highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
-                            highestDivisionRoman = entry.division
-                        }
-                    }
+                    })
                 }
-                
-                if highestTier < 2 {
-                    // Challenger & Master
-                    // Dont use division
-                    self.profileHeader.summonerLevelRankIcon?.image = UIImage(named: highestTierSpelledOut.lowercased())
-                    
-                    self.profileHeader.summonerLevelRank?.text = highestTierSpelledOut.capitalized
-                } else {
-                    // Diamond and lower
-                    // Use division
-                    self.profileHeader.summonerLevelRankIcon?.image = UIImage(named: highestTierSpelledOut.lowercased() + "_" + highestDivisionRoman.lowercased())
-                    
-                    self.profileHeader.summonerLevelRank?.text = highestTierSpelledOut.capitalized + " " + highestDivisionRoman.uppercased()
-                }
-            }
+            })
         }, notFound: {
             // Unranked
             self.profileHeader.summonerLevelRankIcon?.image = UIImage(named: "provisional")

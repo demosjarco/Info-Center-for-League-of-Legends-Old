@@ -29,46 +29,44 @@ class ChampionList: MainCollectionViewController {
         self.champions = [[ChampionDto](), [ChampionDto]()]
         self.collectionView?.reloadData()
         
-        ChampionEndpoint().getAllChampions(false, completion: { (championList) in
-            for champion in championList.champions {
-                autoreleasepool(invoking: { ()
-                    StaticDataEndpoint().getChampionInfoById(Int(champion.champId), championData: StaticDataEndpoint.champData.Image, completion: { (champInfo) in
-                        autoreleasepool(invoking: { ()
-                            if champion.freeToPlay {
-                                self.champions[0].append(champInfo)
-                                self.collectionView?.reloadSections(IndexSet(integer: 0))
-                            } else {
-                                self.champions[1].append(champInfo)
-                                self.collectionView?.reloadSections(IndexSet(integer: 1))
-                            }
-                            
-                            self.champions[0].sort(by: { (champ1, champ2) -> Bool in
-                                return champ1.name < champ2.name
+        autoreleasepool { ()
+            ChampionEndpoint().getAllChampions(false, completion: { (championList) in
+                for champion in championList.champions {
+                    autoreleasepool(invoking: { ()
+                        StaticDataEndpoint().getChampionInfoById(Int(champion.champId), championData: StaticDataEndpoint.champData.Image, completion: { (champInfo) in
+                            autoreleasepool(invoking: { ()
+                                if champion.freeToPlay {
+                                    self.champions[0].append(champInfo)
+                                } else {
+                                    self.champions[1].append(champInfo)
+                                }
+                                
+                                self.champions[0].sort(by: { (champ1, champ2) -> Bool in
+                                    return champ1.name < champ2.name
+                                })
+                                self.champions[1].sort(by: { (champ1, champ2) -> Bool in
+                                    return champ1.name < champ2.name
+                                })
+                                
+                                if self.champions[0].count + self.champions[1].count == championList.champions.count {
+                                    self.refresher?.endRefreshing()
+                                    self.collectionView?.reloadData()
+                                }
                             })
-                            self.collectionView?.reloadSections(IndexSet(integer: 0))
-                            
-                            self.champions[1].sort(by: { (champ1, champ2) -> Bool in
-                                return champ1.name < champ2.name
-                            })
-                            self.collectionView?.reloadSections(IndexSet(integer: 1))
-                            
-                            if self.champions[0].count + self.champions[1].count == championList.champions.count {
-                                self.refresher?.endRefreshing()
-                            }
+                        }, notFound: {
+                            // ??
+                            self.refresher?.endRefreshing()
+                        }, errorBlock: {
+                            // Error
+                            self.refresher?.endRefreshing()
                         })
-                    }, notFound: {
-                        // ??
-                        self.refresher?.endRefreshing()
-                    }, errorBlock: {
-                        // Error
-                        self.refresher?.endRefreshing()
                     })
-                })
-            }
-        }, errorBlock: {
-            // Error
-            self.refresher?.endRefreshing()
-        })
+                }
+            }, errorBlock: {
+                // Error
+                self.refresher?.endRefreshing()
+            })
+        }
     }
 
     // MARK: - Navigation
@@ -96,13 +94,23 @@ class ChampionList: MainCollectionViewController {
         cell.champIcon?.image = nil
         
         // Configure the cell
-        // Use the new LCU icon if exists
-        if let champIcon = DDragon().getLcuChampionSquareArt(champId: self.champions[indexPath.section][indexPath.row].champId) {
-            cell.champIcon?.image = champIcon
-        } else {
-            DDragon().getChampionSquareArt(self.champions[indexPath.section][indexPath.row].image!.full, completion: { (champSquareArtUrl) in
-                cell.champIcon?.setImageWith(champSquareArtUrl)
-            })
+        autoreleasepool { ()
+            // Use the new LCU icon if exists
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async { [unowned self] in
+                if let champIcon = DDragon().getLcuChampionSquareArt(champId: self.champions[indexPath.section][indexPath.row].champId) {
+                    DispatchQueue.main.async {  [unowned self] in
+                        cell.champIcon?.image = champIcon
+                    }
+                } else {
+                    autoreleasepool(invoking: { ()
+                        DDragon().getChampionSquareArt(self.champions[indexPath.section][indexPath.row].image!.full, completion: { (champSquareArtUrl) in
+                            autoreleasepool(invoking: { ()
+                                cell.champIcon?.setImageWith(champSquareArtUrl)
+                            })
+                        })
+                    })
+                }
+            }
         }
         
         cell.freeToPlayBanner?.isHidden = indexPath.section == 1 ? true : false
