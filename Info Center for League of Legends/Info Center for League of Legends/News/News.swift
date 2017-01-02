@@ -20,77 +20,96 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let flowLayout = SGSStaggeredFlowLayout()
-        flowLayout.layoutMode = SGSStaggeredFlowLayoutMode_Centered
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.minimumInteritemSpacing = 0
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        flowLayout.itemSize = CGSize(width: MAX_CELL_SIZE, height: MAX_CELL_SIZE)
-        
-        self.collectionView?.setCollectionViewLayout(flowLayout, animated: true)
-        
-        let refresher = UIRefreshControl(frame: self.collectionView!.frame)
-        refresher.tintColor = UIColor.lightText
-        refresher.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
-        self.collectionView?.insertSubview(refresher, at: self.collectionView!.subviews.count - 1)
-        
-        self.refresh(refresher)
+        autoreleasepool { ()
+            let flowLayout = SGSStaggeredFlowLayout()
+            flowLayout.layoutMode = SGSStaggeredFlowLayoutMode_Centered
+            flowLayout.minimumLineSpacing = 0
+            flowLayout.minimumInteritemSpacing = 0
+            flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            flowLayout.itemSize = CGSize(width: MAX_CELL_SIZE, height: MAX_CELL_SIZE)
+            
+            self.collectionView?.setCollectionViewLayout(flowLayout, animated: true)
+            
+            let refresher = UIRefreshControl(frame: self.collectionView!.frame)
+            refresher.tintColor = UIColor.lightText
+            refresher.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+            self.collectionView?.insertSubview(refresher, at: self.collectionView!.subviews.count - 1)
+            
+            self.refresh(refresher)
+        }
     }
     
     func refresh(_ sender: UIRefreshControl) {
-        UIView.animate(withDuration: 0.25, delay: 0, options: .beginFromCurrentState, animations: {
-            self.collectionView?.contentOffset = CGPoint(x: 0, y: -sender.frame.size.height)
-        }, completion: nil)
-        sender.beginRefreshing()
+        DispatchQueue.main.async { [unowned self] in
+            UIView.animate(withDuration: 0.25, delay: 0, options: .beginFromCurrentState, animations: {
+                self.collectionView?.contentOffset = CGPoint(x: 0, y: -sender.frame.size.height)
+            }, completion: nil)
+            sender.beginRefreshing()
+        }
         
         FIRDatabase.database().reference().child("news_languages").observe(FIRDataEventType.value, with: { (snapshot) in
-            let languages = snapshot.value as! [String: AnyObject]
-            let languagesForRegion = languages[Endpoints().getRegion()] as! [String]
-            
-            let baseUrl = languages["baseUrl"] as! NSString
-            var rssUrl = NSString()
-            if languagesForRegion.contains(Locale.preferredLanguages[0].components(separatedBy: "-")[0]) {
-                rssUrl = NSString(format: baseUrl, Endpoints().getRegion(), Locale.preferredLanguages[0].components(separatedBy: "-")[0])
-            } else {
-                rssUrl = NSString(format: baseUrl, Endpoints().getRegion(), languagesForRegion[0])
-            }
-            rssUrl = rssUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!.replacingOccurrences(of: ":", with: "%3A") as NSString
-            
-            let convertUrl = languages["rssToJsonUrl"] as! NSString
-            let url = NSString(format: convertUrl, rssUrl) as String
-            
-            AFHTTPSessionManager().get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
-                let json = responseObject as! [String: AnyObject]
-                if json["status"] as! String == "ok" {
-                    if json["feed"]?["title"] != nil {
-                        let feed = json["feed"] as! [String: String]
-                        let title = feed["title"]
-                        self.title = title
-                        self.tabBarItem.title = title
+            DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async { [unowned self] in
+                autoreleasepool(invoking: { ()
+                    let languages = snapshot.value as! [String: AnyObject]
+                    let languagesForRegion = languages[Endpoints().getRegion()] as! [String]
+                    
+                    let baseUrl = languages["baseUrl"] as! NSString
+                    var rssUrl = NSString()
+                    if languagesForRegion.contains(Locale.preferredLanguages[0].components(separatedBy: "-")[0]) {
+                        rssUrl = NSString(format: baseUrl, Endpoints().getRegion(), Locale.preferredLanguages[0].components(separatedBy: "-")[0])
+                    } else {
+                        rssUrl = NSString(format: baseUrl, Endpoints().getRegion(), languagesForRegion[0])
                     }
-                    self.entries = json["items"] as! [[String: AnyObject]]
-                } else {
-                    FIRDatabase.database().reference().child("news_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "errorMessage": json["errorMessage"] as! String, "url": url, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
-                }
-                self.collectionView?.reloadSections(IndexSet(integer: 0))
-                sender.endRefreshing()
-            }, failure: { (task, error) in
-                let response = task!.response as! HTTPURLResponse
-                FIRDatabase.database().reference().child("news_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": url, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
-                sender.endRefreshing()
-            })
+                    rssUrl = rssUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!.replacingOccurrences(of: ":", with: "%3A") as NSString
+                    
+                    let convertUrl = languages["rssToJsonUrl"] as! NSString
+                    let url = NSString(format: convertUrl, rssUrl) as String
+                    
+                    AFHTTPSessionManager().get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
+                        DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async { [unowned self] in
+                            autoreleasepool(invoking: { ()
+                                let json = responseObject as! [String: AnyObject]
+                                if json["status"] as! String == "ok" {
+                                    if json["feed"]?["title"] != nil {
+                                        let feed = json["feed"] as! [String: String]
+                                        let title = feed["title"]
+                                        self.title = title
+                                        self.tabBarItem.title = title
+                                    }
+                                    self.entries = json["items"] as! [[String: AnyObject]]
+                                } else {
+                                    FIRDatabase.database().reference().child("news_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "errorMessage": json["errorMessage"] as! String, "url": url, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                                }
+                                
+                                DispatchQueue.main.async { [unowned self] in
+                                    self.collectionView?.reloadSections(IndexSet(integer: 0))
+                                    sender.endRefreshing()
+                                }
+                            })
+                        }
+                    }, failure: { (task, error) in
+                        let response = task!.response as! HTTPURLResponse
+                        FIRDatabase.database().reference().child("news_error").childByAutoId().updateChildValues(["datestamp": NSDate().timeIntervalSince1970, "httpCode": response.statusCode, "url": url, "deviceModel": Endpoints().getDeviceModel(), "deviceVersion": UIDevice().systemVersion])
+                        DispatchQueue.main.async { [unowned self] in
+                            sender.endRefreshing()
+                        }
+                    })
+                })
+            }
         })
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        let flowLayout = SGSStaggeredFlowLayout()
-        flowLayout.layoutMode = SGSStaggeredFlowLayoutMode_Centered
-        flowLayout.minimumLineSpacing = 0
-        flowLayout.minimumInteritemSpacing = 0
-        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        flowLayout.itemSize = CGSize(width: MAX_CELL_SIZE, height: MAX_CELL_SIZE)
-        
-        self.collectionView?.setCollectionViewLayout(flowLayout, animated: true)
+        autoreleasepool { ()
+            let flowLayout = SGSStaggeredFlowLayout()
+            flowLayout.layoutMode = SGSStaggeredFlowLayoutMode_Centered
+            flowLayout.minimumLineSpacing = 0
+            flowLayout.minimumInteritemSpacing = 0
+            flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            flowLayout.itemSize = CGSize(width: MAX_CELL_SIZE, height: MAX_CELL_SIZE)
+            
+            self.collectionView?.setCollectionViewLayout(flowLayout, animated: true)
+        }
     }
     
     // MARK: UICollectionViewDataSource
@@ -128,25 +147,29 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
         cell.newsStoryImage?.image = nil
         cell.newsStoryImageForBlur?.image = nil
         
-        let img1 = self.entries[indexPath.row]["content"] as! String
-        let img2 = img1.components(separatedBy: "src=\"").last?.components(separatedBy: "\"")
-        var components = URLComponents(string: img2!.first!)
-        components?.scheme = "https"
-        let imageUrl = components?.url
-        
-        cell.newsStoryImage?.setImageWith(URLRequest(url: imageUrl!), placeholderImage: nil, success: { (request, response, image) in
-            cell.setStoryImage(image)
-        }, failure: nil)
-        
-        cell.newsStoryBlurTitle?.text = entries[indexPath.row]["title"] as? String
-        cell.newsStoryTitle?.text = entries[indexPath.row]["title"] as? String
-        
-        let temp = entries[indexPath.row]["content"] as! String
-        do {
-            try cell.newsStoryBlurContent?.text = NSAttributedString(data: temp.data(using: String.Encoding.utf8)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil).string
-            try cell.newsStoryContent?.text = cell.newsStoryBlurContent?.text
-        } catch let error as NSError {
-            print(error.localizedDescription)
+        autoreleasepool { ()
+            let img1 = self.entries[indexPath.row]["content"] as! String
+            let img2 = img1.components(separatedBy: "src=\"").last?.components(separatedBy: "\"")
+            var components = URLComponents(string: img2!.first!)
+            components?.scheme = "https"
+            let imageUrl = components?.url
+            
+            cell.newsStoryImage?.setImageWith(URLRequest(url: imageUrl!), placeholderImage: nil, success: { (request, response, image) in
+                DispatchQueue.main.async { [unowned self] in
+                    cell.setStoryImage(image)
+                }
+            }, failure: nil)
+            
+            cell.newsStoryBlurTitle?.text = entries[indexPath.row]["title"] as? String
+            cell.newsStoryTitle?.text = entries[indexPath.row]["title"] as? String
+            
+            let temp = entries[indexPath.row]["content"] as! String
+            do {
+                try cell.newsStoryBlurContent?.text = NSAttributedString(data: temp.data(using: String.Encoding.utf8)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil).string
+                try cell.newsStoryContent?.text = cell.newsStoryBlurContent?.text
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
         }
         
         return cell
