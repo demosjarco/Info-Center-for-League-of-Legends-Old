@@ -134,12 +134,8 @@ class Profile_CurrentGame: MainTableViewController {
             }
         }, notFound: {
             // ??
-            self.startDate = nil
-            self.updateCurrentGameTime(nil)
         }) {
             // Error
-            self.startDate = nil
-            self.updateCurrentGameTime(nil)
         }
     }
     
@@ -152,24 +148,21 @@ class Profile_CurrentGame: MainTableViewController {
                 // Refresh every 60 sec
                 if self.currentGameRefreshCount >= 60 {
                     self.currentGameRefreshCount = 0
-                    self.startDate = nil
-                    self.refresh()
+                    self.checkIfGameStillOn()
                 }
             } else if startDate!.timeIntervalSinceNow <= TimeInterval(-1800) || startDate!.timeIntervalSinceNow >= TimeInterval(-2100) {
                 // Between 30 and 35 min
                 // Refresh every 30 sec
                 if self.currentGameRefreshCount >= 30 {
                     self.currentGameRefreshCount = 0
-                    self.startDate = nil
-                    self.refresh()
+                    self.checkIfGameStillOn()
                 }
             } else if startDate!.timeIntervalSinceNow < TimeInterval(-2100) {
                 // Greater than 35 min
                 // Refresh every 15 sec
                 if self.currentGameRefreshCount >= 15 {
                     self.currentGameRefreshCount = 0
-                    self.startDate = nil
-                    self.refresh()
+                    self.checkIfGameStillOn()
                 }
             }
         } else {
@@ -177,8 +170,7 @@ class Profile_CurrentGame: MainTableViewController {
             // Refresh every 60 sec
             if self.currentGameRefreshCount >= 60 {
                 self.currentGameRefreshCount = 0
-                self.startDate = nil
-                self.refresh()
+                self.checkIfGameStillOn()
             }
         }
         DispatchQueue.main.async { [unowned self] in
@@ -186,6 +178,19 @@ class Profile_CurrentGame: MainTableViewController {
                 self.navigationItem.prompt = String(format: "%.0f:%02.0f", (self.startDate!.timeIntervalSinceNow * TimeInterval(-1)) / TimeInterval(60), (self.startDate!.timeIntervalSinceNow * TimeInterval(-1)).truncatingRemainder(dividingBy: 60))
                 Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(self.updateCurrentGameTime(_:)), userInfo: nil, repeats: false)
             }
+        }
+    }
+    
+    func checkIfGameStillOn() {
+        CurrentGameEndpoint().getSpectatorGameInfo(self.summoner.summonerId, completion: { (game) in
+            // In game
+            self.updateCurrentGameTime(nil)
+        }, notFound: { 
+            // No longer in game
+            self.startDate = nil
+            self.navigationItem.prompt = "Game Ended - " + self.navigationItem.prompt!
+        }) { 
+            // Error
         }
     }
 
