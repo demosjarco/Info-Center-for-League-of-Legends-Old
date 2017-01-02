@@ -122,9 +122,8 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "newsCell", for: indexPath) as! NewsCell
-        // Rasterizing a UIVisualEffectView crashes on iOS 10b3
-        // cell.layer.shouldRasterize = true
-        // cell.layer.rasterizationScale = UIScreen.main().scale
+        cell.layer.rasterizationScale = UIScreen.main.scale
+        cell.layer.shouldRasterize = true
         
         cell.newsStoryImage?.image = nil
         cell.newsStoryImageForBlur?.image = nil

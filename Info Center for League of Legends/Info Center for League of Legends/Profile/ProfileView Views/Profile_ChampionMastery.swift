@@ -68,8 +68,8 @@ class Profile_ChampionMastery: MainCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "championMasteryCell", for: indexPath) as! Profile_ChampionMastery_Cell
         // Performance
-        cell.layer.shouldRasterize = true
         cell.layer.rasterizationScale = UIScreen.main.scale
+        cell.layer.shouldRasterize = true
         // Clear
         cell.championIcon?.image = nil
         cell.championName?.text = "--"

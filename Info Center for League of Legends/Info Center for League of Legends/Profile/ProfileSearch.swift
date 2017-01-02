@@ -120,9 +120,8 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recentProfileCell", for: indexPath)
         // Performance
-        // Slow for now (as of iOS 10b3)
-        // cell.layer.shouldRasterize = true
-        // cell.layer.rasterizationScale = UIScreen.main().scale
+        cell.layer.rasterizationScale = UIScreen.main.scale
+        cell.layer.shouldRasterize = true
         
         // Clear old values
         cell.imageView?.image = UIImage(named: "poroIcon")
