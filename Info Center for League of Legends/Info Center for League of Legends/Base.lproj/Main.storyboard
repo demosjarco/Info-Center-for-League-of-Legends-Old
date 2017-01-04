@@ -2020,14 +2020,14 @@ last -- games</string>
                                             <rect key="frame" x="2" y="116" width="112" height="34"/>
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
-                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="13.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="16"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
-                                                    <rect key="frame" x="0.0" y="13.5" width="112" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="16" width="112" height="18"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2779,7 +2779,7 @@ last -- games</string>
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J11-4b-AQj">
-                                                    <rect key="frame" x="-5" y="-5" width="110" height="110"/>
+                                                    <rect key="frame" x="-10" y="-10" width="120" height="120"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="J11-4b-AQj" secondAttribute="height" multiplier="1:1" id="IwK-RO-yGA"/>
@@ -2789,7 +2789,7 @@ last -- games</string>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="J11-4b-AQj" firstAttribute="centerY" secondItem="qBH-jE-hLo" secondAttribute="centerY" id="Ick-Gy-qps"/>
-                                                <constraint firstItem="J11-4b-AQj" firstAttribute="leading" secondItem="qBH-jE-hLo" secondAttribute="leading" constant="-5" id="ZXa-0Q-wDn"/>
+                                                <constraint firstItem="J11-4b-AQj" firstAttribute="leading" secondItem="qBH-jE-hLo" secondAttribute="leading" constant="-10" id="ZXa-0Q-wDn"/>
                                                 <constraint firstItem="J11-4b-AQj" firstAttribute="centerX" secondItem="qBH-jE-hLo" secondAttribute="centerX" id="eUq-pP-acr"/>
                                                 <constraint firstAttribute="width" secondItem="qBH-jE-hLo" secondAttribute="height" multiplier="1:1" id="fRB-cy-bmX"/>
                                             </constraints>
