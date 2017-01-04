@@ -92,6 +92,7 @@
 		176510911D231DBE00A076BA /* ProfileView_Header_StatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176510901D231DBE00A076BA /* ProfileView_Header_StatsCell.swift */; };
 		176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D5B951D1C42A2000D9D85 /* Endpoints.swift */; };
 		176D5B981D1C478F000D9D85 /* SummonerDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D5B971D1C478F000D9D85 /* SummonerDto.swift */; };
+		176FDFA51E1DBC0300CC045E /* ChampionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176FDFA41E1DBC0300CC045E /* ChampionDetail.swift */; };
 		1771CBCE1D28290200D0DB08 /* LeagueEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771CBCD1D28290200D0DB08 /* LeagueEndpoint.swift */; };
 		1771CBD11D282B6D00D0DB08 /* LeagueDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771CBD01D282B6D00D0DB08 /* LeagueDto.swift */; };
 		1771CBD41D282B9800D0DB08 /* LeagueEntryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771CBD21D282B9800D0DB08 /* LeagueEntryDto.swift */; };
@@ -239,6 +240,7 @@
 		176510901D231DBE00A076BA /* ProfileView_Header_StatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileView_Header_StatsCell.swift; path = "Profile/ProfileView Cells/ProfileView Stats/ProfileView_Header_StatsCell.swift"; sourceTree = "<group>"; };
 		176D5B951D1C42A2000D9D85 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Endpoints.swift; path = "Riot API/Endpoints.swift"; sourceTree = "<group>"; };
 		176D5B971D1C478F000D9D85 /* SummonerDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummonerDto.swift; path = "Riot API/SummonerEntities/SummonerDto.swift"; sourceTree = "<group>"; };
+		176FDFA41E1DBC0300CC045E /* ChampionDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetail.swift; sourceTree = "<group>"; };
 		1770B79B1D13B8790096AA9B /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Objective-C/Bridging-Header.h"; sourceTree = "<group>"; };
 		1771CBCD1D28290200D0DB08 /* LeagueEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeagueEndpoint.swift; path = "Riot API/LeagueEndpoint.swift"; sourceTree = "<group>"; };
 		1771CBD01D282B6D00D0DB08 /* LeagueDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeagueDto.swift; path = "Riot API/LeagueEntities/LeagueDto.swift"; sourceTree = "<group>"; };
@@ -648,6 +650,7 @@
 			children = (
 				178E3C0A1DA7FF9B0088BE69 /* ChampionList.swift */,
 				177573101E1AF9FE00D92C3A /* ChampionListCell.swift */,
+				176FDFA41E1DBC0300CC045E /* ChampionDetail.swift */,
 			);
 			path = Champions;
 			sourceTree = "<group>";
@@ -1251,6 +1254,7 @@
 				17029E611E0C56B1004E653E /* BlockItemDto.swift in Sources */,
 				17029E851E0C56E6004E653E /* RuneDto.swift in Sources */,
 				176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */,
+				176FDFA51E1DBC0300CC045E /* ChampionDetail.swift in Sources */,
 				1732F5F91D54FC5A009DA53B /* StatusDetail.swift in Sources */,
 				17029E661E0C56B1004E653E /* LevelTipDto.swift in Sources */,
 				178B957C1D428A4D00CAD47A /* PlayerDto.swift in Sources */,
