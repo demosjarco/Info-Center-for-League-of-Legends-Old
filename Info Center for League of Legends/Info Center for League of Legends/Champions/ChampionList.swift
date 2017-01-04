@@ -12,6 +12,8 @@ class ChampionList: MainCollectionViewController {
     @IBOutlet var refresher:UIRefreshControl?
     
     var champions = [[ChampionDto](), [ChampionDto]()]
+    
+    var championForSegue = ChampionDto()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +100,10 @@ class ChampionList: MainCollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showChampionInfo" {
+            let destination = segue.destination as! ChampionDetail
+            destination.champion = championForSegue
+        }
     }
 
     // MARK: UICollectionViewDataSource
@@ -116,6 +122,9 @@ class ChampionList: MainCollectionViewController {
         // Performance
         cell.layer.rasterizationScale = UIScreen.main.scale
         cell.layer.shouldRasterize = true
+        
+        // Border
+        cell.champIconZoomHolder?.layer.borderColor = UIColor(red: 207/255.0, green: 186/255.0, blue: 107/255.0, alpha: 1.0).cgColor
         
         // Clear cell
         cell.champIcon?.image = nil
@@ -147,5 +156,9 @@ class ChampionList: MainCollectionViewController {
         cell.champName?.text = self.champions[indexPath.section][indexPath.row].name
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.championForSegue = self.champions[indexPath.section][indexPath.row]
     }
 }
