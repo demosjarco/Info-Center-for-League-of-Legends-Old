@@ -34,25 +34,47 @@ class ChampionList: MainCollectionViewController {
                 for champion in championList.champions {
                     autoreleasepool(invoking: { ()
                         StaticDataEndpoint().getChampionInfoById(Int(champion.champId), championData: StaticDataEndpoint.champData.Image, completion: { (champInfo) in
+                            if champion.freeToPlay {
+                                self.champions[0].append(champInfo)
+                                self.collectionView?.insertItems(at: [IndexPath(item: self.champions[0].index(of: champInfo)!, section: 0)])
+                            } else {
+                                self.champions[1].append(champInfo)
+                                self.collectionView?.insertItems(at: [IndexPath(item: self.champions[1].index(of: champInfo)!, section: 1)])
+                            }
+                            
                             autoreleasepool(invoking: { ()
-                                if champion.freeToPlay {
-                                    self.champions[0].append(champInfo)
-                                } else {
-                                    self.champions[1].append(champInfo)
-                                }
-                                
+                                var oldSection = self.champions[0]
                                 self.champions[0].sort(by: { (champ1, champ2) -> Bool in
                                     return champ1.name < champ2.name
                                 })
+                                for champInfo2 in self.champions[0] {
+                                    if oldSection.index(of: champInfo2) != self.champions[0].index(of: champInfo2) {
+                                        self.collectionView?.moveItem(at: IndexPath(item: oldSection.index(of: champInfo2)!, section: 0), to: IndexPath(item: self.champions[0].index(of: champInfo2)!, section: 0))
+                                        oldSection.remove(at: oldSection.index(of: champInfo2)!)
+                                        oldSection.insert(champInfo2, at: self.champions[0].index(of: champInfo2)!)
+                                    }
+                                }
+                            })
+                            
+                            autoreleasepool(invoking: { ()
+                                var oldSection = self.champions[1]
                                 self.champions[1].sort(by: { (champ1, champ2) -> Bool in
                                     return champ1.name < champ2.name
                                 })
-                                
-                                if self.champions[0].count + self.champions[1].count == championList.champions.count {
-                                    self.refresher?.endRefreshing()
-                                    self.collectionView?.reloadData()
+                                for champInfo2 in self.champions[1] {
+                                    if oldSection.index(of: champInfo2) != self.champions[1].index(of: champInfo2) {
+                                        self.collectionView?.moveItem(at: IndexPath(item: oldSection.index(of: champInfo2)!, section: 1), to: IndexPath(item: self.champions[1].index(of: champInfo2)!, section: 1))
+                                        oldSection.remove(at: oldSection.index(of: champInfo2)!)
+                                        oldSection.insert(champInfo2, at: self.champions[1].index(of: champInfo2)!)
+                                    }
                                 }
                             })
+                            
+                            if self.champions[0].count + self.champions[1].count == championList.champions.count {
+                                DispatchQueue.main.async { [unowned self] in
+                                    self.refresher?.endRefreshing()
+                                }
+                            }
                         }, notFound: {
                             // ??
                             self.refresher?.endRefreshing()
