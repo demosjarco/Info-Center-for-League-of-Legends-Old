@@ -87,6 +87,7 @@ class ChampionList: MainCollectionViewController {
             }, errorBlock: {
                 // Error
                 self.refresher?.endRefreshing()
+                self.navigationItem.prompt = "Error, report has been submitted"
             })
         }
     }
