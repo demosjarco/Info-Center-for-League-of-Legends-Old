@@ -103,7 +103,7 @@ class ChampionList: MainCollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return self.champions.count
+        return 2
     }
 
 
