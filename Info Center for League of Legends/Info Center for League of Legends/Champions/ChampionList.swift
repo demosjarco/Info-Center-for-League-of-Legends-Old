@@ -125,27 +125,27 @@ class ChampionList: MainCollectionViewController {
         // Configure the cell
         autoreleasepool { ()
             // Use the new LCU icon if exists
-            DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async { [unowned self] in
-                if let champIcon = DDragon().getLcuChampionSquareArt(champId: self.champions[indexPath.section][indexPath.row].champId) {
-                    DispatchQueue.main.async {  [unowned self] in
-                        cell.champIcon?.image = champIcon
-                    }
-                } else {
-                    autoreleasepool(invoking: { ()
-                        DDragon().getChampionSquareArt(self.champions[indexPath.section][indexPath.row].image!.full, completion: { (champSquareArtUrl) in
-                            autoreleasepool(invoking: { ()
-                                cell.champIcon?.setImageWith(champSquareArtUrl)
-                            })
+            if let champIcon = DDragon().getLcuChampionSquareArt(champId: self.champions[indexPath.section][indexPath.row].champId) {
+                cell.champIcon?.image = champIcon
+            } else {
+                autoreleasepool(invoking: { ()
+                    DDragon().getChampionSquareArt(self.champions[indexPath.section][indexPath.row].image!.full, completion: { (champSquareArtUrl) in
+                        autoreleasepool(invoking: { ()
+                            cell.champIcon?.setImageWith(URLRequest(url: champSquareArtUrl), placeholderImage: nil, success: { (request, response, image) in
+                                if ((cell.champIcon?.image) == nil) {
+                                    cell.champIcon?.image = image
+                                }
+                            }, failure: nil)
                         })
                     })
-                }
+                })
             }
         }
         
         cell.freeToPlayBanner?.isHidden = indexPath.section == 1 ? true : false
         
         cell.champName?.text = self.champions[indexPath.section][indexPath.row].name
-    
+        
         return cell
     }
 }
