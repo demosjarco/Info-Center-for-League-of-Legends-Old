@@ -2020,14 +2020,14 @@ last -- games</string>
                                             <rect key="frame" x="2" y="116" width="112" height="34"/>
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
-                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="16"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="13.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
-                                                    <rect key="frame" x="0.0" y="16" width="112" height="18"/>
+                                                    <rect key="frame" x="0.0" y="13.5" width="112" height="20.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2531,7 +2531,7 @@ last -- games</string>
                                                         <rect key="frame" x="8" y="8" width="64" height="64"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="65" height="64"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zgt-kK-zjb">
@@ -2779,7 +2779,7 @@ last -- games</string>
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J11-4b-AQj">
-                                                    <rect key="frame" x="-10" y="-10" width="120" height="120"/>
+                                                    <rect key="frame" x="-6" y="-6" width="112" height="112"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="J11-4b-AQj" secondAttribute="height" multiplier="1:1" id="IwK-RO-yGA"/>
@@ -2789,10 +2789,15 @@ last -- games</string>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="J11-4b-AQj" firstAttribute="centerY" secondItem="qBH-jE-hLo" secondAttribute="centerY" id="Ick-Gy-qps"/>
-                                                <constraint firstItem="J11-4b-AQj" firstAttribute="leading" secondItem="qBH-jE-hLo" secondAttribute="leading" constant="-10" id="ZXa-0Q-wDn"/>
+                                                <constraint firstItem="J11-4b-AQj" firstAttribute="leading" secondItem="qBH-jE-hLo" secondAttribute="leading" constant="-6" id="ZXa-0Q-wDn"/>
                                                 <constraint firstItem="J11-4b-AQj" firstAttribute="centerX" secondItem="qBH-jE-hLo" secondAttribute="centerX" id="eUq-pP-acr"/>
                                                 <constraint firstAttribute="width" secondItem="qBH-jE-hLo" secondAttribute="height" multiplier="1:1" id="fRB-cy-bmX"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                    <integer key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="freeToPlayBanner" translatesAutoresizingMaskIntoConstraints="NO" id="sab-mU-yLS">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -2823,9 +2828,10 @@ last -- games</string>
                                 </constraints>
                                 <connections>
                                     <outlet property="champIcon" destination="J11-4b-AQj" id="yIx-Bz-h9o"/>
+                                    <outlet property="champIconZoomHolder" destination="qBH-jE-hLo" id="per-aD-nWg"/>
                                     <outlet property="champName" destination="8vr-dQ-6An" id="2GB-9R-wDv"/>
                                     <outlet property="freeToPlayBanner" destination="sab-mU-yLS" id="fai-3X-GR7"/>
-                                    <segue destination="0xe-mK-RgP" kind="show" id="WJa-sC-WXg"/>
+                                    <segue destination="0xe-mK-RgP" kind="show" identifier="showChampionInfo" id="WJa-sC-WXg"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -2840,11 +2846,11 @@ last -- games</string>
             </objects>
             <point key="canvasLocation" x="1702" y="334"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Champion Detail-->
         <scene sceneID="utU-7F-V18">
             <objects>
-                <collectionViewController id="0xe-mK-RgP" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="c4a-Ri-Rff">
+                <collectionViewController id="0xe-mK-RgP" customClass="ChampionDetail" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="c4a-Ri-Rff">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DIT-Gf-ClK">
@@ -3213,7 +3219,7 @@ last -- games</string>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="newsCell" id="SEf-ZJ-xUB" customClass="NewsCell" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <rect key="frame" x="59" y="0.0" width="256" height="256"/>
+                                <rect key="frame" x="60" y="0.0" width="256" height="256"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
