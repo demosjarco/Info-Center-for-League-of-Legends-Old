@@ -11,5 +11,6 @@ import UIKit
 class ChampionListCell: UICollectionViewCell {
     @IBOutlet var freeToPlayBanner:UIImageView?
     @IBOutlet var champIcon:UIImageView?
+    @IBOutlet var champIconZoomHolder:UIView?
     @IBOutlet var champName:UILabel?
 }
