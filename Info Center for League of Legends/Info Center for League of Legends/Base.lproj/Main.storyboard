@@ -2020,14 +2020,14 @@ last -- games</string>
                                             <rect key="frame" x="2" y="116" width="112" height="34"/>
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
-                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="13.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="16"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
-                                                    <rect key="frame" x="0.0" y="13.5" width="112" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="16" width="112" height="18"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2531,7 +2531,7 @@ last -- games</string>
                                                         <rect key="frame" x="8" y="8" width="64" height="64"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="65" height="64"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zgt-kK-zjb">
@@ -2758,7 +2758,7 @@ last -- games</string>
         <scene sceneID="J7K-qu-2Iq">
             <objects>
                 <collectionViewController id="4Oi-gZ-hHP" customClass="ChampionList" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="GZK-Ec-vSR">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="GZK-Ec-vSR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oxh-On-R7W">
@@ -2795,7 +2795,7 @@ last -- games</string>
                                             </constraints>
                                         </view>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="freeToPlayBanner" translatesAutoresizingMaskIntoConstraints="NO" id="sab-mU-yLS">
-                                            <rect key="frame" x="50" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </imageView>
                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8vr-dQ-6An">
@@ -2811,11 +2811,11 @@ last -- games</string>
                                 <constraints>
                                     <constraint firstItem="qBH-jE-hLo" firstAttribute="top" secondItem="d9P-R5-7t8" secondAttribute="top" id="8gg-4M-HGS"/>
                                     <constraint firstAttribute="trailing" secondItem="sab-mU-yLS" secondAttribute="trailing" id="Cuo-FY-LL3"/>
-                                    <constraint firstItem="sab-mU-yLS" firstAttribute="height" secondItem="qBH-jE-hLo" secondAttribute="height" multiplier="0.5" id="F6P-aL-Wga"/>
+                                    <constraint firstItem="sab-mU-yLS" firstAttribute="height" secondItem="qBH-jE-hLo" secondAttribute="height" id="F6P-aL-Wga"/>
                                     <constraint firstItem="sab-mU-yLS" firstAttribute="top" secondItem="d9P-R5-7t8" secondAttribute="top" id="JAb-Z4-jPb"/>
                                     <constraint firstItem="8vr-dQ-6An" firstAttribute="top" secondItem="qBH-jE-hLo" secondAttribute="bottom" id="R98-tP-N1D"/>
                                     <constraint firstAttribute="trailing" secondItem="qBH-jE-hLo" secondAttribute="trailing" id="SAy-OA-gja"/>
-                                    <constraint firstItem="sab-mU-yLS" firstAttribute="width" secondItem="qBH-jE-hLo" secondAttribute="width" multiplier="0.5" id="bxc-0f-cM1"/>
+                                    <constraint firstItem="sab-mU-yLS" firstAttribute="width" secondItem="qBH-jE-hLo" secondAttribute="width" id="bxc-0f-cM1"/>
                                     <constraint firstAttribute="bottom" secondItem="8vr-dQ-6An" secondAttribute="bottom" id="f8h-8N-Zxh"/>
                                     <constraint firstAttribute="trailing" secondItem="8vr-dQ-6An" secondAttribute="trailing" constant="4" id="iPO-5Y-Kzy"/>
                                     <constraint firstItem="8vr-dQ-6An" firstAttribute="leading" secondItem="d9P-R5-7t8" secondAttribute="leading" constant="4" id="noX-Sg-KPO"/>
@@ -3546,7 +3546,7 @@ last -- games</string>
         </scene>
     </scenes>
     <resources>
-        <image name="freeToPlayBanner" width="50" height="50"/>
+        <image name="freeToPlayBanner" width="100" height="100"/>
         <image name="ic_dashboard" width="24" height="24"/>
         <image name="ic_group_work" width="24" height="24"/>
         <image name="ic_person" width="24" height="24"/>
