@@ -585,8 +585,12 @@ class Profile_CurrentGame: MainTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             summonerInfoForSegue.summonerId = participantsBlue[indexPath.row].summonerId
+            summonerInfoForSegue.profileIconId = Int(participantsBlue[indexPath.row].profileIconId)
+            summonerInfoForSegue.name = participantsBlue[indexPath.row].summonerName
         } else {
             summonerInfoForSegue.summonerId = participantsRed[indexPath.row].summonerId
+            summonerInfoForSegue.profileIconId = Int(participantsRed[indexPath.row].profileIconId)
+            summonerInfoForSegue.name = participantsRed[indexPath.row].summonerName
         }
     }
 
