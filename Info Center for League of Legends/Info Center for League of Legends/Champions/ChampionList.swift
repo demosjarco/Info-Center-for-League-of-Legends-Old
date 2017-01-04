@@ -119,6 +119,8 @@ class ChampionList: MainCollectionViewController {
         
         // Clear cell
         cell.champIcon?.image = nil
+        cell.freeToPlayBanner?.isHidden = true
+        cell.champName?.text = "--"
         
         // Configure the cell
         autoreleasepool { ()
