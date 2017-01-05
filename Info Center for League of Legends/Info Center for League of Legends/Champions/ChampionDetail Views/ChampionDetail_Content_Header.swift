@@ -14,4 +14,8 @@ protocol ChampViewHeaderDelegate {
 
 class ChampionDetail_Content_Header: UICollectionReusableView {
     var delegate:ChampViewHeaderDelegate?
+    
+    @IBAction func backButtonpressed() {
+        self.delegate?.goBack()
+    }
 }
