@@ -15,6 +15,10 @@ protocol ChampViewDelegate {
 class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegate {
     var delegate:ChampViewDelegate?
     var champion = ChampionDto()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
