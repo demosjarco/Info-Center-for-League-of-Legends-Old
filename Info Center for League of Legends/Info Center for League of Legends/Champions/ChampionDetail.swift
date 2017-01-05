@@ -35,6 +35,7 @@ class ChampionDetail: UIViewController, UIPageViewControllerDataSource, UIPageVi
             let pageViewController = segue.destination as! UIPageViewController
             pageViewController.delegate = self
             pageViewController.dataSource = self
+            pageViewController.setViewControllers([viewControllerAtIndex(0)!], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
         } else if segue.identifier == "" {
             
         }
