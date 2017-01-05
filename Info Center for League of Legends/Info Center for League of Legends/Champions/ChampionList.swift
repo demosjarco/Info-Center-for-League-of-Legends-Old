@@ -35,7 +35,7 @@ class ChampionList: MainCollectionViewController {
             ChampionEndpoint().getAllChampions(false, completion: { (championList) in
                 for champion in championList.champions {
                     autoreleasepool(invoking: { ()
-                        StaticDataEndpoint().getChampionInfoById(Int(champion.champId), championData: StaticDataEndpoint.champData.Image, completion: { (champInfo) in
+                        StaticDataEndpoint().getChampionInfoById(Int(champion.champId), championData: StaticDataEndpoint.champData.All, completion: { (champInfo) in
                             if champion.freeToPlay {
                                 self.champions[0].append(champInfo)
                                 self.collectionView?.insertItems(at: [IndexPath(item: self.champions[0].index(of: champInfo)!, section: 0)])
