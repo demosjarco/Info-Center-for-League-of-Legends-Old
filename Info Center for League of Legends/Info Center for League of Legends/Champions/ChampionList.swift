@@ -158,7 +158,8 @@ class ChampionList: MainCollectionViewController {
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         self.championForSegue = self.champions[indexPath.section][indexPath.row]
+        return true
     }
 }
