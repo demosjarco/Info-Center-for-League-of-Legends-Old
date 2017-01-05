@@ -263,15 +263,17 @@ class StaticDataEndpoint: NSObject {
                                     }
                                 }
                                 newSpell.effectBurn = oldSpell["effectBurn"] as! [String]
-                                let oldImage = oldSpell["image"] as! [String: AnyObject]
-                                
-                                newSpell.image.full = oldImage["full"] as! String
-                                newSpell.image.group = oldImage["group"] as! String
-                                newSpell.image.h = oldImage["h"] as! Int
-                                newSpell.image.sprite = oldImage["sprite"] as! String
-                                newSpell.image.w = oldImage["w"] as! Int
-                                newSpell.image.x = oldImage["x"] as! Int
-                                newSpell.image.y = oldImage["y"] as! Int
+                                if (oldSpell["image"] != nil) {
+                                    let oldImage = oldSpell["image"] as! [String: AnyObject]
+                                    
+                                    newSpell.image.full = oldImage["full"] as! String
+                                    newSpell.image.group = oldImage["group"] as! String
+                                    newSpell.image.h = oldImage["h"] as! Int
+                                    newSpell.image.sprite = oldImage["sprite"] as! String
+                                    newSpell.image.w = oldImage["w"] as! Int
+                                    newSpell.image.x = oldImage["x"] as! Int
+                                    newSpell.image.y = oldImage["y"] as! Int
+                                }
                                 newSpell.key = oldSpell["key"] as! String
                                 let oldLevelTip = oldSpell["leveltip"] as! [String: AnyObject]
                                 
