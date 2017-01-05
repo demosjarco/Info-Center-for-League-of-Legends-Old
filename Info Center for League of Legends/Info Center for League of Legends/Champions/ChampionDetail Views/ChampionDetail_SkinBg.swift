@@ -17,8 +17,29 @@ class ChampionDetail_SkinBg: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        if self.traitCollection.horizontalSizeClass == .regular {
+            DDragon().getChampionSplashArt(self.fullImageName, skinNumber: skinNum) { (champSplashArtUrl) in
+                self.skinImage?.setImageWith(champSplashArtUrl)
+            }
+        } else {
+            DDragon().getChampionLoadingArt(self.fullImageName, skinNumber: skinNum, completion: { (champSplashArtUrl) in
+                self.skinImage?.setImageWith(champSplashArtUrl)
+            })
+        }
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        self.skinImage?.image = nil
+        if newCollection.horizontalSizeClass == .regular {
+            DDragon().getChampionSplashArt(self.fullImageName, skinNumber: skinNum) { (champSplashArtUrl) in
+                self.skinImage?.setImageWith(champSplashArtUrl)
+            }
+        } else {
+            DDragon().getChampionLoadingArt(self.fullImageName, skinNumber: skinNum, completion: { (champSplashArtUrl) in
+                self.skinImage?.setImageWith(champSplashArtUrl)
+            })
+        }
     }
 
     /*
