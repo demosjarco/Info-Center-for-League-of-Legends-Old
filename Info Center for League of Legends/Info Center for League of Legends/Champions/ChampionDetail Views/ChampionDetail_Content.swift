@@ -9,6 +9,7 @@
 import UIKit
 
 class ChampionDetail_Content: UICollectionViewController {
+    var champion = ChampionDto()
 
     override func viewDidLoad() {
         super.viewDidLoad()
