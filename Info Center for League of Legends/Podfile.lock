@@ -90,6 +90,7 @@ PODS:
   - JSBadgeView (1.4.1)
   - MBCircularProgressBar (0.3.5)
   - SGSStaggeredFlowLayout (0.0.1)
+  - XCDYouTubeKit (2.5.3)
 
 DEPENDENCIES:
   - AFNetworking
@@ -106,6 +107,7 @@ DEPENDENCIES:
   - JSBadgeView
   - MBCircularProgressBar
   - SGSStaggeredFlowLayout
+  - XCDYouTubeKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -129,7 +131,8 @@ SPEC CHECKSUMS:
   JSBadgeView: 3861ddee41094284d9468e6d0af5107f703aaac5
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   SGSStaggeredFlowLayout: 7b20a3b7ac88a0db063ce9c4ac71c5fc95e165c2
+  XCDYouTubeKit: 90690f9e3523735dc93b8024269d991b0cfffe78
 
-PODFILE CHECKSUM: b21a2863b4a7ee3357a537fb104bbbbf816a150e
+PODFILE CHECKSUM: 573f0522f987666636880fea905d667a1631d96b
 
 COCOAPODS: 1.1.1

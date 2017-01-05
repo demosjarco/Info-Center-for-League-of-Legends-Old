@@ -18,7 +18,7 @@ platform :ios, '9.0'
     pod 'BEMSimpleLineGraph'
     pod 'MBCircularProgressBar'
     pod 'SGSStaggeredFlowLayout'
-    # pod 'XCDYouTubeKit'
+    pod 'XCDYouTubeKit'
     pod 'AMPopTip'
     pod 'JSBadgeView'
     
