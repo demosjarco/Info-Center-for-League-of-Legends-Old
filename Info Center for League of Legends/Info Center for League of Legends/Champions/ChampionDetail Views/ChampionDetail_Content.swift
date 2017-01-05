@@ -13,7 +13,14 @@ class ChampionDetail_Content: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Blur BG
+        autoreleasepool { ()
+            let tableBG = UIVisualEffectView(frame: self.collectionView!.frame)
+            tableBG.effect = UIBlurEffect(style: .dark)
+            tableBG.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            
+            self.collectionView?.backgroundView = tableBG
+        }
     }
 
     /*
