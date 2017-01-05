@@ -20,9 +20,9 @@ class ChampionDetail_SkinBg: UIViewController {
     var champId = 0
     var skinNum = 0
     var pageIndex = 0
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         
         setContentWithTraitCollection(self.traitCollection)
     }
