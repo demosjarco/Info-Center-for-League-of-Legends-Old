@@ -28,6 +28,7 @@ class ChampionDetail: UIViewController, UIPageViewControllerDataSource, UIPageVi
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
+        self.tabBarController?.dismissPopupBar(animated: true, completion: nil)
     }
 
     // MARK: - Navigation
