@@ -87,6 +87,7 @@ class ChampionDetail: UIViewController, UIPageViewControllerDataSource, UIPageVi
         
         let page = self.storyboard!.instantiateViewController(withIdentifier: "ChampionDetail_SkinBg") as! ChampionDetail_SkinBg
         page.fullImageName = self.champion.image!.full
+        page.champId = self.champion.champId
         page.skinNum = self.champion.skins![index].num
         page.pageIndex = index
         
