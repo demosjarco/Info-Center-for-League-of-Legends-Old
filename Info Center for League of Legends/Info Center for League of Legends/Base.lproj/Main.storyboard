@@ -2020,14 +2020,14 @@ last -- games</string>
                                             <rect key="frame" x="2" y="116" width="112" height="34"/>
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
-                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="16"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="13.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
-                                                    <rect key="frame" x="0.0" y="16" width="112" height="18"/>
+                                                    <rect key="frame" x="0.0" y="13.5" width="112" height="20.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2846,10 +2846,10 @@ last -- games</string>
             </objects>
             <point key="canvasLocation" x="1702" y="334"/>
         </scene>
-        <!--View Controller-->
+        <!--Champion Detail-->
         <scene sceneID="BBh-xx-Vuv">
             <objects>
-                <viewController id="FN9-jg-QhE" sceneMemberID="viewController">
+                <viewController id="FN9-jg-QhE" customClass="ChampionDetail" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zdd-xS-e6e"/>
                         <viewControllerLayoutGuide type="bottom" id="4wO-hR-TRG"/>
@@ -2890,7 +2890,7 @@ last -- games</string>
         <!--Champion Detail Skin Bg-->
         <scene sceneID="NUS-j3-JzF">
             <objects>
-                <viewController id="XZ9-5j-EXf" customClass="ChampionDetail_SkinBg" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChampionDetail_SkinBg" id="XZ9-5j-EXf" customClass="ChampionDetail_SkinBg" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zZm-Ax-688"/>
                         <viewControllerLayoutGuide type="bottom" id="mQK-IJ-3a1"/>
