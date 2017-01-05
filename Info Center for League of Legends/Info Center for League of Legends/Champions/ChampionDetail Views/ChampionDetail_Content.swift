@@ -8,7 +8,12 @@
 
 import UIKit
 
-class ChampionDetail_Content: UICollectionViewController {
+protocol ChampViewDelegate {
+    func goBack()
+}
+
+class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegate {
+    var delegate:ChampViewDelegate?
     var champion = ChampionDto()
 
     override func viewDidLoad() {
@@ -21,6 +26,10 @@ class ChampionDetail_Content: UICollectionViewController {
             
             self.collectionView?.backgroundView = tableBG
         }
+    }
+    
+    func goBack() {
+        self.delegate?.goBack()
     }
 
     /*
@@ -43,6 +52,21 @@ class ChampionDetail_Content: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return 0
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            let profileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "champion_view_header", for: indexPath) as! ChampionDetail_Content_Header
+            
+            profileHeader.delegate = self
+            
+            return profileHeader
+        case UICollectionElementKindSectionFooter:
+            return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "", for: indexPath)
+        default:
+            return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "", for: indexPath)
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

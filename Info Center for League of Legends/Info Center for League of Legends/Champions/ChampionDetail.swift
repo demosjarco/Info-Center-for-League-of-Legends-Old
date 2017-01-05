@@ -9,7 +9,7 @@
 import UIKit
 import LNPopupController
 
-class ChampionDetail: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class ChampionDetail: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, ChampViewDelegate {
     var champion = ChampionDto()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -18,6 +18,31 @@ class ChampionDetail: UIViewController, UIPageViewControllerDataSource, UIPageVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        autoreleasepool { ()
+            let content = self.storyboard!.instantiateViewController(withIdentifier: "ChampionDetail_Content") as! ChampionDetail_Content
+            content.delegate = self
+            content.champion = self.champion
+            content.popupItem.leftBarButtonItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.closeView))]
+            
+            // Use the new LCU icon if exists
+            if let champIcon = DDragon().getLcuChampionSquareArt(champId: self.champion.champId) {
+                content.popupItem.image = champIcon
+            } else {
+                DDragon().getChampionSquareArt(self.champion.image!.full, completion: { (champSquareArtUrl) in
+                    autoreleasepool(invoking: { ()
+                        UIImageView().setImageWith(URLRequest(url: champSquareArtUrl), placeholderImage: nil, success: { (request, response, image) in
+                            content.popupItem.image = image
+                        }, failure: nil)
+                    })
+                })
+            }
+            
+            content.popupItem.title = self.champion.name
+            content.popupItem.subtitle = self.champion.title
+            
+            self.tabBarController?.presentPopupBar(withContentViewController: content, openPopup: true, animated: true, completion: nil)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +54,10 @@ class ChampionDetail: UIViewController, UIPageViewControllerDataSource, UIPageVi
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         self.tabBarController?.dismissPopupBar(animated: true, completion: nil)
+    }
+    
+    func goBack() {
+        self.closeView()
     }
     
     func closeView() {
