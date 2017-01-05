@@ -40,6 +40,19 @@ class ChampionDetail: UIViewController, UIPageViewControllerDataSource, UIPageVi
         }
     }
     
+    func viewControllerAtIndex(_ index: Int) -> ChampionDetail_SkinBg? {
+        if self.champion.skins!.count == 0 || index >= self.champion.skins!.count {
+            return nil
+        }
+        
+        let page = self.storyboard!.instantiateViewController(withIdentifier: "ChampionDetail_SkinBg") as! ChampionDetail_SkinBg
+        page.fullImageName = self.champion.image!.full
+        page.skinNum = self.champion.skins![index].num
+        page.pageIndex = index
+        
+        return page
+    }
+    
     // MARK: UIPageViewControllerDataSource
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
@@ -51,11 +64,29 @@ class ChampionDetail: UIViewController, UIPageViewControllerDataSource, UIPageVi
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        return nil
+        var index = (viewController as! ChampionDetail_SkinBg).pageIndex
+        
+        if index == 0 || index == NSNotFound {
+            return nil
+        }
+        
+        index -= 1
+        
+        return self.viewControllerAtIndex(index)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        return nil
+        var index = (viewController as! ChampionDetail_SkinBg).pageIndex
+        
+        if index == NSNotFound {
+            return nil
+        }
+        index += 1
+        if index == self.champion.skins!.count {
+            return nil
+        }
+        
+        return self.viewControllerAtIndex(index)
     }
     
     // MARK: UIPageViewControllerDelegate
