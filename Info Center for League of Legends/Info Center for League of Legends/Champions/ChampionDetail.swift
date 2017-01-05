@@ -57,7 +57,7 @@ class ChampionDetail: UIViewController, UIPageViewControllerDataSource, UIPageVi
     // MARK: UIPageViewControllerDataSource
     
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
-        return 0
+        return self.champion.skins!.count
     }
     
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
