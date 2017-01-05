@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LNPopupController
 
 class ChampionDetail: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     var champion = ChampionDto()

@@ -37,6 +37,8 @@
 		17029E861E0C56E6004E653E /* RuneListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E801E0C56E6004E653E /* RuneListDto.swift */; };
 		17029E881E0C5B4E004E653E /* GoldDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E871E0C5B4E004E653E /* GoldDto.swift */; };
 		170BFD4D1E1E034C009318FB /* ChampionDetail_SkinBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BFD4C1E1E034C009318FB /* ChampionDetail_SkinBg.swift */; };
+		170BFD581E1E203C009318FB /* LNPopupController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 170BFD571E1E203C009318FB /* LNPopupController.framework */; };
+		170BFD591E1E203C009318FB /* LNPopupController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 170BFD571E1E203C009318FB /* LNPopupController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		17106E5B1E0BAD4E0076E2C7 /* lcuRunes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */; };
 		171A1C0F1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */; };
 		171A1C111D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */; };
@@ -156,6 +158,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				170BFD591E1E203C009318FB /* LNPopupController.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,6 +196,7 @@
 		17029E801E0C56E6004E653E /* RuneListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneListDto.swift; sourceTree = "<group>"; };
 		17029E871E0C5B4E004E653E /* GoldDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoldDto.swift; path = "Riot API/StaticDataEntities/GoldDto.swift"; sourceTree = "<group>"; };
 		170BFD4C1E1E034C009318FB /* ChampionDetail_SkinBg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetail_SkinBg.swift; sourceTree = "<group>"; };
+		170BFD571E1E203C009318FB /* LNPopupController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LNPopupController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = lcuRunes.xcassets; sourceTree = "<group>"; };
 		171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryListDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryListDto.swift"; sourceTree = "<group>"; };
 		171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryDto.swift"; sourceTree = "<group>"; };
@@ -311,6 +315,7 @@
 			files = (
 				1765108E1D23101800A076BA /* QuartzCore.framework in Frameworks */,
 				9BDD3013E0ED7A4DAF224558 /* Pods_Info_Center_for_League_of_Legends.framework in Frameworks */,
+				170BFD581E1E203C009318FB /* LNPopupController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +489,7 @@
 		174C950B1D106CCC00EBFB07 = {
 			isa = PBXGroup;
 			children = (
+				170BFD571E1E203C009318FB /* LNPopupController.framework */,
 				174C95161D106CCD00EBFB07 /* Info Center for League of Legends */,
 				174C952D1D106CCE00EBFB07 /* Info Center for League of LegendsTests */,
 				174C95381D106CCE00EBFB07 /* Info Center for League of LegendsUITests */,
