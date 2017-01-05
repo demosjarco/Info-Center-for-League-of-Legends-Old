@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChampionDetail: MainCollectionViewController {
+class ChampionDetail: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     var champion = ChampionDto()
 
     override func viewDidLoad() {
