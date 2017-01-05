@@ -180,7 +180,9 @@ class StaticDataEndpoint: NSObject {
                                             if (oldBlock["recMath"] != nil) {
                                                 newBlock.recMath = oldBlock["recMath"] as! Bool
                                             }
-                                            newBlock.type = oldBlock["type"] as! String
+                                            if (oldBlock["type"] != nil) {
+                                                newBlock.type = oldBlock["type"] as! String
+                                            }
                                             
                                             newRecommended.blocks.append(newBlock)
                                         }
@@ -262,7 +264,9 @@ class StaticDataEndpoint: NSObject {
                                         }
                                     }
                                 }
-                                newSpell.effectBurn = oldSpell["effectBurn"] as! [String]
+                                if (oldSpell["effectBurn"] != nil) {
+                                    newSpell.effectBurn = oldSpell["effectBurn"] as! [String]
+                                }
                                 if (oldSpell["image"] != nil) {
                                     let oldImage = oldSpell["image"] as! [String: AnyObject]
                                     
@@ -294,7 +298,9 @@ class StaticDataEndpoint: NSObject {
                                     }
                                 }
                                 newSpell.rangeBurn = oldSpell["rangeBurn"] as! String
-                                newSpell.resource = oldSpell["resource"] as! String
+                                if (oldSpell["resource"] != nil) {
+                                    newSpell.resource = oldSpell["resource"] as! String
+                                }
                                 newSpell.sanitizedDescription = oldSpell["sanitizedDescription"] as! String
                                 newSpell.sanitizedTooltip = oldSpell["sanitizedTooltip"] as! String
                                 newSpell.tooltip = oldSpell["tooltip"] as! String
@@ -309,7 +315,9 @@ class StaticDataEndpoint: NSObject {
                                                 newVar.dyn = oldVar["dyn"] as! String
                                             }
                                             newVar.key = oldVar["key"] as! String
-                                            newVar.link = oldVar["link"] as! String
+                                            if (oldVar["link"] != nil) {
+                                                newVar.link = oldVar["link"] as! String
+                                            }
                                             if oldVar["ranksWith"] != nil {
                                                 newVar.ranksWith = oldVar["ranksWith"] as! String
                                             }
