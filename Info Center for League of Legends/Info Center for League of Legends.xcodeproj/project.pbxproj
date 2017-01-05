@@ -40,6 +40,7 @@
 		170BFD581E1E203C009318FB /* LNPopupController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 170BFD571E1E203C009318FB /* LNPopupController.framework */; };
 		170BFD591E1E203C009318FB /* LNPopupController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 170BFD571E1E203C009318FB /* LNPopupController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		170BFD5B1E1E247F009318FB /* ChampionDetail_Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BFD5A1E1E247F009318FB /* ChampionDetail_Content.swift */; };
+		170BFD5D1E1E2C87009318FB /* ChampionDetail_Content_Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BFD5C1E1E2C87009318FB /* ChampionDetail_Content_Header.swift */; };
 		17106E5B1E0BAD4E0076E2C7 /* lcuRunes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */; };
 		171A1C0F1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */; };
 		171A1C111D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */; };
@@ -199,6 +200,7 @@
 		170BFD4C1E1E034C009318FB /* ChampionDetail_SkinBg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetail_SkinBg.swift; sourceTree = "<group>"; };
 		170BFD571E1E203C009318FB /* LNPopupController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LNPopupController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		170BFD5A1E1E247F009318FB /* ChampionDetail_Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetail_Content.swift; sourceTree = "<group>"; };
+		170BFD5C1E1E2C87009318FB /* ChampionDetail_Content_Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetail_Content_Header.swift; sourceTree = "<group>"; };
 		17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = lcuRunes.xcassets; sourceTree = "<group>"; };
 		171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryListDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryListDto.swift"; sourceTree = "<group>"; };
 		171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryDto.swift"; sourceTree = "<group>"; };
@@ -408,6 +410,7 @@
 			children = (
 				170BFD4C1E1E034C009318FB /* ChampionDetail_SkinBg.swift */,
 				170BFD5A1E1E247F009318FB /* ChampionDetail_Content.swift */,
+				170BFD5C1E1E2C87009318FB /* ChampionDetail_Content_Header.swift */,
 			);
 			path = "ChampionDetail Views";
 			sourceTree = "<group>";
@@ -1226,6 +1229,7 @@
 				1775730D1E1AF4E500D92C3A /* ChampionListDto.swift in Sources */,
 				17A098871DA84F65004C79F4 /* AccountNameCell.swift in Sources */,
 				17FDDF651D4D494600CC7277 /* StaticDataEndpoint.swift in Sources */,
+				170BFD5D1E1E2C87009318FB /* ChampionDetail_Content_Header.swift in Sources */,
 				1732F6091D55019F009DA53B /* Translation.swift in Sources */,
 				17A098801DA83517004C79F4 /* TournamentListCell.swift in Sources */,
 				1732F5F71D54FA9A009DA53B /* ServerStatus.swift in Sources */,
