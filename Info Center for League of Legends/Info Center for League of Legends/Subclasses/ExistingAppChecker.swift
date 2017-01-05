@@ -15,6 +15,7 @@ class ExistingAppChecker: NSObject {
         if let region = UserDefaults.standard.string(forKey: "league_region") {
             print("App Region: " + region)
         } else {
+            UserDefaults.standard.set(false, forKey: "league_useAnimatedSplashArtOnCellular")
             promptUserForRegion(viewController, userChose: { (region) in
                 UserDefaults.standard.setValue(region, forKey: "league_region")
                 FIRMessaging.messaging().subscribe(toTopic: "/topics/" + region)

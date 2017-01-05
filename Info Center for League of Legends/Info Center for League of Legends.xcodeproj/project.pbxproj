@@ -129,6 +129,7 @@
 		17EDBB361D10F12E00C7B7C5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */; };
 		17EDBB381D10F68D00C7B7C5 /* ExistingAppChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */; };
 		17F97B8B1D56788900A8B4E7 /* MasteryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F97B8A1D56788900A8B4E7 /* MasteryDto.swift */; };
+		17FA396F1E1EEB5B008342C4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FA396E1E1EEB5B008342C4 /* Reachability.m */; };
 		17FDDF601D4D391200CC7277 /* ChampionMasteryEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDDF5F1D4D391200CC7277 /* ChampionMasteryEndpoint.swift */; };
 		17FDDF651D4D494600CC7277 /* StaticDataEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDDF641D4D494600CC7277 /* StaticDataEndpoint.swift */; };
 		9BDD3013E0ED7A4DAF224558 /* Pods_Info_Center_for_League_of_Legends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */; };
@@ -299,6 +300,8 @@
 		17EDBB351D10F12E00C7B7C5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17EDBB371D10F68D00C7B7C5 /* ExistingAppChecker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExistingAppChecker.swift; path = Subclasses/ExistingAppChecker.swift; sourceTree = "<group>"; };
 		17F97B8A1D56788900A8B4E7 /* MasteryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasteryDto.swift; path = "Riot API/SummonerEntities/MasteryDto.swift"; sourceTree = "<group>"; };
+		17FA396D1E1EEB5B008342C4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		17FA396E1E1EEB5B008342C4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		17FDDF5F1D4D391200CC7277 /* ChampionMasteryEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChampionMasteryEndpoint.swift; path = "Riot API/ChampionMasteryEndpoint.swift"; sourceTree = "<group>"; };
 		17FDDF641D4D494600CC7277 /* StaticDataEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StaticDataEndpoint.swift; path = "Riot API/StaticDataEndpoint.swift"; sourceTree = "<group>"; };
 		2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Info_Center_for_League_of_Legends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -620,6 +623,8 @@
 		1770B79A1D13B8340096AA9B /* Objective-C */ = {
 			isa = PBXGroup;
 			children = (
+				17FA396D1E1EEB5B008342C4 /* Reachability.h */,
+				17FA396E1E1EEB5B008342C4 /* Reachability.m */,
 				1770B79B1D13B8790096AA9B /* Bridging-Header.h */,
 			);
 			name = "Objective-C";
@@ -1318,6 +1323,7 @@
 				1771CBCE1D28290200D0DB08 /* LeagueEndpoint.swift in Sources */,
 				171A1C0F1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift in Sources */,
 				17029E821E0C56E6004E653E /* BasicDataStatsDto.swift in Sources */,
+				17FA396F1E1EEB5B008342C4 /* Reachability.m in Sources */,
 				177573111E1AF9FE00D92C3A /* ChampionListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
