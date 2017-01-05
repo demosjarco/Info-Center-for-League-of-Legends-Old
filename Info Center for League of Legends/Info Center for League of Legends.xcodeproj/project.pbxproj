@@ -36,6 +36,7 @@
 		17029E851E0C56E6004E653E /* RuneDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E7F1E0C56E6004E653E /* RuneDto.swift */; };
 		17029E861E0C56E6004E653E /* RuneListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E801E0C56E6004E653E /* RuneListDto.swift */; };
 		17029E881E0C5B4E004E653E /* GoldDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17029E871E0C5B4E004E653E /* GoldDto.swift */; };
+		170BFD4D1E1E034C009318FB /* ChampionDetail_SkinBg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BFD4C1E1E034C009318FB /* ChampionDetail_SkinBg.swift */; };
 		17106E5B1E0BAD4E0076E2C7 /* lcuRunes.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */; };
 		171A1C0F1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */; };
 		171A1C111D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */; };
@@ -191,6 +192,7 @@
 		17029E7F1E0C56E6004E653E /* RuneDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneDto.swift; sourceTree = "<group>"; };
 		17029E801E0C56E6004E653E /* RuneListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuneListDto.swift; sourceTree = "<group>"; };
 		17029E871E0C5B4E004E653E /* GoldDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoldDto.swift; path = "Riot API/StaticDataEntities/GoldDto.swift"; sourceTree = "<group>"; };
+		170BFD4C1E1E034C009318FB /* ChampionDetail_SkinBg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetail_SkinBg.swift; sourceTree = "<group>"; };
 		17106E5A1E0BAD4E0076E2C7 /* lcuRunes.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = lcuRunes.xcassets; sourceTree = "<group>"; };
 		171A1C0E1D38975400BAB5B4 /* PlayerStatsSummaryListDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryListDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryListDto.swift"; sourceTree = "<group>"; };
 		171A1C101D3897ED00BAB5B4 /* PlayerStatsSummaryDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStatsSummaryDto.swift; path = "Riot API/StatsEntities/PlayerStatsSummaryDto.swift"; sourceTree = "<group>"; };
@@ -392,6 +394,14 @@
 			);
 			name = Runes;
 			path = "Riot API/StaticDataEntities/Runes";
+			sourceTree = "<group>";
+		};
+		170BFD4B1E1E034C009318FB /* ChampionDetail Views */ = {
+			isa = PBXGroup;
+			children = (
+				170BFD4C1E1E034C009318FB /* ChampionDetail_SkinBg.swift */,
+			);
+			path = "ChampionDetail Views";
 			sourceTree = "<group>";
 		};
 		171A1C0D1D38970500BAB5B4 /* Stats Entities */ = {
@@ -665,6 +675,7 @@
 				178E3C0A1DA7FF9B0088BE69 /* ChampionList.swift */,
 				177573101E1AF9FE00D92C3A /* ChampionListCell.swift */,
 				176FDFA41E1DBC0300CC045E /* ChampionDetail.swift */,
+				170BFD4B1E1E034C009318FB /* ChampionDetail Views */,
 			);
 			path = Champions;
 			sourceTree = "<group>";
@@ -1284,6 +1295,7 @@
 				17EDBB381D10F68D00C7B7C5 /* ExistingAppChecker.swift in Sources */,
 				17EDBB331D10EFAC00C7B7C5 /* ProfileSearch.swift in Sources */,
 				17029E741E0C56C1004E653E /* MasteryTreeItemDto.swift in Sources */,
+				170BFD4D1E1E034C009318FB /* ChampionDetail_SkinBg.swift in Sources */,
 				172101CF1D1EDC2C0088DB1A /* ProfileView_Masteries.swift in Sources */,
 				17029E6B1E0C56B1004E653E /* StatsDto.swift in Sources */,
 				173705411D4D035C006E112E /* StretchyHeaderCollectionViewLayout.swift in Sources */,
