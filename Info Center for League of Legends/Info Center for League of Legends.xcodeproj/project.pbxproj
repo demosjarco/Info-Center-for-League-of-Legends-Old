@@ -93,6 +93,7 @@
 		176D5B961D1C42A2000D9D85 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D5B951D1C42A2000D9D85 /* Endpoints.swift */; };
 		176D5B981D1C478F000D9D85 /* SummonerDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176D5B971D1C478F000D9D85 /* SummonerDto.swift */; };
 		176FDFA51E1DBC0300CC045E /* ChampionDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176FDFA41E1DBC0300CC045E /* ChampionDetail.swift */; };
+		176FDFAE1E1DCA4F00CC045E /* LNPopupController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 176FDFAD1E1DCA4F00CC045E /* LNPopupController.framework */; };
 		1771CBCE1D28290200D0DB08 /* LeagueEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771CBCD1D28290200D0DB08 /* LeagueEndpoint.swift */; };
 		1771CBD11D282B6D00D0DB08 /* LeagueDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771CBD01D282B6D00D0DB08 /* LeagueDto.swift */; };
 		1771CBD41D282B9800D0DB08 /* LeagueEntryDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1771CBD21D282B9800D0DB08 /* LeagueEntryDto.swift */; };
@@ -145,13 +146,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 174C95131D106CCC00EBFB07;
 			remoteInfo = "Info Center for League of Legends";
-		};
-		176FDFAA1E1DC7E800CC045E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 176FDFA61E1DC7E800CC045E /* LNPopupController.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 39DB52E51B5823330061C589;
-			remoteInfo = LNPopupController;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -248,7 +242,7 @@
 		176D5B951D1C42A2000D9D85 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Endpoints.swift; path = "Riot API/Endpoints.swift"; sourceTree = "<group>"; };
 		176D5B971D1C478F000D9D85 /* SummonerDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummonerDto.swift; path = "Riot API/SummonerEntities/SummonerDto.swift"; sourceTree = "<group>"; };
 		176FDFA41E1DBC0300CC045E /* ChampionDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetail.swift; sourceTree = "<group>"; };
-		176FDFA61E1DC7E800CC045E /* LNPopupController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LNPopupController.xcodeproj; path = "Info Center for League of Legends/LNPopupController/LNPopupController.xcodeproj"; sourceTree = "<group>"; };
+		176FDFAD1E1DCA4F00CC045E /* LNPopupController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LNPopupController.framework; path = "Info Center for League of Legends/LNPopupController/build/Debug-iphoneos/LNPopupController.framework"; sourceTree = "<group>"; };
 		1770B79B1D13B8790096AA9B /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Objective-C/Bridging-Header.h"; sourceTree = "<group>"; };
 		1771CBCD1D28290200D0DB08 /* LeagueEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeagueEndpoint.swift; path = "Riot API/LeagueEndpoint.swift"; sourceTree = "<group>"; };
 		1771CBD01D282B6D00D0DB08 /* LeagueDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeagueDto.swift; path = "Riot API/LeagueEntities/LeagueDto.swift"; sourceTree = "<group>"; };
@@ -301,6 +295,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				176FDFAE1E1DCA4F00CC045E /* LNPopupController.framework in Frameworks */,
 				1765108E1D23101800A076BA /* QuartzCore.framework in Frameworks */,
 				9BDD3013E0ED7A4DAF224558 /* Pods_Info_Center_for_League_of_Legends.framework in Frameworks */,
 			);
@@ -468,7 +463,6 @@
 		174C950B1D106CCC00EBFB07 = {
 			isa = PBXGroup;
 			children = (
-				176FDFA61E1DC7E800CC045E /* LNPopupController.xcodeproj */,
 				174C95161D106CCD00EBFB07 /* Info Center for League of Legends */,
 				174C952D1D106CCE00EBFB07 /* Info Center for League of LegendsTests */,
 				174C95381D106CCE00EBFB07 /* Info Center for League of LegendsUITests */,
@@ -588,14 +582,6 @@
 				17029E381E0C3EA8004E653E /* RuneSlotDto.swift */,
 			);
 			name = SummonerEntities;
-			sourceTree = "<group>";
-		};
-		176FDFA71E1DC7E800CC045E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				176FDFAB1E1DC7E800CC045E /* LNPopupController.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		1770B79A1D13B8340096AA9B /* Objective-C */ = {
@@ -727,6 +713,7 @@
 		21035380F080A49DE06B128A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				176FDFAD1E1DCA4F00CC045E /* LNPopupController.framework */,
 				1765108C1D230CB800A076BA /* QuartzCore.framework */,
 				17E5B9611D11A74100F213E6 /* libsqlite3.tbd */,
 				2932808F146B2CA7C1F165DC /* Pods_Info_Center_for_League_of_Legends.framework */,
@@ -882,12 +869,6 @@
 			mainGroup = 174C950B1D106CCC00EBFB07;
 			productRefGroup = 174C95151D106CCD00EBFB07 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 176FDFA71E1DC7E800CC045E /* Products */;
-					ProjectRef = 176FDFA61E1DC7E800CC045E /* LNPopupController.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				174C95131D106CCC00EBFB07 /* Info Center for League of Legends */,
@@ -896,16 +877,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		176FDFAB1E1DC7E800CC045E /* LNPopupController.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = LNPopupController.framework;
-			remoteRef = 176FDFAA1E1DC7E800CC045E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		174C95121D106CCC00EBFB07 /* Resources */ = {
@@ -1468,6 +1439,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Info\\ Center\\ for\\ League\\ of\\ Legends/LNPopupController/build/Debug-iphoneos",
+				);
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "Info Center for League of Legends/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1493,6 +1468,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Info\\ Center\\ for\\ League\\ of\\ Legends/LNPopupController/build/Debug-iphoneos",
+				);
 				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = "Info Center for League of Legends/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
