@@ -11,6 +11,8 @@ import UIKit
 class ChampionDetail_SkinBg: UIViewController {
     @IBOutlet var skinImage:UIImageView?
     
+    var fullImageName = ""
+    var skinNum = 0
     var pageIndex = 0
 
     override func viewDidLoad() {
