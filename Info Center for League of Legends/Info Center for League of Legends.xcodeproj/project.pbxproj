@@ -146,6 +146,13 @@
 			remoteGlobalIDString = 174C95131D106CCC00EBFB07;
 			remoteInfo = "Info Center for League of Legends";
 		};
+		176FDFAA1E1DC7E800CC045E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 176FDFA61E1DC7E800CC045E /* LNPopupController.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 39DB52E51B5823330061C589;
+			remoteInfo = LNPopupController;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -241,6 +248,7 @@
 		176D5B951D1C42A2000D9D85 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Endpoints.swift; path = "Riot API/Endpoints.swift"; sourceTree = "<group>"; };
 		176D5B971D1C478F000D9D85 /* SummonerDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummonerDto.swift; path = "Riot API/SummonerEntities/SummonerDto.swift"; sourceTree = "<group>"; };
 		176FDFA41E1DBC0300CC045E /* ChampionDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetail.swift; sourceTree = "<group>"; };
+		176FDFA61E1DC7E800CC045E /* LNPopupController.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LNPopupController.xcodeproj; path = "Info Center for League of Legends/LNPopupController/LNPopupController.xcodeproj"; sourceTree = "<group>"; };
 		1770B79B1D13B8790096AA9B /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Bridging-Header.h"; path = "Objective-C/Bridging-Header.h"; sourceTree = "<group>"; };
 		1771CBCD1D28290200D0DB08 /* LeagueEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeagueEndpoint.swift; path = "Riot API/LeagueEndpoint.swift"; sourceTree = "<group>"; };
 		1771CBD01D282B6D00D0DB08 /* LeagueDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LeagueDto.swift; path = "Riot API/LeagueEntities/LeagueDto.swift"; sourceTree = "<group>"; };
@@ -460,6 +468,7 @@
 		174C950B1D106CCC00EBFB07 = {
 			isa = PBXGroup;
 			children = (
+				176FDFA61E1DC7E800CC045E /* LNPopupController.xcodeproj */,
 				174C95161D106CCD00EBFB07 /* Info Center for League of Legends */,
 				174C952D1D106CCE00EBFB07 /* Info Center for League of LegendsTests */,
 				174C95381D106CCE00EBFB07 /* Info Center for League of LegendsUITests */,
@@ -579,6 +588,14 @@
 				17029E381E0C3EA8004E653E /* RuneSlotDto.swift */,
 			);
 			name = SummonerEntities;
+			sourceTree = "<group>";
+		};
+		176FDFA71E1DC7E800CC045E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				176FDFAB1E1DC7E800CC045E /* LNPopupController.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		1770B79A1D13B8340096AA9B /* Objective-C */ = {
@@ -865,6 +882,12 @@
 			mainGroup = 174C950B1D106CCC00EBFB07;
 			productRefGroup = 174C95151D106CCD00EBFB07 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 176FDFA71E1DC7E800CC045E /* Products */;
+					ProjectRef = 176FDFA61E1DC7E800CC045E /* LNPopupController.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				174C95131D106CCC00EBFB07 /* Info Center for League of Legends */,
@@ -873,6 +896,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		176FDFAB1E1DC7E800CC045E /* LNPopupController.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LNPopupController.framework;
+			remoteRef = 176FDFAA1E1DC7E800CC045E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		174C95121D106CCC00EBFB07 /* Resources */ = {
