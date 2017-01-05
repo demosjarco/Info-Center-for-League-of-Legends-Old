@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChampionDetail: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ChampionDetail: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     var champion = ChampionDto()
 
     override func viewDidLoad() {
@@ -21,10 +21,34 @@ class ChampionDetail: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        if segue.identifier == "" {
+        if segue.identifier == "showSkinPages" {
+            let pageViewController = segue.destination as! UIPageViewController
+            pageViewController.delegate = self
+            pageViewController.dataSource = self
+        } else if segue.identifier == "" {
             
         }
     }
+    
+    // MARK: UIPageViewControllerDataSource
+    
+    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return 0
+    }
+    
+    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        return 0
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        return nil
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        return nil
+    }
+    
+    // MARK: UIPageViewControllerDelegate
 
     // MARK: UICollectionViewDataSource
 
