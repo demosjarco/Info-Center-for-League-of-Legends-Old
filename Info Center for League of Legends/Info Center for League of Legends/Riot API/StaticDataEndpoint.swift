@@ -177,7 +177,9 @@ class StaticDataEndpoint: NSObject {
                                                     newBlock.items.append(newItem)
                                                 }
                                             }
-                                            newBlock.recMath = oldBlock["recMath"] as! Bool
+                                            if (oldBlock["recMath"] != nil) {
+                                                newBlock.recMath = oldBlock["recMath"] as! Bool
+                                            }
                                             newBlock.type = oldBlock["type"] as! String
                                             
                                             newRecommended.blocks.append(newBlock)
