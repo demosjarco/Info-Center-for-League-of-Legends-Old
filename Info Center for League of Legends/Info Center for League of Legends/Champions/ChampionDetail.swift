@@ -30,6 +30,10 @@ class ChampionDetail: UIViewController, UIPageViewControllerDataSource, UIPageVi
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
         self.tabBarController?.dismissPopupBar(animated: true, completion: nil)
     }
+    
+    func closeView() {
+        self.navigationController?.popViewController(animated: true)
+    }
 
     // MARK: - Navigation
 
