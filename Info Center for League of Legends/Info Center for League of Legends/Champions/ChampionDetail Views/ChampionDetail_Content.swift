@@ -19,6 +19,10 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    func goBack() {
+        self.delegate?.goBack()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +36,6 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
         }
     }
     
-    func goBack() {
-        self.delegate?.goBack()
     }
 
     /*
