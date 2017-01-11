@@ -2531,7 +2531,7 @@ last -- games</string>
                                                         <rect key="frame" x="8" y="8" width="64" height="64"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="65" height="64"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zgt-kK-zjb">
@@ -2910,7 +2910,7 @@ last -- games</string>
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="champion_view_enemyTips" id="UeH-1f-QyC">
                                 <rect key="frame" x="27.5" y="476" width="320" height="200"/>
@@ -2919,7 +2919,7 @@ last -- games</string>
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="champion_view_lore" id="cde-GO-x2i">
                                 <rect key="frame" x="27.5" y="686" width="320" height="200"/>
@@ -2928,7 +2928,7 @@ last -- games</string>
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="champion_view_passive" id="n0G-XL-Vp0">
                                 <rect key="frame" x="27.5" y="896" width="320" height="200"/>
@@ -2937,7 +2937,7 @@ last -- games</string>
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="champion_view_spell" id="bBJ-4y-HZ7">
                                 <rect key="frame" x="27.5" y="1106" width="320" height="200"/>
@@ -2946,7 +2946,7 @@ last -- games</string>
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="champion_view_header" id="Sz1-Pg-99O" customClass="ChampionDetail_Content_Header" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
@@ -2999,7 +2999,7 @@ last -- games</string>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="3Rd-Bf-yiN" firstAttribute="leading" secondItem="Sz1-Pg-99O" secondAttribute="leadingMargin" id="0Mf-sC-Hii"/>
                                 <constraint firstItem="Mvt-4r-RuI" firstAttribute="height" secondItem="xjR-Tv-OBH" secondAttribute="height" multiplier="0.5" id="EfY-Jb-Qq1"/>
