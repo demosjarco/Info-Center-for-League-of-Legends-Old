@@ -918,7 +918,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         let newTileOrder = NSMutableArray(array: tileOrder)
         newTileOrder.removeObject(at: sourceIndexPath.row)
         newTileOrder.insert(tileOrder[sourceIndexPath.row], at: destinationIndexPath.row)
-        PlistManager().writeTileOrder(NSArray(array: newTileOrder))
+        PlistManager().writeProfileViewTileOrder(NSArray(array: newTileOrder))
         
         tileOrder = NSArray(array: newTileOrder)
     }

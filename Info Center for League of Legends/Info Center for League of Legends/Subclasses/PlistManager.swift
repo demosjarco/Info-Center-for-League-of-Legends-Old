@@ -85,7 +85,7 @@ class PlistManager: NSObject {
             return NSArray(array: tempTileOrder)
         }
     }
-    func writeTileOrder(_ tileOrder: NSArray) {
+    func writeProfileViewTileOrder(_ tileOrder: NSArray) {
         if !FileManager.default.fileExists(atPath: getDocumentDirectory().appending(baseDatabaseDirectory)) {
             do {
                 try FileManager.default.createDirectory(atPath: getDocumentDirectory().appending(baseDatabaseDirectory), withIntermediateDirectories: true, attributes: nil)
