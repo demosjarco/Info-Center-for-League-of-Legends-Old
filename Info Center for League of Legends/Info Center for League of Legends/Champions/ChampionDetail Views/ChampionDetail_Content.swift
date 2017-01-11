@@ -37,8 +37,12 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
         }
         
         tileOrder = PlistManager().loadChampionDetailViewTileOrder()
+        
+        loadContent()
     }
     
+    func loadContent() {
+        
     }
 
     /*
