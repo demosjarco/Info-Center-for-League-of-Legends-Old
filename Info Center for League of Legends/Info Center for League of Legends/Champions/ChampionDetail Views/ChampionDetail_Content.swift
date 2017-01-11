@@ -54,8 +54,7 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return tileOrder.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -83,19 +82,72 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "<#reuseIdentifier#>", for: indexPath)
-    
-        // Configure the cell
-    
-        return cell
+        let niceTileOrder = tileOrder as! [[String: String]]
+        switch niceTileOrder[indexPath.row]["tileType"] {
+        case "allyTips" as NSString:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_allyTips", for: indexPath) as! ChampionDetail_Content_AllyTips
+            
+            // Configure the cell
+            
+            return cell
+        case "enemyTips" as NSString:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_enemyTips", for: indexPath)
+            
+            // Configure the cell
+            
+            return cell
+        case "lore" as NSString:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_lore", for: indexPath)
+            
+            // Configure the cell
+            
+            return cell
+        case "passive" as NSString:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_passive", for: indexPath)
+            
+            // Configure the cell
+            
+            return cell
+        case "spell0" as NSString:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_spell", for: indexPath)
+            
+            // Configure the cell
+            
+            return cell
+        case "spell1" as NSString:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_spell", for: indexPath)
+            
+            // Configure the cell
+            
+            return cell
+        case "spell2" as NSString:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_spell", for: indexPath)
+            
+            // Configure the cell
+            
+            return cell
+        case "spell3" as NSString:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_spell", for: indexPath)
+            
+            // Configure the cell
+            
+            return cell
+        default:
+            // ??
+            return collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
+        }
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+    
+    override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
         return true
     }
-    */
+    
+    override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let newTileOrder = NSMutableArray(array: tileOrder)
+        newTileOrder.removeObject(at: sourceIndexPath.row)
+        newTileOrder.insert(tileOrder[sourceIndexPath.row], at: destinationIndexPath.row)
+        PlistManager().writeChampionDetailViewTileOrder(NSArray(array: newTileOrder))
+        
+        tileOrder = NSArray(array: newTileOrder)
+    }
 }
