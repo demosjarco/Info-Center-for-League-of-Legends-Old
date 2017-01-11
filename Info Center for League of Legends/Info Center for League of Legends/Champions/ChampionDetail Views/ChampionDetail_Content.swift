@@ -15,6 +15,7 @@ protocol ChampViewDelegate {
 class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegate {
     var delegate:ChampViewDelegate?
     var champion = ChampionDto()
+    var tileOrder = NSArray()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -34,6 +35,8 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
             
             self.collectionView?.backgroundView = tableBG
         }
+        
+        tileOrder = PlistManager().loadChampionDetailViewTileOrder()
     }
     
     }
