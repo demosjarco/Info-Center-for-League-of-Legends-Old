@@ -16,8 +16,9 @@ class ChampionDetail_Content_Header: UICollectionReusableView, UICollectionViewD
     var delegate:ChampViewHeaderDelegate?
     var stats = StatsDto()
     
-    @IBOutlet var championCover:UIImageView?
     @IBOutlet var championIcon:UIImageView?
+    @IBOutlet var championName:UILabel?
+    @IBOutlet var championTitle:UILabel?
     
     @IBAction func backButtonpressed() {
         self.delegate?.goBack()
