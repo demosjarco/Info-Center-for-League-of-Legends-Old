@@ -56,6 +56,7 @@
 		172C606C1D3BFE67003DC152 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C606B1D3BFE67003DC152 /* NewsCell.swift */; };
 		17312F791E26C098006BBC04 /* ChampionDetail_Content_AllyTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17312F771E26C098006BBC04 /* ChampionDetail_Content_AllyTips.swift */; };
 		17312F7A1E26C098006BBC04 /* ChampionDetail_Content_Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17312F781E26C098006BBC04 /* ChampionDetail_Content_Header.swift */; };
+		17312F7C1E2701E8006BBC04 /* ChampionDetail_Content_Header_Stat_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17312F7B1E2701E8006BBC04 /* ChampionDetail_Content_Header_Stat_Cell.swift */; };
 		1732F5F71D54FA9A009DA53B /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732F5F61D54FA9A009DA53B /* ServerStatus.swift */; };
 		1732F5F91D54FC5A009DA53B /* StatusDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732F5F81D54FC5A009DA53B /* StatusDetail.swift */; };
 		1732F5FB1D550057009DA53B /* StatusEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732F5FA1D550057009DA53B /* StatusEndpoint.swift */; };
@@ -218,6 +219,7 @@
 		172C606B1D3BFE67003DC152 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsCell.swift; path = News/NewsCell.swift; sourceTree = "<group>"; };
 		17312F771E26C098006BBC04 /* ChampionDetail_Content_AllyTips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetail_Content_AllyTips.swift; sourceTree = "<group>"; };
 		17312F781E26C098006BBC04 /* ChampionDetail_Content_Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetail_Content_Header.swift; sourceTree = "<group>"; };
+		17312F7B1E2701E8006BBC04 /* ChampionDetail_Content_Header_Stat_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetail_Content_Header_Stat_Cell.swift; sourceTree = "<group>"; };
 		1732F5F61D54FA9A009DA53B /* ServerStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServerStatus.swift; path = News/ServerStatus.swift; sourceTree = "<group>"; };
 		1732F5F81D54FC5A009DA53B /* StatusDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusDetail.swift; path = News/StatusDetail.swift; sourceTree = "<group>"; };
 		1732F5FA1D550057009DA53B /* StatusEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusEndpoint.swift; path = "Riot API/StatusEndpoint.swift"; sourceTree = "<group>"; };
@@ -449,8 +451,9 @@
 		17312F761E26C098006BBC04 /* ChampionDetail_Content Cells */ = {
 			isa = PBXGroup;
 			children = (
-				17312F771E26C098006BBC04 /* ChampionDetail_Content_AllyTips.swift */,
 				17312F781E26C098006BBC04 /* ChampionDetail_Content_Header.swift */,
+				17312F7B1E2701E8006BBC04 /* ChampionDetail_Content_Header_Stat_Cell.swift */,
+				17312F771E26C098006BBC04 /* ChampionDetail_Content_AllyTips.swift */,
 			);
 			path = "ChampionDetail_Content Cells";
 			sourceTree = "<group>";
@@ -543,7 +546,6 @@
 				177666A61D52756600C846BA /* Lcs */,
 				17353B691D3AC7F400C56768 /* News */,
 				174C951D1D106CCD00EBFB07 /* Main.storyboard */,
-				178E3C031DA7FF260088BE69 /* Champions */,
 				17D14E131D10D3A8007F6938 /* Winter.xcassets */,
 				17D14E121D10D3A8007F6938 /* Normal.xcassets */,
 				17D14E111D10D3A8007F6938 /* Fall.xcassets */,
@@ -678,13 +680,6 @@
 			);
 			name = "Game Entities";
 			path = "Riot API/GameEntities";
-			sourceTree = "<group>";
-		};
-		178E3C031DA7FF260088BE69 /* Champions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Champions;
 			sourceTree = "<group>";
 		};
 		178E3C041DA7FF600088BE69 /* Tournaments */ = {
@@ -1292,6 +1287,7 @@
 				172101C41D1EDB310088DB1A /* ProfileView.swift in Sources */,
 				17312F791E26C098006BBC04 /* ChampionDetail_Content_AllyTips.swift in Sources */,
 				176D5B981D1C478F000D9D85 /* SummonerDto.swift in Sources */,
+				17312F7C1E2701E8006BBC04 /* ChampionDetail_Content_Header_Stat_Cell.swift in Sources */,
 				17A098851DA84F03004C79F4 /* AccountSettings.swift in Sources */,
 				174DFCC51E0CE2BF001A6685 /* Profile_Masteries.swift in Sources */,
 				17425AA21E17580700EB3058 /* Profile_CurrentGame.swift in Sources */,

@@ -72,6 +72,7 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
             let profileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "champion_view_header", for: indexPath) as! ChampionDetail_Content_Header
             
             profileHeader.delegate = self
+            profileHeader.stats = self.champion.stats!
             
             // Use the new LCU icon if exists
             if let champIcon = DDragon().getLcuChampionSquareArt(champId: self.champion.champId) {
