@@ -2964,26 +2964,58 @@ last -- games</string>
                                         <action selector="backButtonpressed" destination="Sz1-Pg-99O" eventType="touchUpInside" id="5X4-nK-2cd"/>
                                     </connections>
                                 </button>
-                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mvt-4r-RuI">
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mvt-4r-RuI">
                                     <rect key="frame" x="72" y="192" width="303" height="64"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="y4B-Oz-AlX">
+                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="8" minimumInteritemSpacing="0.0" id="y4B-Oz-AlX">
                                         <size key="itemSize" width="114" height="64"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                         <inset key="sectionInset" minX="64" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                     <cells>
-                                        <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gRU-ms-r0p">
+                                        <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="champStatCell" id="gRU-ms-r0p" customClass="ChampionDetail_Content_Header_Stat_Cell" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
                                             <rect key="frame" x="64" y="0.0" width="114" height="64"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                 <rect key="frame" x="0.0" y="0.0" width="114" height="64"/>
                                                 <autoresizingMask key="autoresizingMask"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5XW-Bt-EAZ">
+                                                        <rect key="frame" x="0.0" y="16" width="32" height="32"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="5XW-Bt-EAZ" secondAttribute="height" multiplier="1:1" id="8AR-6K-1Bm"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bdh-Fz-t8A">
+                                                        <rect key="frame" x="40" y="0.0" width="74" height="64"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                             </view>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="bdh-Fz-t8A" firstAttribute="top" secondItem="gRU-ms-r0p" secondAttribute="top" id="9vC-Dt-Bi0"/>
+                                                <constraint firstItem="5XW-Bt-EAZ" firstAttribute="centerY" secondItem="gRU-ms-r0p" secondAttribute="centerY" id="Aek-hY-ZqX"/>
+                                                <constraint firstAttribute="trailing" secondItem="bdh-Fz-t8A" secondAttribute="trailing" id="GO4-2Z-L66"/>
+                                                <constraint firstItem="5XW-Bt-EAZ" firstAttribute="height" secondItem="gRU-ms-r0p" secondAttribute="height" multiplier="0.5" id="deA-9e-Mx0"/>
+                                                <constraint firstItem="bdh-Fz-t8A" firstAttribute="leading" secondItem="5XW-Bt-EAZ" secondAttribute="trailing" constant="8" id="fzP-5m-RKm"/>
+                                                <constraint firstItem="5XW-Bt-EAZ" firstAttribute="leading" secondItem="gRU-ms-r0p" secondAttribute="leading" id="hEr-ba-C2y"/>
+                                                <constraint firstAttribute="bottom" secondItem="bdh-Fz-t8A" secondAttribute="bottom" id="qIT-ni-ZUu"/>
+                                            </constraints>
+                                            <connections>
+                                                <outlet property="statIcon" destination="5XW-Bt-EAZ" id="DMi-IS-Bet"/>
+                                                <outlet property="statValue" destination="bdh-Fz-t8A" id="U8g-NW-tof"/>
+                                            </connections>
                                         </collectionViewCell>
                                     </cells>
+                                    <connections>
+                                        <outlet property="dataSource" destination="Sz1-Pg-99O" id="2mn-0l-1lv"/>
+                                    </connections>
                                 </collectionView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xjR-Tv-OBH">
                                     <rect key="frame" x="8" y="128" width="128" height="128"/>
@@ -3022,7 +3054,7 @@ last -- games</string>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17C-7M-41P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3612" y="987"/>
+            <point key="canvasLocation" x="3612" y="986.35682158920542"/>
         </scene>
         <!--Champion Detail Skin Bg-->
         <scene sceneID="NUS-j3-JzF">
