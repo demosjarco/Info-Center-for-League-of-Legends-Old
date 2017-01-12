@@ -27,7 +27,7 @@ class ChampionDetail_Content_Header: UICollectionReusableView, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 17
+        return 16
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -61,61 +61,56 @@ class ChampionDetail_Content_Header: UICollectionReusableView, UICollectionViewD
             cell.statValue?.text = String(format: "%.2f", (0.625 / (1.0 + round(self.stats.attackspeedoffset * 100) / 100)))
             return cell
         case 5:
-            // Crit chance
-            cell.statIcon?.image = UIImage(named: "FlatCritChanceMod")
-            cell.statValue?.text = String(format: "%.2f%", round(self.stats.crit * 100) / 100)
-            return cell
-        case 6:
             // Health
             cell.statIcon?.image = UIImage(named: "FlatHPPoolMod")
             cell.statValue?.text = String(format: "%.2f", round(self.stats.hp * 100) / 100)
             return cell
-        case 7:
+        case 6:
             // Health per level
             cell.statIcon?.image = UIImage(named: "rFlatHPModPerLevel")
             cell.statValue?.text = String(format: "%.2f", round(self.stats.hpperlevel * 100) / 100)
             return cell
-        case 8:
+        case 7:
             // Health regen
             cell.statIcon?.image = UIImage(named: "FlatHPRegenMod")
             cell.statValue?.text = String(format: "%.2f", round(self.stats.hpregen * 100) / 100)
             return cell
-        case 9:
+        case 8:
             // Health regen per level
             cell.statIcon?.image = UIImage(named: "rFlatHPRegenModPerLevel")
             cell.statValue?.text = String(format: "%.2f", round(self.stats.hpregenperlevel * 100) / 100)
             return cell
-        case 10:
+        case 9:
             // Movement speed
             cell.statIcon?.image = UIImage(named: "PercentMovementSpeedMod")
             cell.statValue?.text = String(format: "%.f", self.stats.movespeed)
             return cell
-        case 11:
+        case 10:
             // Mana
             cell.statIcon?.image = UIImage(named: "FlatMPPoolMod")
             cell.statValue?.text = String(format: "%.2f", round(self.stats.mp * 100) / 100)
             return cell
-        case 12:
+        case 11:
             // Mana per level
             cell.statIcon?.image = UIImage(named: "rFlatMPModPerLevel")
             cell.statValue?.text = String(format: "%.2f", round(self.stats.mpperlevel * 100) / 100)
             return cell
-        case 13:
+        case 12:
             // Mana regen
             cell.statIcon?.image = UIImage(named: "FlatMPRegenMod")
             cell.statValue?.text = String(format: "%.2f", round(self.stats.mpregen * 100) / 100)
             return cell
-        case 14:
+        case 13:
             // Mana regen per level
             cell.statIcon?.image = UIImage(named: "rFlatMPRegenModPerLevel")
             cell.statValue?.text = String(format: "%.2f", round(self.stats.mpregenperlevel * 100) / 100)
             return cell
-        case 15:
+        case 14:
             // Magic resist
             cell.statIcon?.image = UIImage(named: "FlatSpellBlockMod")
             cell.statValue?.text = String(format: "%.2f", round(self.stats.spellblock * 100) / 100)
             return cell
-        case 16:
+        case 15:
             // Magic resist per level
             cell.statIcon?.image = UIImage(named: "rFlatSpellBlockModPerLevel")
             cell.statValue?.text = String(format: "%.2f", round(self.stats.spellblockperlevel * 100) / 100)
