@@ -53,7 +53,7 @@ class ChampionDetail_Content_Header: UICollectionReusableView, UICollectionViewD
         case 3:
             // Attack damage per level
             cell.statIcon?.image = UIImage(named: "rFlatPhysicalDamageModPerLevel")
-            cell.statValue?.text = String(format: "%.2f%", round(self.stats.attackdamageperlevel * 100) / 100)
+            cell.statValue?.text = String(format: "%.2f", round(self.stats.attackdamageperlevel * 100) / 100)
             return cell
         case 4:
             // Attack speed
