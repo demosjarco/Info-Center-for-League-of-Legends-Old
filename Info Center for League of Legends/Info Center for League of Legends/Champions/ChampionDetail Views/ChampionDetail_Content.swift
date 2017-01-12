@@ -74,6 +74,10 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
             profileHeader.delegate = self
             profileHeader.stats = self.champion.stats!
             
+            DDragon().getChampionSplashArt(self.champion.image!.full, skinNumber: 0, completion: { (champSquareArtUrl) in
+                profileHeader.championCover?.setImageWith(champSquareArtUrl)
+            })
+            
             // Use the new LCU icon if exists
             if let champIcon = DDragon().getLcuChampionSquareArt(champId: self.champion.champId) {
                 profileHeader.championIcon?.image = champIcon
