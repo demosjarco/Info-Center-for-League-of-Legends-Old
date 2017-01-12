@@ -103,14 +103,11 @@ class PlistManager: NSObject {
             return tileOrder
         } else {
             let tempTileOrder = NSMutableArray()
-            tempTileOrder.insert(NSDictionary(object: "allyTips", forKey: "tileType" as NSCopying), at: 0)
-            tempTileOrder.insert(NSDictionary(object: "enemyTips", forKey: "tileType" as NSCopying), at: 1)
-            tempTileOrder.insert(NSDictionary(object: "lore", forKey: "tileType" as NSCopying), at: 2)
-            tempTileOrder.insert(NSDictionary(object: "passive", forKey: "tileType" as NSCopying), at: 3)
-            tempTileOrder.insert(NSDictionary(object: "spell0", forKey: "tileType" as NSCopying), at: 4)
-            tempTileOrder.insert(NSDictionary(object: "spell1", forKey: "tileType" as NSCopying), at: 5)
-            tempTileOrder.insert(NSDictionary(object: "spell2", forKey: "tileType" as NSCopying), at: 6)
-            tempTileOrder.insert(NSDictionary(object: "spell3", forKey: "tileType" as NSCopying), at: 7)
+            tempTileOrder.insert(NSDictionary(object: "passive", forKey: "tileType" as NSCopying), at: 0)
+            tempTileOrder.insert(NSDictionary(object: "spell0", forKey: "tileType" as NSCopying), at: 1)
+            tempTileOrder.insert(NSDictionary(object: "spell1", forKey: "tileType" as NSCopying), at: 2)
+            tempTileOrder.insert(NSDictionary(object: "spell2", forKey: "tileType" as NSCopying), at: 3)
+            tempTileOrder.insert(NSDictionary(object: "spell3", forKey: "tileType" as NSCopying), at: 4)
             
             return NSArray(array: tempTileOrder)
         }

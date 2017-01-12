@@ -114,24 +114,6 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let niceTileOrder = tileOrder as! [[String: String]]
         switch niceTileOrder[indexPath.row]["tileType"] {
-        case "allyTips" as NSString:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_allyTips", for: indexPath) as! ChampionDetail_Content_AllyTips
-            
-            // Configure the cell
-            
-            return cell
-        case "enemyTips" as NSString:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_enemyTips", for: indexPath)
-            
-            // Configure the cell
-            
-            return cell
-        case "lore" as NSString:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_lore", for: indexPath)
-            
-            // Configure the cell
-            
-            return cell
         case "passive" as NSString:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_passive", for: indexPath)
             
