@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import BEMSimpleLineGraph
 
 protocol ChampViewHeaderDelegate {
     func goBack()
 }
 
-class ChampionDetail_Content_Header: UICollectionReusableView, UICollectionViewDelegate, UICollectionViewDataSource {
+class ChampionDetail_Content_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
     var delegate:ChampViewHeaderDelegate?
     var stats = StatsDto()
     
@@ -22,6 +23,14 @@ class ChampionDetail_Content_Header: UICollectionReusableView, UICollectionViewD
     
     @IBAction func backButtonpressed() {
         self.delegate?.goBack()
+    }
+    
+    func numberOfPoints(inLineGraph graph: BEMSimpleLineGraphView) -> Int {
+        return 5
+    }
+    
+    func lineGraph(_ graph: BEMSimpleLineGraphView, valueForPointAt index: Int) -> CGFloat {
+        return CGFloat(arc4random_uniform(101))
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
