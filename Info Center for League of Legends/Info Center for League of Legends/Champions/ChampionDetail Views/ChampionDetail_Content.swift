@@ -36,6 +36,21 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
             self.collectionView?.backgroundView = tableBG
         }
         
+        autoreleasepool(invoking: { ()
+            // Layout
+            let oldLayout = self.collectionView!.collectionViewLayout as! UICollectionViewFlowLayout
+            let strechyLayout = StretchyHeaderCollectionViewLayout()
+            strechyLayout.minimumLineSpacing = oldLayout.minimumLineSpacing
+            strechyLayout.minimumInteritemSpacing = oldLayout.minimumInteritemSpacing
+            strechyLayout.itemSize = oldLayout.itemSize
+            strechyLayout.estimatedItemSize = oldLayout.estimatedItemSize
+            strechyLayout.scrollDirection = oldLayout.scrollDirection
+            strechyLayout.headerReferenceSize = oldLayout.headerReferenceSize
+            strechyLayout.footerReferenceSize = oldLayout.footerReferenceSize
+            strechyLayout.sectionInset = oldLayout.sectionInset
+            self.collectionView?.collectionViewLayout = strechyLayout
+        })
+        
         tileOrder = PlistManager().loadChampionDetailViewTileOrder()
         
         loadContent()

@@ -2892,19 +2892,19 @@ last -- games</string>
         <scene sceneID="OYI-Qg-wiD">
             <objects>
                 <collectionViewController storyboardIdentifier="ChampionDetail_Content" id="hxi-HG-6d5" customClass="ChampionDetail_Content" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" id="LAu-pQ-35P">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="LAu-pQ-35P">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TJs-23-Q9i">
                             <size key="itemSize" width="320" height="200"/>
-                            <size key="headerReferenceSize" width="50" height="256"/>
+                            <size key="headerReferenceSize" width="50" height="286"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="champion_view_allyTips" id="RtM-gW-xLK" customClass="ChampionDetail_Content_AllyTips" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <rect key="frame" x="27.5" y="266" width="320" height="200"/>
+                                <rect key="frame" x="28" y="296" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -2913,7 +2913,7 @@ last -- games</string>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="champion_view_enemyTips" id="UeH-1f-QyC">
-                                <rect key="frame" x="27.5" y="476" width="320" height="200"/>
+                                <rect key="frame" x="28" y="506" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -2922,7 +2922,7 @@ last -- games</string>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="champion_view_lore" id="cde-GO-x2i">
-                                <rect key="frame" x="27.5" y="686" width="320" height="200"/>
+                                <rect key="frame" x="28" y="716" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -2931,7 +2931,7 @@ last -- games</string>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="champion_view_passive" id="n0G-XL-Vp0">
-                                <rect key="frame" x="27.5" y="896" width="320" height="200"/>
+                                <rect key="frame" x="28" y="926" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -2940,7 +2940,7 @@ last -- games</string>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </collectionViewCell>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="champion_view_spell" id="bBJ-4y-HZ7">
-                                <rect key="frame" x="27.5" y="1106" width="320" height="200"/>
+                                <rect key="frame" x="28" y="1136" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
@@ -2950,9 +2950,22 @@ last -- games</string>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="champion_view_header" id="Sz1-Pg-99O" customClass="ChampionDetail_Content_Header" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="286"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1ZN-Mp-Dak">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="222"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </imageView>
+                                <visualEffectView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Us-h9-Wrh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="222"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="WwG-DK-ILr">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="222"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </view>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <blurEffect style="dark"/>
+                                </visualEffectView>
                                 <button clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Rd-Bf-yiN">
                                     <rect key="frame" x="8" y="0.0" width="30" height="65"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2965,7 +2978,7 @@ last -- games</string>
                                     </connections>
                                 </button>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" indicatorStyle="white" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mvt-4r-RuI">
-                                    <rect key="frame" x="72" y="192" width="303" height="64"/>
+                                    <rect key="frame" x="72" y="222" width="303" height="64"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="y4B-Oz-AlX">
                                         <size key="itemSize" width="114" height="64"/>
@@ -3018,7 +3031,7 @@ last -- games</string>
                                     </connections>
                                 </collectionView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xjR-Tv-OBH">
-                                    <rect key="frame" x="8" y="128" width="128" height="128"/>
+                                    <rect key="frame" x="8" y="158" width="128" height="128"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="128" id="X6F-BU-zR6"/>
@@ -3028,21 +3041,33 @@ last -- games</string>
                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                             <integer key="value" value="64"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                            <integer key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="3Rd-Bf-yiN" firstAttribute="leading" secondItem="Sz1-Pg-99O" secondAttribute="leadingMargin" id="0Mf-sC-Hii"/>
+                                <constraint firstItem="1ZN-Mp-Dak" firstAttribute="top" secondItem="Sz1-Pg-99O" secondAttribute="top" id="1QG-2Z-En3"/>
+                                <constraint firstItem="Mvt-4r-RuI" firstAttribute="top" secondItem="1ZN-Mp-Dak" secondAttribute="bottom" id="3X2-at-DI9"/>
+                                <constraint firstItem="4Us-h9-Wrh" firstAttribute="leading" secondItem="Sz1-Pg-99O" secondAttribute="leading" id="8sd-TG-vyO"/>
                                 <constraint firstItem="Mvt-4r-RuI" firstAttribute="height" secondItem="xjR-Tv-OBH" secondAttribute="height" multiplier="0.5" id="EfY-Jb-Qq1"/>
                                 <constraint firstItem="Mvt-4r-RuI" firstAttribute="leading" secondItem="xjR-Tv-OBH" secondAttribute="trailing" constant="-64" id="G9A-WB-ecS"/>
+                                <constraint firstItem="4Us-h9-Wrh" firstAttribute="top" secondItem="Sz1-Pg-99O" secondAttribute="top" id="Ioj-90-Mue"/>
+                                <constraint firstItem="1ZN-Mp-Dak" firstAttribute="leading" secondItem="Sz1-Pg-99O" secondAttribute="leading" id="QtC-bC-u1L"/>
                                 <constraint firstAttribute="trailing" secondItem="Mvt-4r-RuI" secondAttribute="trailing" id="VhA-Jh-hrw"/>
+                                <constraint firstAttribute="trailing" secondItem="1ZN-Mp-Dak" secondAttribute="trailing" id="b12-za-fVB"/>
                                 <constraint firstItem="3Rd-Bf-yiN" firstAttribute="top" secondItem="Sz1-Pg-99O" secondAttribute="top" id="eF5-5f-O11"/>
-                                <constraint firstAttribute="bottom" secondItem="Mvt-4r-RuI" secondAttribute="bottom" id="lkG-bo-DfZ"/>
-                                <constraint firstAttribute="bottom" secondItem="xjR-Tv-OBH" secondAttribute="bottom" id="mBJ-pr-otL"/>
+                                <constraint firstItem="xjR-Tv-OBH" firstAttribute="top" secondItem="1ZN-Mp-Dak" secondAttribute="bottom" constant="-64" id="gN6-4J-yNE"/>
+                                <constraint firstAttribute="trailing" secondItem="4Us-h9-Wrh" secondAttribute="trailing" id="mKs-uI-X7W"/>
+                                <constraint firstAttribute="bottom" secondItem="Mvt-4r-RuI" secondAttribute="bottom" id="nI8-sD-1PC"/>
+                                <constraint firstItem="Mvt-4r-RuI" firstAttribute="top" secondItem="4Us-h9-Wrh" secondAttribute="bottom" id="sgB-eO-d4Y"/>
                                 <constraint firstItem="xjR-Tv-OBH" firstAttribute="leading" secondItem="Sz1-Pg-99O" secondAttribute="leadingMargin" id="sl0-cG-Kvt"/>
                             </constraints>
                             <connections>
+                                <outlet property="championCover" destination="1ZN-Mp-Dak" id="FUk-dS-Kpc"/>
                                 <outlet property="championIcon" destination="xjR-Tv-OBH" id="kl3-xH-f9O"/>
                             </connections>
                         </collectionReusableView>
