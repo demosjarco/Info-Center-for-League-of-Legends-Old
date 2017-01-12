@@ -89,10 +89,6 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
             profileHeader.delegate = self
             profileHeader.stats = self.champion.stats!
             
-            DDragon().getChampionSplashArt(self.champion.image!.full, skinNumber: 0, completion: { (champSquareArtUrl) in
-                profileHeader.championCover?.setImageWith(champSquareArtUrl)
-            })
-            
             profileHeader.championIcon?.layer.borderColor = UIColor(red: 207/255.0, green: 186/255.0, blue: 107/255.0, alpha: 1.0).cgColor
             // Use the new LCU icon if exists
             if let champIcon = DDragon().getLcuChampionSquareArt(champId: self.champion.champId) {
@@ -102,6 +98,9 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
                     profileHeader.championIcon?.setImageWith(champSquareArtUrl)
                 })
             }
+            
+            profileHeader.championName?.text = self.champion.name
+            profileHeader.championTitle?.text = self.champion.title
             
             return profileHeader
         case UICollectionElementKindSectionFooter:
