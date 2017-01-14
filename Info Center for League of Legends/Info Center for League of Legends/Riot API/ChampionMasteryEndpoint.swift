@@ -14,20 +14,26 @@ class ChampionMasteryEndpoint: NSObject {
     func getChampByIdBySummonerId(_ championId:CLong, playerId: CLong, completion: @escaping (_ champion: ChampionMasteryDto) -> Void, notFound: @escaping () -> Void, errorBlock: @escaping () -> Void) {
         Endpoints().championMastery_bySummonerId_byChampionId(String(championId), playerId: String(playerId)) { (composedUrl) in
             AFHTTPSessionManager().get(composedUrl, parameters: nil, progress: nil, success: { (task, responseObject) in
-                let json = responseObject as! [String:AnyObject]
-                
-                let newChampionMastery = ChampionMasteryDto()
-                
-                newChampionMastery.championId = json["championId"] as! CLong
-                newChampionMastery.championLevel = json["championLevel"] as! Int
-                newChampionMastery.championPoints = json["championPoints"] as! Int
-                newChampionMastery.championPointsSinceLastLevel = json["championPointsSinceLastLevel"] as! CLong
-                newChampionMastery.championPointsUntilNextLevel = json["championPointsUntilNextLevel"] as! CLong
-                newChampionMastery.chestGranted = json["chestGranted"] as! Bool
-                newChampionMastery.lastPlayTime = json["lastPlayTime"] as! CLong
-                newChampionMastery.playerId = json["playerId"] as! CLong
-                
-                completion(newChampionMastery)
+                if (responseObject != nil) {
+                    autoreleasepool(invoking: { ()
+                        let json = responseObject as! [String:AnyObject]
+                        
+                        let newChampionMastery = ChampionMasteryDto()
+                        
+                        newChampionMastery.championId = json["championId"] as! CLong
+                        newChampionMastery.championLevel = json["championLevel"] as! Int
+                        newChampionMastery.championPoints = json["championPoints"] as! Int
+                        newChampionMastery.championPointsSinceLastLevel = json["championPointsSinceLastLevel"] as! CLong
+                        newChampionMastery.championPointsUntilNextLevel = json["championPointsUntilNextLevel"] as! CLong
+                        newChampionMastery.chestGranted = json["chestGranted"] as! Bool
+                        newChampionMastery.lastPlayTime = json["lastPlayTime"] as! CLong
+                        newChampionMastery.playerId = json["playerId"] as! CLong
+                        
+                        completion(newChampionMastery)
+                    })
+                } else {
+                    errorBlock()
+                }
             }, failure: { (task, error) in
                 let response = task!.response as! HTTPURLResponse
                 if response.statusCode == 404 {

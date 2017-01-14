@@ -10,7 +10,6 @@ import UIKit
 
 class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_SummaryTileDelegate {
     var summoner = SummonerDto()
-    var tileOrder = NSArray()
     
     var profileHeader = ProfileView_Header()
     
@@ -50,8 +49,6 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
             strechyLayout.sectionInset = oldLayout.sectionInset
             self.collectionView?.collectionViewLayout = strechyLayout
         })
-        
-        tileOrder = PlistManager().loadProfileViewTileOrder()
         
         loadContent()
     }
@@ -218,9 +215,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
             if champions.count > 2 {
                 self.cm_top3champs.append(champions[2])
             }
-            for tile in self.tileOrder as! [[String: String]] {
+            for tile in PlistManager().loadProfileViewTileOrder() as! [[String: String]] {
                 if tile["tileType"]! as String == "champMastery" {
-                    self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
+                    self.collectionView?.reloadItems(at: [IndexPath(item: PlistManager().loadProfileViewTileOrder().index(of: tile), section: 0)])
                 }
             }
             
@@ -249,9 +246,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                     }
                 }
             }
-            for tile in self.tileOrder as! [[String: String]] {
+            for tile in PlistManager().loadProfileViewTileOrder() as! [[String: String]] {
                 if tile["tileType"]! as String == "recentGames" {
-                    self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
+                    self.collectionView?.reloadItems(at: [IndexPath(item: PlistManager().loadProfileViewTileOrder().index(of: tile), section: 0)])
                 }
             }
         }) { 
@@ -269,9 +266,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                     break
                 }
             }
-            for tile in self.tileOrder as! [[String: String]] {
+            for tile in PlistManager().loadProfileViewTileOrder() as! [[String: String]] {
                 if tile["tileType"]! as String == "masteries" {
-                    self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
+                    self.collectionView?.reloadItems(at: [IndexPath(item: PlistManager().loadProfileViewTileOrder().index(of: tile), section: 0)])
                 }
             }
         }) { 
@@ -531,9 +528,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                             
                             count -= 1
                             if count == 0 {
-                                for tile in self.tileOrder as! [[String: String]] {
+                                for tile in PlistManager().loadProfileViewTileOrder() as! [[String: String]] {
                                     if tile["tileType"]! as String == "runes" {
-                                        self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
+                                        self.collectionView?.reloadItems(at: [IndexPath(item: PlistManager().loadProfileViewTileOrder().index(of: tile), section: 0)])
                                     }
                                 }
                             }
@@ -541,9 +538,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                             // ???
                             count -= 1
                             if count == 0 {
-                                for tile in self.tileOrder as! [[String: String]] {
+                                for tile in PlistManager().loadProfileViewTileOrder() as! [[String: String]] {
                                     if tile["tileType"]! as String == "runes" {
-                                        self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
+                                        self.collectionView?.reloadItems(at: [IndexPath(item: PlistManager().loadProfileViewTileOrder().index(of: tile), section: 0)])
                                     }
                                 }
                             }
@@ -551,9 +548,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                             // Error
                             count -= 1
                             if count == 0 {
-                                for tile in self.tileOrder as! [[String: String]] {
+                                for tile in PlistManager().loadProfileViewTileOrder() as! [[String: String]] {
                                     if tile["tileType"]! as String == "runes" {
-                                        self.collectionView?.reloadItems(at: [IndexPath(item: self.tileOrder.index(of: tile), section: 0)])
+                                        self.collectionView?.reloadItems(at: [IndexPath(item: PlistManager().loadProfileViewTileOrder().index(of: tile), section: 0)])
                                     }
                                 }
                             }
@@ -581,26 +578,28 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showCurrentGame" {
-            let destinationNav = segue.destination as! UINavigationController
-            let destination = destinationNav.topViewController as! Profile_CurrentGame
-            destination.summoner = self.summoner
-        } else if segue.identifier == "showChampionMasteriesDetail" {
-            let destinationNav = segue.destination as! UINavigationController
-            let destination = destinationNav.topViewController as! Profile_ChampionMastery
-            destination.summoner = self.summoner
-        } else if segue.identifier == "showRecentGamesDetail" {
-            let destinationNav = segue.destination as! UINavigationController
-            let destination = destinationNav.topViewController as! Profile_RecentGames
-            destination.summoner = self.summoner
-        } else if segue.identifier == "showMasteriesDetail" {
-            let destinationNav = segue.destination as! UINavigationController
-            let destination = destinationNav.topViewController as! Profile_Masteries
-            destination.summoner = self.summoner
-        } else if segue.identifier == "showRunesDetail" {
-            let destinationNav = segue.destination as! UINavigationController
-            let destination = destinationNav.topViewController as! Profile_Runes
-            destination.summoner = self.summoner
+        autoreleasepool { ()
+            if segue.identifier == "showCurrentGame" {
+                let destinationNav = segue.destination as! UINavigationController
+                let destination = destinationNav.topViewController as! Profile_CurrentGame
+                destination.summoner = self.summoner
+            } else if segue.identifier == "showChampionMasteriesDetail" {
+                let destinationNav = segue.destination as! UINavigationController
+                let destination = destinationNav.topViewController as! Profile_ChampionMastery
+                destination.summoner = self.summoner
+            } else if segue.identifier == "showRecentGamesDetail" {
+                let destinationNav = segue.destination as! UINavigationController
+                let destination = destinationNav.topViewController as! Profile_RecentGames
+                destination.summoner = self.summoner
+            } else if segue.identifier == "showMasteriesDetail" {
+                let destinationNav = segue.destination as! UINavigationController
+                let destination = destinationNav.topViewController as! Profile_Masteries
+                destination.summoner = self.summoner
+            } else if segue.identifier == "showRunesDetail" {
+                let destinationNav = segue.destination as! UINavigationController
+                let destination = destinationNav.topViewController as! Profile_Runes
+                destination.summoner = self.summoner
+            }
         }
     }
     
@@ -611,7 +610,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionView {
-            return tileOrder.count
+            return PlistManager().loadProfileViewTileOrder().count
         } else {
             return run_currentPage_stats.values.count
         }
@@ -619,7 +618,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.collectionView {
-            let niceTileOrder = tileOrder as! [[String: String]]
+            let niceTileOrder = PlistManager().loadProfileViewTileOrder() as! [[String: String]]
             switch niceTileOrder[indexPath.row]["tileType"] {
             case "champMastery" as NSString:
                 // Champion Mastery
@@ -631,18 +630,20 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                     let championMastery = self.cm_top3champs[0]
                     
                     StaticDataEndpoint().getChampionInfoById(championMastery.championId, championData: .Image, completion: { (champion) in
-                        DDragon().getChampionLoadingArt(champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
-                            champMasteryCell.champ1bg?.setImageWith(champLoadingArtUrl)
-                        })
-                        // Use the new LCU icon if exists
-                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: championMastery.championId) {
-                            champMasteryCell.champ1squareIcon?.image = champIcon
-                        } else {
-                            DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
-                                champMasteryCell.champ1squareIcon?.setImageWith(champSquareArtUrl)
+                        autoreleasepool(invoking: { ()
+                            DDragon().getChampionLoadingArt(champion.image!.full, skinNumber: 0, completion: { (champLoadingArtUrl) in
+                                champMasteryCell.champ1bg?.setImageWith(champLoadingArtUrl)
                             })
-                        }
-                        champMasteryCell.champ1name?.text = champion.name
+                            // Use the new LCU icon if exists
+                            if let champIcon = DDragon().getLcuChampionSquareArt(champId: championMastery.championId) {
+                                champMasteryCell.champ1squareIcon?.image = champIcon
+                            } else {
+                                DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
+                                    champMasteryCell.champ1squareIcon?.setImageWith(champSquareArtUrl)
+                                })
+                            }
+                            champMasteryCell.champ1name?.text = champion.name
+                        })
                     }, notFound: {
                         // 404
                     }, errorBlock: {
@@ -915,11 +916,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     }
     
     override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let newTileOrder = NSMutableArray(array: tileOrder)
+        let newTileOrder = NSMutableArray(array: PlistManager().loadProfileViewTileOrder())
         newTileOrder.removeObject(at: sourceIndexPath.row)
-        newTileOrder.insert(tileOrder[sourceIndexPath.row], at: destinationIndexPath.row)
+        newTileOrder.insert(PlistManager().loadProfileViewTileOrder()[sourceIndexPath.row], at: destinationIndexPath.row)
         PlistManager().writeProfileViewTileOrder(NSArray(array: newTileOrder))
-        
-        tileOrder = NSArray(array: newTileOrder)
     }
 }

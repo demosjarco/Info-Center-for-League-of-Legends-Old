@@ -225,14 +225,16 @@ class Profile_CurrentGame: MainTableViewController {
             
             // Champ Icon
             StaticDataEndpoint().getChampionInfoById(Int(participantsBlue[indexPath.row].championId), championData: .Image, completion: { (champInfo) in
-                // Use the new LCU icon if exists
-                if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.participantsBlue[indexPath.row].championId)) {
-                    cell.champIcon?.image = champIcon
-                } else {
-                    DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
-                        cell.champIcon?.setImageWith(champSquareArtUrl)
-                    })
-                }
+                autoreleasepool(invoking: { ()
+                    // Use the new LCU icon if exists
+                    if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.participantsBlue[indexPath.row].championId)) {
+                        cell.champIcon?.image = champIcon
+                    } else {
+                        DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
+                            cell.champIcon?.setImageWith(champSquareArtUrl)
+                        })
+                    }
+                })
             }, notFound: {
                 // ???
             }, errorBlock: {
@@ -292,50 +294,54 @@ class Profile_CurrentGame: MainTableViewController {
             
             // Current Season
             LeagueEndpoint().getLeagueEntryBySummonerIds([participantsBlue[indexPath.row].summonerId], completion: { (summonerMap) in
-                // Ranked
-                let currentSummoner = summonerMap.values.first
-                
-                var highestTier: Int = 7
-                var highestTierSpelledOut: String = ""
-                var highestDivision: Int = 6
-                var highestDivisionRoman: String = ""
-                
-                if (currentSummoner != nil) {
-                    for league in currentSummoner! {
-                        if highestTier > LeagueEndpoint().tierToNumber(league.tier) {
-                            highestTier = LeagueEndpoint().tierToNumber(league.tier)
-                            highestTierSpelledOut = league.tier
-                            highestDivision = 6
-                            
-                            for entry in league.entries {
-                                if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
-                                    highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
-                                    highestDivisionRoman = entry.division
+                autoreleasepool(invoking: { ()
+                    // Ranked
+                    let currentSummoner = summonerMap.values.first
+                    
+                    var highestTier: Int = 7
+                    var highestTierSpelledOut: String = ""
+                    var highestDivision: Int = 6
+                    var highestDivisionRoman: String = ""
+                    
+                    if (currentSummoner != nil) {
+                        for league in currentSummoner! {
+                            autoreleasepool(invoking: { ()
+                                if highestTier > LeagueEndpoint().tierToNumber(league.tier) {
+                                    highestTier = LeagueEndpoint().tierToNumber(league.tier)
+                                    highestTierSpelledOut = league.tier
+                                    highestDivision = 6
+                                    
+                                    for entry in league.entries {
+                                        if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
+                                            highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
+                                            highestDivisionRoman = entry.division
+                                        }
+                                    }
+                                } else if highestTier == LeagueEndpoint().tierToNumber(league.tier) {
+                                    for entry in league.entries {
+                                        if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
+                                            highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
+                                            highestDivisionRoman = entry.division
+                                        }
+                                    }
                                 }
-                            }
-                        } else if highestTier == LeagueEndpoint().tierToNumber(league.tier) {
-                            for entry in league.entries {
-                                if highestDivision > LeagueEndpoint().romanNumeralToNumber(entry.division) {
-                                    highestDivision = LeagueEndpoint().romanNumeralToNumber(entry.division)
-                                    highestDivisionRoman = entry.division
+                                
+                                if highestTier < 2 {
+                                    // Challenger & Master
+                                    // Dont use division
+                                    cell.currentSeasonRank?.image = UIImage(named: highestTierSpelledOut.lowercased())
+                                } else {
+                                    // Diamond and lower
+                                    // Use division
+                                    cell.currentSeasonRank?.image = UIImage(named: highestTierSpelledOut.lowercased() + "_" + highestDivisionRoman.lowercased())
                                 }
-                            }
+                            })
                         }
-                        
-                        if highestTier < 2 {
-                            // Challenger & Master
-                            // Dont use division
-                            cell.currentSeasonRank?.image = UIImage(named: highestTierSpelledOut.lowercased())
-                        } else {
-                            // Diamond and lower
-                            // Use division
-                            cell.currentSeasonRank?.image = UIImage(named: highestTierSpelledOut.lowercased() + "_" + highestDivisionRoman.lowercased())
-                        }
+                    } else {
+                        // Error
+                        cell.currentSeasonRank?.image = UIImage(named: "provisional")
                     }
-                } else {
-                    // Error
-                    cell.currentSeasonRank?.image = UIImage(named: "provisional")
-                }
+                })
             }, notFound: {
                 // Unranked
                 cell.currentSeasonRank?.image = UIImage(named: "provisional")
@@ -349,14 +355,16 @@ class Profile_CurrentGame: MainTableViewController {
                 switch indexPath.row {
                 case 2:
                     StaticDataEndpoint().getChampionInfoById(Int(bans[0].championId), championData: .Image, completion: { (champInfo) in
-                        // Use the new LCU icon if exists
-                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[0].championId)) {
-                            cell.champBan?.image = champIcon
-                        } else {
-                            DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
-                                cell.champBan?.setImageWith(champSquareArtUrl)
-                            })
-                        }
+                        autoreleasepool(invoking: { ()
+                            // Use the new LCU icon if exists
+                            if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[0].championId)) {
+                                cell.champBan?.image = champIcon
+                            } else {
+                                DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
+                                    cell.champBan?.setImageWith(champSquareArtUrl)
+                                })
+                            }
+                        })
                     }, notFound: {
                         // ??
                     }, errorBlock: {
@@ -365,14 +373,16 @@ class Profile_CurrentGame: MainTableViewController {
                     break
                 case 3:
                     StaticDataEndpoint().getChampionInfoById(Int(bans[2].championId), championData: .Image, completion: { (champInfo) in
-                        // Use the new LCU icon if exists
-                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[2].championId)) {
-                            cell.champBan?.image = champIcon
-                        } else {
-                            DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
-                                cell.champBan?.setImageWith(champSquareArtUrl)
-                            })
-                        }
+                        autoreleasepool(invoking: { ()
+                            // Use the new LCU icon if exists
+                            if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[2].championId)) {
+                                cell.champBan?.image = champIcon
+                            } else {
+                                DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
+                                    cell.champBan?.setImageWith(champSquareArtUrl)
+                                })
+                            }
+                        })
                     }, notFound: {
                         // ??
                     }, errorBlock: {
@@ -381,14 +391,16 @@ class Profile_CurrentGame: MainTableViewController {
                     break
                 case 4:
                     StaticDataEndpoint().getChampionInfoById(Int(bans[4].championId), championData: .Image, completion: { (champInfo) in
-                        // Use the new LCU icon if exists
-                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[4].championId)) {
-                            cell.champBan?.image = champIcon
-                        } else {
-                            DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
-                                cell.champBan?.setImageWith(champSquareArtUrl)
-                            })
-                        }
+                        autoreleasepool(invoking: { ()
+                            // Use the new LCU icon if exists
+                            if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[4].championId)) {
+                                cell.champBan?.image = champIcon
+                            } else {
+                                DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
+                                    cell.champBan?.setImageWith(champSquareArtUrl)
+                                })
+                            }
+                        })
                     }, notFound: {
                         // ??
                     }, errorBlock: {
@@ -583,26 +595,21 @@ class Profile_CurrentGame: MainTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            summonerInfoForSegue.summonerId = participantsBlue[indexPath.row].summonerId
-            summonerInfoForSegue.profileIconId = Int(participantsBlue[indexPath.row].profileIconId)
-            summonerInfoForSegue.name = participantsBlue[indexPath.row].summonerName
-        } else {
-            summonerInfoForSegue.summonerId = participantsRed[indexPath.row].summonerId
-            summonerInfoForSegue.profileIconId = Int(participantsRed[indexPath.row].profileIconId)
-            summonerInfoForSegue.name = participantsRed[indexPath.row].summonerName
-        }
-    }
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "showParticiapantProfileInfo" {
-            let profileView = segue.destination as! ProfileView
-            profileView.summoner = self.summonerInfoForSegue
-        }
+        autoreleasepool(invoking: { ()
+            let temp = SummonerDto()
+            
+            if indexPath.section == 0 {
+                temp.summonerId = participantsBlue[indexPath.row].summonerId
+                temp.profileIconId = Int(participantsBlue[indexPath.row].profileIconId)
+                temp.name = participantsBlue[indexPath.row].summonerName
+            } else {
+                temp.summonerId = participantsRed[indexPath.row].summonerId
+                temp.profileIconId = Int(participantsRed[indexPath.row].profileIconId)
+                temp.name = participantsRed[indexPath.row].summonerName
+            }
+            
+            self.delegate?.showParticiapantProfileInfo(temp)
+            self.closeView()
+        })
     }
 }

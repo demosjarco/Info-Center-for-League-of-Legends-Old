@@ -9,8 +9,8 @@
 import UIKit
 
 class ChampionListCell: UICollectionViewCell {
-    @IBOutlet var freeToPlayBanner:UIImageView?
-    @IBOutlet var champIcon:UIImageView?
-    @IBOutlet var champIconZoomHolder:UIView?
-    @IBOutlet var champName:UILabel?
+    @IBOutlet weak var freeToPlayBanner:UIImageView?
+    @IBOutlet weak var champIcon:UIImageView?
+    @IBOutlet weak var champIconZoomHolder:UIView?
+    @IBOutlet weak var champName:UILabel?
 }
