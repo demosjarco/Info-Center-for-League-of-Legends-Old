@@ -54,7 +54,6 @@
 		172101D51D1F1A840088DB1A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 172101D41D1F1A840088DB1A /* Settings.bundle */; };
 		172101D71D1F26A00088DB1A /* DDragon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172101D61D1F26A00088DB1A /* DDragon.swift */; };
 		172C606C1D3BFE67003DC152 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172C606B1D3BFE67003DC152 /* NewsCell.swift */; };
-		17312F791E26C098006BBC04 /* ChampionDetail_Content_AllyTips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17312F771E26C098006BBC04 /* ChampionDetail_Content_AllyTips.swift */; };
 		17312F7A1E26C098006BBC04 /* ChampionDetail_Content_Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17312F781E26C098006BBC04 /* ChampionDetail_Content_Header.swift */; };
 		17312F7C1E2701E8006BBC04 /* ChampionDetail_Content_Header_Stat_Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17312F7B1E2701E8006BBC04 /* ChampionDetail_Content_Header_Stat_Cell.swift */; };
 		1732F5F71D54FA9A009DA53B /* ServerStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1732F5F61D54FA9A009DA53B /* ServerStatus.swift */; };
@@ -217,7 +216,6 @@
 		172101D41D1F1A840088DB1A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		172101D61D1F26A00088DB1A /* DDragon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DDragon.swift; path = "Riot API/DDragon.swift"; sourceTree = "<group>"; };
 		172C606B1D3BFE67003DC152 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewsCell.swift; path = News/NewsCell.swift; sourceTree = "<group>"; };
-		17312F771E26C098006BBC04 /* ChampionDetail_Content_AllyTips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetail_Content_AllyTips.swift; sourceTree = "<group>"; };
 		17312F781E26C098006BBC04 /* ChampionDetail_Content_Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetail_Content_Header.swift; sourceTree = "<group>"; };
 		17312F7B1E2701E8006BBC04 /* ChampionDetail_Content_Header_Stat_Cell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionDetail_Content_Header_Stat_Cell.swift; sourceTree = "<group>"; };
 		1732F5F61D54FA9A009DA53B /* ServerStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServerStatus.swift; path = News/ServerStatus.swift; sourceTree = "<group>"; };
@@ -453,7 +451,6 @@
 			children = (
 				17312F781E26C098006BBC04 /* ChampionDetail_Content_Header.swift */,
 				17312F7B1E2701E8006BBC04 /* ChampionDetail_Content_Header_Stat_Cell.swift */,
-				17312F771E26C098006BBC04 /* ChampionDetail_Content_AllyTips.swift */,
 			);
 			path = "ChampionDetail_Content Cells";
 			sourceTree = "<group>";
@@ -1285,7 +1282,6 @@
 				174DFCC61E0CE2BF001A6685 /* Profile_Masteries_MasteriesView.swift in Sources */,
 				172101D71D1F26A00088DB1A /* DDragon.swift in Sources */,
 				172101C41D1EDB310088DB1A /* ProfileView.swift in Sources */,
-				17312F791E26C098006BBC04 /* ChampionDetail_Content_AllyTips.swift in Sources */,
 				176D5B981D1C478F000D9D85 /* SummonerDto.swift in Sources */,
 				17312F7C1E2701E8006BBC04 /* ChampionDetail_Content_Header_Stat_Cell.swift in Sources */,
 				17A098851DA84F03004C79F4 /* AccountSettings.swift in Sources */,
