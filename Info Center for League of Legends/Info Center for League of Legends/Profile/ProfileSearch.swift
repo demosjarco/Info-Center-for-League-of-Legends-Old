@@ -6,7 +6,7 @@
 //  Copyright © 2016 Tech Genius. All rights reserved.
 //
 
-class ProfileSearch: MainTableViewController, UISearchBarDelegate {
+class ProfileSearch: MainTableViewController, UISearchBarDelegate, ProfileViewDelegate {
     var recentSummoners = NSMutableArray()
     var summonerInfoForSegue = SummonerDto()
 
@@ -29,6 +29,11 @@ class ProfileSearch: MainTableViewController, UISearchBarDelegate {
         }
         self.refreshControl?.endRefreshing()
         self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+    }
+    
+    internal func showParticiapantProfileInfo(_ summoner: SummonerDto) {
+        self.summonerInfoForSegue = summoner
+        self.performSegue(withIdentifier: "showProfileInfo", sender: self)
     }
     
     // MARK: - Search Bar Delegate

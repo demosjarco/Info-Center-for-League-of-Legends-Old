@@ -8,7 +8,12 @@
 
 import UIKit
 
+protocol ProfileViewDelegate {
+    func showParticiapantProfileInfo(_ summoner: SummonerDto)
+}
+
 class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_SummaryTileDelegate {
+    var delegate:ProfileViewDelegate?
     var summoner = SummonerDto()
     
     var profileHeader = ProfileView_Header()
@@ -572,6 +577,11 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
     
     func addSummonerToRecents() {
         PlistManager().addToRecentSummoners(self.summoner)
+    }
+    
+    internal func showParticiapantProfileInfo(_ summoner: SummonerDto) {
+        self.delegate?.showParticiapantProfileInfo(summoner)
+        self.goBack()
     }
     
     // MARK: - Navigation

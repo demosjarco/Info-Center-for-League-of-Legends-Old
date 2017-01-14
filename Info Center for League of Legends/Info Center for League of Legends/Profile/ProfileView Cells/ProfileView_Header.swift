@@ -14,9 +14,10 @@ import BEMSimpleLineGraph
 protocol HeaderDelegate {
     func goBack()
     func addSummonerToRecents()
+    func showParticiapantProfileInfo(_ summoner: SummonerDto)
 }
 
-class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
+class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource, UICollectionViewDataSource, UICollectionViewDelegate, Profile_CurrentGameDelegate {
     var delegate:HeaderDelegate?
     var summoner = SummonerDto()
     var summonerStats = NSMutableArray()
@@ -255,6 +256,10 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
                 Timer.scheduledTimer(timeInterval: TimeInterval(1), target: self, selector: #selector(self.updateCurrentGameTime(_:)), userInfo: nil, repeats: false)
             }
         }
+    }
+    
+    internal func showParticiapantProfileInfo(_ summoner1: SummonerDto) {
+        self.delegate?.showParticiapantProfileInfo(summoner1)
     }
     
     func setupSummonerStats() {

@@ -8,7 +8,12 @@
 
 import UIKit
 
+protocol Profile_CurrentGameDelegate {
+    func showParticiapantProfileInfo(_ summoner: SummonerDto)
+}
+
 class Profile_CurrentGame: MainTableViewController {
+    var delegate:Profile_CurrentGameDelegate?
     var summoner = SummonerDto()
     
     var bans = [BannedChampion]()
@@ -16,8 +21,6 @@ class Profile_CurrentGame: MainTableViewController {
     var participantsRed = [CurrentGameParticipant]()
     var currentGameRefreshCount = 0
     var startDate: Date?
-    
-    var summonerInfoForSegue = SummonerDto()
 
     override func viewDidLoad() {
         super.viewDidLoad()
