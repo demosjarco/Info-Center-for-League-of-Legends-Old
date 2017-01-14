@@ -74,19 +74,19 @@ PODS:
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
   - GoogleSymbolUtilities (1.1.2)
-  - GoogleToolboxForMac/DebugUtils (2.1.0):
-    - GoogleToolboxForMac/Defines (= 2.1.0)
-  - GoogleToolboxForMac/Defines (2.1.0)
-  - GoogleToolboxForMac/Logger (2.1.0):
-    - GoogleToolboxForMac/Defines (= 2.1.0)
-  - GoogleToolboxForMac/NSData+zlib (2.1.0):
-    - GoogleToolboxForMac/Defines (= 2.1.0)
-  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.0):
-    - GoogleToolboxForMac/DebugUtils (= 2.1.0)
-    - GoogleToolboxForMac/Defines (= 2.1.0)
-    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.0)
-  - GoogleToolboxForMac/NSString+URLArguments (2.1.0)
-  - GTMSessionFetcher/Core (1.1.7)
+  - GoogleToolboxForMac/DebugUtils (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/Logger (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.1)
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
+  - GTMSessionFetcher/Core (1.1.8)
   - JSBadgeView (1.4.1)
   - MBCircularProgressBar (0.3.5)
   - SGSStaggeredFlowLayout (0.0.1)
@@ -126,8 +126,8 @@ SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 92dff0e9ce1cfdfe640d9d80ab86d5e4371e478f
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
-  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
-  GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   JSBadgeView: 3861ddee41094284d9468e6d0af5107f703aaac5
   MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   SGSStaggeredFlowLayout: 7b20a3b7ac88a0db063ce9c4ac71c5fc95e165c2
