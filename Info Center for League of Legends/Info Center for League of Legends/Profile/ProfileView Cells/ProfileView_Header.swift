@@ -26,20 +26,20 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
     var champName: String?
     var startDate: Date?
     
-    @IBOutlet var cover:UIImageView?
-    @IBOutlet var addSummonerButton:UIButton?
-    @IBOutlet var inGameBanner:ProfileView_InGame?
-    @IBOutlet var inGameBannerButton:UIButton?
+    @IBOutlet weak var cover:UIImageView?
+    @IBOutlet weak var addSummonerButton:UIButton?
+    @IBOutlet weak var inGameBanner:ProfileView_InGame?
+    @IBOutlet weak var inGameBannerButton:UIButton?
     
-    @IBOutlet var promotionGames:UILabel?
-    @IBOutlet var summonerName:UILabel?
-    @IBOutlet var summonerLevelRank:UILabel?
-    @IBOutlet var summonerLevelRankIcon:UIImageView?
-    @IBOutlet var summonerChampMasteryScore:UILabel?
+    @IBOutlet weak var promotionGames:UILabel?
+    @IBOutlet weak var summonerName:UILabel?
+    @IBOutlet weak var summonerLevelRank:UILabel?
+    @IBOutlet weak var summonerLevelRankIcon:UIImageView?
+    @IBOutlet weak var summonerChampMasteryScore:UILabel?
     
-    @IBOutlet var profilePic:UIImageView?
-    @IBOutlet var profilePicShadow:UIView?
-    @IBOutlet var statsScroller:UICollectionView?
+    @IBOutlet weak var profilePic:UIImageView?
+    @IBOutlet weak var profilePicShadow:UIView?
+    @IBOutlet weak var statsScroller:UICollectionView?
     
     func initialLoad(_ loadedSummoner: SummonerDto) {
         self.summoner = loadedSummoner
