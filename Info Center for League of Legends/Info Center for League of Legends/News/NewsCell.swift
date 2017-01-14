@@ -10,14 +10,14 @@ import UIKit
 import QuartzCore
 
 class NewsCell: UICollectionViewCell {
-    @IBOutlet var newsStoryImage: UIImageView?
-    @IBOutlet var newsStoryImageForBlur: UIImageView?
-    @IBOutlet var newsStoryImageBlur: UIView?
-    @IBOutlet var newsStoryBlurTitle: UILabel?
-    @IBOutlet var newsStoryBlurContent: UILabel?
+    @IBOutlet weak var newsStoryImage: UIImageView?
+    @IBOutlet weak var newsStoryImageForBlur: UIImageView?
+    @IBOutlet weak var newsStoryImageBlur: UIView?
+    @IBOutlet weak var newsStoryBlurTitle: UILabel?
+    @IBOutlet weak var newsStoryBlurContent: UILabel?
     
-    @IBOutlet var newsStoryTitle: UILabel?
-    @IBOutlet var newsStoryContent: UILabel?
+    @IBOutlet weak var newsStoryTitle: UILabel?
+    @IBOutlet weak var newsStoryContent: UILabel?
     
     func setStoryImage(_ storyImage: UIImage) {
         self.newsStoryImage?.image = storyImage
