@@ -84,8 +84,14 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
                 })
             }
             
-            profileHeader.championName?.text = self.champion.name
-            profileHeader.championTitle?.text = self.champion.title
+            autoreleasepool(invoking: { ()
+                let champName = NSAttributedString(string: self.champion.name + " ", attributes: [NSFontAttributeName : UIFont.preferredFont(forTextStyle: UIFontTextStyle.title1), NSForegroundColorAttributeName: UIColor.white])
+                let champTitle = NSAttributedString(string: self.champion.title, attributes: [NSFontAttributeName : UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline), NSForegroundColorAttributeName: UIColor.lightText])
+                let combination = NSMutableAttributedString()
+                combination.append(champName)
+                combination.append(champTitle)
+                profileHeader.championName?.attributedText = combination
+            })
             
             return profileHeader
         case UICollectionElementKindSectionFooter:

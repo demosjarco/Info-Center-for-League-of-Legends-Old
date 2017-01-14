@@ -19,7 +19,6 @@ class ChampionDetail_Content_Header: UICollectionReusableView, BEMSimpleLineGrap
     
     @IBOutlet weak var championIcon:UIImageView?
     @IBOutlet weak var championName:UILabel?
-    @IBOutlet weak var championTitle:UILabel?
     
     @IBAction func backButtonpressed() {
         self.delegate?.goBack()
