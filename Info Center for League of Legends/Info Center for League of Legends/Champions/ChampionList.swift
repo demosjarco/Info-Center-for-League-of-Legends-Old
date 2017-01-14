@@ -137,15 +137,13 @@ class ChampionList: MainCollectionViewController {
             if let champIcon = DDragon().getLcuChampionSquareArt(champId: self.champions[indexPath.section][indexPath.row].champId) {
                 cell.champIcon?.image = champIcon
             } else {
-                autoreleasepool(invoking: { ()
-                    DDragon().getChampionSquareArt(self.champions[indexPath.section][indexPath.row].image!.full, completion: { (champSquareArtUrl) in
-                        autoreleasepool(invoking: { ()
-                            cell.champIcon?.setImageWith(URLRequest(url: champSquareArtUrl), placeholderImage: nil, success: { (request, response, image) in
-                                if ((cell.champIcon?.image) == nil) {
-                                    cell.champIcon?.image = image
-                                }
-                            }, failure: nil)
-                        })
+                DDragon().getChampionSquareArt(self.champions[indexPath.section][indexPath.row].image!.full, completion: { (champSquareArtUrl) in
+                    autoreleasepool(invoking: { ()
+                        cell.champIcon?.setImageWith(URLRequest(url: champSquareArtUrl), placeholderImage: nil, success: { (request, response, image) in
+                            if ((cell.champIcon?.image) == nil) {
+                                cell.champIcon?.image = image
+                            }
+                        }, failure: nil)
                     })
                 })
             }

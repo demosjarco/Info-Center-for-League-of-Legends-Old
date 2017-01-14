@@ -9,14 +9,14 @@
 import UIKit
 
 class Profile_CurrentGame_Cell: UITableViewCell {
-    @IBOutlet var champIcon:UIImageView?
-    @IBOutlet var champMastery:UIImageView?
-    @IBOutlet var spell1:UIImageView?
-    @IBOutlet var spell2:UIImageView?
-    @IBOutlet var keyStoneMastery:UIImageView?
-    @IBOutlet var summonerName:UILabel?
-    @IBOutlet var currentSeasonRank:UIImageView?
-    @IBOutlet var lastSeasonRank:UIImageView?
-    @IBOutlet var underLevel:UILabel?
-    @IBOutlet var champBan:UIImageView?
+    @IBOutlet weak var champIcon:UIImageView?
+    @IBOutlet weak var champMastery:UIImageView?
+    @IBOutlet weak var spell1:UIImageView?
+    @IBOutlet weak var spell2:UIImageView?
+    @IBOutlet weak var keyStoneMastery:UIImageView?
+    @IBOutlet weak var summonerName:UILabel?
+    @IBOutlet weak var currentSeasonRank:UIImageView?
+    @IBOutlet weak var lastSeasonRank:UIImageView?
+    @IBOutlet weak var underLevel:UILabel?
+    @IBOutlet weak var champBan:UIImageView?
 }

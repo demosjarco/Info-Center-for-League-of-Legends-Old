@@ -13,12 +13,12 @@ class Profile_Masteries_MasteriesView: UIViewController, UICollectionViewDataSou
     var summoner = SummonerDto()
     var pageId:CLong = 0
     
-    @IBOutlet var sectionBar:UISegmentedControl?
-    @IBOutlet var treeScrollView:UIScrollView?
-    @IBOutlet var masteryBg:UIImageView?
-    @IBOutlet var ferocityTree: UICollectionView?
-    @IBOutlet var cunningTree: UICollectionView?
-    @IBOutlet var resolveTree: UICollectionView?
+    @IBOutlet weak var sectionBar:UISegmentedControl?
+    @IBOutlet weak var treeScrollView:UIScrollView?
+    @IBOutlet weak var masteryBg:UIImageView?
+    @IBOutlet weak var ferocityTree: UICollectionView?
+    @IBOutlet weak var cunningTree: UICollectionView?
+    @IBOutlet weak var resolveTree: UICollectionView?
     
     var masteryData = [String: SC_MasteryDto]()
     var ferocityMasteries = [MasteryTreeListDto]()

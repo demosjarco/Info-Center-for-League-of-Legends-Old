@@ -9,6 +9,6 @@
 import UIKit
 
 class Profile_Masteries_MasteriesView_Cell: UICollectionViewCell {
-    @IBOutlet var masteryImage:UIImageView?
-    @IBOutlet var masteryLevel:UILabel?
+    @IBOutlet weak var masteryImage:UIImageView?
+    @IBOutlet weak var masteryLevel:UILabel?
 }

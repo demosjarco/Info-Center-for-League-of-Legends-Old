@@ -9,9 +9,9 @@
 import UIKit
 
 class Profile_CurrentGame_Header: UITableViewCell {
-    @IBOutlet var teamName:UILabel?
-    @IBOutlet var championMastery:UILabel?
-    @IBOutlet var currentSeason:UILabel?
-    @IBOutlet var lastSeason:UILabel?
-    @IBOutlet var bans:UILabel?
+    @IBOutlet weak var teamName:UILabel?
+    @IBOutlet weak var championMastery:UILabel?
+    @IBOutlet weak var currentSeason:UILabel?
+    @IBOutlet weak var lastSeason:UILabel?
+    @IBOutlet weak var bans:UILabel?
 }

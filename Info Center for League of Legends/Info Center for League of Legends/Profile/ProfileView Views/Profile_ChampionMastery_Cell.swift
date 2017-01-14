@@ -10,10 +10,10 @@ import UIKit
 import MBCircularProgressBar
 
 class Profile_ChampionMastery_Cell: UICollectionViewCell {
-    @IBOutlet var championIcon:UIImageView?
-    @IBOutlet var championIconDark:UIView?
-    @IBOutlet var progressBar:MBCircularProgressBarView?
-    @IBOutlet var rankIcon:UIImageView?
-    @IBOutlet var progressText:UILabel?
-    @IBOutlet var championName:UILabel?
+    @IBOutlet weak var championIcon:UIImageView?
+    @IBOutlet weak var championIconDark:UIView?
+    @IBOutlet weak var progressBar:MBCircularProgressBarView?
+    @IBOutlet weak var rankIcon:UIImageView?
+    @IBOutlet weak var progressText:UILabel?
+    @IBOutlet weak var championName:UILabel?
 }
