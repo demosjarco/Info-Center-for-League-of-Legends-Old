@@ -26,17 +26,19 @@ class ChampionDetail: UIViewController, UIPageViewControllerDataSource, UIPageVi
             content.popupItem.leftBarButtonItems = [UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.closeView))]
             
             // Use the new LCU icon if exists
-            if let champIcon = DDragon().getLcuChampionSquareArt(champId: self.champion.champId) {
-                content.popupItem.image = champIcon
-            } else {
-                DDragon().getChampionSquareArt(self.champion.image!.full, completion: { (champSquareArtUrl) in
-                    autoreleasepool(invoking: { ()
-                        UIImageView().setImageWith(URLRequest(url: champSquareArtUrl), placeholderImage: nil, success: { (request, response, image) in
-                            content.popupItem.image = image
-                        }, failure: nil)
+            autoreleasepool(invoking: { ()
+                if let champIcon = DDragon().getLcuChampionSquareArt(champId: self.champion.champId) {
+                    content.popupItem.image = champIcon
+                } else {
+                    DDragon().getChampionSquareArt(self.champion.image!.full, completion: { (champSquareArtUrl) in
+                        autoreleasepool(invoking: { ()
+                            UIImageView().setImageWith(URLRequest(url: champSquareArtUrl), placeholderImage: nil, success: { (request, response, image) in
+                                content.popupItem.image = image
+                            }, failure: nil)
+                        })
                     })
-                })
-            }
+                }
+            })
             
             content.popupItem.title = self.champion.name
             content.popupItem.subtitle = self.champion.title
