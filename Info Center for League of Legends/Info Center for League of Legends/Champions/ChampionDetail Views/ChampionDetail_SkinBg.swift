@@ -12,9 +12,9 @@ import Firebase
 import XCDYouTubeKit
 
 class ChampionDetail_SkinBg: UIViewController {
-    @IBOutlet var skinImage:UIImageView?
-    var animatedSkinVideo:AVPlayer?
-    var animatedSkinVideoLayer:AVPlayerLayer?
+    @IBOutlet weak var skinImage:UIImageView?
+    weak var animatedSkinVideo:AVPlayer?
+    weak var animatedSkinVideoLayer:AVPlayerLayer?
     
     var fullImageName = ""
     var champId = 0
@@ -35,39 +35,41 @@ class ChampionDetail_SkinBg: UIViewController {
         if collection.containsTraits(in: UITraitCollection(horizontalSizeClass: .regular)) {
             FIRDatabase.database().reference().child("animatedSplash").observeSingleEvent(of: .value, with: { (snapshot) in
                 if snapshot.hasChild(String(self.champId) + "-" + String(self.skinNum)) {
-                    // Animated Splash available
-                    let reachability = Reachability.forInternetConnection()
-                    reachability?.startNotifier()
-                    
-                    switch reachability!.currentReachabilityStatus() {
-                    case ReachableViaWWAN:
-                        // Cellular
-                        if UserDefaults.standard.value(forKey: "league_useAnimatedSplashArtOnCellular") != nil {
-                            if UserDefaults.standard.bool(forKey: "league_useAnimatedSplashArtOnCellular") {
-                                // Animated
-                                self.loadAnimatedPlayer(snapshot)
+                    autoreleasepool(invoking: { ()
+                        // Animated Splash available
+                        let reachability = Reachability.forInternetConnection()
+                        reachability?.startNotifier()
+                        
+                        switch reachability!.currentReachabilityStatus() {
+                        case ReachableViaWWAN:
+                            // Cellular
+                            if UserDefaults.standard.value(forKey: "league_useAnimatedSplashArtOnCellular") != nil {
+                                if UserDefaults.standard.bool(forKey: "league_useAnimatedSplashArtOnCellular") {
+                                    // Animated
+                                    self.loadAnimatedPlayer(snapshot)
+                                } else {
+                                    // Static
+                                    DDragon().getChampionSplashArt(self.fullImageName, skinNumber: self.skinNum) { (champSplashArtUrl) in
+                                        self.skinImage?.setImageWith(champSplashArtUrl)
+                                    }
+                                }
                             } else {
+                                UserDefaults.standard.set(false, forKey: "league_useAnimatedSplashArtOnCellular")
                                 // Static
                                 DDragon().getChampionSplashArt(self.fullImageName, skinNumber: self.skinNum) { (champSplashArtUrl) in
                                     self.skinImage?.setImageWith(champSplashArtUrl)
                                 }
                             }
-                        } else {
-                            UserDefaults.standard.set(false, forKey: "league_useAnimatedSplashArtOnCellular")
-                            // Static
-                            DDragon().getChampionSplashArt(self.fullImageName, skinNumber: self.skinNum) { (champSplashArtUrl) in
-                                self.skinImage?.setImageWith(champSplashArtUrl)
-                            }
+                            break
+                        case ReachableViaWiFi:
+                            // WiFi
+                            // Animated
+                            self.loadAnimatedPlayer(snapshot)
+                            break
+                        default:
+                            break
                         }
-                        break
-                    case ReachableViaWiFi:
-                        // WiFi
-                        // Animated
-                        self.loadAnimatedPlayer(snapshot)
-                        break
-                    default:
-                        break
-                    }
+                    })
                 } else {
                     // Animated splash not available
                     DDragon().getChampionSplashArt(self.fullImageName, skinNumber: self.skinNum) { (champSplashArtUrl) in
@@ -84,38 +86,42 @@ class ChampionDetail_SkinBg: UIViewController {
     }
     
     func loadAnimatedPlayer(_ snapshot: FIRDataSnapshot) {
-        let videoIds = snapshot.childSnapshot(forPath: String(self.champId) + "-" + String(self.skinNum)).childSnapshot(forPath: "videoIds").value as! [String]
-        let randomIndex = Int(arc4random_uniform(UInt32(videoIds.count)))
-        let videoId = videoIds[randomIndex]
-        XCDYouTubeClient.default().getVideoWithIdentifier(videoId, completionHandler: { (video, error) in
-            var bestQualityURL:URL?
-            
-            if let url = video?.streamURLs[NSNumber(value: XCDYouTubeVideoQuality.HD720.rawValue)] {
-                bestQualityURL = url
-            } else if let url = video?.streamURLs[NSNumber(value: XCDYouTubeVideoQuality.medium360.rawValue)] {
-                bestQualityURL = url
-            } else if let url = video?.streamURLs[NSNumber(value: XCDYouTubeVideoQuality.small240.rawValue)] {
-                bestQualityURL = url
-            }
-            
-            if let url = bestQualityURL {
-                self.animatedSkinVideo = AVPlayer.init(playerItem: AVPlayerItem(url: url))
-                self.animatedSkinVideo?.isMuted = true
-                self.animatedSkinVideo?.actionAtItemEnd = .none
-                NotificationCenter.default.addObserver(self, selector: #selector(self.playerItemDidReachEnd(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.animatedSkinVideo?.currentItem)
-                
-                self.animatedSkinVideoLayer = AVPlayerLayer.init(player: self.animatedSkinVideo)
-                self.animatedSkinVideoLayer?.frame = self.skinImage!.frame
-                self.animatedSkinVideoLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-                self.view.layer.insertSublayer(self.animatedSkinVideoLayer!, below: self.skinImage?.layer)
-                
-                self.animatedSkinVideo?.play()
-            } else {
-                DDragon().getChampionSplashArt(self.fullImageName, skinNumber: self.skinNum) { (champSplashArtUrl) in
-                    self.skinImage?.setImageWith(champSplashArtUrl)
-                }
-            }
-        })
+        autoreleasepool { ()
+            let videoIds = snapshot.childSnapshot(forPath: String(self.champId) + "-" + String(self.skinNum)).childSnapshot(forPath: "videoIds").value as! [String]
+            let randomIndex = Int(arc4random_uniform(UInt32(videoIds.count)))
+            let videoId = videoIds[randomIndex]
+            XCDYouTubeClient.default().getVideoWithIdentifier(videoId, completionHandler: { (video, error) in
+                autoreleasepool(invoking: { ()
+                    var bestQualityURL:URL?
+                    
+                    if let url = video?.streamURLs[NSNumber(value: XCDYouTubeVideoQuality.HD720.rawValue)] {
+                        bestQualityURL = url
+                    } else if let url = video?.streamURLs[NSNumber(value: XCDYouTubeVideoQuality.medium360.rawValue)] {
+                        bestQualityURL = url
+                    } else if let url = video?.streamURLs[NSNumber(value: XCDYouTubeVideoQuality.small240.rawValue)] {
+                        bestQualityURL = url
+                    }
+                    
+                    if let url = bestQualityURL {
+                        self.animatedSkinVideo = AVPlayer.init(playerItem: AVPlayerItem(url: url))
+                        self.animatedSkinVideo?.isMuted = true
+                        self.animatedSkinVideo?.actionAtItemEnd = .none
+                        NotificationCenter.default.addObserver(self, selector: #selector(self.playerItemDidReachEnd(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.animatedSkinVideo?.currentItem)
+                        
+                        self.animatedSkinVideoLayer = AVPlayerLayer.init(player: self.animatedSkinVideo)
+                        self.animatedSkinVideoLayer?.frame = self.skinImage!.frame
+                        self.animatedSkinVideoLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+                        self.view.layer.insertSublayer(self.animatedSkinVideoLayer!, below: self.skinImage?.layer)
+                        
+                        self.animatedSkinVideo?.play()
+                    } else {
+                        DDragon().getChampionSplashArt(self.fullImageName, skinNumber: self.skinNum) { (champSplashArtUrl) in
+                            self.skinImage?.setImageWith(champSplashArtUrl)
+                        }
+                    }
+                })
+            })
+        }
     }
     
     func playerItemDidReachEnd(_ notification: Notification) {

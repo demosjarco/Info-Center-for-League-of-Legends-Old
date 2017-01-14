@@ -9,6 +9,6 @@
 import UIKit
 
 class ChampionDetail_Content_Header_Stat_Cell: UICollectionViewCell {
-    @IBOutlet var statIcon:UIImageView?
-    @IBOutlet var statValue:UILabel?
+    @IBOutlet weak var statIcon:UIImageView?
+    @IBOutlet weak var statValue:UILabel?
 }
