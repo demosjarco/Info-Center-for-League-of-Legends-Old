@@ -151,7 +151,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     _colorTop = [UIColor colorWithRed:0 green:122.0/255.0 blue:255/255 alpha:1];
     _colorLine = [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1];
     _colorBottom = [UIColor colorWithRed:0 green:122.0/255.0 blue:255/255 alpha:1];
-    _colorPoint = [UIColor whiteColor];
+    _colorPoint = [UIColor colorWithWhite:1.0 alpha:0.7];
     _colorTouchInputLine = [UIColor grayColor];
     _colorBackgroundPopUplabel = [UIColor whiteColor];
     _alphaTouchInputLine = 0.2;
@@ -174,6 +174,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     
     // Set Default Feature Values
     _enableTouchReport = NO;
+    _touchReportFingersRequired = 1;
     _enablePopUpReport = NO;
     _enableBezierCurve = NO;
     _enableXAxisLabel = YES;
@@ -250,18 +251,6 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     if ([self.dataSource respondsToSelector:@selector(numberOfPointsInLineGraph:)]) {
         numberOfPoints = [self.dataSource numberOfPointsInLineGraph:self];
         
-    } else if ([self.delegate respondsToSelector:@selector(numberOfPointsInGraph)]) {
-        [self printDeprecationWarningForOldMethod:@"numberOfPointsInGraph" andReplacementMethod:@"numberOfPointsInLineGraph:"];
-        
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        numberOfPoints = [self.delegate numberOfPointsInGraph];
-#pragma clang diagnostic pop
-        
-    } else if ([self.delegate respondsToSelector:@selector(numberOfPointsInLineGraph:)]) {
-        [self printDeprecationAndUnavailableWarningForOldMethod:@"numberOfPointsInLineGraph:"];
-        numberOfPoints = 0;
-        
     } else numberOfPoints = 0;
     
     // There are no points to load
@@ -304,7 +293,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
         NSLog(@"[BEMSimpleLineGraph] Data source contains only one data point. Add more data to the data source and then reload the graph.");
         BEMCircle *circleDot = [[BEMCircle alloc] initWithFrame:CGRectMake(0, 0, self.sizePoint, self.sizePoint)];
         circleDot.center = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
-        circleDot.Pointcolor = self.colorPoint;
+        circleDot.color = self.colorPoint;
         circleDot.alpha = 1;
         [self addSubview:circleDot];
         return;
@@ -484,20 +473,6 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
             if ([self.dataSource respondsToSelector:@selector(lineGraph:valueForPointAtIndex:)]) {
                 dotValue = [self.dataSource lineGraph:self valueForPointAtIndex:i];
                 
-            } else if ([self.delegate respondsToSelector:@selector(valueForIndex:)]) {
-                [self printDeprecationWarningForOldMethod:@"valueForIndex:" andReplacementMethod:@"lineGraph:valueForPointAtIndex:"];
-                
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-                dotValue = [self.delegate valueForIndex:i];
-#pragma clang diagnostic pop
-                
-            } else if ([self.delegate respondsToSelector:@selector(lineGraph:valueForPointAtIndex:)]) {
-                [self printDeprecationAndUnavailableWarningForOldMethod:@"lineGraph:valueForPointAtIndex:"];
-                NSException *exception = [NSException exceptionWithName:@"Implementing Unavailable Delegate Method" reason:@"lineGraph:valueForPointAtIndex: is no longer available on the delegate. It must be implemented on the data source." userInfo:nil];
-                [exception raise];
-                
-                
             } else [NSException raise:@"lineGraph:valueForPointAtIndex: protocol method is not implemented in the data source. Throwing exception here before the system throws a CALayerInvalidGeometry Exception." format:@"Value for point %f at index %lu is invalid. CALayer position may contain NaN: [0 nan]", dotValue, (unsigned long)i];
 #else
             dotValue = (int)(arc4random() % 10000);
@@ -523,7 +498,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
                 circleDot.tag = i+ DotFirstTag100;
                 circleDot.alpha = 0;
                 circleDot.absoluteValue = dotValue;
-                circleDot.Pointcolor = self.colorPoint;
+                circleDot.color = self.colorPoint;
                 
                 [self addSubview:circleDot];
                 if (self.alwaysDisplayPopUpLabels == YES) {
@@ -539,13 +514,12 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
                     if (self.displayDotsOnly == YES) circleDot.alpha = 1.0;
                     else {
                         if (self.alwaysDisplayDots == NO) circleDot.alpha = 0;
-                        else circleDot.alpha = 0.7;
+                        else circleDot.alpha = 1.0;
                     }
                 } else {
                     if (self.displayDotsWhileAnimating) {
                         [UIView animateWithDuration:(float)self.animationGraphEntranceTime/numberOfPoints delay:(float)i*((float)self.animationGraphEntranceTime/numberOfPoints) options:UIViewAnimationOptionCurveLinear animations:^{
-                            if (self.displayDotsOnly == YES) circleDot.alpha = 1.0;
-                            else circleDot.alpha = 0.7;
+                            circleDot.alpha = 1.0;
                         } completion:^(BOOL finished) {
                             if (self.alwaysDisplayDots == NO && self.displayDotsOnly == NO) {
                                 [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -699,14 +673,6 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
         if ([self.delegate respondsToSelector:@selector(numberOfGapsBetweenLabelsOnLineGraph:)]) {
             numberOfGaps = [self.delegate numberOfGapsBetweenLabelsOnLineGraph:self] + 1;
             
-        } else if ([self.delegate respondsToSelector:@selector(numberOfGapsBetweenLabels)]) {
-            [self printDeprecationWarningForOldMethod:@"numberOfGapsBetweenLabels" andReplacementMethod:@"numberOfGapsBetweenLabelsOnLineGraph:"];
-            
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-            numberOfGaps = [self.delegate numberOfGapsBetweenLabels] + 1;
-#pragma clang diagnostic pop
-            
         } else {
             numberOfGaps = 1;
         }
@@ -808,19 +774,6 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     if ([self.dataSource respondsToSelector:@selector(lineGraph:labelOnXAxisForIndex:)]) {
         xAxisLabelText = [self.dataSource lineGraph:self labelOnXAxisForIndex:index];
         
-    } else if ([self.delegate respondsToSelector:@selector(labelOnXAxisForIndex:)]) {
-        [self printDeprecationWarningForOldMethod:@"labelOnXAxisForIndex:" andReplacementMethod:@"lineGraph:labelOnXAxisForIndex:"];
-        
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        xAxisLabelText = [self.delegate labelOnXAxisForIndex:index];
-#pragma clang diagnostic pop
-        
-    } else if ([self.delegate respondsToSelector:@selector(lineGraph:labelOnXAxisForIndex:)]) {
-        [self printDeprecationAndUnavailableWarningForOldMethod:@"lineGraph:labelOnXAxisForIndex:"];
-        NSException *exception = [NSException exceptionWithName:@"Implementing Unavailable Delegate Method" reason:@"lineGraph:labelOnXAxisForIndex: is no longer available on the delegate. It must be implemented on the data source." userInfo:nil];
-        [exception raise];
-        
     } else  {
         xAxisLabelText = @"";
     }
@@ -869,11 +822,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     }
     
     // Set the final center point of the x-axis labels
-    if (self.positionYAxisRight) {
-        center = CGPointMake(positionOnXAxis, self.frame.size.height - lRect.size.height/2);
-    } else {
-        center = CGPointMake(positionOnXAxis, self.frame.size.height - lRect.size.height/2);
-    }
+    center = CGPointMake(positionOnXAxis, self.frame.size.height - lRect.size.height/2 - 1);
     
     CGRect rect = labelXAxis.frame;
     rect.size = lRect.size;
@@ -898,13 +847,13 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     
     if (self.positionYAxisRight) {
         frameForBackgroundYAxis = CGRectMake(self.frame.size.width - self.YAxisLabelXOffset, 0, self.YAxisLabelXOffset, self.frame.size.height);
-        frameForLabelYAxis = CGRectMake(self.frame.size.width - self.YAxisLabelXOffset - 5, 0, self.YAxisLabelXOffset - 5, 15);
-        xValueForCenterLabelYAxis = self.frame.size.width - self.YAxisLabelXOffset /2;
+        frameForLabelYAxis = CGRectMake(self.frame.size.width - self.YAxisLabelXOffset - 1, 0, self.YAxisLabelXOffset - 1, 15);
+        xValueForCenterLabelYAxis = self.frame.size.width - (self.YAxisLabelXOffset-1)/2;
         textAlignmentForLabelYAxis = NSTextAlignmentRight;
     } else {
         frameForBackgroundYAxis = CGRectMake(0, 0, self.YAxisLabelXOffset, self.frame.size.height);
-        frameForLabelYAxis = CGRectMake(0, 0, self.YAxisLabelXOffset - 5, 15);
-        xValueForCenterLabelYAxis = self.YAxisLabelXOffset/2;
+        frameForLabelYAxis = CGRectMake(1, 0, self.YAxisLabelXOffset - 1, 15);
+        xValueForCenterLabelYAxis = (self.YAxisLabelXOffset-1)/2;
         textAlignmentForLabelYAxis = NSTextAlignmentRight;
     }
     
@@ -1293,7 +1242,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
     if ([gestureRecognizer isEqual:self.panGesture]) {
-        if (gestureRecognizer.numberOfTouches > 0) {
+        if (gestureRecognizer.numberOfTouches >= self.touchReportFingersRequired) {
             CGPoint translation = [self.panGesture velocityInView:self.panView];
             return fabs(translation.y) < fabs(translation.x);
         } else return NO;
@@ -1301,13 +1250,13 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     } else return NO;
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-	    return YES;
-}
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
 	    return YES;
 }
 
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+	    return YES;
+}
 
 - (void)handleGestureAction:(UIGestureRecognizer *)recognizer {
     CGPoint translation = [recognizer locationInView:self.viewForBaselineLayout];
@@ -1329,14 +1278,6 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     if (closestDot.tag >= DotFirstTag100 && closestDot.tag < DotLastTag1000 && [closestDot isMemberOfClass:[BEMCircle class]]) {
         if ([self.delegate respondsToSelector:@selector(lineGraph:didTouchGraphWithClosestIndex:)] && self.enableTouchReport == YES) {
             [self.delegate lineGraph:self didTouchGraphWithClosestIndex:((NSInteger)closestDot.tag - DotFirstTag100)];
-            
-        } else if ([self.delegate respondsToSelector:@selector(didTouchGraphWithClosestIndex:)] && self.enableTouchReport == YES) {
-            [self printDeprecationWarningForOldMethod:@"didTouchGraphWithClosestIndex:" andReplacementMethod:@"lineGraph:didTouchGraphWithClosestIndex:"];
-            
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-            [self.delegate didTouchGraphWithClosestIndex:((int)closestDot.tag - DotFirstTag100)];
-#pragma clang diagnostic pop
         }
     }
     
@@ -1344,14 +1285,6 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
     if (recognizer.state == UIGestureRecognizerStateEnded) {
         if ([self.delegate respondsToSelector:@selector(lineGraph:didReleaseTouchFromGraphWithClosestIndex:)]) {
             [self.delegate lineGraph:self didReleaseTouchFromGraphWithClosestIndex:(closestDot.tag - DotFirstTag100)];
-            
-        } else if ([self.delegate respondsToSelector:@selector(didReleaseGraphWithClosestIndex:)]) {
-            [self printDeprecationWarningForOldMethod:@"didReleaseGraphWithClosestIndex:" andReplacementMethod:@"lineGraph:didReleaseTouchFromGraphWithClosestIndex:"];
-            
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-            [self.delegate didReleaseGraphWithClosestIndex:(closestDot.tag - DotFirstTag100)];
-#pragma clang diagnostic pop
         }
         
         [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
@@ -1468,30 +1401,10 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
             for (int i = 0; i < numberOfPoints; i++) {
                 if ([self.dataSource respondsToSelector:@selector(lineGraph:valueForPointAtIndex:)]) {
                     dotValue = [self.dataSource lineGraph:self valueForPointAtIndex:i];
-                    
-                } else if ([self.delegate respondsToSelector:@selector(valueForIndex:)]) {
-                    [self printDeprecationWarningForOldMethod:@"valueForIndex:" andReplacementMethod:@"lineGraph:valueForPointAtIndex:"];
-                    
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-                    dotValue = [self.delegate valueForIndex:i];
-#pragma clang diagnostic pop
-                    
-                } else if ([self.delegate respondsToSelector:@selector(lineGraph:valueForPointAtIndex:)]) {
-                    [self printDeprecationAndUnavailableWarningForOldMethod:@"lineGraph:valueForPointAtIndex:"];
-                    NSException *exception = [NSException exceptionWithName:@"Implementing Unavailable Delegate Method" reason:@"lineGraph:valueForPointAtIndex: is no longer available on the delegate. It must be implemented on the data source." userInfo:nil];
-                    [exception raise];
-                    
-                } else {
-                    dotValue = 0;
-                }
-                if (dotValue == BEMNullGraphValue) {
-                    continue;
-                }
+                } else dotValue = 0;
                 
-                if (dotValue > maxValue) {
-                    maxValue = dotValue;
-                }
+                if (dotValue == BEMNullGraphValue) continue;
+                if (dotValue > maxValue) maxValue = dotValue;
             }
         }
         return maxValue;
@@ -1510,27 +1423,10 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
                 if ([self.dataSource respondsToSelector:@selector(lineGraph:valueForPointAtIndex:)]) {
                     dotValue = [self.dataSource lineGraph:self valueForPointAtIndex:i];
                     
-                } else if ([self.delegate respondsToSelector:@selector(valueForIndex:)]) {
-                    [self printDeprecationWarningForOldMethod:@"valueForIndex:" andReplacementMethod:@"lineGraph:valueForPointAtIndex:"];
-                    
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-                    dotValue = [self.delegate valueForIndex:i];
-#pragma clang diagnostic pop
-                    
-                } else if ([self.delegate respondsToSelector:@selector(lineGraph:valueForPointAtIndex:)]) {
-                    [self printDeprecationAndUnavailableWarningForOldMethod:@"lineGraph:valueForPointAtIndex:"];
-                    NSException *exception = [NSException exceptionWithName:@"Implementing Unavailable Delegate Method" reason:@"lineGraph:valueForPointAtIndex: is no longer available on the delegate. It must be implemented on the data source." userInfo:nil];
-                    [exception raise];
-                    
                 } else dotValue = 0;
                 
-                if (dotValue == BEMNullGraphValue) {
-                    continue;
-                }
-                if (dotValue < minValue) {
-                    minValue = dotValue;
-                }
+                if (dotValue == BEMNullGraphValue) continue;
+                if (dotValue < minValue) minValue = dotValue;
             }
         }
         return minValue;
@@ -1552,7 +1448,7 @@ typedef NS_ENUM(NSInteger, BEMInternalTags)
         padding = [self.delegate staticPaddingForLineGraph:self];
 
     if (self.enableXAxisLabel) {
-        if ([self.dataSource respondsToSelector:@selector(lineGraph:labelOnXAxisForIndex:)] || [self.dataSource respondsToSelector:@selector(labelOnXAxisForIndex:)]) {
+        if ([self.dataSource respondsToSelector:@selector(lineGraph:labelOnXAxisForIndex:)]) {
             if ([xAxisLabels count] > 0) {
                 UILabel *label = [xAxisLabels objectAtIndex:0];
                 self.XAxisLabelYOffset = label.frame.size.height + self.widthLine;
