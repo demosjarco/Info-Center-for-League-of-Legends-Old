@@ -17,6 +17,7 @@ class ChampionDetail_Content_Header: UICollectionReusableView, BEMSimpleLineGrap
     var delegate:ChampViewHeaderDelegate?
     var stats = StatsDto()
     
+    @IBOutlet weak var champWinRate:BEMSimpleLineGraphView?
     @IBOutlet weak var championIcon:UIImageView?
     @IBOutlet weak var championName:UILabel?
     
