@@ -105,7 +105,7 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
         let niceTileOrder = tileOrder as! [[String: String]]
         switch niceTileOrder[indexPath.row]["tileType"] {
         case "passive" as NSString:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_passive", for: indexPath)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_spell", for: indexPath)
             
             // Configure the cell
             
