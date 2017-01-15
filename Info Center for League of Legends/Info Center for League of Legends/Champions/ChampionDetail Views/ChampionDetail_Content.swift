@@ -127,15 +127,16 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
     }
     
     func replaceEffectAndVarsIn(_ originalString: String, spell: ChampionSpellDto) -> String {
-        weak var effectFilledIn = originalString
+        var effectFilledIn = originalString
         for effectBurn in spell.effectBurn {
             effectFilledIn = effectFilledIn.replacingOccurrences(of: "{{ e\(spell.effectBurn.index(of: effectBurn)!) }}", with: effectBurn)
         }
         
-        weak var varsFilledIn = effectFilledIn
+        var varsFilledIn = effectFilledIn
         for varToFill in spell.vars {
             varsFilledIn = varsFilledIn.replacingOccurrences(of: "{{ \(varToFill.key) }}", with: "\(varToFill.coeff.first! * 100)%")
         }
+        
         return varsFilledIn
     }
 }
