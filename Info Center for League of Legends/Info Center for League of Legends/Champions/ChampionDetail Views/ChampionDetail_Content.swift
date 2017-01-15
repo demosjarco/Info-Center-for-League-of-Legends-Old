@@ -74,6 +74,8 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
             profileHeader.delegate = self
             profileHeader.stats = self.champion.stats!
             
+            profileHeader.champWinRate?.averageLine.enableAverageLine = true
+            
             profileHeader.championIcon?.layer.borderColor = UIColor(red: 207/255.0, green: 186/255.0, blue: 107/255.0, alpha: 1.0).cgColor
             // Use the new LCU icon if exists
             if let champIcon = DDragon().getLcuChampionSquareArt(self.champion.champId) {
