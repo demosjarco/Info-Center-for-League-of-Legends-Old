@@ -633,6 +633,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
             case "champMastery" as NSString:
                 // Champion Mastery
                 let champMasteryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_champ_mastery", for: indexPath) as! ProfileView_ChampMastery
+                // Performance
+                champMasteryCell.layer.rasterizationScale = UIScreen.main.scale
+                champMasteryCell.layer.shouldRasterize = true
                 
                 champMasteryCell.setupCell()
                 
@@ -744,6 +747,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
             case "recentGames" as NSString:
                 // Recent Games
                 let recentGamesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_recent_games", for: indexPath) as! ProfileView_RecentGames
+                // Performance
+                recentGamesCell.layer.rasterizationScale = UIScreen.main.scale
+                recentGamesCell.layer.shouldRasterize = true
                 
                 recentGamesCell.setupCell()
                 
@@ -809,6 +815,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
             case "masteries" as NSString:
                 // Masteries
                 let masteriesCell = collectionView.dequeueReusableCell(withReuseIdentifier: "profile_view_masteries", for: indexPath) as! ProfileView_Masteries
+                // Performance
+                masteriesCell.layer.rasterizationScale = UIScreen.main.scale
+                masteriesCell.layer.shouldRasterize = true
                 
                 masteriesCell.setupCell()
                 
@@ -889,6 +898,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
         } else {
             // Rune Page stat cell
             let runeStatCell = collectionView.dequeueReusableCell(withReuseIdentifier: "runeStatCell", for: indexPath) as! ProfileView_Rune_StatsCell
+            // Performance
+            runeStatCell.layer.rasterizationScale = UIScreen.main.scale
+            runeStatCell.layer.shouldRasterize = true
             
             runeStatCell.runeIcon?.image = UIImage(named: Array(self.run_currentPage_stats.keys)[indexPath.row])
             if Array(self.run_currentPage_stats.values)[indexPath.row] >= 0.0 {
@@ -908,6 +920,9 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 
                 self.profileHeader.delegate = self
                 self.profileHeader.initialLoad(self.summoner)
+                
+                self.profileHeader.layer.rasterizationScale = UIScreen.main.scale
+                self.profileHeader.layer.shouldRasterize = true
                 
                 return self.profileHeader
             case UICollectionElementKindSectionFooter:
