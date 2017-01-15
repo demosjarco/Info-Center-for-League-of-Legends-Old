@@ -60,7 +60,7 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.champion.spells?.count + 1
+        return self.champion.spells!.count + 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -99,13 +99,43 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_spell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_spell", for: indexPath) as! ChampionDetail_Content_Spell_Cell
         if indexPath.row == 0 {
             // Passive
+            DDragon().getChampionPassiveArt(self.champion.passive!.image.full, completion: { (champPassiveArtUrl) in
+                cell.spellIcon?.setImageWith(champPassiveArtUrl)
+            })
+            cell.spellName?.text = self.champion.passive!.name
+            cell.spellTooltip?.text = self.champion.passive!.sanitizedDescription
         } else {
             // Spells
+            DDragon().getChampionAbilityArt(self.champion.spells![indexPath.row - 1].image.full, completion: { (champAbilityArtUrl) in
+                cell.spellIcon?.setImageWith(champAbilityArtUrl)
+            })
+            cell.spellName?.text = self.champion.spells![indexPath.row - 1].name
+            autoreleasepool(invoking: { ()
+                let resource = self.champion.spells![indexPath.row - 1].resource
+                let costAdded = resource.replacingOccurrences(of: "{{ cost }}", with: self.champion.spells![indexPath.row - 1].costBurn)
+                
+                cell.spellCost?.text = "Cost: " + self.replaceEffectAndVarsIn(costAdded, spell: self.champion.spells![indexPath.row - 1])
+            })
+            cell.spellRange?.text = "Range: " + self.champion.spells![indexPath.row - 1].rangeBurn
+            cell.spellTooltip?.text = self.replaceEffectAndVarsIn(self.champion.spells![indexPath.row - 1].sanitizedTooltip, spell: self.champion.spells![indexPath.row - 1])
         }
         
         return cell
+    }
+    
+    func replaceEffectAndVarsIn(_ originalString: String, spell: ChampionSpellDto) -> String {
+        weak var effectFilledIn = originalString
+        for effectBurn in spell.effectBurn {
+            effectFilledIn = effectFilledIn.replacingOccurrences(of: "{{ e\(spell.effectBurn.index(of: effectBurn)!) }}", with: effectBurn)
+        }
+        
+        weak var varsFilledIn = effectFilledIn
+        for varToFill in spell.vars {
+            varsFilledIn = varsFilledIn.replacingOccurrences(of: "{{ \(varToFill.key) }}", with: "\(varToFill.coeff.first! * 100)%")
+        }
+        return varsFilledIn
     }
 }
