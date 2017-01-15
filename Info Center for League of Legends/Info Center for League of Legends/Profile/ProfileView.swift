@@ -645,7 +645,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                                 champMasteryCell.champ1bg?.setImageWith(champLoadingArtUrl)
                             })
                             // Use the new LCU icon if exists
-                            if let champIcon = DDragon().getLcuChampionSquareArt(champId: championMastery.championId) {
+                            if let champIcon = DDragon().getLcuChampionSquareArt(championMastery.championId) {
                                 champMasteryCell.champ1squareIcon?.image = champIcon
                             } else {
                                 DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
@@ -680,7 +680,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                             champMasteryCell.champ2bg?.setImageWith(champLoadingArtUrl)
                         })
                         // Use the new LCU icon if exists
-                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: championMastery.championId) {
+                        if let champIcon = DDragon().getLcuChampionSquareArt(championMastery.championId) {
                             champMasteryCell.champ2squareIcon?.image = champIcon
                         } else {
                             DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
@@ -714,7 +714,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                             champMasteryCell.champ3bg?.setImageWith(champLoadingArtUrl)
                         })
                         // Use the new LCU icon if exists
-                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: championMastery.championId) {
+                        if let champIcon = DDragon().getLcuChampionSquareArt(championMastery.championId) {
                             champMasteryCell.champ3squareIcon?.image = champIcon
                         } else {
                             DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
@@ -769,7 +769,7 @@ class ProfileView: MainCollectionViewController, HeaderDelegate, RecentGames_Sum
                 
                 if self.rc_lastGame.championId != 0 {
                     // Use the new LCU icon if exists
-                    if let champIcon = DDragon().getLcuChampionSquareArt(champId: self.rc_lastGame.championId) {
+                    if let champIcon = DDragon().getLcuChampionSquareArt(self.rc_lastGame.championId) {
                         recentGamesCell.lastGameChamp?.image = champIcon
                     } else {
                         StaticDataEndpoint().getChampionInfoById(self.rc_lastGame.championId, championData: .Image, completion: { (champion) in

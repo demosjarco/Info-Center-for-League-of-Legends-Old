@@ -134,7 +134,7 @@ class ChampionList: MainCollectionViewController {
         // Configure the cell
         autoreleasepool { ()
             // Use the new LCU icon if exists
-            if let champIcon = DDragon().getLcuChampionSquareArt(champId: self.champions[indexPath.section][indexPath.row].champId) {
+            if let champIcon = DDragon().getLcuChampionSquareArt(self.champions[indexPath.section][indexPath.row].champId) {
                 cell.champIcon?.image = champIcon
             } else {
                 DDragon().getChampionSquareArt(self.champions[indexPath.section][indexPath.row].image!.full, completion: { (champSquareArtUrl) in

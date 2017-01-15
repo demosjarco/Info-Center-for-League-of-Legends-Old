@@ -27,7 +27,7 @@ class ChampionDetail: UIViewController, UIPageViewControllerDataSource, UIPageVi
             
             // Use the new LCU icon if exists
             autoreleasepool(invoking: { ()
-                if let champIcon = DDragon().getLcuChampionSquareArt(champId: self.champion.champId) {
+                if let champIcon = DDragon().getLcuChampionSquareArt(self.champion.champId) {
                     content.popupItem.image = champIcon
                 } else {
                     DDragon().getChampionSquareArt(self.champion.image!.full, completion: { (champSquareArtUrl) in

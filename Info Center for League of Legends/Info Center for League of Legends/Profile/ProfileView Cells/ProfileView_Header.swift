@@ -158,7 +158,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
                     // Get champ icon
                     StaticDataEndpoint().getChampionInfoById(Int(participant.championId), championData: .Image, completion: { (champInfo) in
                         // Use the new LCU icon if exists
-                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(participant.championId)) {
+                        if let champIcon = DDragon().getLcuChampionSquareArt(Int(participant.championId)) {
                             self.inGameBanner?.champIcon?.image = champIcon
                         } else {
                             DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in

@@ -230,7 +230,7 @@ class Profile_CurrentGame: MainTableViewController {
             StaticDataEndpoint().getChampionInfoById(Int(participantsBlue[indexPath.row].championId), championData: .Image, completion: { (champInfo) in
                 autoreleasepool(invoking: { ()
                     // Use the new LCU icon if exists
-                    if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.participantsBlue[indexPath.row].championId)) {
+                    if let champIcon = DDragon().getLcuChampionSquareArt(Int(self.participantsBlue[indexPath.row].championId)) {
                         cell.champIcon?.image = champIcon
                     } else {
                         DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
@@ -360,7 +360,7 @@ class Profile_CurrentGame: MainTableViewController {
                     StaticDataEndpoint().getChampionInfoById(Int(bans[0].championId), championData: .Image, completion: { (champInfo) in
                         autoreleasepool(invoking: { ()
                             // Use the new LCU icon if exists
-                            if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[0].championId)) {
+                            if let champIcon = DDragon().getLcuChampionSquareArt(Int(self.bans[0].championId)) {
                                 cell.champBan?.image = champIcon
                             } else {
                                 DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
@@ -378,7 +378,7 @@ class Profile_CurrentGame: MainTableViewController {
                     StaticDataEndpoint().getChampionInfoById(Int(bans[2].championId), championData: .Image, completion: { (champInfo) in
                         autoreleasepool(invoking: { ()
                             // Use the new LCU icon if exists
-                            if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[2].championId)) {
+                            if let champIcon = DDragon().getLcuChampionSquareArt(Int(self.bans[2].championId)) {
                                 cell.champBan?.image = champIcon
                             } else {
                                 DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
@@ -396,7 +396,7 @@ class Profile_CurrentGame: MainTableViewController {
                     StaticDataEndpoint().getChampionInfoById(Int(bans[4].championId), championData: .Image, completion: { (champInfo) in
                         autoreleasepool(invoking: { ()
                             // Use the new LCU icon if exists
-                            if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[4].championId)) {
+                            if let champIcon = DDragon().getLcuChampionSquareArt(Int(self.bans[4].championId)) {
                                 cell.champBan?.image = champIcon
                             } else {
                                 DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
@@ -420,7 +420,7 @@ class Profile_CurrentGame: MainTableViewController {
             // Champion Icon
             StaticDataEndpoint().getChampionInfoById(Int(participantsRed[indexPath.row].championId), championData: .Image, completion: { (champInfo) in
                 // Use the new LCU icon if exists
-                if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.participantsRed[indexPath.row].championId)) {
+                if let champIcon = DDragon().getLcuChampionSquareArt(Int(self.participantsRed[indexPath.row].championId)) {
                     cell.champIcon?.image = champIcon
                 } else {
                     DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
@@ -543,7 +543,7 @@ class Profile_CurrentGame: MainTableViewController {
                 case 2:
                     StaticDataEndpoint().getChampionInfoById(Int(bans[1].championId), championData: .Image, completion: { (champInfo) in
                         // Use the new LCU icon if exists
-                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[1].championId)) {
+                        if let champIcon = DDragon().getLcuChampionSquareArt(Int(self.bans[1].championId)) {
                             cell.champBan?.image = champIcon
                         } else {
                             DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
@@ -559,7 +559,7 @@ class Profile_CurrentGame: MainTableViewController {
                 case 3:
                     StaticDataEndpoint().getChampionInfoById(Int(bans[3].championId), championData: .Image, completion: { (champInfo) in
                         // Use the new LCU icon if exists
-                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[3].championId)) {
+                        if let champIcon = DDragon().getLcuChampionSquareArt(Int(self.bans[3].championId)) {
                             cell.champBan?.image = champIcon
                         } else {
                             DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in
@@ -575,7 +575,7 @@ class Profile_CurrentGame: MainTableViewController {
                 case 4:
                     StaticDataEndpoint().getChampionInfoById(Int(bans[5].championId), championData: .Image, completion: { (champInfo) in
                         // Use the new LCU icon if exists
-                        if let champIcon = DDragon().getLcuChampionSquareArt(champId: Int(self.bans[5].championId)) {
+                        if let champIcon = DDragon().getLcuChampionSquareArt(Int(self.bans[5].championId)) {
                             cell.champBan?.image = champIcon
                         } else {
                             DDragon().getChampionSquareArt(champInfo.image!.full, completion: { (champSquareArtUrl) in

@@ -81,7 +81,7 @@ class Profile_RecentGames: MainTableViewController, SFSafariViewControllerDelega
         // Configure the cell...
         StaticDataEndpoint().getChampionInfoById(recentGameList[indexPath.row].championId, championData: .Image, completion: { (champion) in
             // Use the new LCU icon if exists
-            if let champIcon = DDragon().getLcuChampionSquareArt(champId: self.recentGameList[indexPath.row].championId) {
+            if let champIcon = DDragon().getLcuChampionSquareArt(self.recentGameList[indexPath.row].championId) {
                 cell.champIcon?.image = champIcon
             } else {
                 DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
