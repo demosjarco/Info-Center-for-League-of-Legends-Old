@@ -67,6 +67,9 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
         switch kind {
         case UICollectionElementKindSectionHeader:
             let profileHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "champion_view_header", for: indexPath) as! ChampionDetail_Content_Header
+            // Performance
+            profileHeader.layer.rasterizationScale = UIScreen.main.scale
+            profileHeader.layer.shouldRasterize = true
             
             profileHeader.delegate = self
             profileHeader.stats = self.champion.stats!
