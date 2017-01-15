@@ -2022,14 +2022,14 @@ last -- games</string>
                                             <rect key="frame" x="2" y="116" width="112" height="34"/>
                                             <subviews>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLf-A9-A9g">
-                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="13.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="112" height="16"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ifb-nj-O9k">
-                                                    <rect key="frame" x="0.0" y="13.5" width="112" height="20.5"/>
+                                                    <rect key="frame" x="0.0" y="16" width="112" height="18"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2532,7 +2532,7 @@ last -- games</string>
                                                         <rect key="frame" x="8" y="8" width="64" height="64"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                            <rect key="frame" x="0.0" y="0.0" width="65" height="64"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zgt-kK-zjb">
@@ -2898,17 +2898,17 @@ last -- games</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TJs-23-Q9i">
-                            <size key="itemSize" width="320" height="400"/>
+                            <size key="itemSize" width="320" height="220"/>
                             <size key="headerReferenceSize" width="50" height="286"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="champion_view_spell" id="bBJ-4y-HZ7" customClass="ChampionDetail_Content_Spell_Cell" customModule="Info_Center_for_League_of_Legends" customModuleProvider="target">
-                                <rect key="frame" x="27.5" y="296" width="320" height="400"/>
+                                <rect key="frame" x="28" y="296" width="320" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nch-Ae-R6q">
@@ -2929,14 +2929,14 @@ last -- games</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fvM-jS-ax0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="226" height="70"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="226" height="0.0"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="naW-XU-Ih0">
-                                                    <rect key="frame" x="0.0" y="70" width="226" height="0.0"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="226" height="70"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -2948,15 +2948,8 @@ last -- games</string>
                                                 <constraint firstAttribute="height" constant="70" id="txM-3c-Agg"/>
                                             </constraints>
                                         </stackView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fDE-gF-O8G">
-                                            <rect key="frame" x="0.0" y="86" width="320" height="180"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" secondItem="fDE-gF-O8G" secondAttribute="height" multiplier="16:9" id="Jns-uJ-BNI"/>
-                                            </constraints>
-                                        </imageView>
                                         <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.050000000000000003" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JQf-Va-NDS">
-                                            <rect key="frame" x="8" y="274" width="304" height="0.0"/>
+                                            <rect key="frame" x="8" y="86" width="304" height="0.0"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
@@ -2967,10 +2960,7 @@ last -- games</string>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="t31-D3-KSB" firstAttribute="leading" secondItem="Nch-Ae-R6q" secondAttribute="trailing" constant="8" id="1m7-gd-fP4"/>
-                                    <constraint firstAttribute="trailing" secondItem="fDE-gF-O8G" secondAttribute="trailing" id="Dxa-ks-XNe"/>
-                                    <constraint firstItem="fDE-gF-O8G" firstAttribute="leading" secondItem="bBJ-4y-HZ7" secondAttribute="leading" id="E9d-bG-NA3"/>
-                                    <constraint firstItem="fDE-gF-O8G" firstAttribute="top" secondItem="t31-D3-KSB" secondAttribute="bottom" constant="8" id="Epn-8g-2Dc"/>
-                                    <constraint firstItem="JQf-Va-NDS" firstAttribute="top" secondItem="fDE-gF-O8G" secondAttribute="bottom" constant="8" id="Jzh-XO-hZ4"/>
+                                    <constraint firstItem="JQf-Va-NDS" firstAttribute="top" secondItem="t31-D3-KSB" secondAttribute="bottom" constant="8" id="EeP-Ch-xqN"/>
                                     <constraint firstItem="Nch-Ae-R6q" firstAttribute="leading" secondItem="bBJ-4y-HZ7" secondAttribute="leadingMargin" id="WWj-Uj-8T8"/>
                                     <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="t31-D3-KSB" secondAttribute="trailing" id="Xn8-95-fBk"/>
                                     <constraint firstItem="Nch-Ae-R6q" firstAttribute="top" secondItem="bBJ-4y-HZ7" secondAttribute="topMargin" id="YPw-Mw-yGC"/>
@@ -2986,7 +2976,6 @@ last -- games</string>
                                     <outlet property="spellName" destination="vJa-Bw-D2Z" id="fRX-28-mg0"/>
                                     <outlet property="spellRange" destination="naW-XU-Ih0" id="vcq-XJ-Bj4"/>
                                     <outlet property="spellTooltip" destination="JQf-Va-NDS" id="Nqp-Hm-yyb"/>
-                                    <outlet property="spellVideo" destination="fDE-gF-O8G" id="yC0-Kq-6nd"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

@@ -13,6 +13,5 @@ class ChampionDetail_Content_Spell_Cell: UICollectionViewCell {
     @IBOutlet weak var spellName:UILabel?
     @IBOutlet weak var spellCost:UILabel?
     @IBOutlet weak var spellRange:UILabel?
-    @IBOutlet weak var spellVideo:UIImageView?
     @IBOutlet weak var spellTooltip:UILabel?
 }
