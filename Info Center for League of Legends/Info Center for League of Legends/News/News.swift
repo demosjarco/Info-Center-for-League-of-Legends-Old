@@ -73,8 +73,10 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
                                     if json["feed"]?["title"] != nil {
                                         let feed = json["feed"] as! [String: String]
                                         let title = feed["title"]
-                                        self.title = title
-                                        self.tabBarItem.title = title
+                                        DispatchQueue.main.async { [unowned self] in
+                                            self.title = title
+                                            self.tabBarItem.title = title
+                                        }
                                     }
                                     self.entries = json["items"] as! [[String: AnyObject]]
                                 } else {
