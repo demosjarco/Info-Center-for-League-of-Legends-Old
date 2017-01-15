@@ -67,8 +67,6 @@ class PlistManager: NSObject {
     
     let profileViewTileOrderName: String = "/profileViewTileOrder.plist"
     
-    let championDetailViewTileOrderName: String = "/championDetailViewTileOrder.plist"
-    
     func getDocumentDirectory() -> String {
         // print("DATABASE DIRECTORY: " + NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!)
         return NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
@@ -96,30 +94,5 @@ class PlistManager: NSObject {
             }
         }
         tileOrder.write(toFile: getDocumentDirectory().appending(baseDatabaseDirectory).appending(profileViewTileOrderName), atomically: true)
-    }
-    
-    func loadChampionDetailViewTileOrder() -> NSArray {
-        if let tileOrder = NSArray(contentsOfFile: getDocumentDirectory().appending(baseDatabaseDirectory).appending(championDetailViewTileOrderName)) {
-            return tileOrder
-        } else {
-            let tempTileOrder = NSMutableArray()
-            tempTileOrder.insert(NSDictionary(object: "passive", forKey: "tileType" as NSCopying), at: 0)
-            tempTileOrder.insert(NSDictionary(object: "spell0", forKey: "tileType" as NSCopying), at: 1)
-            tempTileOrder.insert(NSDictionary(object: "spell1", forKey: "tileType" as NSCopying), at: 2)
-            tempTileOrder.insert(NSDictionary(object: "spell2", forKey: "tileType" as NSCopying), at: 3)
-            tempTileOrder.insert(NSDictionary(object: "spell3", forKey: "tileType" as NSCopying), at: 4)
-            
-            return NSArray(array: tempTileOrder)
-        }
-    }
-    func writeChampionDetailViewTileOrder(_ tileOrder: NSArray) {
-        if !FileManager.default.fileExists(atPath: getDocumentDirectory().appending(baseDatabaseDirectory)) {
-            do {
-                try FileManager.default.createDirectory(atPath: getDocumentDirectory().appending(baseDatabaseDirectory), withIntermediateDirectories: true, attributes: nil)
-            } catch let error as NSError {
-                print(error.localizedDescription);
-            }
-        }
-        tileOrder.write(toFile: getDocumentDirectory().appending(baseDatabaseDirectory).appending(championDetailViewTileOrderName), atomically: true)
     }
 }

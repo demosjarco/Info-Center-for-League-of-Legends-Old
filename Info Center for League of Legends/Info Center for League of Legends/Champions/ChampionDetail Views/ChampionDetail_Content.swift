@@ -15,7 +15,6 @@ protocol ChampViewDelegate {
 class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegate {
     var delegate:ChampViewDelegate?
     var champion = ChampionDto()
-    var tileOrder = NSArray()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -35,8 +34,6 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
             
             self.collectionView?.backgroundView = tableBG
         }
-        
-        tileOrder = PlistManager().loadChampionDetailViewTileOrder()
         
         loadContent()
     }
@@ -63,7 +60,7 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tileOrder.count
+        return self.champion.spells?.count + 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -102,54 +99,13 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let niceTileOrder = tileOrder as! [[String: String]]
-        switch niceTileOrder[indexPath.row]["tileType"] {
-        case "passive" as NSString:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_spell", for: indexPath)
-            
-            // Configure the cell
-            
-            return cell
-        case "spell0" as NSString:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_spell", for: indexPath)
-            
-            // Configure the cell
-            
-            return cell
-        case "spell1" as NSString:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_spell", for: indexPath)
-            
-            // Configure the cell
-            
-            return cell
-        case "spell2" as NSString:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_spell", for: indexPath)
-            
-            // Configure the cell
-            
-            return cell
-        case "spell3" as NSString:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_spell", for: indexPath)
-            
-            // Configure the cell
-            
-            return cell
-        default:
-            // ??
-            return collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "champion_view_spell", for: indexPath)
+        if indexPath.row == 0 {
+            // Passive
+        } else {
+            // Spells
         }
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let newTileOrder = NSMutableArray(array: tileOrder)
-        newTileOrder.removeObject(at: sourceIndexPath.row)
-        newTileOrder.insert(tileOrder[sourceIndexPath.row], at: destinationIndexPath.row)
-        PlistManager().writeChampionDetailViewTileOrder(NSArray(array: newTileOrder))
         
-        tileOrder = NSArray(array: newTileOrder)
+        return cell
     }
 }
