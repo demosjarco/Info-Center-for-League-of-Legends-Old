@@ -62,8 +62,7 @@ class News: MainCollectionViewController, UICollectionViewDelegateFlowLayout, SF
                     }
                     rssUrl = rssUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!.replacingOccurrences(of: ":", with: "%3A") as NSString
                     
-                    let convertUrl = languages["rssToJsonUrl"] as! NSString
-                    let url = NSString(format: convertUrl, rssUrl) as String
+                    let url = String(format: languages["rssToJsonUrl"] as! String, rssUrl)
                     
                     AFHTTPSessionManager().get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
                         DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async { [unowned self] in
