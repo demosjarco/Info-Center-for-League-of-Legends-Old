@@ -33,44 +33,63 @@ class ChampionDetail_SkinBg: UIViewController {
     
     func setContentWithTraitCollection(_ collection: UITraitCollection) {
         if collection.containsTraits(in: UITraitCollection(horizontalSizeClass: .regular)) {
-            FIRDatabase.database().reference().child("animatedSplash").observeSingleEvent(of: .value, with: { (snapshot) in
-                if snapshot.hasChild(String(self.champId) + "-" + String(self.skinNum)) {
-                    autoreleasepool(invoking: { ()
-                        // Animated Splash available
-                        let reachability = Reachability.forInternetConnection()
-                        reachability?.startNotifier()
-                        
-                        switch reachability!.currentReachabilityStatus() {
-                        case ReachableViaWWAN:
-                            // Cellular
-                            if UserDefaults.standard.value(forKey: "league_useAnimatedSplashArtOnCellular") != nil {
-                                if UserDefaults.standard.bool(forKey: "league_useAnimatedSplashArtOnCellular") {
-                                    // Animated
-                                    self.loadAnimatedPlayer(snapshot)
-                                } else {
-                                    // Static
-                                    DDragon().getChampionSplashArt(self.fullImageName, skinNumber: self.skinNum) { (champSplashArtUrl) in
-                                        self.skinImage?.setImageWith(champSplashArtUrl)
+            FIRDatabase.database().reference().child("champExtraInfo").observeSingleEvent(of: .value, with: { (snapshot) in
+                if snapshot.hasChild("\(self.champId)") {
+                    if snapshot.childSnapshot(forPath: "\(self.champId)").childSnapshot(forPath: "skins").hasChild("\(self.skinNum)") {
+                        if snapshot.childSnapshot(forPath: "\(self.champId)").childSnapshot(forPath: "skins").childSnapshot(forPath: "\(self.skinNum)").hasChild("animatedVideoIds") {
+                            autoreleasepool(invoking: { ()
+                                // Animated Splash available
+                                let reachability = Reachability.forInternetConnection()
+                                reachability?.startNotifier()
+                                
+                                switch reachability!.currentReachabilityStatus() {
+                                case ReachableViaWWAN:
+                                    // Cellular
+                                    if UserDefaults.standard.value(forKey: "league_useAnimatedSplashArtOnCellular") != nil {
+                                        // animated splash on cellular key set
+                                        if UserDefaults.standard.bool(forKey: "league_useAnimatedSplashArtOnCellular") {
+                                            // Animated
+                                            self.loadAnimatedPlayer(snapshot.childSnapshot(forPath: "\(self.champId)").childSnapshot(forPath: "skins").childSnapshot(forPath: "\(self.skinNum)").childSnapshot(forPath: "animatedVideoIds"))
+                                        } else {
+                                            // Static
+                                            DDragon().getChampionSplashArt(self.fullImageName, skinNumber: self.skinNum) { (champSplashArtUrl) in
+                                                self.skinImage?.setImageWith(champSplashArtUrl)
+                                            }
+                                        }
+                                    } else {
+                                        // animated splash on cellular key never set
+                                        UserDefaults.standard.set(false, forKey: "league_useAnimatedSplashArtOnCellular")
+                                        // Static
+                                        DDragon().getChampionSplashArt(self.fullImageName, skinNumber: self.skinNum) { (champSplashArtUrl) in
+                                            self.skinImage?.setImageWith(champSplashArtUrl)
+                                        }
                                     }
+                                    break
+                                case ReachableViaWiFi:
+                                    // WiFi
+                                    // Animated
+                                    self.loadAnimatedPlayer(snapshot.childSnapshot(forPath: "\(self.champId)").childSnapshot(forPath: "skins").childSnapshot(forPath: "\(self.skinNum)").childSnapshot(forPath: "animatedVideoIds"))
+                                    break
+                                default:
+                                    break
                                 }
-                            } else {
-                                UserDefaults.standard.set(false, forKey: "league_useAnimatedSplashArtOnCellular")
-                                // Static
-                                DDragon().getChampionSplashArt(self.fullImageName, skinNumber: self.skinNum) { (champSplashArtUrl) in
-                                    self.skinImage?.setImageWith(champSplashArtUrl)
-                                }
+                            })
+                        } else {
+                            // Animated skin video ids not in my database
+                            // Animated splash not available
+                            DDragon().getChampionSplashArt(self.fullImageName, skinNumber: self.skinNum) { (champSplashArtUrl) in
+                                self.skinImage?.setImageWith(champSplashArtUrl)
                             }
-                            break
-                        case ReachableViaWiFi:
-                            // WiFi
-                            // Animated
-                            self.loadAnimatedPlayer(snapshot)
-                            break
-                        default:
-                            break
                         }
-                    })
+                    } else {
+                        // Skin not in my database
+                        // Animated splash not available
+                        DDragon().getChampionSplashArt(self.fullImageName, skinNumber: self.skinNum) { (champSplashArtUrl) in
+                            self.skinImage?.setImageWith(champSplashArtUrl)
+                        }
+                    }
                 } else {
+                    // Champ not in my database
                     // Animated splash not available
                     DDragon().getChampionSplashArt(self.fullImageName, skinNumber: self.skinNum) { (champSplashArtUrl) in
                         self.skinImage?.setImageWith(champSplashArtUrl)
@@ -87,7 +106,7 @@ class ChampionDetail_SkinBg: UIViewController {
     
     func loadAnimatedPlayer(_ snapshot: FIRDataSnapshot) {
         autoreleasepool { ()
-            let videoIds = snapshot.childSnapshot(forPath: String(self.champId) + "-" + String(self.skinNum)).childSnapshot(forPath: "videoIds").value as! [String]
+            let videoIds = snapshot.value as! [String]
             let randomIndex = Int(arc4random_uniform(UInt32(videoIds.count)))
             let videoId = videoIds[randomIndex]
             XCDYouTubeClient.default().getVideoWithIdentifier(videoId, completionHandler: { (video, error) in
