@@ -16,6 +16,7 @@ protocol ChampViewHeaderDelegate {
 class ChampionDetail_Content_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
     var delegate:ChampViewHeaderDelegate?
     var stats = StatsDto()
+    var champWinRateValues = [CGFloat]()
     
     @IBOutlet weak var champWinRate:BEMSimpleLineGraphView?
     @IBOutlet weak var championIcon:UIImageView?
@@ -26,11 +27,11 @@ class ChampionDetail_Content_Header: UICollectionReusableView, BEMSimpleLineGrap
     }
     
     func numberOfPoints(inLineGraph graph: BEMSimpleLineGraphView) -> Int {
-        return 5
+        return champWinRateValues.count
     }
     
     func lineGraph(_ graph: BEMSimpleLineGraphView, valueForPointAt index: Int) -> CGFloat {
-        return CGFloat(arc4random_uniform(101))
+        return champWinRateValues[index]
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
