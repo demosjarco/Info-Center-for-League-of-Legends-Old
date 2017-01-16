@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import Firebase
 
 protocol ChampViewDelegate {
     func goBack()
 }
+protocol HeaderReverseDelegate {
+    func reloadWinRate()
+}
 
 class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegate {
     var delegate:ChampViewDelegate?
+    var reverseDelegate:HeaderReverseDelegate?
     var champion = ChampionDto()
+    var champWinRate = [CGFloat]()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -39,7 +45,23 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
     }
     
     func loadContent() {
-        
+        autoreleasepool { ()
+            FIRDatabase.database().reference().child("champExtraInfo").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+                if snapshot.hasChild("\(self.champion.champId)") {
+                    if snapshot.childSnapshot(forPath: "\(self.champion.champId)").hasChild("winrate") {
+                        let winrates = snapshot.childSnapshot(forPath: "\(self.champion.champId)").childSnapshot(forPath: "winrate").value as! [[String: AnyObject]]
+                        for winrate in winrates {
+                            self.champWinRate.append(winrate["winrate"] as! CGFloat)
+                        }
+                        self.reverseDelegate?.reloadWinRate()
+                    }
+                }
+            })
+        }
+    }
+    
+    internal func champWinRateValues() -> [CGFloat] {
+        return self.champWinRate
     }
 
     /*
@@ -72,9 +94,12 @@ class ChampionDetail_Content: UICollectionViewController, ChampViewHeaderDelegat
             profileHeader.layer.shouldRasterize = true
             
             profileHeader.delegate = self
+            self.reverseDelegate = profileHeader
             profileHeader.stats = self.champion.stats!
             
             profileHeader.champWinRate?.averageLine.enableAverageLine = true
+            profileHeader.champWinRate?.alwaysDisplayPopUpLabels = true
+            profileHeader.champWinRate?.alwaysDisplayDots = true
             
             profileHeader.championIcon?.layer.borderColor = UIColor(red: 207/255.0, green: 186/255.0, blue: 107/255.0, alpha: 1.0).cgColor
             // Use the new LCU icon if exists

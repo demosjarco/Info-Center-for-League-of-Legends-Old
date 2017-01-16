@@ -11,27 +11,47 @@ import BEMSimpleLineGraph
 
 protocol ChampViewHeaderDelegate {
     func goBack()
+    func champWinRateValues() -> [CGFloat]
 }
 
-class ChampionDetail_Content_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
-    var delegate:ChampViewHeaderDelegate?
+class ChampionDetail_Content_Header: UICollectionReusableView, HeaderReverseDelegate, BEMSimpleLineGraphDelegate, BEMSimpleLineGraphDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+    var delegate:ChampViewHeaderDelegate!
     var stats = StatsDto()
-    var champWinRateValues = [CGFloat]()
     
     @IBOutlet weak var champWinRate:BEMSimpleLineGraphView?
     @IBOutlet weak var championIcon:UIImageView?
     @IBOutlet weak var championName:UILabel?
     
     @IBAction func backButtonpressed() {
-        self.delegate?.goBack()
+        self.delegate.goBack()
+    }
+    
+    internal func reloadWinRate() {
+        self.champWinRate?.reloadGraph()
     }
     
     func numberOfPoints(inLineGraph graph: BEMSimpleLineGraphView) -> Int {
-        return champWinRateValues.count
+        return self.delegate.champWinRateValues().count
     }
     
     func lineGraph(_ graph: BEMSimpleLineGraphView, valueForPointAt index: Int) -> CGFloat {
-        return champWinRateValues[index]
+        return self.delegate.champWinRateValues()[index]
+    }
+    
+    func maxValue(forLineGraph graph: BEMSimpleLineGraphView) -> CGFloat {
+        return CGFloat(100)
+    }
+    
+    func minValue(forLineGraph graph: BEMSimpleLineGraphView) -> CGFloat {
+        return CGFloat(0)
+    }
+    
+    func popUpSuffixForlineGraph(_ graph: BEMSimpleLineGraphView) -> String {
+        return "%"
+    }
+    
+    func lineGraph(_ graph: BEMSimpleLineGraphView, alwaysDisplayPopUpAtIndex index: CGFloat) -> Bool {
+        return true
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
