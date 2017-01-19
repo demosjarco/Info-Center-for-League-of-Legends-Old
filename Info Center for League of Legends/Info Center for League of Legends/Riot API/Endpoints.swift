@@ -55,6 +55,7 @@ class Endpoints: NSObject {
     
     func getApiKey(_ completion: @escaping (_ apiKey:String) -> Void) {
         let remoteConfig = FIRRemoteConfig.remoteConfig()
+//        remoteConfig.configSettings = FIRRemoteConfigSettings(developerModeEnabled: true)!
         remoteConfig.fetch(completionHandler: { (status, error) in
             if status == .success {
                 remoteConfig.activateFetched()
