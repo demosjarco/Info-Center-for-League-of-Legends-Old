@@ -36,6 +36,21 @@ class ChampionList: MainCollectionViewController {
                 for champion in championList.champions {
                     autoreleasepool(invoking: { ()
                         StaticDataEndpoint().getChampionInfoById(Int(champion.champId), championData: StaticDataEndpoint.champData.All, completion: { (champInfo) in
+                            // Update winrate from champion.gg
+                            /*AFHTTPSessionManager().get("http://api.champion.gg/stats/champs/\(champInfo.key)?api_key=", parameters: nil, progress: nil, success: { (task, responseObject) in
+                                let json = responseObject as! [[String: AnyObject]]
+                                var averageWinRate = Double(0)
+                                
+                                for role in json {
+                                    let general = role["general"] as! [String: NSNumber]
+                                    
+                                    averageWinRate += general["winPercent"]!.doubleValue
+                                }
+                                averageWinRate = averageWinRate / Double(json.count)
+                                
+                                FIRDatabase.database().reference().child("champExtraInfo").child("\(champInfo.champId)").child("winrate").child("1").updateChildValues(["patchVersion": "7.1", "winrate": averageWinRate])
+                            }, failure: nil)*/
+                            
                             if champion.freeToPlay {
                                 self.champions[0].append(champInfo)
                                 self.collectionView?.insertItems(at: [IndexPath(item: self.champions[0].index(of: champInfo)!, section: 0)])
