@@ -29,6 +29,7 @@ class Profile_CurrentGame: MainTableViewController {
     }
     
     @IBAction func closeView() {
+        self.startDate = nil
         self.dismiss(animated: true, completion: nil)
     }
     
