@@ -60,7 +60,8 @@ class Profile_Runes: MainTableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "showRunesPageDetail" {
-            
+            let destination = segue.destination as! Profile_Runes_RunesView
+            destination.pageSelected = runeList[tableView.indexPathForSelectedRow!.row]
         }
     }
 }
