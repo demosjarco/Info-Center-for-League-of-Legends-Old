@@ -3918,8 +3918,6 @@ last -- games</string>
                     <connections>
                         <segue destination="013-cF-u1L" kind="relationship" relationship="viewControllers" id="VzQ-4C-BeH"/>
                         <segue destination="nFV-lR-pdd" kind="relationship" relationship="viewControllers" id="F4m-l5-PIa"/>
-                        <segue destination="zIO-hf-8bB" kind="relationship" relationship="viewControllers" id="aSJ-kN-XlD"/>
-                        <segue destination="V24-eM-rmt" kind="relationship" relationship="viewControllers" id="9I7-tj-WOs"/>
                         <segue destination="8at-SS-n2z" kind="relationship" relationship="viewControllers" id="fNz-Mt-59a"/>
                     </connections>
                 </tabBarController>
