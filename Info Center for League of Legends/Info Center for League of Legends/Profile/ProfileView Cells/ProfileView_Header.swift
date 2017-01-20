@@ -22,7 +22,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
     var summoner = SummonerDto()
     var summonerStats = NSMutableArray()
     
-    var currentGameRefreshCount = 0
+    var currentGameLastRefresh = Date()
     var champName: String?
     var startDate: Date?
     
@@ -167,6 +167,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
                         }
                         
                         self.champName = champInfo.name
+                        self.currentGameLastRefresh = Date()
                         self.updateCurrentGameTime(nil)
                     }, notFound: {
                         // ???
@@ -195,6 +196,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
                 self.inGameBannerButton?.isHidden = true
                 self.inGameBannerButton?.isEnabled = false
                 self.inGameBanner?.isHidden = true
+                self.currentGameLastRefresh = Date()
                 self.updateCurrentGameTime(nil)
             }
         }, errorBlock: {
@@ -203,6 +205,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
                 self.inGameBannerButton?.isHidden = true
                 self.inGameBannerButton?.isEnabled = false
                 self.inGameBanner?.isHidden = true
+                self.currentGameLastRefresh = Date()
                 self.updateCurrentGameTime(nil)
             }
         })
@@ -211,13 +214,11 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
     func updateCurrentGameTime(_ timer: Timer?) {
         DispatchQueue.main.async { [unowned self] in
             timer?.invalidate()
-            self.currentGameRefreshCount += 1
             if (self.startDate != nil) {
                 if self.startDate!.timeIntervalSinceNow > TimeInterval(-1800) {
                     // Less than 30 min
                     // Refresh every 60 sec
-                    if self.currentGameRefreshCount >= 60 {
-                        self.currentGameRefreshCount = 0
+                    if self.currentGameLastRefresh.timeIntervalSinceNow <= Double(-60) {
                         self.champName = nil
                         self.startDate = nil
                         self.getCurrentGame()
@@ -225,8 +226,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
                 } else if self.startDate!.timeIntervalSinceNow <= TimeInterval(-1800) || self.startDate!.timeIntervalSinceNow >= TimeInterval(-2100) {
                     // Between 30 and 35 min
                     // Refresh every 30 sec
-                    if self.currentGameRefreshCount >= 30 {
-                        self.currentGameRefreshCount = 0
+                    if self.currentGameLastRefresh.timeIntervalSinceNow <= Double(-30) {
                         self.champName = nil
                         self.startDate = nil
                         self.getCurrentGame()
@@ -234,8 +234,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
                 } else if self.startDate!.timeIntervalSinceNow < TimeInterval(-2100) {
                     // Greater than 35 min
                     // Refresh every 15 sec
-                    if self.currentGameRefreshCount >= 15 {
-                        self.currentGameRefreshCount = 0
+                    if self.currentGameLastRefresh.timeIntervalSinceNow <= Double(-15) {
                         self.champName = nil
                         self.startDate = nil
                         self.getCurrentGame()
@@ -244,8 +243,7 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
             } else {
                 // Not in game
                 // Refresh every 60 sec
-                if self.currentGameRefreshCount >= 60 {
-                    self.currentGameRefreshCount = 0
+                if self.currentGameLastRefresh.timeIntervalSinceNow <= Double(-60) {
                     self.champName = nil
                     self.startDate = nil
                     self.getCurrentGame()

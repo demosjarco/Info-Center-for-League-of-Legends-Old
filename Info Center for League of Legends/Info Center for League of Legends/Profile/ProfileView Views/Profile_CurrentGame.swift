@@ -19,7 +19,7 @@ class Profile_CurrentGame: MainTableViewController {
     var bans = [BannedChampion]()
     var participantsBlue = [CurrentGameParticipant]()
     var participantsRed = [CurrentGameParticipant]()
-    var currentGameRefreshCount = 0
+    var currentGameLastRefresh = Date()
     var startDate: Date?
 
     override func viewDidLoad() {
@@ -123,6 +123,7 @@ class Profile_CurrentGame: MainTableViewController {
                 }
                 self.refreshControl?.endRefreshing()
                 self.tableView.reloadData()
+                self.currentGameLastRefresh = Date()
                 self.updateCurrentGameTime(nil)
             }
         }, notFound: {
@@ -135,27 +136,23 @@ class Profile_CurrentGame: MainTableViewController {
     func updateCurrentGameTime(_ timer: Timer?) {
         DispatchQueue.main.async { [unowned self] in
             timer?.invalidate()
-            self.currentGameRefreshCount += 1
             if (self.startDate != nil) {
                 if self.startDate!.timeIntervalSinceNow > TimeInterval(-1800) {
                     // Less than 30 min
                     // Refresh every 60 sec
-                    if self.currentGameRefreshCount >= 60 {
-                        self.currentGameRefreshCount = 0
+                    if self.currentGameLastRefresh.timeIntervalSinceNow <= Double(-60) {
                         self.checkIfGameStillOn()
                     }
                 } else if self.startDate!.timeIntervalSinceNow <= TimeInterval(-1800) || self.startDate!.timeIntervalSinceNow >= TimeInterval(-2100) {
                     // Between 30 and 35 min
                     // Refresh every 30 sec
-                    if self.currentGameRefreshCount >= 30 {
-                        self.currentGameRefreshCount = 0
+                    if self.currentGameLastRefresh.timeIntervalSinceNow <= Double(-30) {
                         self.checkIfGameStillOn()
                     }
                 } else if self.startDate!.timeIntervalSinceNow < TimeInterval(-2100) {
                     // Greater than 35 min
                     // Refresh every 15 sec
-                    if self.currentGameRefreshCount >= 15 {
-                        self.currentGameRefreshCount = 0
+                    if self.currentGameLastRefresh.timeIntervalSinceNow <= Double(-15) {
                         self.checkIfGameStillOn()
                     }
                 }
@@ -165,8 +162,7 @@ class Profile_CurrentGame: MainTableViewController {
             } else {
                 // Not in game
                 // Refresh every 60 sec
-                if self.currentGameRefreshCount >= 60 {
-                    self.currentGameRefreshCount = 0
+                if self.currentGameLastRefresh.timeIntervalSinceNow <= Double(-60) {
                     self.checkIfGameStillOn()
                 }
             }
@@ -176,6 +172,7 @@ class Profile_CurrentGame: MainTableViewController {
     func checkIfGameStillOn() {
         CurrentGameEndpoint().getSpectatorGameInfo(self.summoner.summonerId, completion: { (game) in
             // In game
+            self.currentGameLastRefresh = Date()
             self.updateCurrentGameTime(nil)
         }, notFound: { 
             // No longer in game
