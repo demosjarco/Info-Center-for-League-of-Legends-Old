@@ -85,13 +85,19 @@ class Profile_ChampionMastery: MainCollectionViewController {
                             cell.championIcon?.image = image
                         }, failure: nil)
                     })
-                    cell.championName?.text = champion.name
                 }, notFound: {
                     // 404
                 }, errorBlock: {
                     // Error
                 })
             }
+        })
+        StaticDataEndpoint().getChampionInfoById(championMasteries[indexPath.item].championId, championData: StaticDataEndpoint.champData.Info, completion: { (champion) in
+            cell.championName?.text = champion.name
+        }, notFound: {
+            // 404
+        }, errorBlock: { 
+            // Error
         })
         
         cell.progressBar?.value = CGFloat(championMasteries[indexPath.item].championPointsSinceLastLevel)
