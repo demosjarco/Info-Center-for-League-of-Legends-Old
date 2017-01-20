@@ -1496,7 +1496,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EABF361D88F86AB1565D7B3D /* Pods-Info Center for League of Legends.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = WinterAppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_ENTITLEMENTS = "Info Center for League of Legends/Info Center for League of Legends.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1526,7 +1526,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 920A493D3B84AECB3D66BDD5 /* Pods-Info Center for League of Legends.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = WinterAppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_ENTITLEMENTS = "Info Center for League of Legends/Info Center for League of Legends.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
