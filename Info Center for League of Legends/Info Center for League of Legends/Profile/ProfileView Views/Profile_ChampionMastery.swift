@@ -74,17 +74,24 @@ class Profile_ChampionMastery: MainCollectionViewController {
         cell.championIcon?.image = nil
         cell.championName?.text = "--"
         // Configure the cell
-        StaticDataEndpoint().getChampionInfoById(championMasteries[indexPath.item].championId, championData: .Image, completion: { (champion) in
-            DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
-                cell.championIcon?.setImageWith(URLRequest(url: champSquareArtUrl), placeholderImage: nil, success: { (request, response, image) in
-                    cell.championIcon?.image = image
-                }, failure: nil)
-            })
-            cell.championName?.text = champion.name
-            }, notFound: {
-                // 404
-            }, errorBlock: {
-                // Error
+        autoreleasepool(invoking: { ()
+            if let champIcon = DDragon().getLcuChampionSquareArt(championMasteries[indexPath.item].championId) {
+                cell.championIcon?.image = champIcon
+            } else {
+                StaticDataEndpoint().getChampionInfoById(championMasteries[indexPath.item].championId, championData: .Image, completion: { (champion) in
+                    // Use the new LCU icon if exists
+                    DDragon().getChampionSquareArt(champion.image!.full, completion: { (champSquareArtUrl) in
+                        cell.championIcon?.setImageWith(URLRequest(url: champSquareArtUrl), placeholderImage: nil, success: { (request, response, image) in
+                            cell.championIcon?.image = image
+                        }, failure: nil)
+                    })
+                    cell.championName?.text = champion.name
+                }, notFound: {
+                    // 404
+                }, errorBlock: {
+                    // Error
+                })
+            }
         })
         
         cell.progressBar?.value = CGFloat(championMasteries[indexPath.item].championPointsSinceLastLevel)
