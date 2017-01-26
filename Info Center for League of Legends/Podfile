@@ -21,9 +21,9 @@ platform :ios, '10.0'
     pod 'XCDYouTubeKit'
     pod 'AMPopTip'
     pod 'JSBadgeView'
+    pod 'FMDB'
     
     # pod 'FLAnimatedImage'
-    # pod 'M13ProgressSuite'
 
   target 'Info Center for League of LegendsTests' do
     inherit! :search_paths
