@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.tintColor = UIColor(red: 207/255.0, green: 186/255.0, blue: 107/255.0, alpha: 1.0)
         UITextField().keyboardAppearance = UIKeyboardAppearance.dark
         FIRApp.configure()
+        // Git Test
         
         // Check if user is signed in
         if let user = FIRAuth.auth()?.currentUser {
