@@ -32,9 +32,9 @@
 		<dict>
 			<key>googlevideo.com</key>
 			<dict>
-				<key>NSIncludesSubdomains</key>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
-				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
+				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
 			<key>leagueoflegends.com</key>
@@ -43,8 +43,6 @@
 				<true/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
-				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
 			</dict>
 			<key>lolesports.com</key>
 			<dict>
@@ -52,16 +50,12 @@
 				<true/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
-				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
 			</dict>
 			<key>pvp.net</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 				<key>NSIncludesSubdomains</key>
-				<true/>
-				<key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 			</dict>
 		</dict>
