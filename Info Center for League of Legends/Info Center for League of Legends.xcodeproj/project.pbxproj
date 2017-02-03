@@ -110,7 +110,6 @@
 		177573111E1AF9FE00D92C3A /* ChampionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177573101E1AF9FE00D92C3A /* ChampionListCell.swift */; };
 		1775F64F1D41C95800E58003 /* GameEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775F64E1D41C95800E58003 /* GameEndpoint.swift */; };
 		177EEA1F1E2BEE6400459805 /* Riot API.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177EEA1D1E2BEE6400459805 /* Riot API.xcdatamodeld */; };
-		177EEA211E2BEE8900459805 /* Riot API.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 177EEA201E2BEE8900459805 /* Riot API.xcmappingmodel */; };
 		178B95791D428A1C00CAD47A /* GameDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178B95771D428A1C00CAD47A /* GameDto.swift */; };
 		178B957A1D428A1C00CAD47A /* RecentGamesDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178B95781D428A1C00CAD47A /* RecentGamesDto.swift */; };
 		178B957C1D428A4D00CAD47A /* PlayerDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178B957B1D428A4D00CAD47A /* PlayerDto.swift */; };
@@ -284,7 +283,6 @@
 		177573101E1AF9FE00D92C3A /* ChampionListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionListCell.swift; sourceTree = "<group>"; };
 		1775F64E1D41C95800E58003 /* GameEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameEndpoint.swift; path = "Riot API/GameEndpoint.swift"; sourceTree = "<group>"; };
 		177EEA1E1E2BEE6400459805 /* Riot API.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Riot API.xcdatamodel"; sourceTree = "<group>"; };
-		177EEA201E2BEE8900459805 /* Riot API.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; name = "Riot API.xcmappingmodel"; path = "Riot API/Riot API.xcmappingmodel"; sourceTree = "<group>"; };
 		178B95771D428A1C00CAD47A /* GameDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDto.swift; sourceTree = "<group>"; };
 		178B95781D428A1C00CAD47A /* RecentGamesDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentGamesDto.swift; sourceTree = "<group>"; };
 		178B957B1D428A4D00CAD47A /* PlayerDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDto.swift; sourceTree = "<group>"; };
@@ -512,7 +510,6 @@
 				1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */,
 				176D5B941D1C3D98000D9D85 /* SummonerEntities */,
 				177EEA1D1E2BEE6400459805 /* Riot API.xcdatamodeld */,
-				177EEA201E2BEE8900459805 /* Riot API.xcmappingmodel */,
 			);
 			name = "Riot API";
 			sourceTree = "<group>";
@@ -1251,7 +1248,6 @@
 				17FDDF651D4D494600CC7277 /* StaticDataEndpoint.swift in Sources */,
 				177EEA1F1E2BEE6400459805 /* Riot API.xcdatamodeld in Sources */,
 				1732F6091D55019F009DA53B /* Translation.swift in Sources */,
-				177EEA211E2BEE8900459805 /* Riot API.xcmappingmodel in Sources */,
 				17A098801DA83517004C79F4 /* TournamentListCell.swift in Sources */,
 				1732F5F71D54FA9A009DA53B /* ServerStatus.swift in Sources */,
 				178B957E1D428A5A00CAD47A /* RawStatsDto.swift in Sources */,
