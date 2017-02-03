@@ -48,7 +48,7 @@ class ChampionList: MainCollectionViewController {
                                 }
                                 averageWinRate = averageWinRate / Double(json.count)
                                 
-                                FIRDatabase.database().reference().child("champExtraInfo").child("\(champInfo.champId)").child("winrate").child("1").updateChildValues(["patchVersion": "7.1", "winrate": averageWinRate])
+                                FIRDatabase.database().reference().child("champExtraInfo").child("\(champInfo.champId)").child("winrate").child("2").updateChildValues(["patchVersion": "7.2", "winrate": averageWinRate])
                             }, failure: nil)*/
                             
                             if champion.freeToPlay {
