@@ -30,6 +30,13 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>champion.gg</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
 			<key>googlevideo.com</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
