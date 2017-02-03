@@ -12,8 +12,8 @@
 
 #import "BEMAverageLine.h"
 #import "BEMCircle.h"
+#import "BEMGraphCalculator.h"
 #import "BEMLine.h"
-#import "BEMPermanentPopupView.h"
 #import "BEMSimpleLineGraphView.h"
 
 FOUNDATION_EXPORT double BEMSimpleLineGraphVersionNumber;

@@ -76,7 +76,7 @@ THE SOFTWARE.
 
 ## Firebase
 
-Copyright 2016 Google
+Copyright 2017 Google
 
 ## FirebaseAnalytics
 
@@ -524,7 +524,7 @@ Copyright 2016 Google
 
 ## Google-Mobile-Ads-SDK
 
-Copyright 2016 Google
+Copyright 2017 Google
 
 ## GoogleInterchangeUtilities
 
