@@ -109,7 +109,7 @@
 		1775730F1E1AF50F00D92C3A /* ChampionInfoDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775730E1E1AF50F00D92C3A /* ChampionInfoDto.swift */; };
 		177573111E1AF9FE00D92C3A /* ChampionListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177573101E1AF9FE00D92C3A /* ChampionListCell.swift */; };
 		1775F64F1D41C95800E58003 /* GameEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1775F64E1D41C95800E58003 /* GameEndpoint.swift */; };
-		177EEA1F1E2BEE6400459805 /* Riot API.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177EEA1D1E2BEE6400459805 /* Riot API.xcdatamodeld */; };
+		177EEA1F1E2BEE6400459805 /* Riot_API.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177EEA1D1E2BEE6400459805 /* Riot_API.xcdatamodeld */; };
 		178B95791D428A1C00CAD47A /* GameDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178B95771D428A1C00CAD47A /* GameDto.swift */; };
 		178B957A1D428A1C00CAD47A /* RecentGamesDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178B95781D428A1C00CAD47A /* RecentGamesDto.swift */; };
 		178B957C1D428A4D00CAD47A /* PlayerDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178B957B1D428A4D00CAD47A /* PlayerDto.swift */; };
@@ -282,7 +282,7 @@
 		1775730E1E1AF50F00D92C3A /* ChampionInfoDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionInfoDto.swift; sourceTree = "<group>"; };
 		177573101E1AF9FE00D92C3A /* ChampionListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChampionListCell.swift; sourceTree = "<group>"; };
 		1775F64E1D41C95800E58003 /* GameEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameEndpoint.swift; path = "Riot API/GameEndpoint.swift"; sourceTree = "<group>"; };
-		177EEA1E1E2BEE6400459805 /* Riot API.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Riot API.xcdatamodel"; sourceTree = "<group>"; };
+		177EEA1E1E2BEE6400459805 /* Riot_API.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Riot_API.xcdatamodel; sourceTree = "<group>"; };
 		178B95771D428A1C00CAD47A /* GameDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDto.swift; sourceTree = "<group>"; };
 		178B95781D428A1C00CAD47A /* RecentGamesDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentGamesDto.swift; sourceTree = "<group>"; };
 		178B957B1D428A4D00CAD47A /* PlayerDto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDto.swift; sourceTree = "<group>"; };
@@ -509,7 +509,7 @@
 				171A1C0D1D38970500BAB5B4 /* Stats Entities */,
 				1739C4911D1C3A3800B50BDC /* SummonerEndpoint.swift */,
 				176D5B941D1C3D98000D9D85 /* SummonerEntities */,
-				177EEA1D1E2BEE6400459805 /* Riot API.xcdatamodeld */,
+				177EEA1D1E2BEE6400459805 /* Riot_API.xcdatamodeld */,
 			);
 			name = "Riot API";
 			sourceTree = "<group>";
@@ -1246,7 +1246,7 @@
 				1775730D1E1AF4E500D92C3A /* ChampionListDto.swift in Sources */,
 				17A098871DA84F65004C79F4 /* AccountNameCell.swift in Sources */,
 				17FDDF651D4D494600CC7277 /* StaticDataEndpoint.swift in Sources */,
-				177EEA1F1E2BEE6400459805 /* Riot API.xcdatamodeld in Sources */,
+				177EEA1F1E2BEE6400459805 /* Riot_API.xcdatamodeld in Sources */,
 				1732F6091D55019F009DA53B /* Translation.swift in Sources */,
 				17A098801DA83517004C79F4 /* TournamentListCell.swift in Sources */,
 				1732F5F71D54FA9A009DA53B /* ServerStatus.swift in Sources */,
@@ -1659,14 +1659,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		177EEA1D1E2BEE6400459805 /* Riot API.xcdatamodeld */ = {
+		177EEA1D1E2BEE6400459805 /* Riot_API.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				177EEA1E1E2BEE6400459805 /* Riot API.xcdatamodel */,
+				177EEA1E1E2BEE6400459805 /* Riot_API.xcdatamodel */,
 			);
-			currentVersion = 177EEA1E1E2BEE6400459805 /* Riot API.xcdatamodel */;
-			name = "Riot API.xcdatamodeld";
-			path = "Riot API/Riot API.xcdatamodeld";
+			currentVersion = 177EEA1E1E2BEE6400459805 /* Riot_API.xcdatamodel */;
+			name = Riot_API.xcdatamodeld;
+			path = "Riot API/Riot_API.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
