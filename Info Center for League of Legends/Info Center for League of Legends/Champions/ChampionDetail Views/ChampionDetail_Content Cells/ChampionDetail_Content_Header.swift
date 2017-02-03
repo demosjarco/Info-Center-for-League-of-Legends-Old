@@ -30,12 +30,14 @@ class ChampionDetail_Content_Header: UICollectionReusableView, HeaderReverseDele
         self.champWinRate?.reloadGraph()
     }
     
-    func numberOfPoints(inLineGraph graph: BEMSimpleLineGraphView) -> Int {
-        return self.delegate.champWinRateValues().count
+    func numberOfPoints(inLineGraph graph: BEMSimpleLineGraphView) -> UInt {
+        let newCount = NSNumber(value: self.delegate.champWinRateValues().count)
+        return newCount.uintValue
     }
     
-    func lineGraph(_ graph: BEMSimpleLineGraphView, valueForPointAt index: Int) -> CGFloat {
-        return self.delegate.champWinRateValues()[index]
+    func lineGraph(_ graph: BEMSimpleLineGraphView, valueForPointAt index: UInt) -> CGFloat {
+        let newIndex = NSNumber(value: index)
+        return self.delegate.champWinRateValues()[newIndex.intValue]
     }
     
     func maxValue(forLineGraph graph: BEMSimpleLineGraphView) -> CGFloat {

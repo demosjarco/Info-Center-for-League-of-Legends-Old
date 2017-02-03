@@ -313,14 +313,16 @@ class ProfileView_Header: UICollectionReusableView, BEMSimpleLineGraphDataSource
     // MARK: - Graph Delegate
     
     // MARK: - Graph Data Source
-    func numberOfPoints(inLineGraph graph: BEMSimpleLineGraphView) -> Int {
+    func numberOfPoints(inLineGraph graph: BEMSimpleLineGraphView) -> UInt {
         // Anywhere between 250 - 500 points
-        return Int(arc4random_uniform(250) + 250)
+        let newNumber = NSNumber(value: arc4random_uniform(250) + 250)
+        return newNumber.uintValue
     }
     
-    func lineGraph(_ graph: BEMSimpleLineGraphView, valueForPointAt index: Int) -> CGFloat {
+    func lineGraph(_ graph: BEMSimpleLineGraphView, valueForPointAt index: UInt) -> CGFloat {
         // Anywhere between 50 - 100
-        return CGFloat(arc4random_uniform(50) + 50)
+        let newNumber = NSNumber(value: arc4random_uniform(50) + 50)
+        return CGFloat(newNumber.floatValue)
     }
     
     // MARK: - Collection view data source
