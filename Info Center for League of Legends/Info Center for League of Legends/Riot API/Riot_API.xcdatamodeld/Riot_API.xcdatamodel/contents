@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="1.0">
+    <entity name="C_1_2_Info" representedClassName="C_1_2_Info" syncable="YES" codeGenerationType="class">
+        <attribute name="active" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="botEnabled" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="botMmEnabled" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="champId" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="freeToPlay" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="rankedPlayEnabled" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="C_1_2_List" representedClassName="C_1_2_List" syncable="YES" codeGenerationType="class">
+        <relationship name="champInfo" maxCount="1" deletionRule="Nullify" destinationEntity="C_1_2_Info" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="C_1_2_List" positionX="-756" positionY="-315" width="128" height="58"/>
+        <element name="C_1_2_Info" positionX="-612" positionY="-315" width="128" height="133"/>
+    </elements>
+</model>
